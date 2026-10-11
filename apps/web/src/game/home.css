@@ -1,0 +1,337 @@
+/* ==========================================================================
+   Setup wizard and join form — one solid panel on the left; the configured
+   figurines stand in the 3D scene on the right (MenuHero, variant "setup").
+   ========================================================================== */
+
+.home-scene {
+  display: flex;
+  align-items: safe center;
+  min-height: 100dvh;
+  padding: 80px clamp(16px, 2.6vw, 44px) 24px;
+}
+/* Legibility scrim between the 3D scene and the panel (neutral black). */
+.home-scene::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(9, 9, 10, 0.72) 0%, rgba(9, 9, 10, 0.4) 36%, rgba(9, 9, 10, 0) 62%);
+}
+
+/* ---------------------------------------------------------------- panel -- */
+.home-scene .gf-setup {
+  display: flex;
+  flex-direction: column;
+  width: clamp(620px, 57vw, 880px);
+  max-width: 100%;
+  max-height: calc(100dvh - 104px);
+  padding: 22px 32px 28px;
+  border-radius: 24px;
+  box-shadow: var(--shadow-3);
+  animation: home-in var(--dur-3) var(--ease-out) backwards;
+}
+.home-scene .gf-setup > form { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+
+.home-scene .gf-setup__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 -14px 18px;
+}
+.home-scene .gf-setup__nav .gf-btn { font-weight: 500; }
+.home-scene .gf-setup__switch { color: var(--text-2); }
+
+.home-scene .gf-setup__head { margin-bottom: 22px; }
+.home-scene .gf-steps {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+.home-scene .gf-steps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 500 13px/1 var(--font-ui);
+  color: var(--text-3);
+  white-space: nowrap;
+}
+.home-scene .gf-steps li + li::before { content: ""; width: 28px; height: 1px; margin-right: 2px; background: var(--line-2); }
+.home-scene .gf-steps i {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  font: 600 11.5px/1 var(--font-ui);
+  font-style: normal;
+  color: var(--text-3);
+  background: var(--surface-2);
+  border-radius: 50%;
+  transition: background var(--dur-2), color var(--dur-2);
+}
+.home-scene .gf-steps li.is-current { color: var(--text); }
+.home-scene .gf-steps li.is-current i { color: var(--accent-ink); background: var(--accent); }
+.home-scene .gf-steps li.is-done { color: var(--text-2); }
+.home-scene .gf-steps li.is-done i { color: var(--text); background: var(--surface-3); }
+
+.home-scene .gf-setup__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.home-scene .gf-setup__title h1 { font-size: clamp(30px, 2.4vw, 38px); line-height: 1.05; color: var(--text); }
+.home-scene .gf-setup__count {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font: 500 13px/1 var(--font-ui);
+  color: var(--text-2);
+  white-space: nowrap;
+}
+.home-scene .gf-setup__count select {
+  height: 40px;
+  min-width: 76px;
+  padding-block: 0;
+  padding-left: 18px;
+  font: 600 15px/1 var(--font-ui);
+  font-variant-numeric: tabular-nums;
+  border-radius: var(--radius-pill);
+}
+
+.home-scene .gf-setup__body {
+  flex: 1;
+  min-height: 0;
+  margin: 0 -8px;
+  padding: 2px 8px 4px;
+  overflow-y: auto;
+  animation: home-step var(--dur-3) var(--ease-out) backwards;
+}
+
+.home-scene .gf-setup__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 26px;
+}
+.home-scene .gf-setup__reason { font-size: 13px; color: var(--text-3); }
+.home-scene .gf-setup__foot .start-button { margin-left: auto; min-width: 280px; }
+.home-scene .gf-setup__foot .start-button:disabled { opacity: 1; color: var(--text-3); background: var(--surface-2); box-shadow: none; }
+.home-scene .gf-setup__prev { margin-left: -14px; font-weight: 500; }
+
+/* ------------------------------------------------------------ seat rows -- */
+.home-scene .seat-list {
+  container: seats / inline-size;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.home-scene .seat-row {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) 132px 112px auto;
+  grid-template-areas: "num name kind level pawns";
+  align-items: center;
+  gap: 10px;
+  animation: home-row var(--dur-3) var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 40ms);
+}
+.home-scene .seat-row__num {
+  grid-area: num;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 600 13px/1 var(--font-ui);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-3);
+}
+.home-scene .seat-row__num i { width: 8px; height: 8px; flex: none; border-radius: 50%; background: var(--seat-color); }
+.home-scene .seat-row input,
+.home-scene .seat-row select { height: 44px; padding-block: 0; font-size: 14px; border-radius: 12px; }
+.home-scene .seat-row input { padding-inline: 14px; }
+.home-scene .seat-row select { padding-left: 14px; padding-right: 30px; background-position: right 12px center; }
+.home-scene .seat-row__name { grid-area: name; font-weight: 500; color: var(--text); }
+.home-scene .seat-row__kind { grid-area: kind; }
+.home-scene .seat-row__kind:disabled {
+  opacity: 1;
+  color: var(--text-2);
+  cursor: default;
+  background: transparent;
+  border-color: transparent;
+  padding-right: 14px;
+}
+.home-scene .seat-row__level { grid-area: level; }
+
+.home-scene .pawn-picker { grid-area: pawns; display: flex; gap: 2px; justify-self: end; }
+.home-scene .pawn-picker button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  opacity: 0.62;
+  transition: opacity var(--dur-2), background var(--dur-2), transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2);
+}
+.home-scene .pawn-picker button .pawn-object { width: 32px; height: 32px; }
+.home-scene .pawn-picker button:hover { opacity: 1; background: var(--surface-2); transform: translateY(-2px); }
+.home-scene .pawn-picker button.selected {
+  opacity: 1;
+  background: var(--surface-3);
+  box-shadow: 0 0 0 2px var(--seat-color, var(--accent));
+}
+.home-scene .pawn-picker button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+@container seats (max-width: 620px) {
+  .home-scene .seat-row {
+    grid-template-columns: 38px minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "num name name" ". kind level" ". pawns pawns";
+    row-gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .home-scene .seat-row:last-child { padding-bottom: 0; border-bottom: 0; }
+  .home-scene .seat-row__level.is-empty { display: none; }
+  .home-scene .pawn-picker { justify-self: start; }
+}
+
+/* --------------------------------------------------------- markets step -- */
+.home-scene .market-setup-step { display: grid; align-content: start; gap: 18px; }
+.home-scene .market-player-tabs {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+  min-height: 56px; /* a scroll container would otherwise collapse inside the grid */
+  margin: -4px -4px 0;
+  padding: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.home-scene .market-player-tabs::-webkit-scrollbar { display: none; }
+.home-scene .market-player-tabs button {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 1 auto;
+  gap: 10px;
+  min-width: 140px;
+  max-width: 280px;
+  height: 48px;
+  padding: 0 18px 0 8px;
+  text-align: left;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border-radius: var(--radius-pill);
+  transition: background var(--dur-2), color var(--dur-2), box-shadow var(--dur-2);
+}
+.home-scene .market-player-tabs button:hover { color: var(--text); background: var(--surface-3); }
+.home-scene .market-player-tabs button.is-active {
+  color: var(--text);
+  background: var(--surface-3);
+  box-shadow: inset 0 0 0 1.5px var(--seat-color, var(--line-2));
+}
+.home-scene .market-player-tabs .pawn-object { width: 34px; height: 34px; background: var(--surface); border-radius: 50%; }
+.home-scene .market-player-tabs button > .pawn-object { flex: none; }
+.home-scene .market-tab__text { display: grid; gap: 3px; min-width: 0; }
+.home-scene .market-tab__text span,
+.home-scene .market-tab__text em { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.home-scene .market-tab__text span { font: 600 13.5px/1.15 var(--font-ui); }
+.home-scene .market-tab__text em { font: 500 12px/1.1 var(--font-ui); font-style: normal; color: var(--text-3); }
+
+.home-scene .automatic-markets {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.home-scene .automatic-markets__label { margin-right: 6px; font: 500 13px/1 var(--font-ui); color: var(--text-3); }
+.home-scene .automatic-market {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 14px 0 5px;
+  font-size: 13px;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border-radius: var(--radius-pill);
+}
+.home-scene .automatic-market .pawn-object { width: 24px; height: 24px; background: var(--surface); border-radius: 50%; }
+.home-scene .automatic-market b { font-weight: 600; color: var(--text); }
+.home-scene .automatic-market b::before { content: "→"; margin-right: 6px; font-weight: 400; color: var(--text-3); }
+
+/* ------------------------------------------------------------ join form -- */
+.home-scene .join-form__body { display: grid; align-content: start; gap: 26px; }
+.home-scene .join-fields { display: grid; grid-template-columns: 180px minmax(0, 1fr) 230px; gap: 14px; }
+.home-scene .join-field { display: grid; gap: 8px; min-width: 0; }
+.home-scene .join-field > span:first-child { font: 500 13px/1.2 var(--font-ui); color: var(--text-2); }
+.home-scene .join-field input,
+.home-scene .join-field select { width: 100%; height: 46px; padding-block: 0; font-size: 14px; border-radius: 12px; }
+.home-scene .join-field--code input {
+  font: 600 17px/1 var(--font-ui);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.home-scene .join-field--code input::placeholder { font-weight: 500; color: var(--text-3); letter-spacing: 0.18em; }
+.home-scene .join-pawn { position: relative; display: flex; align-items: center; }
+.home-scene .join-pawn .pawn-object { position: absolute; left: 9px; z-index: 1; pointer-events: none; }
+.home-scene .join-pawn select { padding-left: 48px; }
+
+/* ----------------------------------------------------------- responsive -- */
+@media (max-height: 820px) and (min-width: 761px) {
+  .home-scene { padding-top: 72px; padding-bottom: 16px; }
+  .home-scene .gf-setup { max-height: calc(100dvh - 88px); padding: 18px 28px 22px; }
+  .home-scene .gf-setup__nav { margin-bottom: 12px; }
+  .home-scene .gf-steps { margin-bottom: 12px; }
+  .home-scene .gf-setup__title h1 { font-size: 30px; }
+  .home-scene .gf-setup__head { margin-bottom: 18px; }
+  .home-scene .gf-setup__foot { margin-top: 20px; }
+  .home-scene .market-setup-step { gap: 14px; }
+  .home-scene .join-form__body { gap: 20px; }
+}
+@media (max-width: 1100px) {
+  .home-scene { padding-inline: 16px; }
+  .home-scene .gf-setup { width: min(760px, 100%); margin: 0 auto; }
+  .home-scene::before { background: rgba(9, 9, 10, 0.55); }
+}
+@media (max-width: 760px) {
+  .home-scene { padding: 64px 10px 12px; }
+  .home-scene .gf-setup { max-height: none; padding: 16px 18px 18px; border-radius: 20px; }
+  .home-scene .gf-setup__body { overflow: visible; }
+  .home-scene .gf-setup__nav { flex-wrap: wrap; gap: 4px; margin: 0 -10px 10px; }
+  .home-scene .gf-setup__title { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .home-scene .gf-setup__foot {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px -18px -18px;
+    padding: 12px 18px 16px;
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    border-radius: 0 0 20px 20px;
+  }
+  .home-scene .gf-setup__foot .start-button { order: -1; flex: 1 1 100%; min-width: 0; }
+  .home-scene .gf-setup__prev { flex: 1 1 100%; min-height: 40px; margin-left: 0; }
+  .home-scene .gf-setup__reason { flex: 1 1 100%; text-align: center; }
+  .home-scene .gf-setup__reason:empty { display: none; }
+  .home-scene .join-fields { grid-template-columns: 1fr; }
+}
+
+@keyframes home-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes home-step { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes home-row { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+html[data-motion="reduced"] .home-scene * { animation-delay: 0ms !important; }
+@media (prefers-reduced-motion: reduce) {
+  .home-scene * { animation-delay: 0ms !important; }
+  .home-scene .pawn-picker button:hover { transform: none; }
+}

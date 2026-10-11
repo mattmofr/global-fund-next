@@ -23,5 +23,7 @@ export default function AnimatedMoney({ value, className = "" }: { value: number
     frame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frame);
   }, [value, reducedMotion]);
-  return <span className={`animated-money ${direction > 0 ? "money-up" : direction < 0 ? "money-down" : ""} ${className}`} aria-label={formatMoney(value)}>{formatMoney(display)}</span>;
+  const text = formatMoney(display);
+  // Figures and unit are split so the unit can use a legible face; the text content is unchanged.
+  return <span className={`animated-money ${direction > 0 ? "money-up" : direction < 0 ? "money-down" : ""} ${className}`} aria-label={formatMoney(value)}>{text.slice(0, -3)}<span className="money-unit"> M€</span></span>;
 }

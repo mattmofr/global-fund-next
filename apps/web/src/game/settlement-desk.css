@@ -1,46 +1,656 @@
-.settlement-desk{position:fixed;z-index:60;inset:55px 0 0;display:flex;flex-direction:column;gap:12px;overflow:auto;padding:20px clamp(18px,3vw,46px) 24px;background:radial-gradient(ellipse at 50% -25%,#244052 0,#0b1c29 48%,#07111b 100%);color:#e9e4d8;font-family:Inter,Arial,sans-serif;scrollbar-color:#92794c #091722;scrollbar-width:thin}.sd-topbar{min-height:32px;display:flex;align-items:center;gap:20px;padding-bottom:11px;border-bottom:1px solid #d2b4763b;font:9px var(--font-data);letter-spacing:.11em;color:#afbdc2}.sd-brand{display:flex;align-items:center;gap:9px;color:#efdfba}.sd-brand>i{display:grid;place-items:center;width:28px;height:28px;border:1px solid #c7a76b75;color:#d9bd82}.sd-brand b{color:#a9b8bc;font-weight:400}.sd-status{display:flex;align-items:center;gap:7px;color:#d4c49d}.sd-status>i{width:6px;height:6px;border-radius:50%;background:#b2a373}.sd-status>i.live{background:#66d9ae;box-shadow:0 0 9px #66d9ae77}.sd-status>i.waiting{background:#e7b871}.sd-cycle{margin-left:auto}.sd-cycle b{color:#b89a61;padding:0 5px}.sd-cause{position:relative;display:grid;grid-template-columns:32px minmax(130px,190px) 1fr;align-items:center;gap:12px;min-height:62px;padding:10px 15px;background:linear-gradient(90deg,#192d38d9,#0c1c28c7);border:1px solid #c6a76250;border-left:2px solid #d4b577}.sd-cause-mark{width:29px;height:29px;display:grid;place-items:center;border:1px solid #d4b57764;color:#dfc288}.sd-cause>div:nth-child(2){display:flex;flex-direction:column;gap:4px}.sd-cause small,.sd-section-heading small,.sd-party>small,.sd-obligation>small{font:8px var(--font-data);letter-spacing:.1em;color:#aabcc1}.sd-cause strong{font:14px var(--font-display);letter-spacing:.05em;color:#f0dcad}.sd-cause-flow{display:flex;align-items:center;gap:8px;font:8px var(--font-data);letter-spacing:.06em;color:#bcc9c9}.sd-cause-flow svg{color:#bba068}.sd-cause p{position:absolute;right:15px;bottom:5px;margin:0;max-width:38%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#9caeb4;font-size:9px}.sd-ledger{display:grid;grid-template-columns:1fr 44px 1.1fr 44px 1fr;align-items:center;min-height:83px;padding:12px 16px;background:#071520cc;border:1px solid #b9c2c21e}.sd-party,.sd-obligation{display:flex;flex-direction:column;gap:5px;min-width:0}.sd-party strong{font:18px var(--font-display);color:#eee3ce;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sd-party span{font:10px var(--font-data);color:#9fb1b6}.sd-obligation{align-items:center;text-align:center}.sd-obligation strong{font:22px var(--font-data);color:#efcf8d}.sd-obligation span{font-size:9px;color:#c4aa79}.sd-party-creditor{text-align:right;align-items:flex-end}.sd-ledger-arrow{display:grid;place-items:center;color:#c5a76f}.sd-priority{display:flex;align-items:center;gap:18px;padding:6px 11px;background:#0a1a24a8;border:1px solid #b8aa8521}.sd-priority>span{min-width:130px;font:8px var(--font-data);letter-spacing:.08em;color:#d4c08f}.sd-priority>span small{display:block;margin-top:4px;font:8px Inter;color:#869ba1;letter-spacing:0}.sd-priority>div{display:flex;flex:1;gap:7px;overflow:auto}.sd-priority>div>span{display:flex;align-items:center;gap:7px;white-space:nowrap;padding:5px 8px;border:1px solid #cad0ca1a;font-size:9px;color:#9baeb1}.sd-priority>div>span.current{border-color:#c8a8648c;color:#f0dfb8;background:#302b1f55}.sd-priority>div>span>b{font:9px var(--font-data);color:#d2b576}.sd-priority>div>span small{font:8px var(--font-data);color:#a6b7b9}.sd-main{display:flex;flex:1;flex-direction:column;min-height:220px;padding:14px 16px 12px;background:linear-gradient(135deg,#0d202d,#091721);border:1px solid #9eaaad2b;box-shadow:0 12px 34px #0003}.sd-section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}.sd-section-heading>div{display:flex;flex-direction:column;gap:3px}.sd-section-heading h1{margin:0;font:20px var(--font-display);font-weight:500;color:#f0e3c5}.sd-section-heading>span{display:flex;align-items:center;gap:7px;font:8px var(--font-data);letter-spacing:.06em;color:#b5c4c5}.sd-table-wrap{flex:1;min-height:100px;overflow:auto;border:1px solid #bfcaca1e;scrollbar-color:#756341 #0a1923;scrollbar-width:thin}.sd-assets-table{width:100%;border-collapse:collapse;min-width:720px;font-size:10px}.sd-assets-table thead{position:sticky;top:0;z-index:1;background:#142937;color:#9eafb1}.sd-assets-table th{height:29px;padding:0 11px;text-align:left;font:8px var(--font-data);font-weight:400;letter-spacing:.07em;border-bottom:1px solid #c5a9643a}.sd-assets-table td{height:43px;padding:5px 11px;border-bottom:1px solid #b6c2c21a;color:#c1cecd;font:10px var(--font-data)}.sd-assets-table tr:last-child td{border-bottom:0}.sd-assets-table tbody tr{background:#0a1b26a8}.sd-assets-table tbody tr:nth-child(even){background:#10232e99}.sd-assets-table tbody tr.selected{background:#192c32;border-left:2px solid #d3b674}.sd-assets-table td:first-child{font:11px Inter;color:#e8e3d5}.sd-assets-table td:first-child strong{font-weight:600}.sd-assets-table td>small{display:block;margin-top:3px;font:8px var(--font-data);color:#82989e}.sd-assets-table td:nth-child(2){font:9px Inter}.sd-assets-table td:nth-child(2) small{font:8px Inter}.sd-assets-table td:last-child{font-weight:600;color:#9aabad}.sd-assets-table td:last-child.sd-value-selected{color:#e7cf99}.sd-quantity{display:flex;align-items:center;gap:8px}.sd-quantity button{width:24px;height:23px;padding:0;border:1px solid #bdab7660;background:#132733;color:#e6d09c;font-size:15px;line-height:1}.sd-quantity button:disabled{opacity:.32;cursor:not-allowed}.sd-quantity b{min-width:16px;text-align:center;color:#eeddb5;font:11px var(--font-data)}.sd-empty{text-align:center!important;color:#97a9ac!important}.sd-selection-footer,.sd-decision-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-top:11px}.sd-estimate{display:flex;flex-wrap:wrap;align-items:center;gap:5px 18px;max-width:52%}.sd-estimate>span{display:flex;align-items:center;gap:8px;font:8px var(--font-data);color:#a7b6b7}.sd-estimate>span b{font-size:11px;color:#e3d1a5}.sd-estimate>small{flex-basis:100%;font-size:8px;color:#82979c}.sd-actions{display:flex;justify-content:flex-end;gap:7px}.sd-actions button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:37px;padding:0 12px;border-radius:2px;font:9px Inter;font-weight:650;white-space:nowrap}.sd-primary{border:1px solid #e0c284;background:linear-gradient(120deg,#b39455,#d5b878);color:#101923;box-shadow:inset 0 1px #f7e7b45c}.sd-primary:hover:not(:disabled){background:#e4cb94}.sd-secondary{border:1px solid #98a9a94a;background:#10232e;color:#d1dbd7}.sd-secondary:hover:not(:disabled){border-color:#ceb477;color:#ead8ae}.sd-actions button:disabled{opacity:.38;cursor:not-allowed}.sd-hint{margin:7px 0 0;color:#c0a975;font-size:9px}.sd-waiting{display:flex;align-items:center;justify-content:center;gap:10px;flex:1;min-height:120px;color:#a6b7ba;font-size:12px}.sd-waiting svg{color:#d5b87e}.sd-waiting b{color:#eddbb0}.sd-offer-main{flex:1}.sd-frozen{color:#8dceb4!important}.sd-offer-card{display:grid;grid-template-columns:1.35fr 1fr;min-height:150px;border:1px solid #bdc8c326;background:#091924}.sd-offer-assets{padding:15px 18px}.sd-offer-assets>small,.sd-decision-footer>div>small{display:block;margin-bottom:10px;font:8px var(--font-data);letter-spacing:.09em;color:#9aafb2}.sd-offer-assets>div{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #b8c2bd1a}.sd-offer-assets>div:last-child{border-bottom:0}.sd-offer-assets>div>span{display:grid;grid-template-columns:20px auto;align-items:center;gap:3px 8px}.sd-offer-assets>div svg{grid-row:span 2;color:#c3a66c}.sd-offer-assets>div b{font-size:11px;color:#e8e4d7}.sd-offer-assets>div small{font:8px var(--font-data);color:#94a7aa}.sd-offer-assets>div>strong{font:13px var(--font-data);color:#e0cb98}.sd-offer-assets p{color:#98a9ab;font-size:10px}.sd-offer-math{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:16px 20px;border-left:1px solid #bac6c21b;background:#10232e}.sd-offer-math>span{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#a6b5b5;font-size:10px}.sd-offer-math>span b{font:12px var(--font-data);color:#e2e0d3}.sd-offer-math>span.sd-net{padding-top:8px;border-top:1px solid #c3b07944;color:#dbca9f}.sd-offer-math>span.sd-net b{font-size:16px;color:#efd18f}.sd-offer-math>small{color:#8ea1a5;font-size:8px}.sd-cash-warning{display:flex;align-items:center;gap:8px;margin:9px 0 0;padding:8px 10px;border:1px solid #a64b557a;background:#411c2473;color:#f1a6a0;font-size:9px}.sd-decision-footer{margin-top:auto}.sd-decision-footer>div>strong{font:16px var(--font-data);color:#e0ce9e}.sd-handoff{display:flex;align-items:center;justify-content:center;gap:7px;min-height:27px;color:#9caeb1;font-size:9px}.sd-handoff svg{color:#c5a66d}.sd-handoff b{color:#ead6a6}
-@media(max-height:760px) and (min-width:801px){.settlement-desk{gap:8px;padding-top:12px;padding-bottom:12px}.sd-cause{min-height:53px}.sd-ledger{min-height:69px}.sd-main{padding:10px 13px}.sd-assets-table td{height:36px}.sd-section-heading h1{font-size:18px}.sd-selection-footer,.sd-decision-footer{padding-top:7px}}
-@media(max-width:800px){.settlement-desk{inset:55px 0 0;padding:12px;gap:9px}.sd-topbar{gap:10px}.sd-cycle{display:none}.sd-cause{grid-template-columns:30px 1fr;gap:8px}.sd-cause-flow{grid-column:2;font-size:7px;flex-wrap:wrap}.sd-cause p{position:static;grid-column:2;max-width:none;white-space:normal}.sd-ledger{grid-template-columns:1fr 24px 1fr;gap:7px;padding:10px}.sd-ledger-arrow:nth-of-type(2){display:none}.sd-party strong{font-size:13px}.sd-party span{font-size:8px}.sd-obligation{grid-column:1/-1;grid-row:2;padding:5px 0;border-top:1px solid #bdc4c21c}.sd-obligation strong{font-size:17px}.sd-obligation span{font-size:8px}.sd-party-creditor{grid-column:3;grid-row:1}.sd-priority{align-items:flex-start;flex-direction:column;gap:6px}.sd-priority>div{width:100%}.sd-main{padding:11px 9px}.sd-section-heading{align-items:flex-start}.sd-section-heading h1{font-size:16px}.sd-section-heading>span{font-size:7px;text-align:right}.sd-selection-footer,.sd-decision-footer{align-items:stretch;flex-direction:column}.sd-estimate{max-width:none}.sd-actions{display:grid;grid-template-columns:1fr}.sd-actions button{min-height:40px}.sd-offer-card{grid-template-columns:1fr}.sd-offer-math{border-left:0;border-top:1px solid #bac6c21b}.sd-decision-footer{margin-top:10px}.sd-waiting{min-height:100px;text-align:center}.sd-handoff{font-size:8px}}
-/* The clearing desk occupies the board's central work area; the persistent HUD stays visible. */
-.settlement-desk{position:absolute;inset:var(--center-top) var(--center-right) var(--center-bottom) var(--center-left);gap:6px;overflow:hidden;padding:10px;background:linear-gradient(145deg,#0b1c28f5,#06111bf7)}
-.sd-topbar{flex:none;min-height:26px;padding:0 0 5px;gap:12px;font-size:8px}
-.sd-brand>i{width:23px;height:23px}
-.sd-cause{flex:none;min-height:42px;padding:5px 9px;grid-template-columns:24px minmax(125px,175px) 1fr;gap:8px}
-.sd-cause-mark{width:22px;height:22px}
-.sd-cause p{bottom:2px;right:8px;font-size:8px}
-.sd-ledger{flex:none;min-height:60px;padding:6px 10px;grid-template-columns:1fr 28px 1.1fr 28px 1fr}
-.sd-party,.sd-obligation{gap:2px}
-.sd-party strong{font-size:14px}
-.sd-party span{font-size:8px}
-.sd-obligation strong{font-size:17px}
-.sd-obligation span{font-size:8px}
-.sd-priority{flex:none;min-height:35px;padding:3px 8px;gap:10px}
-.sd-priority>span{min-width:120px}
-.sd-priority>span small{display:block;margin:3px 0 0}
-.sd-priority>div>span{padding:3px 6px}
-.sd-main{flex:1 1 0;min-height:0;overflow:hidden;padding:8px 10px 7px}
-.sd-section-heading{flex:none;margin-bottom:6px}
-.sd-section-heading h1{font-size:17px}
-.sd-table-wrap{flex:1 1 56px;min-height:56px}
-.sd-assets-table th{height:24px}
-.sd-assets-table td{height:32px;padding:3px 8px}
-.sd-quantity button{width:20px;height:19px}
-.sd-selection-footer,.sd-decision-footer{flex:none;gap:10px;padding-top:6px}
-.sd-estimate{gap:3px 12px;max-width:50%}
-.sd-estimate>small{font-size:7px}
-.sd-actions{flex:none}
-.sd-actions button{min-height:32px;padding:0 9px;font-size:8px}
-.sd-hint{flex:none;margin:3px 0 0;font-size:8px;line-height:1.2}
-.sd-waiting{min-height:0}
-.sd-offer-main{overflow:hidden}
-.sd-offer-card{flex:1 1 0;min-height:0;overflow:auto;grid-template-columns:1.25fr 1fr}
-.sd-offer-assets{padding:9px 12px}
-.sd-offer-assets>small,.sd-decision-footer>div>small{margin-bottom:5px}
-.sd-offer-assets>div{padding:5px 0}
-.sd-offer-math{padding:9px 12px;gap:5px}
-.sd-cash-warning{flex:none;margin:5px 0 0;padding:5px 8px}
-.sd-decision-footer{margin-top:0}
-.sd-decision-footer>div>strong{font-size:14px}
-.sd-handoff{flex:none;min-height:18px;font-size:8px}
-@media(max-height:600px){.settlement-desk{padding:6px;gap:4px}.sd-topbar{min-height:22px;padding-bottom:3px}.sd-cause{min-height:36px}.sd-ledger{min-height:50px}.sd-priority{min-height:28px}.sd-main{padding:5px 7px}.sd-section-heading h1{font-size:15px}.sd-assets-table th{height:20px}.sd-assets-table td{height:27px}.sd-actions button{min-height:28px}.sd-hint{display:none}}
-@media(max-width:800px){.settlement-desk{inset:var(--center-top) 8px var(--center-bottom) 8px;padding:7px;gap:5px}.sd-cause{grid-template-columns:24px 1fr}.sd-cause-flow{grid-column:2}.sd-cause p{position:static;grid-column:2}.sd-ledger{min-height:55px}.sd-priority{min-height:31px}.sd-main{padding:7px}.sd-selection-footer,.sd-decision-footer{gap:5px}.sd-actions{display:flex;flex-wrap:wrap}.sd-actions button{flex:1;white-space:normal}.sd-estimate{max-width:100%}.sd-offer-card{grid-template-columns:1fr}.sd-offer-math{border-left:0;border-top:1px solid #bac6c21b}}
+/* ==========================================================================
+   Desk de règlement — one solid sheet over the dimmed board.
+   Top: the cause, then who owes whom (debtor → amount → creditor) with the
+   remaining amount as the single focal number. Then the creditor order (when
+   several) and the decision: the debtor's asset picker or the creditor's offer.
+   Holdings and offered shares are raised tiles; summaries sit in a recessed
+   well. Gold only marks the primary action and the active selection.
+   ========================================================================== */
+
+.settlement-desk {
+  position: fixed;
+  top: var(--center-top, 92px);
+  right: var(--center-right, 108px);
+  bottom: var(--center-bottom, 168px);
+  left: var(--center-left, 16px);
+  z-index: var(--z-stage, 40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  pointer-events: none;
+  container: sd-stage / size;
+  color: var(--text);
+  font: 400 14px/1.45 var(--font-ui);
+  text-align: left;
+}
+
+/* --------------------------------------------------------------- sheet -- */
+.settlement-desk .sd-sheet {
+  --sd-pad-y: 28px;
+  --sd-pad-x: 34px;
+  --sd-gap: 24px;
+  --sd-seat: 64px;
+  --sd-name: 21px;
+  --sd-due: 56px;
+  --sd-title: 22px;
+  --sd-cell-y: 12px;
+  --sd-cell-x: 18px;
+  --sd-figure: 20px;
+  --sd-ring: rgba(227, 184, 96, 0.55);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sd-gap);
+  width: min(100%, 1080px);
+  max-height: 100%;
+  min-height: 0;
+  padding: var(--sd-pad-y) var(--sd-pad-x);
+  overflow: hidden auto;
+  overscroll-behavior: contain;
+  pointer-events: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow-3);
+}
+.settlement-desk .sd-sheet > * { flex: none; min-width: 0; }
+
+/* --------------------------------------------------------------- cause -- */
+.settlement-desk .sd-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.settlement-desk .sd-cause {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  font: 500 13px/1.2 var(--font-ui);
+  color: var(--text-3);
+}
+.settlement-desk .sd-cause strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  height: 28px;
+  padding: 0 12px 0 10px;
+  border-radius: var(--radius-pill);
+  font: 600 12px/1 var(--font-ui);
+  letter-spacing: 0.02em;
+  color: var(--text-2);
+  background: var(--surface-2);
+  white-space: nowrap;
+}
+.settlement-desk .sd-cause > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.settlement-desk .sd-docket {
+  flex: none;
+  font: 500 12px/1 var(--font-ui);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+/* -------------------------------------------------------------- ledger -- */
+.settlement-desk .sd-ledger {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+}
+.settlement-desk .sd-party { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.settlement-desk .sd-party-creditor { flex-direction: row-reverse; text-align: right; }
+/* Figurine medallion, ringed with the seat colour (same object as the HUD). */
+.settlement-desk .sd-seat {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--sd-seat);
+  height: var(--sd-seat);
+  overflow: hidden;
+  border-radius: 50%;
+  color: var(--text-2);
+  background: radial-gradient(circle at 50% 35%, #2c2c30, #141416 70%);
+  box-shadow: 0 0 0 2px var(--seat, var(--surface-4)), var(--shadow-1);
+}
+.settlement-desk .sd-seat.is-bank { background: var(--surface-2); box-shadow: 0 0 0 1px var(--line-2); }
+.settlement-desk .sd-seat .pawn-object { width: 100%; height: 100%; }
+.settlement-desk .sd-seat .pawn-object img { inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); }
+.settlement-desk .sd-party-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.settlement-desk .sd-party-creditor .sd-party-text { align-items: flex-end; }
+.settlement-desk .sd-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 12px/1.2 var(--font-ui);
+  color: var(--text-3);
+}
+.settlement-desk .sd-role em {
+  padding: 3px 7px;
+  border-radius: var(--radius-pill);
+  font: 600 11px/1 var(--font-ui);
+  font-style: normal;
+  color: var(--text);
+  background: var(--surface-3);
+}
+.settlement-desk .sd-party-text > strong {
+  max-width: 100%;
+  overflow: hidden;
+  font: 650 var(--sd-name)/1.15 var(--font-ui);
+  letter-spacing: -0.015em;
+  color: var(--text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.settlement-desk .sd-cash { display: inline-flex; align-items: baseline; gap: 6px; font: 500 12.5px/1.2 var(--font-ui); color: var(--text-3); white-space: nowrap; }
+.settlement-desk .sd-cash .animated-money { font-size: 13.5px; font-weight: 600; color: var(--text-2); }
+
+/* The two rails draw one calm line, debtor → creditor, broken by the amount. */
+.settlement-desk .sd-rail { position: relative; flex: 1 1 auto; min-width: 24px; height: 12px; margin: 0 2px; }
+.settlement-desk .sd-rail::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.16);
+  transform-origin: left center;
+  animation: sd-line 560ms var(--ease-out) 240ms both;
+}
+.settlement-desk .sd-party-debtor .sd-rail::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-3);
+  transform: translateY(-50%);
+}
+.settlement-desk .sd-party-creditor .sd-rail::before { animation-delay: 680ms; }
+.settlement-desk .sd-party-creditor .sd-rail::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-top: 1.5px solid var(--text-3);
+  border-right: 1.5px solid var(--text-3);
+  transform: translateY(-50%) rotate(45deg);
+  animation: sd-fade 260ms var(--ease-out) 1180ms both;
+}
+.settlement-desk .sd-due {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  text-align: center;
+}
+.settlement-desk .sd-due > small { font: 500 12px/1.2 var(--font-ui); color: var(--text-3); }
+.settlement-desk .sd-due-amount {
+  font: 700 var(--sd-due)/1 var(--font-ui);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.035em;
+  color: var(--text);
+  white-space: nowrap;
+}
+.settlement-desk .sd-due-amount .money-unit { margin-left: 0.06em; font-size: 0.4em; font-weight: 600; letter-spacing: 0; color: var(--text-2); opacity: 1; }
+/* Status pill: what the debtor's cash leaves uncovered. */
+.settlement-desk .sd-gap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  font: 600 12px/1 var(--font-ui);
+  color: var(--down);
+  background: rgba(236, 107, 95, 0.12);
+  white-space: nowrap;
+}
+.settlement-desk .sd-gap.is-ok { color: var(--up); background: rgba(76, 195, 141, 0.12); }
+
+/* ------------------------------------------------------ creditor order -- */
+.settlement-desk .sd-priority {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.settlement-desk .sd-priority-title { font: 500 12px/1.2 var(--font-ui); color: var(--text-3); cursor: help; }
+.settlement-desk .sd-priority > div { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 22px; }
+.settlement-desk .sd-priority > div > span {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 14px 0 5px;
+  border-radius: var(--radius-pill);
+  font: 500 13px/1 var(--font-ui);
+  color: var(--text-2);
+  background: var(--surface-2);
+  white-space: nowrap;
+}
+.settlement-desk .sd-priority > div > span + span::before {
+  content: "";
+  position: absolute;
+  left: -17px;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+  background: var(--line-2);
+}
+.settlement-desk .sd-priority > div > span > b {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font: 600 11px/1 var(--font-ui);
+  color: var(--text-2);
+  background: var(--surface-3);
+}
+.settlement-desk .sd-priority > div > span > small { font: 500 12px/1 var(--font-ui); font-variant-numeric: tabular-nums; color: var(--text-3); }
+.settlement-desk .sd-priority > div > span.is-current { color: var(--text); background: var(--surface-3); }
+.settlement-desk .sd-priority > div > span.is-current > b { color: var(--accent-ink); background: var(--accent); }
+.settlement-desk .sd-priority > div > span.is-current > small { color: var(--text-2); }
+.settlement-desk .sd-priority > div > span.is-done { color: var(--text-3); background: transparent; box-shadow: inset 0 0 0 1px var(--line); }
+.settlement-desk .sd-priority > div > span.is-done > b { color: var(--up); background: rgba(76, 195, 141, 0.12); }
+.settlement-desk .sd-priority-note { font: 500 12px/1.2 var(--font-ui); color: var(--text-3); }
+
+/* ---------------------------------------------------------------- main -- */
+.settlement-desk .sd-sheet > .sd-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 16px;
+  min-height: 0;
+  padding-top: var(--sd-gap);
+  border-top: 1px solid var(--line);
+}
+/* The offer never squeezes: when space runs out the sheet scrolls instead. */
+.settlement-desk .sd-sheet > .sd-offer-main { flex: none; }
+.settlement-desk .sd-main-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex: none; }
+.settlement-desk .sd-title { font: 650 var(--sd-title)/1.15 var(--font-ui); letter-spacing: -0.02em; color: var(--text); }
+.settlement-desk .sd-sub { margin-top: 5px; font: 500 13px/1.45 var(--font-ui); color: var(--text-2); }
+.settlement-desk .sd-frozen,
+.settlement-desk .sd-sync {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  font: 500 12px/1 var(--font-ui);
+  color: var(--text-2);
+  background: var(--surface-2);
+  white-space: nowrap;
+}
+.settlement-desk .sd-frozen { cursor: help; }
+.settlement-desk .sd-frozen svg { color: var(--text-3); }
+.settlement-desk .sd-sync .sd-orbit { width: 12px; height: 12px; border-width: 1.5px; }
+
+/* ------------------------------------------------------- holdings tiles -- */
+/* The negative margin absorbs the table's outer border-spacing without creating overflow. */
+.settlement-desk .sd-table-wrap { flex: 1 1 auto; min-height: 96px; margin: -6px 0; overflow: auto; }
+.settlement-desk .sd-table-wrap.is-clipped {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 36px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 36px), transparent);
+}
+.settlement-desk .sd-assets-table { width: 100%; border-collapse: separate; border-spacing: 0 6px; font-size: 14px; }
+.settlement-desk .sd-assets-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 2px var(--sd-cell-x) 4px;
+  font: 500 12px/1.2 var(--font-ui);
+  text-align: left;
+  color: var(--text-3);
+  background: var(--surface);
+  box-shadow: 0 6px 0 var(--surface);
+  white-space: nowrap;
+}
+.settlement-desk .sd-assets-table td {
+  padding: var(--sd-cell-y) var(--sd-cell-x);
+  color: var(--text-2);
+  vertical-align: middle;
+  background: var(--surface-2);
+  transition: background var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out);
+}
+.settlement-desk .sd-assets-table td:first-child { border-radius: 14px 0 0 14px; }
+.settlement-desk .sd-assets-table td:last-child { border-radius: 0 14px 14px 0; }
+.settlement-desk .sd-assets-table td:only-child { border-radius: 14px; }
+.settlement-desk .sd-assets-table .is-num { width: 1%; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.settlement-desk .sd-assets-table .is-center { width: 1%; text-align: center; }
+.settlement-desk .sd-assets-table tbody tr { animation: sd-row-in var(--dur-3) var(--ease-out) both; animation-delay: calc(var(--i, 0) * 40ms + 160ms); }
+.settlement-desk .sd-assets-table tbody tr:hover td { background: var(--surface-3); }
+/* Selected holding: the tile lifts and takes a fine gold ring. */
+.settlement-desk .sd-assets-table tbody tr.is-selected td { background: var(--surface-3); box-shadow: inset 0 1px 0 var(--sd-ring), inset 0 -1px 0 var(--sd-ring); }
+.settlement-desk .sd-assets-table tbody tr.is-selected td:first-child { box-shadow: inset 1px 0 0 var(--sd-ring), inset 0 1px 0 var(--sd-ring), inset 0 -1px 0 var(--sd-ring); }
+.settlement-desk .sd-assets-table tbody tr.is-selected td:last-child { box-shadow: inset -1px 0 0 var(--sd-ring), inset 0 1px 0 var(--sd-ring), inset 0 -1px 0 var(--sd-ring); }
+.settlement-desk .sd-company { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.settlement-desk .sd-company strong { font: 600 14px/1.25 var(--font-ui); color: var(--text); }
+.settlement-desk .sd-company small { font: 500 12px/1.2 var(--font-ui); color: var(--text-3); }
+.settlement-desk .sd-folded { display: none; font: 500 12px/1.3 var(--font-ui); font-style: normal; color: var(--text-3); }
+.settlement-desk .sd-folded > span { display: none; }
+.settlement-desk .sd-market { display: flex; flex-direction: column; gap: 3px; font: 500 13px/1.25 var(--font-ui); color: var(--text-2); }
+.settlement-desk .sd-sector { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-3); }
+/* Share tokens out of five: kept (ivory), leaving with this selection (gold), not held (empty slot). */
+.settlement-desk .sd-held { display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-weight: 600; }
+.settlement-desk .sd-pips { display: inline-flex; align-items: center; gap: 4px; }
+.settlement-desk .sd-pips i {
+  width: 8px;
+  height: 8px;
+  border-radius: 2.5px;
+  transition: background var(--dur-2), box-shadow var(--dur-2), transform var(--dur-2) var(--ease-spring);
+}
+.settlement-desk .sd-pips i.is-kept { background: var(--text-2); }
+.settlement-desk .sd-pips i.is-out { background: var(--accent); transform: scale(1.12); }
+.settlement-desk .sd-pips i.is-free { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16); }
+.settlement-desk .sd-quantity {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-3);
+  transition: background var(--dur-2);
+}
+.settlement-desk .sd-quantity button {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--text);
+  transition: background var(--dur-1), color var(--dur-1), transform var(--dur-1) var(--ease-out);
+}
+.settlement-desk .sd-quantity button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.08); }
+.settlement-desk .sd-quantity button:active:not(:disabled) { transform: scale(0.9); }
+.settlement-desk .sd-quantity button:disabled { color: var(--text-3); opacity: 0.45; }
+.settlement-desk .sd-quantity b { min-width: 26px; text-align: center; font: 650 15px/1 var(--font-ui); font-variant-numeric: tabular-nums; color: var(--text); transition: color var(--dur-2); }
+.settlement-desk tr.is-selected .sd-quantity { background: var(--surface-4); }
+.settlement-desk tr.is-selected .sd-quantity b { color: var(--accent); }
+.settlement-desk .sd-value { font-weight: 650; color: var(--text); }
+.settlement-desk .sd-nil { color: var(--text-3); }
+.settlement-desk .sd-empty { padding: 26px; text-align: center; color: var(--text-3); }
+
+/* -------------------------------------------------------------- totals -- */
+.settlement-desk .sd-totals {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px 28px;
+  flex: none;
+}
+/* Coverage: debtor cash (neutral) + selection (gold); fully green once covered. */
+.settlement-desk .sd-meter {
+  grid-column: 1 / -1;
+  display: flex;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--surface-3);
+}
+.settlement-desk .sd-meter i { height: 100%; transition: width var(--dur-3) var(--ease-out), background var(--dur-3); }
+.settlement-desk .sd-meter .is-cash { background: var(--text-3); }
+.settlement-desk .sd-meter .is-pick { background: var(--accent); }
+.settlement-desk .sd-meter.is-covered i { background: var(--up); }
+.settlement-desk .sd-readout { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.settlement-desk .sd-figures { display: flex; align-items: flex-end; gap: 36px; min-width: 0; margin: 0; }
+.settlement-desk .sd-figures > div { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.settlement-desk .sd-figures dt { display: inline-flex; align-items: center; gap: 6px; font: 500 12px/1.2 var(--font-ui); color: var(--text-3); white-space: nowrap; }
+.settlement-desk .sd-figures dd {
+  margin: 0;
+  font: 650 var(--sd-figure)/1.1 var(--font-ui);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+}
+.settlement-desk .sd-figures dd .money-unit { font-size: 0.72em; color: var(--text-2); opacity: 1; }
+.settlement-desk .sd-figures dd.is-nil { color: var(--text-3); }
+.settlement-desk .sd-figures .is-ok,
+.settlement-desk .sd-figures .is-warn { cursor: help; }
+.settlement-desk .sd-figures .is-ok dt { color: var(--up); }
+.settlement-desk .sd-figures .is-warn dt { color: var(--warn); }
+.settlement-desk .sd-figures .is-short dt,
+.settlement-desk .sd-figures .is-short dd { color: var(--down); }
+.settlement-desk .sd-figure-note { font: 500 12px/1.3 var(--font-ui); color: var(--warn); }
+.settlement-desk .sd-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px; }
+.settlement-desk .sd-actions .gf-btn svg { flex: none; }
+
+/* The one continuous effect: the main action breathes while it is the viewer's call. */
+.settlement-desk.is-live .sd-cta:not(:disabled) { animation: sd-call 2.4s var(--ease-in-out) 1.2s infinite; }
+
+/* --------------------------------------------------------------- offer -- */
+/* Label row on the left only, so the offered shares and the summary well share their top edge. */
+.settlement-desk .sd-offer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 10px 16px;
+  flex: none;
+}
+.settlement-desk .sd-offer > .sd-label { grid-column: 1; grid-row: 1; }
+.settlement-desk .sd-offer-assets { grid-column: 1; grid-row: 2; display: flex; flex-direction: column; min-height: 0; overflow: auto; }
+.settlement-desk .sd-label { font: 500 12px/1.2 var(--font-ui); color: var(--text-3); }
+.settlement-desk .sd-certs { display: flex; flex-direction: column; flex: 1 1 auto; gap: 8px; margin: 0; padding: 0; list-style: none; }
+/* An offered holding, like a share certificate: sector · zone, the name, then the terms over a hairline. */
+.settlement-desk .sd-cert {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface-2);
+}
+.settlement-desk .sd-cert:only-child { flex: 1 1 auto; }
+.settlement-desk .sd-cert-meta { display: flex; align-items: center; gap: 6px; min-width: 0; font: 500 12px/1.2 var(--font-ui); color: var(--text-3); white-space: nowrap; }
+.settlement-desk .sd-cert-meta i { font-style: normal; color: var(--text-3); }
+.settlement-desk .sd-cert-meta i::before { content: "·"; margin-right: 6px; }
+.settlement-desk .sd-cert > b {
+  overflow: hidden;
+  font: 650 18px/1.25 var(--font-ui);
+  letter-spacing: -0.015em;
+  color: var(--text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.settlement-desk .sd-cert-terms {
+  align-self: end;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.settlement-desk .sd-cert-terms small { font: 500 12.5px/1.2 var(--font-ui); font-variant-numeric: tabular-nums; color: var(--text-2); white-space: nowrap; }
+.settlement-desk .sd-cert-terms strong { font: 650 16px/1.2 var(--font-ui); font-variant-numeric: tabular-nums; color: var(--text); white-space: nowrap; }
+.settlement-desk .sd-offer-math {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  padding: 18px 22px;
+  border-radius: 16px;
+  background: var(--bg-2);
+}
+.settlement-desk .sd-offer-math > div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.settlement-desk .sd-offer-math dt { font: 500 13px/1.3 var(--font-ui); color: var(--text-2); }
+.settlement-desk .sd-offer-math dd { margin: 0; font: 600 14px/1.3 var(--font-ui); font-variant-numeric: tabular-nums; color: var(--text); white-space: nowrap; }
+.settlement-desk .sd-offer-math > .sd-net { align-items: center; margin-top: 2px; padding-top: 14px; border-top: 1px solid var(--line); }
+.settlement-desk .sd-offer-math > .sd-net dt { font: 600 14px/1.3 var(--font-ui); color: var(--text); }
+.settlement-desk .sd-net .gf-amount { font: 700 30px/1 var(--font-ui); font-variant-numeric: tabular-nums; letter-spacing: -0.025em; color: var(--text); }
+.settlement-desk .sd-net .money-unit { font-size: 0.5em; font-weight: 600; letter-spacing: 0; color: var(--text-2); opacity: 1; }
+.settlement-desk .sd-net.is-in .gf-amount,
+.settlement-desk .sd-net.is-in .money-unit { color: var(--up); }
+.settlement-desk .sd-net-note { font: 500 12.5px/1.4 var(--font-ui); color: var(--text-3); }
+.settlement-desk .sd-cash-warning {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font: 500 13px/1.3 var(--font-ui);
+  color: var(--text-2);
+  background: rgba(236, 107, 95, 0.12);
+}
+.settlement-desk .sd-cash-warning svg { flex: none; color: var(--down); }
+.settlement-desk .sd-cash-warning strong { font-weight: 600; color: var(--text); }
+.settlement-desk .sd-cash-warning span { font-variant-numeric: tabular-nums; }
+.settlement-desk .sd-decision { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 28px; flex: none; }
+.settlement-desk .sd-balance { display: flex; flex-direction: column; gap: 5px; }
+.settlement-desk .sd-balance span { font: 500 12px/1.2 var(--font-ui); color: var(--text-3); }
+.settlement-desk .sd-balance strong { font: 650 var(--sd-figure)/1.1 var(--font-ui); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; color: var(--text); }
+.settlement-desk .sd-balance strong.is-down { color: var(--down); }
+
+/* ------------------------------------------------------------- waiting -- */
+.settlement-desk .sd-waiting {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0;
+  padding: 13px 22px 13px 18px;
+  border-radius: var(--radius-pill);
+  font: 500 14px/1.3 var(--font-ui);
+  color: var(--text-2);
+  background: var(--surface-2);
+}
+.settlement-desk .sd-waiting b { font-weight: 600; color: var(--text); }
+.settlement-desk .sd-orbit {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--surface-4);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: sd-spin 900ms linear infinite;
+}
+
+/* -------------------------------------------------------------- motion -- */
+@keyframes sd-row-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sd-line { from { transform: scaleX(0); } to { transform: none; } }
+@keyframes sd-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sd-spin { to { transform: rotate(360deg); } }
+@keyframes sd-call {
+  0%, 100% { box-shadow: 0 6px 18px rgba(227, 184, 96, 0.25), 0 0 0 0 rgba(227, 184, 96, 0.4); }
+  50% { box-shadow: 0 6px 18px rgba(227, 184, 96, 0.25), 0 0 0 9px rgba(227, 184, 96, 0); }
+}
+html[data-motion="reduced"] .settlement-desk .sd-cta,
+html[data-motion="reduced"] .settlement-desk .sd-rail::before,
+html[data-motion="reduced"] .settlement-desk .sd-rail::after,
+html[data-motion="reduced"] .settlement-desk .sd-assets-table tbody tr,
+html[data-motion="reduced"] .settlement-desk .sd-orbit { animation: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .settlement-desk .sd-cta,
+  .settlement-desk .sd-rail::before,
+  .settlement-desk .sd-rail::after,
+  .settlement-desk .sd-assets-table tbody tr,
+  .settlement-desk .sd-orbit { animation: none !important; }
+}
+
+/* ---------------------------------------------- stage size adaptations -- */
+@container sd-stage (max-height: 680px) {
+  .settlement-desk .sd-sheet {
+    --sd-pad-y: 20px;
+    --sd-pad-x: 28px;
+    --sd-gap: 16px;
+    --sd-seat: 52px;
+    --sd-name: 18px;
+    --sd-due: 44px;
+    --sd-title: 19px;
+    --sd-cell-y: 8px;
+    --sd-figure: 18px;
+  }
+  .settlement-desk .sd-due { gap: 6px; }
+  .settlement-desk .sd-sheet > .sd-main { gap: 12px; }
+  .settlement-desk .sd-sub { margin-top: 3px; }
+  .settlement-desk .sd-offer-math { gap: 8px; padding: 14px 18px; }
+  .settlement-desk .sd-cert { padding: 11px 14px; }
+  .settlement-desk .sd-offer-math > .sd-net { padding-top: 10px; }
+  .settlement-desk .sd-net .gf-amount { font-size: 26px; }
+}
+@container sd-stage (max-height: 540px) {
+  .settlement-desk .sd-sheet {
+    --sd-pad-y: 14px;
+    --sd-pad-x: 20px;
+    --sd-gap: 11px;
+    --sd-seat: 42px;
+    --sd-name: 16px;
+    --sd-due: 34px;
+    --sd-title: 17px;
+    --sd-cell-y: 5px;
+    --sd-cell-x: 14px;
+    --sd-figure: 16px;
+  }
+  .settlement-desk .sd-due { gap: 4px; }
+  .settlement-desk .sd-gap { height: 22px; font-size: 11.5px; }
+  .settlement-desk .sd-cash { font-size: 12px; }
+  .settlement-desk .sd-cash .animated-money { font-size: 12.5px; }
+  .settlement-desk .sd-cause strong { height: 24px; }
+  .settlement-desk .sd-priority > div > span { height: 28px; }
+  .settlement-desk .sd-sheet > .sd-main { gap: 9px; }
+  .settlement-desk .sd-sub { display: none; }
+  .settlement-desk .sd-quantity button { width: 26px; height: 26px; }
+  .settlement-desk .sd-figures { gap: 26px; }
+  .settlement-desk .sd-figures > div { gap: 3px; }
+  .settlement-desk .sd-totals { gap: 10px 20px; }
+  .settlement-desk .sd-actions .gf-btn { min-height: 38px; padding: 0 16px; }
+  .settlement-desk .sd-offer-math { gap: 6px; padding: 10px 14px; }
+  .settlement-desk .sd-cert { gap: 3px 12px; padding: 9px 12px; }
+  .settlement-desk .sd-net .gf-amount { font-size: 22px; }
+  .settlement-desk .sd-offer-math > .sd-net { padding-top: 8px; }
+  .settlement-desk .sd-waiting { padding: 10px 18px 10px 14px; }
+}
+@container sd-stage (max-width: 860px) {
+  .settlement-desk .sd-sheet { --sd-pad-x: 18px; --sd-cell-x: 12px; border-radius: 20px; }
+  .settlement-desk .sd-ledger { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+  .settlement-desk .sd-due { grid-column: 1 / -1; grid-row: 2; padding: 12px 0 0; border-top: 1px solid var(--line); }
+  .settlement-desk .sd-party-debtor { grid-column: 1; grid-row: 1; }
+  .settlement-desk .sd-party-creditor { grid-column: 2; grid-row: 1; }
+  .settlement-desk .sd-rail { display: none; }
+  .settlement-desk .sd-priority { justify-content: flex-start; }
+  /* Narrow stages scroll the whole sheet rather than a squeezed list. */
+  .settlement-desk .sd-sheet > .sd-main { flex: none; }
+  .settlement-desk .sd-table-wrap { flex: none; min-height: 0; overflow: auto hidden; }
+  .settlement-desk .sd-assets-table th:nth-child(2),
+  .settlement-desk .sd-assets-table td:nth-child(2) { display: none; }
+  .settlement-desk .sd-folded { display: block; }
+  .settlement-desk .sd-pips { display: none; }
+  .settlement-desk .sd-totals { grid-template-columns: 1fr; }
+  .settlement-desk .sd-actions { justify-content: stretch; }
+  .settlement-desk .sd-actions .gf-btn { flex: 1 1 200px; }
+  .settlement-desk .sd-offer { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto; }
+  .settlement-desk .sd-offer-math { grid-column: 1; grid-row: 3; }
+  .settlement-desk .sd-decision { align-items: stretch; flex-direction: column; }
+}
+@container sd-stage (max-width: 560px) {
+  .settlement-desk .sd-sheet { --sd-seat: 40px; --sd-name: 16px; --sd-due: 34px; --sd-pad-x: 14px; --sd-cell-x: 10px; }
+  /* Phones: debtor then creditor, each on its own line, then the amount. */
+  .settlement-desk .sd-ledger { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .settlement-desk .sd-party { gap: 12px; }
+  .settlement-desk .sd-party-creditor { grid-column: 1; grid-row: 2; flex-direction: row; text-align: left; }
+  .settlement-desk .sd-party-creditor .sd-party-text { align-items: flex-start; }
+  .settlement-desk .sd-due { grid-row: 3; }
+  .settlement-desk .sd-cause > span { display: none; }
+  .settlement-desk .sd-assets-table th:nth-child(3),
+  .settlement-desk .sd-assets-table td:nth-child(3),
+  .settlement-desk .sd-assets-table th:nth-child(4),
+  .settlement-desk .sd-assets-table td:nth-child(4) { display: none; }
+  .settlement-desk .sd-folded > span { display: inline; }
+  .settlement-desk .sd-quantity button { width: 26px; height: 26px; }
+  .settlement-desk .sd-figures { gap: 22px; }
+}

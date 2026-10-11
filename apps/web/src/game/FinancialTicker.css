@@ -1,13 +1,55 @@
-.financial-ticker{position:relative;display:flex;align-items:center;gap:18px;min-width:0;height:28px;padding:0 18px;background:linear-gradient(180deg,#07121b,#040b12);border-top:1px solid #aa966b55;color:#d6e0e4;overflow:hidden}
-.financial-ticker__label{position:relative;z-index:1;flex:none;color:#dec38a;font:600 8px var(--font-data,monospace);letter-spacing:.14em;white-space:nowrap}
-.financial-ticker__viewport{min-width:0;flex:1;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent)}
-.financial-ticker__track{display:flex;width:max-content;animation:financial-ticker-scroll 90s linear infinite;will-change:transform}
-.financial-ticker__viewport:hover .financial-ticker__track,.financial-ticker__track:focus-within{animation-play-state:paused}
-.financial-ticker__group{display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap}
-.financial-ticker__quote{display:flex;align-items:center;gap:8px;font:9px var(--font-data,monospace)}
-.financial-ticker__quote>b{color:#c5d1d6;font-weight:500;letter-spacing:.04em}
-.financial-ticker__quote>strong{color:#f1eee6;font-weight:500}
-.financial-ticker__quote>i{font-size:8px;font-style:normal;color:#a4b4bc}
-.financial-ticker__quote>i.positive{color:#6fc5a0}.financial-ticker__quote>i.negative{color:#de8580}.financial-ticker__quote>i.flat{color:#93a5ad}
-@keyframes financial-ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.financial-ticker__track{width:100%;animation:none;overflow:auto}.financial-ticker__group[aria-hidden=true]{display:none}.financial-ticker__viewport{overflow:auto;mask-image:none}}
+/* GLOBAL EXCHANGE — one thin line at the foot of the table: the latest wire, then quotes. */
+.financial-ticker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  height: 26px;
+  padding-left: 20px;
+  color: var(--text-2);
+  background: linear-gradient(180deg, rgba(11, 11, 12, 0), rgba(11, 11, 12, 0.85) 45%);
+  overflow: hidden;
+}
+.financial-ticker__label { flex: none; font: 600 10px/1 var(--font-ui); letter-spacing: 0.16em; color: var(--text-3); white-space: nowrap; }
+.financial-ticker__wire {
+  flex: 0 0 auto;
+  min-width: 0;
+  max-width: 34%;
+  margin: 0;
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+  font: 400 12px/1 var(--font-ui);
+  color: var(--text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.financial-ticker__viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+.financial-ticker__track { display: flex; width: max-content; outline: none; animation: financial-ticker-scroll 90s linear infinite; will-change: transform; }
+.financial-ticker__viewport:hover .financial-ticker__track,
+.financial-ticker__track:focus-within { animation-play-state: paused; }
+.financial-ticker__group { display: flex; align-items: center; gap: 30px; padding-right: 30px; white-space: nowrap; }
+.financial-ticker__quote { display: inline-flex; align-items: baseline; gap: 8px; font: 500 11px/1 var(--font-ui); font-variant-numeric: tabular-nums lining-nums; }
+.financial-ticker__quote > b { font: 600 11px/1 var(--font-ui); letter-spacing: 0.04em; color: var(--text-3); }
+.financial-ticker__quote > strong { font-weight: 500; color: var(--text-2); }
+.financial-ticker__quote > i { font-size: 10.5px; font-style: normal; color: var(--text-500); }
+.financial-ticker__quote > i.positive { color: var(--up); }
+.financial-ticker__quote > i.negative { color: var(--down); }
+.financial-ticker__quote > i.flat { color: var(--text-600); }
+@keyframes financial-ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 900px) { .financial-ticker { height: 24px; padding-left: 12px; } .financial-ticker__wire { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .financial-ticker__track { width: 100%; animation: none; overflow: auto; scrollbar-width: none; }
+  .financial-ticker__group[aria-hidden="true"] { display: none; }
+  .financial-ticker__viewport { -webkit-mask-image: none; mask-image: none; }
+}
+.motion-reduced .financial-ticker__track { width: 100%; animation: none; overflow: auto; scrollbar-width: none; will-change: auto; }
+.motion-reduced .financial-ticker__group[aria-hidden="true"] { display: none; }
+.motion-reduced .financial-ticker__viewport { -webkit-mask-image: none; mask-image: none; }

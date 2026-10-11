@@ -7,7 +7,8 @@ export interface BoardTimeline {
   noticeId: number; playerId: string; roll: number; fromPosition: number; toPosition: number;
   diceStartedAt: number; motionStartedAt: number; motionStepMs: number;
 }
-export const PRESENTATION_TIMING = { focus: 180, travel: 1450, dice: 1100, result: 450, step: 155, arrival: 300, reveal: 180, dismiss: 180, grade: 250, prices: 350 } as const;
+/** Visible beats of the 3D table (ms). Values only pace the presentation of facts already decided by the server. */
+export const PRESENTATION_TIMING = { focus: 260, travel: 6500, dice: 1300, result: 560, step: 220, arrival: 900, reveal: 260, dismiss: 220, grade: 420, prices: 420 } as const;
 export function idleStage(game: GameView): PresentationStage {
   return game.phase === "geography" ? "TRAVEL_DECISION" : game.phase === "sector" ? "WAITING_FOR_DICE" : game.phase === "market" ? "TRADING" : "TURN_END";
 }

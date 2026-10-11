@@ -3,7 +3,11 @@ import type { ZoneId } from "@global-fund/shared";
 import { marketPlaceVisuals } from "./marketPlaceVisuals";
 import "./office-environment.css";
 
-/** A client keeps its human's office while another fund plays. Travel completes before the fade. */
+/**
+ * The night view behind the 3D table: the photographic skyline of the client's
+ * office city, darkened and softly defocused. A client keeps its human's office
+ * while another fund plays. Travel completes before the fade.
+ */
 export default function OfficeEnvironment({ market, playerId, travelling, reducedMotion }: {
   market: ZoneId; playerId: string; travelling: boolean; reducedMotion: boolean;
 }) {
@@ -30,11 +34,11 @@ export default function OfficeEnvironment({ market, playerId, travelling, reduce
   }, [previous, visible, reducedMotion]);
   const pane = (id: ZoneId, leaving = false) => <div className={`office-pane ${leaving ? "office-leaving" : "office-current"}`} key={`${id}-${leaving}`}>
     <div className="office-skyline" style={{ backgroundImage: `url('${marketPlaceVisuals[id].background}')` }} />
-    <div className="office-window-grid" />
-    <div className="office-interior" />
-    <div className="office-exposure" />
   </div>;
   return <div className="room-depth market-office" aria-hidden="true" data-current-market={visible} data-office-player={playerId} data-office-city={marketPlaceVisuals[visible].city}>
     {pane(visible)}{previous && pane(previous, true)}
+    <div className="office-grade" />
+    <div className="office-glow" />
+    <div className="office-vignette" />
   </div>;
 }

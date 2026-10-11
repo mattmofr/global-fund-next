@@ -23,6 +23,11 @@ function refresh() {
 }
 media?.addEventListener("change", refresh);
 export function getPresentationSettings() { return snapshot; }
+/** Non-React listener (document attributes). Returns an unsubscribe function. */
+export function subscribePresentationSettings(notify: () => void) {
+  subscribers.add(notify);
+  return () => { subscribers.delete(notify); };
+}
 export function setPresentationSettings(next: Partial<PresentationSettings>) {
   saved = { ...saved, ...next };
   try { localStorage.setItem(key, JSON.stringify(saved)); } catch { /* optional */ }
