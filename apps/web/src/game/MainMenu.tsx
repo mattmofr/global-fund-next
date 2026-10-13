@@ -3,6 +3,7 @@ import "./main-menu.css";
 
 export interface MainMenuProps {
   onNew: () => void;
+  onOnline: () => void;
   onJoin: () => void;
   onResume?: () => void;
   /** Room code of the saved session, shown on REPRENDRE. */
@@ -25,7 +26,7 @@ export function Emblem({ className = "" }: { className?: string }) {
 }
 
 /** Title screen. The 3D hero (MenuHero) lives behind it, on the right half. */
-export default function MainMenu({ onNew, onJoin, onResume, resumeCode, onSettings, onRules }: MainMenuProps) {
+export default function MainMenu({ onNew, onOnline, onJoin, onResume, resumeCode, onSettings, onRules }: MainMenuProps) {
   return (
     <main id="main-menu" className="main-menu" aria-labelledby="main-menu-title">
       <section className="mm-stage">
@@ -41,6 +42,10 @@ export default function MainMenu({ onNew, onJoin, onResume, resumeCode, onSettin
           <button type="button" className="gf-btn gf-btn--primary gf-btn--lg mm-action mm-action--primary" title="2 à 6 fonds, humains ou IA" onClick={onNew}>
             <span className="mm-action__label">NOUVELLE PARTIE</span>
             <ArrowRight className="mm-action__arrow" size={18} strokeWidth={2} aria-hidden="true" />
+          </button>
+          <button type="button" className="gf-btn gf-btn--quiet gf-btn--lg mm-action" title="Créer un salon et inviter des joueurs" onClick={onOnline}>
+            <span className="mm-action__label">NOUVELLE PARTIE EN LIGNE</span>
+            <ArrowRight className="mm-action__arrow" size={17} strokeWidth={2} aria-hidden="true" />
           </button>
           <button type="button" className="gf-btn gf-btn--quiet gf-btn--lg mm-action" title="Avec un code d’invitation" onClick={onJoin}>
             <span className="mm-action__label">REJOINDRE</span>

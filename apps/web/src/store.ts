@@ -4,6 +4,7 @@ import type {
   ApiResult,
   CommandRequest,
   GameCommand,
+  LobbySeatConfig,
   RoomView,
   SeatConfig,
   Session,
@@ -146,20 +147,33 @@ export async function request(
       }),
   );
 }
-export const createRoom = (seats: SeatConfig[]) =>
-  request("room:create", { seats });
+export const createRoom = (
+  seats: SeatConfig[] | LobbySeatConfig[],
+  options: { mode?: "local" | "online" } = {},
+) => request("room:create", options.mode === "online" ? { mode: "online", seats } : { seats });
 export const joinRoom = (
   roomId: string,
-  name: string,
-  startingMarket: ZoneId,
-  pawn: SeatConfig["pawn"],
-) =>
-  request("room:join", {
-    roomId: roomId.trim().toUpperCase(),
-    name,
-    startingMarket,
-    pawn,
-  });
+  name?: string,
+  startingMarket?: ZoneId,
+  pawn?: SeatConfig["pawn"],
+) => request("room:join", {
+  roomId: roomId.trim().toUpperCase(),
+  ...(name !== undefined ? { name } : {}),
+  ...(startingMarket !== undefined ? { startingMarket } : {}),
+  ...(pawn !== undefined ? { pawn } : {}),
+});
+export const updateLobbyPlayer = (
+  roomId: string,
+  playerId: string,
+  patch: { name?: string; startingMarket?: ZoneId; pawn?: SeatConfig["pawn"] },
+) => request("room:player:update", { roomId, playerId, ...patch });
+export const updateLobbySlots = (roomId: string, seatCount: number) =>
+  request("room:slots:update", { roomId, seatCount });
+export const updateLobbySlot = (
+  roomId: string,
+  playerId: string,
+  patch: { kind?: SeatConfig["kind"]; difficulty?: SeatConfig["difficulty"] },
+) => request("room:slot:update", { roomId, playerId, ...patch });
 export function command(command: GameCommand, playerId: string) {
   const state = useGameStore.getState();
   if (

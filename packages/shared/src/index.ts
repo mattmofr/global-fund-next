@@ -35,6 +35,8 @@ export interface SeatConfig {
   pawn: PawnId;
   difficulty: Difficulty;
 }
+/** Online rooms exist before humans select their starting market. */
+export type LobbySeatConfig = Omit<SeatConfig, "startingMarket"> & { startingMarket?: ZoneId };
 export interface Player {
   id: string;
   name: string;
@@ -332,7 +334,11 @@ export interface RoomPlayer {
   kind: SlotKind;
   bot: boolean;
   pawn: PawnId;
-  startingMarket: ZoneId;
+  startingMarket: ZoneId | null;
+  /** A disconnected remote slot retained for history but omitted at game start. */
+  excluded?: boolean;
+  /** Reservation ownership is public; authentication token hashes remain private. */
+  claimed?: boolean;
   /** Historical save field / old client protocol. */
   nationality?: string;
   difficulty: Difficulty;
@@ -350,6 +356,9 @@ export interface ChatMessage {
 }
 export interface RoomView {
   roomId: string;
+  roomCode: string;
+  mode: "local" | "online";
+  settings: { seatCount: number };
   status: "lobby" | "playing" | "finished";
   hostId: string;
   players: RoomPlayer[];

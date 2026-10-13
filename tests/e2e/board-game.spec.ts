@@ -13,7 +13,7 @@ function watchCommandFrames(page: Page) {
 async function enterLocalGame(page: Page) {
   await page.goto("/");
   await expect(page.getByText("Serveur connecté")).toBeVisible();
-  await page.getByRole("button", { name: /NOUVELLE PARTIE/ }).click();
+  await page.getByRole("button", { name: "NOUVELLE PARTIE", exact: true }).click();
   await page.getByLabel("Type du joueur 2").selectOption("local");
   await page.getByRole("button", { name: /Choisir les places (?:financières|de marché)/ }).click();
   const setup = page.getByTestId("setup-step-markets");

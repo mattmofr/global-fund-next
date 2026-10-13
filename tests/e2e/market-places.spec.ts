@@ -5,7 +5,7 @@ const settledStages = /^(TRAVEL_DECISION|WAITING_FOR_DICE|TRADING|TURN_END)$/;
 async function startCreation(page: Page, secondSeat: "local" | "ai" = "ai") {
   await page.goto("/");
   await expect(page.getByText("Serveur connecté")).toBeVisible();
-  await page.getByRole("button", { name: /NOUVELLE PARTIE/ }).click();
+  await page.getByRole("button", { name: "NOUVELLE PARTIE", exact: true }).click();
   await page.getByLabel("Type du joueur 2").selectOption(secondSeat);
   await page.getByRole("button", { name: /Choisir les places (?:financières|de marché)/ }).click();
   await expect(page.getByTestId("setup-step-markets")).toBeVisible();

@@ -1,9 +1,11 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { createPortal } from "react-dom";
 import { ArrowRight, Check, Copy, Settings2, Volume2, VolumeX, X } from "lucide-react";
 import {
   PAWNS,
   PLAYER_COLORS,
   diversifyStartingMarkets,
+  type LobbySeatConfig,
   type PawnId,
   type RoomPlayer,
   type RoomView,
@@ -18,7 +20,7 @@ import StartingMarketPicker, { type MarketOccupant } from "./game/StartingMarket
 import { MARKET_PLACES } from "./game/marketPlaceVisuals";
 import { usePresentationSettings, setPresentationSettings } from "./presentation/settings";
 import { getAudioSettings, setAudioSettings, unlockAudio, type AudioSettings } from "./presentation/audio";
-import { useGameStore, createRoom, joinRoom, request } from "./store";
+import { useGameStore, createRoom, joinRoom, request, updateLobbyPlayer, updateLobbySlots, updateLobbySlot } from "./store";
 import { useDialogFocus } from "./presentation/useDialogFocus";
 import { loadSetupDraft, saveSetupDraft } from "./setupDraft";
 import "./game/game-world.css";
@@ -33,10 +35,14 @@ interface HeroCast { pawns: PawnId[]; focusPawn: PawnId | null; focusZone: ZoneI
 
 const diversifiedMarkets: ZoneId[] = ["europe", "americas", "asia", "africa", "oceania", "europe"];
 const marketPlace = (id: ZoneId) => MARKET_PLACES.find((place) => place.id === id);
-const marketName = (id: ZoneId) => marketPlace(id)?.name ?? "Europe";
+const marketName = (id: ZoneId | null) => id ? marketPlace(id)?.name ?? "Europe" : "À choisir";
 const pad2 = (value: number) => String(value).padStart(2, "0");
 const DIFFICULTY: Record<SeatConfig["difficulty"], string> = { easy: "Prudente", normal: "Stratège", hard: "Experte" };
 const seatColor = (index: number) => PLAYER_COLORS[index % PLAYER_COLORS.length];
+const ONLINE_DEFAULT_SEATS: LobbySeatConfig[] = [
+  { name: "Fonds 1", kind: "local", pawn: "lion", difficulty: "normal" },
+  { name: "Fonds 2", kind: "remote", pawn: "globe", difficulty: "normal" },
+];
 
 /* ------------------------------------------------------------- brand -- */
 function Brand({ compact = false }: { compact?: boolean }) {
@@ -138,17 +144,30 @@ function Home({ mode, onBack, onMode, onCast }: {
   plannedSeats.forEach((seat, index) => {
     (occupants[seat.startingMarket] ??= []).push({ pawn: seat.pawn, name: seat.name || `Fonds ${index + 1}`, color: seatColor(index) });
   });
-  const missingName = seats.some((seat) => !seat.name.trim());
+  const hasRemoteSeat = seats.some((seat) => seat.kind === "remote");
+  // A saved local setup may still be on its market step from an older session.
+  // Remote seats always create the room first so guests choose their profile there.
+  const visibleCreateStep = hasRemoteSeat ? "funds" : createStep;
+  const missingName = seats.some((seat) => seat.kind !== "remote" && !seat.name.trim());
   const blocked = pending || !connected || missingName;
   const blockedReason = !connected ? "Connexion au serveur…" : missingName ? "Chaque fonds doit porter un nom." : "";
+  const createOnline = () => {
+    const lobbySeats: LobbySeatConfig[] = seats.map((seat, index) => ({
+      name: seat.kind === "remote" ? `Fonds ${index + 1}` : seat.name,
+      kind: seat.kind,
+      pawn: seat.kind === "remote" ? PAWNS[index % PAWNS.length]!.id : seat.pawn,
+      difficulty: seat.difficulty,
+    }));
+    void createRoom(lobbySeats, { mode: "online" });
+  };
 
   // The 3D backdrop shows the configured figurines, the last one touched in front.
   const seatPawns = seats.map((seat) => seat.pawn).join(",");
   const focus = mode === "join" ? joinPawn : lastPawn && seats.some((seat) => seat.pawn === lastPawn) ? lastPawn : (seats[0]?.pawn ?? null);
   // While a starting market is being chosen, the globe turns to that city (or to the card under the pointer).
-  const chosenZone = mode === "join" ? startingMarket : createStep === "markets" ? activeHumanSeat?.startingMarket ?? null : null;
+  const chosenZone = mode === "join" ? startingMarket : visibleCreateStep === "markets" ? activeHumanSeat?.startingMarket ?? null : null;
   const focusZone = chosenZone && previewZone ? previewZone : chosenZone;
-  useEffect(() => { setPreviewZone(null); }, [mode, createStep]);
+  useEffect(() => { setPreviewZone(null); }, [mode, visibleCreateStep]);
   useEffect(() => {
     onCast({ pawns: mode === "join" ? [joinPawn] : (seatPawns.split(",") as PawnId[]), focusPawn: focus, focusZone });
   }, [mode, joinPawn, seatPawns, focus, focusZone, onCast]);
@@ -171,18 +190,18 @@ function Home({ mode, onBack, onMode, onCast }: {
           <>
             <header className="gf-setup__head">
               <ol className="gf-steps" aria-label="Étapes de création">
-                <li className={createStep === "funds" ? "is-current" : "is-done"} aria-current={createStep === "funds" ? "step" : undefined}>
-                  <i aria-hidden="true">{createStep === "funds" ? "1" : <Check size={11} strokeWidth={3} />}</i>
+                <li className={visibleCreateStep === "funds" ? "is-current" : "is-done"} aria-current={visibleCreateStep === "funds" ? "step" : undefined}>
+                  <i aria-hidden="true">{visibleCreateStep === "funds" ? "1" : <Check size={11} strokeWidth={3} />}</i>
                   <span>Fonds</span>
                 </li>
-                <li className={createStep === "markets" ? "is-current" : ""} aria-current={createStep === "markets" ? "step" : undefined}>
+                <li className={visibleCreateStep === "markets" ? "is-current" : ""} aria-current={visibleCreateStep === "markets" ? "step" : undefined}>
                   <i aria-hidden="true">2</i>
                   <span>Places financières</span>
                 </li>
               </ol>
               <div className="gf-setup__title">
-                <h1 id="gf-setup-title" className="gf-display">{createStep === "funds" ? "Composez la table." : "Choisissez vos places."}</h1>
-                {createStep === "funds" && (
+                <h1 id="gf-setup-title" className="gf-display">{visibleCreateStep === "funds" ? "Composez la table." : "Choisissez vos places."}</h1>
+                {visibleCreateStep === "funds" && (
                   <label className="gf-setup__count">
                     <span>Fonds à la table</span>
                     <select aria-label="Nombre de joueurs" value={seats.length} onChange={(e) => resize(Number(e.target.value))}>
@@ -193,7 +212,7 @@ function Home({ mode, onBack, onMode, onCast }: {
               </div>
             </header>
 
-            {createStep === "funds" ? (
+            {visibleCreateStep === "funds" ? (
               <div className="gf-setup__body fund-setup-step" data-testid="setup-step-funds" key="funds">
                 <ol className="seat-list">
                   {seats.map((seat, index) => (
@@ -205,6 +224,7 @@ function Home({ mode, onBack, onMode, onCast }: {
                         value={seat.name}
                         maxLength={40}
                         spellCheck={false}
+                        disabled={seat.kind === "remote"}
                         onChange={(e) => update(index, { name: e.target.value })}
                       />
                       <select
@@ -235,7 +255,11 @@ function Home({ mode, onBack, onMode, onCast }: {
                       ) : (
                         <span className="seat-row__level is-empty" aria-hidden="true" />
                       )}
-                      <PawnPicker seat={index + 1} value={seat.pawn} onPick={(pawn) => { update(index, { pawn }); setLastPawn(pawn); }} />
+                      {seat.kind === "remote" ? (
+                        <span className="pawn-picker seat-row__remote-note" aria-label={`Le joueur distant choisira son pion pour le fonds ${index + 1}`}>Pion choisi par l’invité</span>
+                      ) : (
+                        <PawnPicker seat={index + 1} value={seat.pawn} onPick={(pawn) => { update(index, { pawn }); setLastPawn(pawn); }} />
+                      )}
                     </li>
                   ))}
                 </ol>
@@ -292,14 +316,18 @@ function Home({ mode, onBack, onMode, onCast }: {
             )}
 
             <footer className="gf-setup__foot">
-              {createStep === "funds" ? (
+              {visibleCreateStep === "funds" ? (
                 <span className="gf-setup__reason" aria-live="polite">{blockedReason}</span>
               ) : (
                 <button type="button" className="gf-btn gf-btn--quiet gf-setup__prev" onClick={() => setCreateStep("funds")}>← Configuration des fonds</button>
               )}
-              {createStep === "funds" ? (
-                <button className="gf-btn gf-btn--primary gf-btn--lg start-button" disabled={blocked} onClick={() => setCreateStep("markets")}>
-                  Choisir les places financières <ArrowRight size={18} />
+              {visibleCreateStep === "funds" ? (
+                <button className="gf-btn gf-btn--primary gf-btn--lg start-button" disabled={blocked} onClick={hasRemoteSeat ? createOnline : () => setCreateStep("markets")}>
+                  {hasRemoteSeat ? "Créer le salon en ligne" : "Choisir les places financières"} <ArrowRight size={18} />
+                </button>
+              ) : hasRemoteSeat ? (
+                <button className="gf-btn gf-btn--primary gf-btn--lg start-button" disabled={blocked} onClick={createOnline}>
+                  Créer le salon en ligne <ArrowRight size={18} />
                 </button>
               ) : (
                 <button className="gf-btn gf-btn--primary gf-btn--lg start-button" disabled={blocked} onClick={() => void createRoom(plannedSeats)}>
@@ -313,7 +341,7 @@ function Home({ mode, onBack, onMode, onCast }: {
             className="join-form"
             onSubmit={(e) => {
               e.preventDefault();
-              void joinRoom(join, name, startingMarket, joinPawn);
+              void joinRoom(join);
             }}
           >
             <header className="gf-setup__head">
@@ -322,40 +350,23 @@ function Home({ mode, onBack, onMode, onCast }: {
               </div>
             </header>
             <div className="gf-setup__body join-form__body">
-              <div className="join-fields">
-                <label className="join-field join-field--code">
-                  <span>Code du salon</span>
-                  <input
-                    aria-label="Code du salon"
-                    placeholder="A1B2C3D4"
-                    value={join}
-                    onChange={(e) => setJoin(e.target.value.toUpperCase())}
-                    maxLength={8}
-                    autoComplete="off"
-                    spellCheck={false}
-                  />
-                </label>
-                <label className="join-field">
-                  <span>Nom de votre fonds</span>
-                  <input aria-label="Nom pour rejoindre" placeholder="Ex. Aster Capital" value={name} maxLength={40} onChange={(e) => setName(e.target.value)} required />
-                </label>
-                <label className="join-field join-field--pawn">
-                  <span>Votre pion</span>
-                  <span className="join-pawn">
-                    <Pawn id={joinPawn} size={30} />
-                    <select aria-label="Pion pour rejoindre" value={joinPawn} onChange={(e) => setJoinPawn(e.target.value as PawnId)}>
-                      {PAWNS.map((p) => (
-                        <option key={p.id} value={p.id}>{p.name} · {p.label}</option>
-                      ))}
-                    </select>
-                  </span>
-                </label>
-              </div>
-              <StartingMarketPicker value={startingMarket} label="Votre place de départ" onChange={setStartingMarket} onPreview={setPreviewZone} />
+              <label className="join-field join-field--code">
+                <span>Code du salon</span>
+                <input
+                  aria-label="Code du salon"
+                  placeholder="A1B2C3D4"
+                  value={join}
+                  onChange={(e) => setJoin(e.target.value.toUpperCase())}
+                  maxLength={8}
+                  autoComplete="off"
+                  spellCheck={false}
+                  autoFocus
+                />
+              </label>
             </div>
             <footer className="gf-setup__foot">
               <span className="gf-setup__reason" aria-live="polite">{!connected ? "Connexion au serveur…" : ""}</span>
-              <button className="gf-btn gf-btn--primary gf-btn--lg start-button" disabled={!join || !name || pending || !connected}>
+              <button className="gf-btn gf-btn--primary gf-btn--lg start-button" disabled={!join || pending || !connected}>
                 Rejoindre <ArrowRight size={18} />
               </button>
             </footer>
@@ -390,18 +401,120 @@ async function copyText(text: string): Promise<boolean> {
   }
 }
 
-function LobbySeat({ player, index, you, onSpotlight }: {
+function LobbyProfileDialog({ room, player, index, pending, canEditProfile, canEditMarket, canEditSlot, host, onClose, onNameChange, onReady }: {
+  room: RoomView;
+  player: RoomPlayer;
+  index: number;
+  pending: boolean;
+  canEditProfile: boolean;
+  canEditMarket: boolean;
+  canEditSlot: boolean;
+  host: boolean;
+  onClose: () => void;
+  onNameChange: (name: string) => void;
+  onReady: (name: string) => Promise<boolean>;
+}) {
+  const [name, setName] = useState(player.name);
+  const saveName = async () => {
+    if (name === player.name) return true;
+    const result = await updateLobbyPlayer(room.roomId, player.id, { name });
+    return Boolean(result?.ok);
+  };
+  const close = async () => { if (await saveName()) onClose(); };
+  const ready = async () => { if (await onReady(name)) onClose(); };
+  const dialog = useDialogFocus(() => { void close(); });
+  return (
+    <div className="shell-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby={`lobby-profile-title-${player.id}`}>
+      <section ref={dialog} tabIndex={-1} className="shell-modal settings-panel gf-glass">
+        <header className="shell-modal__head">
+          <h2 id={`lobby-profile-title-${player.id}`} className="gf-display">Configurer le fonds {index + 1}</h2>
+          <button type="button" className="gf-icon-btn shell-modal__close" aria-label="Fermer la configuration" disabled={pending} onClick={() => void close()}><X size={17} /></button>
+        </header>
+        <div className="settings-group">
+          {canEditSlot && (
+            <label className="settings-row"><span>Type du fonds {index + 1}</span>
+              <select aria-label={`Type du fonds ${index + 1}`} value={player.kind} disabled={pending} onChange={(event) => void updateLobbySlot(room.roomId, player.id, { kind: event.target.value as SeatConfig["kind"] })}>
+                <option value="local">Même écran</option><option value="remote">À distance</option><option value="ai">IA</option>
+              </select>
+            </label>
+          )}
+          {canEditProfile && (
+            <label className="settings-row"><span>Nom du fonds {index + 1}</span>
+              <input aria-label={`Nom du fonds ${index + 1}`} value={name} maxLength={40} disabled={pending} onChange={(event) => { setName(event.target.value); onNameChange(event.target.value); }} />
+            </label>
+          )}
+          {canEditMarket && (
+            <label className="settings-row"><span>Place de départ du fonds {index + 1}</span>
+              <select aria-label={`Place de départ du fonds ${index + 1}`} value={player.startingMarket ?? ""} disabled={pending} onChange={(event) => { if (event.target.value) void updateLobbyPlayer(room.roomId, player.id, { startingMarket: event.target.value as ZoneId }); }}>
+                <option value="" disabled>Choisir une place</option>
+                {MARKET_PLACES.map((market) => <option key={market.id} value={market.id}>{market.name}</option>)}
+              </select>
+            </label>
+          )}
+          {canEditProfile && (
+            <label className="settings-row"><span>Pion du fonds {index + 1}</span>
+              <select aria-label={`Pion du fonds ${index + 1}`} value={player.pawn} disabled={pending} onChange={(event) => void updateLobbyPlayer(room.roomId, player.id, { pawn: event.target.value as PawnId })}>
+                {PAWNS.map((pawn) => <option key={pawn.id} value={pawn.id}>{pawn.name} · {pawn.label}</option>)}
+              </select>
+            </label>
+          )}
+          {host && player.kind === "ai" && (
+            <label className="settings-row"><span>Difficulté de l’IA {index + 1}</span>
+              <select aria-label={`Difficulté de l’IA ${index + 1}`} value={player.difficulty} disabled={pending} onChange={(event) => void updateLobbySlot(room.roomId, player.id, { difficulty: event.target.value as SeatConfig["difficulty"] })}>
+                <option value="easy">Prudente</option><option value="normal">Stratège</option><option value="hard">Experte</option>
+              </select>
+            </label>
+          )}
+        </div>
+        {player.kind !== "ai" && (canEditProfile || canEditMarket) && room.mode === "online" && (
+          <footer className="shell-modal__foot">
+            <button type="button" className={`gf-btn ${player.ready ? "gf-btn--ghost" : "gf-btn--primary"}`} disabled={pending || !name.trim() || !player.startingMarket} onClick={() => void ready()}>
+              {player.ready ? "Annuler mon état prêt" : "Je suis prêt"}
+            </button>
+            <button type="button" className="gf-btn gf-btn--quiet" disabled={pending} onClick={() => void close()}>Fermer</button>
+          </footer>
+        )}
+      </section>
+    </div>
+  );
+}
+
+function LobbySeat({ room, player, index, you, host, pending, onSpotlight, onDraftNameChange, onReady }: {
+  room: RoomView;
   player: RoomPlayer;
   index: number;
   you: boolean;
+  host: boolean;
+  pending: boolean;
+  onDraftNameChange: (name: string) => void;
+  onReady: (name: string) => Promise<boolean>;
   /** Hovering a seat puts that figurine in the light on the 3D table (presentation only). */
   onSpotlight: (pawn: PawnId | null) => void;
 }) {
-  const state = player.ready ? "ready" : player.connected ? "waiting" : "absent";
-  const status = player.ready ? "Prêt à investir" : player.connected ? "Connexion établie · en attente" : "En attente de votre invité";
+  const [configuring, setConfiguring] = useState(false);
+  const online = room.mode === "online";
+  const isAbsent = player.excluded || (player.kind !== "ai" && !player.connected);
+  const state = player.excluded ? "absent" : isAbsent ? "absent" : player.ready ? "ready" : "waiting";
+  const status = player.excluded
+    ? "Invité absent · ne participera pas"
+    : isAbsent
+      ? "En attente de votre invité"
+      : player.ready
+        ? "Prêt à investir"
+        : player.kind === "ai"
+          ? "Prête à investir"
+          : "Connexion établie · en attente";
+  const owner = you || (host && player.kind === "local");
+  const canEditProfile = online && (owner || (host && player.kind === "ai"));
+  const canEditMarket = online && owner && player.kind !== "ai";
+  const remoteSeatClaimed = player.claimed ?? player.connected;
+  const canEditSlot = online && host && index > 0 && (player.kind !== "remote" || !remoteSeatClaimed);
+  const canConfigure = online && (canEditProfile || canEditMarket || canEditSlot || (host && player.kind === "ai"));
   return (
+    <>
     <article
       className={`lobby-player is-${state} ${index % 2 === 0 ? "is-left" : "is-right"}${you ? " you" : ""}`}
+      data-testid={`lobby-seat-${player.id}`}
       style={{ "--seat-color": player.color, "--row": Math.floor(index / 2) + 1, "--i": index } as CSSProperties}
       onPointerMove={() => onSpotlight(player.pawn)}
       onPointerLeave={() => onSpotlight(null)}
@@ -416,10 +529,16 @@ function LobbySeat({ player, index, you, onSpotlight }: {
           {player.kind === "ai" && <span className="ai-level">{DIFFICULTY[player.difficulty]}</span>}
         </div>
         <h3>{player.name}</h3>
-        <p className="lobby-player__market">{marketName(player.startingMarket)} <span>· {marketPlace(player.startingMarket)?.city}</span></p>
+        <p className="lobby-player__market">{player.startingMarket ? <>{marketName(player.startingMarket)} <span>· {marketPlace(player.startingMarket)?.city}</span></> : <span>{player.kind === "ai" ? "Placement automatique" : "Place de départ à choisir"}</span>}</p>
         <p className="lobby-player-status"><i aria-hidden="true" />{status}</p>
+        {canConfigure && <button type="button" className="gf-btn gf-btn--sm" disabled={pending} onClick={() => setConfiguring(true)}>Configurer le fonds {index + 1}</button>}
       </div>
     </article>
+    {configuring && createPortal(
+      <LobbyProfileDialog room={room} player={player} index={index} pending={pending} canEditProfile={canEditProfile} canEditMarket={canEditMarket} canEditSlot={canEditSlot} host={host} onClose={() => setConfiguring(false)} onNameChange={(name) => { if (you) onDraftNameChange(name); }} onReady={onReady} />,
+      document.body,
+    )}
+    </>
   );
 }
 
@@ -428,7 +547,24 @@ function Lobby({ room, onSpotlight }: { room: RoomView; onSpotlight: (pawn: Pawn
   const pending = useGameStore((s) => s.pending);
   const host = session?.playerId === room.hostId;
   const own = room.players.find((p) => p.id === session?.playerId);
-  const allReady = room.players.every((p) => p.kind !== "remote" || (p.connected && p.ready));
+  const [ownDraftName, setOwnDraftName] = useState(own?.name ?? "");
+  useEffect(() => setOwnDraftName(own?.name ?? ""), [own?.id, own?.name]);
+  const updateReady = async (player: RoomPlayer, name: string): Promise<boolean> => {
+    if (!name.trim()) return false;
+    if (name !== player.name) {
+      const saved = await updateLobbyPlayer(room.roomId, player.id, { name });
+      if (!saved?.ok) return false;
+    }
+    const result = await request("room:ready", { roomId: room.roomId, playerId: player.id, ready: !player.ready });
+    return Boolean(result?.ok);
+  };
+  const allRemoteReady = room.players.every((p) => p.kind !== "remote" || (p.connected && p.ready));
+  const absentRemote = room.players.filter((p) => p.kind === "remote" && !p.connected && !p.excluded);
+  const eligible = room.players.filter((p) => !p.excluded && (p.kind !== "remote" || p.connected));
+  const eligibleReady = eligible.length >= 2 && eligible.every((p) => p.name.trim() && p.startingMarket && p.ready);
+  const canStartOnline = eligibleReady && absentRemote.length === 0;
+  const canStartWithoutAbsent = eligibleReady && absentRemote.length > 0;
+  const omitAbsent = room.mode === "online" && absentRemote.length > 0;
   const [copied, setCopied] = useState(false);
   // Leaving the lobby clears the spotlight (pointerleave never fires on unmount).
   useEffect(() => () => onSpotlight(null), [onSpotlight]);
@@ -438,7 +574,7 @@ function Lobby({ room, onSpotlight }: { room: RoomView; onSpotlight: (pawn: Pawn
     return () => window.clearTimeout(timer);
   }, [copied]);
   const copy = () => {
-    void copyText(`${location.origin}?room=${room.roomId}`).then((ok) => { if (ok) setCopied(true); });
+    void copyText(`${location.origin}?room=${room.roomCode}`).then((ok) => { if (ok) setCopied(true); });
   };
   return (
     <main className="lobby-scene" style={{ "--seat-rows": Math.ceil(room.players.length / 2) } as CSSProperties}>
@@ -449,10 +585,17 @@ function Lobby({ room, onSpotlight }: { room: RoomView; onSpotlight: (pawn: Pawn
           <li><b>100</b> contextes</li>
           <li><b>50</b> événements</li>
           <li><b>52</b> semaines</li>
+          {host && room.mode === "online" && (
+            <li>
+              <label>Fonds à la table <select aria-label="Nombre de joueurs" value={room.settings.seatCount} disabled={pending} onChange={(event) => void updateLobbySlots(room.roomId, Number(event.target.value))}>
+                {[2, 3, 4, 5, 6].map((count) => <option key={count} value={count}>{count}</option>)}
+              </select></label>
+            </li>
+          )}
         </ul>
         <div className="room-code">
           <small>CODE D’INVITATION</small>
-          <b className="gf-mono">{room.roomId}</b>
+          <b className="gf-mono">{room.roomCode}</b>
           <button type="button" className={`gf-btn gf-btn--ghost gf-btn--sm room-code__copy${copied ? " is-copied" : ""}`} onClick={copy} title="Copier le lien d’invitation">
             {copied ? <Check size={14} strokeWidth={2.2} aria-hidden="true" /> : <Copy size={14} strokeWidth={1.8} aria-hidden="true" />}
             {copied ? "Copié" : "Inviter"}
@@ -462,7 +605,18 @@ function Lobby({ room, onSpotlight }: { room: RoomView; onSpotlight: (pawn: Pawn
       </header>
 
       {room.players.map((player, index) => (
-        <LobbySeat key={player.id} player={player} index={index} you={player.id === session?.playerId} onSpotlight={onSpotlight} />
+        <LobbySeat
+          key={player.id}
+          room={room}
+          player={player}
+          index={index}
+          you={player.id === session?.playerId}
+          host={host}
+          pending={pending}
+          onSpotlight={onSpotlight}
+          onDraftNameChange={setOwnDraftName}
+          onReady={(name) => updateReady(player, name)}
+        />
       ))}
 
       <div className="lobby-chat">
@@ -472,29 +626,32 @@ function Lobby({ room, onSpotlight }: { room: RoomView; onSpotlight: (pawn: Pawn
       <div className="lobby-dock">
         <div className="lobby-dock__actions">
           <button type="button" className="gf-btn gf-btn--ghost gf-btn--lg lobby-dock__back" onClick={() => useGameStore.getState().reset()}>
-            Retour à l’accueil
+            {room.mode === "online" ? "Accueil" : "Retour à l’accueil"}
           </button>
           {host ? (
             <button
               type="button"
               className="gf-btn gf-btn--primary gf-btn--lg lobby-dock__main"
-              disabled={pending || !allReady}
-              onClick={() => void request("room:start", { roomId: room.roomId })}
+              aria-label={omitAbsent ? `Ouvrir sans ${absentRemote.length} invité${absentRemote.length === 1 ? "" : "s"} absent${absentRemote.length === 1 ? "" : "s"}` : "Ouvrir le parquet"}
+              disabled={pending || (room.mode === "online" ? (omitAbsent ? !canStartWithoutAbsent : !canStartOnline) : !allRemoteReady)}
+              onClick={() => void request("room:start", { roomId: room.roomId, ...(omitAbsent ? { omitAbsent: true } : {}) })}
             >
-              Ouvrir le parquet <ArrowRight size={18} />
+              {omitAbsent ? `Lancer sans ${absentRemote.length} invité${absentRemote.length === 1 ? "" : "s"}` : "Ouvrir le parquet"} <ArrowRight size={18} />
             </button>
           ) : (
             <button
               type="button"
               className={`gf-btn ${own?.ready ? "gf-btn--ghost" : "gf-btn--primary"} gf-btn--lg lobby-dock__main`}
-              disabled={pending}
-              onClick={() => void request("room:ready", { roomId: room.roomId, ready: !own?.ready })}
+              data-lobby-ready={own?.id}
+              disabled={pending || (room.mode === "online" && (!ownDraftName.trim() || !own?.startingMarket))}
+              onClick={() => own && void updateReady(own, ownDraftName)}
             >
               {own?.ready ? "Annuler mon état prêt" : "Je suis prêt"} <Check size={17} />
             </button>
           )}
         </div>
-        {!allReady && host && <p className="lobby-ready-note">Ouverture dès que chaque invité est prêt.</p>}
+        {host && room.mode === "online" && !canStartOnline && <p className="lobby-ready-note">{absentRemote.length ? "Un invité est absent. Vous pouvez l’attendre ou ouvrir sans sa place si les autres fonds sont prêts." : "Chaque fonds actif doit choisir son nom et sa place, puis être prêt."}</p>}
+        {host && room.mode === "local" && !allRemoteReady && <p className="lobby-ready-note">Ouverture dès que chaque invité est prêt.</p>}
       </div>
     </main>
   );
@@ -725,6 +882,7 @@ export default function App() {
         menuScreen === "menu" ? (
           <MainMenu
             onNew={() => setMenuScreen("create")}
+            onOnline={() => void createRoom(ONLINE_DEFAULT_SEATS, { mode: "online" })}
             onJoin={() => setMenuScreen("join")}
             onSettings={() => setSettings(true)}
             onRules={() => setRules(true)}

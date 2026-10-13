@@ -29,13 +29,16 @@ import type {
   SlotKind,
   ZoneId,
 } from "@global-fund/shared";
-import { PLAYER_COLORS, PAWNS, diversifyStartingMarkets, isMarketId, legacyStartingMarket, marketFromLegacyNationality } from "@global-fund/shared";
+import { PLAYER_COLORS, PAWNS, MARKET_IDS, diversifyStartingMarkets, isMarketId, legacyStartingMarket, marketFromLegacyNationality } from "@global-fund/shared";
 import { rooms as roomsTable } from "./schema.js";
 import { applyMigrations } from "./migrate.js";
 
 type Slot = RoomPlayer & { tokenHash: string | null };
 type StoredRoom = {
   roomId: string;
+  mode?: RoomView["mode"];
+  lobbyVersion?: number;
+  nextSlotNumber?: number;
   status: RoomView["status"];
   hostId: string;
   hostPlayerId: string;
@@ -72,6 +75,7 @@ function requestedMarket(record: Record<string, unknown>): ZoneId | undefined {
     return isMarketId(record.startingMarket) ? record.startingMarket : undefined;
   return marketFromLegacyNationality(record.nationality);
 }
+class PersistenceError extends Error {}
 
 export async function createServer(options: Options = {}) {
   const app: FastifyInstance = Fastify({ logger: options.logger ?? false });
@@ -110,46 +114,57 @@ export async function createServer(options: Options = {}) {
       ? resolve(projectRoot, "runtime/rooms.json")
       : options.storageFile;
   let fileWriteQueue: Promise<void> = Promise.resolve();
+  let durableFileRooms = new Map<string, StoredRoom>();
   let closed = false;
 
   const view = (r: StoredRoom): RoomView => ({
     roomId: r.roomId,
+    roomCode: r.roomId,
+    mode: r.mode ?? "local",
+    settings: { seatCount: r.players.length },
     status: r.status,
     hostId: r.hostPlayerId,
-    players: r.players.map(({ tokenHash: _secret, ...p }) => p),
+    players: r.players.map(({ tokenHash: secret, ...p }) => ({ ...p, claimed: p.kind !== "remote" || Boolean(secret) })),
     game: r.state ? getGameView(r.state) : null,
     messages: r.messages,
     revision: r.revision,
   });
   const persist = async (changed?: StoredRoom) => {
-    if (db) {
-      if (changed) {
-        const immutable = JSON.parse(JSON.stringify(changed)) as StoredRoom;
-        await db
-          .insert(roomsTable)
-          .values({ id: immutable.roomId, data: immutable as never })
-          .onConflictDoUpdate({
-            target: roomsTable.id,
-            set: { data: immutable as never, updatedAt: new Date() },
+    try {
+      if (db) {
+        if (changed) {
+          const immutable = JSON.parse(JSON.stringify(changed)) as StoredRoom;
+          await db
+            .insert(roomsTable)
+            .values({ id: immutable.roomId, data: immutable as never })
+            .onConflictDoUpdate({
+              target: roomsTable.id,
+              set: { data: immutable as never, updatedAt: new Date() },
+            });
+        }
+      } else if (storageFile) {
+        // Queue immutable changes against the last successfully written snapshot.
+        // Different rooms can persist concurrently, including newly created rooms.
+        const immutable = changed ? structuredClone(changed) : undefined;
+        const allRooms = immutable ? undefined : structuredClone([...roomMap.values()]);
+        const write = fileWriteQueue
+          .catch(() => {})
+          .then(async () => {
+            const next = allRooms
+              ? new Map(allRooms.map((room) => [room.roomId, room]))
+              : new Map(durableFileRooms);
+            if (immutable) next.set(immutable.roomId, immutable);
+            await mkdir(dirname(storageFile), { recursive: true });
+            const tmp = `${storageFile}.${process.pid}.${randomUUID()}.tmp`;
+            await writeFile(tmp, JSON.stringify([...next.values()]), "utf8");
+            await rename(tmp, storageFile);
+            durableFileRooms = next;
           });
+        fileWriteQueue = write;
+        await write;
       }
-    } else if (storageFile) {
-      // Capture the whole snapshot synchronously; later room mutations cannot alter this queued write.
-      const contents = JSON.stringify(
-        [...roomMap.values()].map((room) =>
-          room.roomId === changed?.roomId ? changed : room,
-        ),
-      );
-      const write = fileWriteQueue
-        .catch(() => {})
-        .then(async () => {
-          await mkdir(dirname(storageFile), { recursive: true });
-          const tmp = `${storageFile}.${process.pid}.${randomUUID()}.tmp`;
-          await writeFile(tmp, contents, "utf8");
-          await rename(tmp, storageFile);
-        });
-      fileWriteQueue = write;
-      await write;
+    } catch (cause) {
+      throw new PersistenceError("Impossible d’enregistrer la salle.", { cause });
     }
   };
   if (db) {
@@ -173,7 +188,10 @@ export async function createServer(options: Options = {}) {
       if ((e as NodeJS.ErrnoException).code !== "ENOENT") throw e;
     }
   }
+  durableFileRooms = new Map([...roomMap].map(([id, room]) => [id, structuredClone(room)]));
   function resetConnections(room: StoredRoom) {
+    room.mode ??= room.players.some((p) => p.kind === "remote") ? "online" : "local";
+    room.lobbyVersion ??= 1;
     room.hostId = "";
     for (const p of room.players) {
       if (p.startingMarket === undefined) {
@@ -197,7 +215,14 @@ export async function createServer(options: Options = {}) {
   const publish = async (r: StoredRoom) => {
     r.revision++;
     await persist(r);
+    const current = roomMap.get(r.roomId);
+    if (current) Object.assign(current, r);
+    else roomMap.set(r.roomId, r);
     io.to(r.roomId).emit("room:state", view(r));
+  };
+  const draftRoom = (roomId: string) => {
+    const current = roomMap.get(roomId);
+    return current ? structuredClone(current) : undefined;
   };
   const serialize = <T>(
     roomId: string,
@@ -221,7 +246,9 @@ export async function createServer(options: Options = {}) {
       if (typeof ack === "function") {
         try {
           (ack as (result: ApiResult) => void)(
-            fail("La requête n’a pas pu être traitée."),
+            error instanceof PersistenceError
+              ? fail("Impossible d’enregistrer la salle. Réessayez.", "PERSISTENCE_ERROR")
+              : fail("La requête n’a pas pu être traitée."),
           );
         } catch {
           /* disconnected client */
@@ -243,7 +270,19 @@ export async function createServer(options: Options = {}) {
       ? p
       : undefined;
   };
+  const remotePresent = (p: Slot) => p.kind !== "remote" || Boolean(
+    p.connected && p.controllerId && io.sockets.sockets.get(p.controllerId)?.connected,
+  );
+  const diversifyLobbyBots = (r: StoredRoom) => {
+    const selected = r.players.filter((p) => p.bot || isMarketId(p.startingMarket)).map((p, index) => ({
+      ...p, startingMarket: p.startingMarket ?? MARKET_IDS[index % MARKET_IDS.length],
+    }));
+    for (const balanced of diversifyStartingMarkets(selected)) {
+      if (balanced.bot) r.players.find((p) => p.id === balanced.id)!.startingMarket = balanced.startingMarket;
+    }
+  };
   const aiStep = (r: StoredRoom) => {
+    r = roomMap.get(r.roomId) ?? r;
     if (closed || r.status !== "playing" || !r.state) return;
     const active = r.players.find((p) => p.id === getDecisionPlayerId(r.state!));
     if (!active?.bot || aiTimers.has(r.roomId)) return;
@@ -278,11 +317,18 @@ export async function createServer(options: Options = {}) {
   io.on("connection", (socket) => {
     socket.on("room:create", (body: unknown, ack?: (r: ApiResult) => void) =>
       safe(
-        `new:${socket.id}`,
+        // Reserve generated codes serially until their room is durable.
+        "new",
         async () => {
           if (!isRecord(body))
             return ack?.(fail("Configuration de salle invalide."));
-          const seats = body?.seats;
+          if (body.mode !== undefined && !["local", "online"].includes(String(body.mode)))
+            return ack?.(fail("Mode de salon invalide."));
+          const online = body.mode === "online";
+          const seats = body.seats ?? (online ? [
+            { name: "Mon fonds", kind: "local", pawn: "lion", difficulty: "normal" },
+            { name: "Invité 2", kind: "remote", pawn: "bull", difficulty: "normal" },
+          ] : undefined);
           if (
             !Array.isArray(seats) ||
             seats.length < 2 ||
@@ -304,7 +350,9 @@ export async function createServer(options: Options = {}) {
                 !s.name.trim() ||
                 s.name.length > 40 ||
                 !["local", "remote", "ai"].includes(String(s.kind)) ||
-                !requestedMarket(s) ||
+                (online
+                  ? (Object.hasOwn(s, "startingMarket") && !isMarketId(s.startingMarket)) || Object.hasOwn(s, "nationality")
+                  : !requestedMarket(s)) ||
                 !PAWNS.some((p) => p.id === s.pawn) ||
                 !["easy", "normal", "hard"].includes(String(s.difficulty)),
             )
@@ -315,22 +363,22 @@ export async function createServer(options: Options = {}) {
             roomId = randomBytes(4).toString("hex").toUpperCase();
           } while (roomMap.has(roomId));
           const hostId = socket.id;
-          const players: Slot[] = diversifyStartingMarkets(seats.map((s, i) => ({
+          const players: Slot[] = seats.map((s, i) => ({
             id: `p${i + 1}`,
-            name: s.name.trim().slice(0, 40),
+            name: online && s.kind === "remote" ? `Invité ${i + 1}` : s.name.trim().slice(0, 40),
             kind: s.kind,
             bot: s.kind === "ai",
             pawn: s.pawn,
-            startingMarket: requestedMarket(s)!,
+            startingMarket: online && s.kind !== "ai" ? null : requestedMarket(s) ?? MARKET_IDS[i % MARKET_IDS.length],
             // Only retain a real country when supplied by an old client.
-            ...(!Object.hasOwn(s, "startingMarket") ? { nationality: s.nationality } : {}),
+            ...(!online && !Object.hasOwn(s, "startingMarket") ? { nationality: s.nationality } : {}),
             difficulty: s.difficulty,
             color: PLAYER_COLORS[i],
-            ready: s.kind !== "remote",
+            ready: online ? s.kind === "ai" : s.kind !== "remote",
             connected: s.kind === "local" || s.kind === "ai",
             controllerId: s.kind === "local" ? hostId : null,
             tokenHash: null,
-          })));
+          }));
           const session: Session = {
             roomId,
             playerId: players[0].id,
@@ -339,6 +387,9 @@ export async function createServer(options: Options = {}) {
           players[0].tokenHash = hash(session.token);
           const r: StoredRoom = {
             roomId,
+            mode: online || players.some((p) => p.kind === "remote") ? "online" : "local",
+            lobbyVersion: online ? 2 : 1,
+            nextSlotNumber: players.length + 1,
             status: "lobby",
             hostId,
             hostPlayerId: players[0].id,
@@ -349,9 +400,10 @@ export async function createServer(options: Options = {}) {
             commandIds: Object.create(null),
             chatTimes: Object.create(null),
           };
-          roomMap.set(roomId, r);
-          socket.join(roomId);
+          diversifyLobbyBots(r);
           await persist(r);
+          roomMap.set(roomId, r);
+          await socket.join(roomId);
           ack?.(roomResult(r, session));
         },
         ack,
@@ -359,14 +411,19 @@ export async function createServer(options: Options = {}) {
     );
     socket.on("room:join", (body: unknown, ack?: (r: ApiResult) => void) =>
       safe(
-        isRecord(body) ? text(body.roomId, 16) : "",
+        isRecord(body) ? text(body.roomId ?? body.roomCode, 16) : "",
         async () => {
+          if (!isRecord(body)) return ack?.(fail("Informations de connexion invalides."));
+          const roomId = body.roomId ?? body.roomCode;
+          const r = validRoomId(roomId) ? draftRoom(roomId) : undefined;
+          const online = r?.mode === "online";
           if (
-            !isRecord(body) ||
-            !validRoomId(body.roomId) ||
-            typeof body.name !== "string" ||
-            !body.name.trim() ||
-            body.name.length > 40 ||
+            !validRoomId(roomId) ||
+            (body.roomCode !== undefined && body.roomId !== undefined && body.roomCode !== body.roomId) ||
+            (online
+              ? body.name !== undefined && (typeof body.name !== "string" || !body.name.trim() || body.name.length > 40)
+              : typeof body.name !== "string" || !body.name.trim() || body.name.length > 40) ||
+            (r?.lobbyVersion === 2 && Object.hasOwn(body, "nationality")) ||
             ((Object.hasOwn(body, "startingMarket") || Object.hasOwn(body, "nationality")) &&
               !requestedMarket(body)) ||
             (body.pawn !== undefined &&
@@ -374,7 +431,6 @@ export async function createServer(options: Options = {}) {
                 !PAWNS.some((p) => p.id === body.pawn)))
           )
             return ack?.(fail("Informations de connexion invalides."));
-          const r = roomMap.get(text(body?.roomId, 16));
           if (!r || r.status !== "lobby")
             return ack?.(
               fail("Salle introuvable ou déjà lancée.", "NOT_FOUND"),
@@ -382,7 +438,7 @@ export async function createServer(options: Options = {}) {
           const p = r.players.find((x) => x.kind === "remote" && !x.tokenHash);
           if (!p)
             return ack?.(fail("Aucune place distante disponible.", "FULL"));
-          const name = text(body?.name, 40);
+          const name = body.name === undefined && online ? p.name : text(body.name, 40);
           if (!name) return ack?.(fail("Le nom est obligatoire."));
           if (Object.hasOwn(body, "startingMarket") || Object.hasOwn(body, "nationality")) {
             p.startingMarket = requestedMarket(body)!;
@@ -397,8 +453,9 @@ export async function createServer(options: Options = {}) {
           p.connected = true;
           p.name = name;
           p.ready = false;
-          socket.join(r.roomId);
+          diversifyLobbyBots(r);
           await publish(r);
+          await socket.join(r.roomId);
           ack?.(roomResult(r, session));
         },
         ack,
@@ -415,7 +472,7 @@ export async function createServer(options: Options = {}) {
             typeof session.token !== "string"
           )
             return ack?.(fail("Session invalide.", "UNAUTHORIZED"));
-          const r = roomMap.get(text(session?.roomId, 16));
+          const r = draftRoom(text(session?.roomId, 16));
           const p = r?.players.find((x) => x.id === session?.playerId);
           if (
             !r ||
@@ -423,12 +480,11 @@ export async function createServer(options: Options = {}) {
             p.tokenHash !== hash(text(session.token, 300))
           )
             return ack?.(fail("Jeton de session invalide.", "UNAUTHORIZED"));
+          if (r.status !== "lobby" && p.excluded)
+            return ack?.(fail("Cette place absente n’a pas participé au lancement.", "NOT_PARTICIPATING"));
           const previous = p.controllerId;
-          if (previous && previous !== socket.id)
-            io.sockets.sockets.get(previous)?.leave(r.roomId);
+          const previousHost = r.hostId;
           if (p.kind === "local") {
-            if (r.hostId && r.hostId !== socket.id)
-              io.sockets.sockets.get(r.hostId)?.leave(r.roomId);
             r.hostId = socket.id;
             for (const local of r.players.filter((x) => x.kind === "local")) {
               local.controllerId = socket.id;
@@ -438,13 +494,102 @@ export async function createServer(options: Options = {}) {
             p.controllerId = socket.id;
             p.connected = true;
           }
-          socket.join(r.roomId);
           await publish(r);
+          if (previous && previous !== socket.id)
+            await io.sockets.sockets.get(previous)?.leave(r.roomId);
+          if (p.kind === "local" && previousHost && previousHost !== socket.id)
+            await io.sockets.sockets.get(previousHost)?.leave(r.roomId);
+          await socket.join(r.roomId);
           ack?.(roomResult(r));
           aiStep(r);
         },
         ack,
       ),
+    );
+    socket.on("room:player:update", (body: unknown, ack?: (r: ApiResult) => void) =>
+      safe(isRecord(body) ? text(body.roomId, 16) : "", async () => {
+        if (!isRecord(body) || !validRoomId(body.roomId) || typeof body.playerId !== "string" ||
+          Object.keys(body).some((key) => !["roomId", "playerId", "name", "startingMarket", "pawn"].includes(key)) ||
+          (body.name !== undefined && (typeof body.name !== "string" || !body.name.trim() || body.name.length > 40)) ||
+          (Object.hasOwn(body, "startingMarket") && !isMarketId(body.startingMarket)) ||
+          (body.pawn !== undefined && !PAWNS.some((pawn) => pawn.id === body.pawn)))
+          return ack?.(fail("Préférences de fonds invalides."));
+        const r = draftRoom(body.roomId);
+        const p = r?.players.find((slot) => slot.id === body.playerId);
+        if (!r || r.status !== "lobby" || !p ||
+          !(authenticate(socket, r, p.id) || (p.bot && r.hostId === socket.id)))
+          return ack?.(fail("Vous ne contrôlez pas cette place.", "UNAUTHORIZED"));
+        if (p.bot && Object.hasOwn(body, "startingMarket"))
+          return ack?.(fail("La place des IA est répartie automatiquement."));
+        const changed = (body.name !== undefined && text(body.name, 40) !== p.name) ||
+          (body.startingMarket !== undefined && body.startingMarket !== p.startingMarket) ||
+          (body.pawn !== undefined && body.pawn !== p.pawn);
+        if (body.name !== undefined) p.name = text(body.name, 40);
+        if (isMarketId(body.startingMarket)) { p.startingMarket = body.startingMarket; delete p.nationality; }
+        if (body.pawn !== undefined) p.pawn = body.pawn as typeof p.pawn;
+        if (changed) {
+          if (!p.bot) p.ready = false;
+          diversifyLobbyBots(r);
+          await publish(r);
+        }
+        ack?.(roomResult(r));
+      }, ack),
+    );
+    socket.on("room:slots:update", (body: unknown, ack?: (r: ApiResult) => void) =>
+      safe(isRecord(body) ? text(body.roomId, 16) : "", async () => {
+        if (!isRecord(body) || !validRoomId(body.roomId) || !Number.isInteger(body.seatCount) ||
+          Number(body.seatCount) < 2 || Number(body.seatCount) > 6 ||
+          Object.keys(body).some((key) => !["roomId", "seatCount"].includes(key)))
+          return ack?.(fail("Choisissez entre 2 et 6 places."));
+        const r = draftRoom(body.roomId);
+        if (!r || r.status !== "lobby" || r.hostId !== socket.id)
+          return ack?.(fail("Seul l’hôte peut configurer les places.", "UNAUTHORIZED"));
+        const count = Number(body.seatCount);
+        if (r.players.slice(count).some((p) => p.kind === "remote" && p.tokenHash))
+          return ack?.(fail("Une place attribuée doit rester disponible pour sa reconnexion."));
+        r.nextSlotNumber ??= Math.max(...r.players.map((p) => Number(p.id.slice(1)))) + 1;
+        r.players = r.players.slice(0, count);
+        while (r.players.length < count) {
+          const index = r.players.length;
+          r.players.push({ id: `p${r.nextSlotNumber++}`, name: `Invité ${index + 1}`, kind: "remote", bot: false,
+            pawn: PAWNS[index].id, startingMarket: r.mode === "online" ? null : MARKET_IDS[index % 5],
+            difficulty: "normal", color: PLAYER_COLORS[index], ready: false, connected: false,
+            controllerId: null, tokenHash: null });
+        }
+        diversifyLobbyBots(r);
+        await publish(r);
+        ack?.(roomResult(r));
+      }, ack),
+    );
+    socket.on("room:slot:update", (body: unknown, ack?: (r: ApiResult) => void) =>
+      safe(isRecord(body) ? text(body.roomId, 16) : "", async () => {
+        if (!isRecord(body) || !validRoomId(body.roomId) || typeof body.playerId !== "string" ||
+          Object.keys(body).some((key) => !["roomId", "playerId", "kind", "difficulty"].includes(key)) ||
+          (body.kind !== undefined && !["local", "remote", "ai"].includes(String(body.kind))) ||
+          (body.difficulty !== undefined && !["easy", "normal", "hard"].includes(String(body.difficulty))))
+          return ack?.(fail("Configuration de place invalide."));
+        const r = draftRoom(body.roomId), p = r?.players.find((slot) => slot.id === body.playerId);
+        if (!r || r.status !== "lobby" || r.hostId !== socket.id || !p ||
+          (p.kind === "remote" && p.tokenHash))
+          return ack?.(fail("Seul l’hôte peut configurer une place libre ou une IA.", "UNAUTHORIZED"));
+        if (body.difficulty !== undefined && (body.kind ?? p.kind) !== "ai")
+          return ack?.(fail("La difficulté ne concerne que les IA."));
+        if (body.kind !== undefined && body.kind !== p.kind) {
+          if (p.id === r.hostPlayerId) return ack?.(fail("La place de l’hôte reste locale."));
+          p.kind = body.kind as SlotKind; p.bot = p.kind === "ai";
+          p.controllerId = p.kind === "local" ? socket.id : null;
+          p.connected = p.kind !== "remote";
+          p.ready = p.bot || (r.mode !== "online" && p.kind === "local");
+          p.startingMarket = r.mode === "online" && !p.bot ? null : p.startingMarket ?? "europe";
+          delete p.nationality;
+        }
+        if (body.difficulty !== undefined) {
+          p.difficulty = body.difficulty as Difficulty;
+        }
+        diversifyLobbyBots(r);
+        await publish(r);
+        ack?.(roomResult(r));
+      }, ack),
     );
     socket.on("room:ready", (body: unknown, ack?: (r: ApiResult) => void) =>
       safe(
@@ -453,18 +598,22 @@ export async function createServer(options: Options = {}) {
           if (
             !isRecord(body) ||
             !validRoomId(body.roomId) ||
-            typeof body.ready !== "boolean"
+            typeof body.ready !== "boolean" ||
+            (body.playerId !== undefined && typeof body.playerId !== "string") ||
+            Object.keys(body).some((key) => !["roomId", "playerId", "ready"].includes(key))
           )
             return ack?.(fail("Disponibilité invalide."));
-          const r = roomMap.get(text(body?.roomId, 16));
-          const p = r?.players.find((x) => x.controllerId === socket.id);
-          if (!r || r.status !== "lobby" || !p || p.kind !== "remote")
+          const r = draftRoom(text(body?.roomId, 16));
+          const p = r?.players.find((x) => body.playerId !== undefined ? x.id === body.playerId : x.controllerId === socket.id);
+          if (!r || r.status !== "lobby" || !p || p.bot || !authenticate(socket, r, p.id))
             return ack?.(
               fail(
                 "Vous ne pouvez pas modifier la disponibilité de cette place.",
                 "UNAUTHORIZED",
               ),
             );
+          if (body.ready && (!isMarketId(p.startingMarket) || !p.name.trim()))
+            return ack?.(fail("Choisissez votre place de départ avant de vous déclarer prêt.", "NOT_READY"));
           p.ready = body.ready;
           await publish(r);
           ack?.(roomResult(r));
@@ -477,43 +626,40 @@ export async function createServer(options: Options = {}) {
         isRecord(body) ? text(body.roomId, 16) : "",
         async () => {
           if (!isRecord(body) || !validRoomId(body.roomId) ||
-            (Object.hasOwn(body, "startingMarket") && !isMarketId(body.startingMarket)))
+            (Object.hasOwn(body, "startingMarket") && !isMarketId(body.startingMarket)) ||
+            (body.omitAbsent !== undefined && typeof body.omitAbsent !== "boolean"))
             return ack?.(fail("Salle invalide."));
-          const r = roomMap.get(text(body?.roomId, 16));
+          const r = draftRoom(body.roomId);
           if (!r || r.hostId !== socket.id)
-            return ack?.(
-              fail("Seul l’hôte peut lancer la partie.", "UNAUTHORIZED"),
-            );
-          if (
-            r.status !== "lobby" ||
-            r.players.some(
-              (p) => p.kind === "remote" && (!p.controllerId || !p.ready),
-            )
-          )
-            return ack?.(
-              fail(
-                "Chaque place distante doit être attribuée et prête.",
-                "NOT_READY",
-              ),
-            );
-          r.state = createGame(
-            r.players.map((p) => ({
-              name: p.name,
-              kind: p.kind,
-              startingMarket: p.startingMarket,
-              ...(p.nationality ? { nationality: p.nationality } : {}),
-              pawn: p.pawn,
-              difficulty: p.difficulty,
-            })),
-          ) as GameState;
-          // A remote player's selection can change occupancy since room creation.
-          for (const p of r.players) p.startingMarket = r.state.players.find((player) => player.id === p.id)!.startingMarket;
+            return ack?.(fail("Seul l’hôte peut lancer la partie.", "UNAUTHORIZED"));
+          if (r.status !== "lobby") return ack?.(fail("La partie est déjà lancée."));
+          const participants = r.players.filter((p) => !(body.omitAbsent === true && !remotePresent(p)));
+          if (participants.length < 2)
+            return ack?.(fail("Il faut au moins deux participants, humains ou IA.", "NOT_READY"));
+          if (participants.some((p) => !remotePresent(p) || !p.ready || !isMarketId(p.startingMarket)))
+            return ack?.(fail("Chaque participant présent doit choisir sa place et être prêt.", "NOT_READY"));
+          const state = createGame(participants.map((p) => ({
+            name: p.name, kind: p.kind, startingMarket: p.startingMarket!,
+            ...(p.nationality ? { nationality: p.nationality } : {}), pawn: p.pawn, difficulty: p.difficulty,
+          })));
+          // The engine's new-game factory allocates consecutive IDs. Preserve
+          // authenticated slot identities when an absent seat leaves a gap.
+          // This runs only on a brand-new state (empty portfolios and notices).
+          const stableIds = new Map(state.players.map((p, index) => [p.id, participants[index].id]));
+          state.players.forEach((p, index) => { p.id = participants[index].id; p.color = participants[index].color; });
+          for (const point of state.marketHistory)
+            point.funds = Object.fromEntries(Object.entries(point.funds).map(([id, value]) => [stableIds.get(id) ?? id, value]));
+          r.state = state;
+          for (const p of r.players) {
+            const started = state.players.find((player) => player.id === p.id);
+            p.excluded = !started;
+            if (started) p.startingMarket = started.startingMarket;
+          }
           r.status = "playing";
           await publish(r);
           aiStep(r);
           ack?.(roomResult(r));
-        },
-        ack,
+        }, ack,
       ),
     );
     socket.on(
@@ -609,7 +755,7 @@ export async function createServer(options: Options = {}) {
             body.text.length > 500
           )
             return ack?.(fail("Message invalide."));
-          const r = roomMap.get(text(body?.roomId, 16));
+          const r = draftRoom(text(body?.roomId, 16));
           const p = r?.players.find((x) => x.controllerId === socket.id);
           if (!r || !p || !p.connected)
             return ack?.(
@@ -641,28 +787,23 @@ export async function createServer(options: Options = {}) {
       ),
     );
     socket.on("disconnect", () => {
-      for (const r of roomMap.values()) {
-        if (r.hostId === socket.id)
-          safe(r.roomId, async () => {
-            if (r.hostId !== socket.id) return;
-            r.hostId = "";
-            for (const local of r.players.filter((x) => x.kind === "local")) {
-              local.connected = false;
-              local.controllerId = null;
-            }
-            await publish(r);
-          });
-        const p = r.players.find(
-          (x) => x.controllerId === socket.id && x.kind !== "local",
-        );
-        if (p)
-          safe(r.roomId, async () => {
-            if (p.controllerId !== socket.id) return;
+      for (const current of roomMap.values()) {
+        if (current.hostId !== socket.id && !current.players.some((p) => p.controllerId === socket.id)) continue;
+        safe(current.roomId, async () => {
+          // Re-read after earlier queued resume requests; an old socket must not
+          // disconnect the new controller, or mutate an obsolete player object.
+          const r = draftRoom(current.roomId);
+          if (!r) return;
+          let changed = false;
+          if (r.hostId === socket.id) { r.hostId = ""; changed = true; }
+          for (const p of r.players) {
+            if (p.controllerId !== socket.id) continue;
             p.connected = false;
             p.controllerId = null;
-            if (r.status === "lobby") p.ready = false;
-            await publish(r);
-          });
+            changed = true;
+          }
+          if (changed) await publish(r);
+        });
       }
     });
   });

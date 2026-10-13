@@ -12,10 +12,21 @@ function watchErrors(page: Page) {
 async function enterLobby(page: Page, secondSeat: "local" | "remote") {
   await page.goto("/");
   await expect(page.getByText("Serveur connecté")).toBeVisible();
-  await page.getByRole("button", { name: /NOUVELLE PARTIE/ }).click();
-  await page.getByLabel("Type du joueur 2").selectOption(secondSeat);
-  await page.getByRole("button", { name: /Choisir les places (?:financières|de marché)/ }).click();
-  await page.getByRole("button", { name: "Créer ma partie" }).click();
+  if (secondSeat === "remote") {
+    await page.getByRole("button", { name: "NOUVELLE PARTIE EN LIGNE", exact: true }).click();
+  } else {
+    await page.getByRole("button", { name: "NOUVELLE PARTIE", exact: true }).click();
+    await page.getByLabel("Type du joueur 2").selectOption("local");
+    await page.getByRole("button", { name: /Choisir les places financières/ }).click();
+    const setup = page.getByTestId("setup-step-markets");
+    const tabs = setup.locator(".market-player-tabs button");
+    await expect(tabs).toHaveCount(2);
+    for (let seat = 0; seat < 2; seat += 1) {
+      await tabs.nth(seat).click();
+      await setup.locator(".starting-market-option").filter({ hasText: "Europe" }).click();
+    }
+    await page.getByRole("button", { name: "Créer ma partie" }).click();
+  }
   await expect(
     page.getByRole("heading", { name: "Le capital vous attend." }),
   ).toBeVisible();
@@ -179,32 +190,56 @@ test.describe("Parcours jouables", () => {
     try {
       await enterLobby(host, "remote");
       const code = (await host.locator(".room-code b").innerText()).trim();
-      await expect(
-        host.getByRole("button", { name: "Ouvrir le parquet" }),
-      ).toBeDisabled();
+      const openParquet = host.locator(".lobby-dock__main");
+      await expect(openParquet).toBeDisabled();
 
       await remote.goto("/");
       await expect(remote.getByText("Serveur connecté")).toBeVisible();
-      await remote.getByRole("button", { name: /REJOINDRE/ }).click();
+      await remote.getByRole("button", { name: "REJOINDRE", exact: true }).click();
       await remote.getByLabel("Code du salon").fill(code);
-      await remote.getByLabel("Nom pour rejoindre").fill("Meridian invité");
+      await expect(remote.getByLabel("Nom pour rejoindre")).toHaveCount(0);
       await remote.getByRole("button", { name: "Rejoindre" }).click();
       await expect(
         remote.getByRole("heading", { name: "Le capital vous attend." }),
       ).toBeVisible();
+      await expect(remote.getByRole("button", { name: "Configurer le fonds 2" })).toBeVisible();
+      await expect(host.getByRole("button", { name: "Configurer le fonds 1" })).toBeVisible();
+      await expect(openParquet).toBeDisabled();
+      await expect(host.getByRole("button", { name: /Ouvrir sans .* invité.* absent/ })).toHaveCount(0);
+      await remote.getByRole("button", { name: "Configurer le fonds 2" }).click();
+      const guestSettings = remote.getByRole("dialog");
+      const guestName = remote.getByLabel("Nom du fonds 2");
+      await guestName.fill("Meridian invité");
+      await remote.getByLabel("Place de départ du fonds 2").selectOption("europe");
+      await remote.getByLabel("Pion du fonds 2").selectOption("bull");
+      await guestSettings.getByRole("button", { name: "Je suis prêt" }).click();
       await expect(host.getByText("Meridian invité")).toBeVisible();
-
-      await remote.getByRole("button", { name: "Je suis prêt" }).click();
+      await host.getByRole("button", { name: "Configurer le fonds 1" }).click();
+      const hostSettings = host.getByRole("dialog");
+      await host.getByLabel("Nom du fonds 1").fill("Apex Capital");
+      await host.getByLabel("Place de départ du fonds 1").selectOption("europe");
+      await expect(host.getByLabel("Place de départ du fonds 1")).toHaveValue("europe");
+      await expect(openParquet).toBeDisabled();
+      await hostSettings.getByRole("button", { name: "Je suis prêt" }).click();
+      await expect(remote.getByText("Apex Capital")).toBeVisible();
       await expect(
         host
           .locator(".lobby-player")
           .filter({ hasText: "Meridian invité" })
           .getByText("Prêt à investir"),
       ).toBeVisible();
-      await expect(
-        host.getByRole("button", { name: "Ouvrir le parquet" }),
-      ).toBeEnabled();
-      await host.getByRole("button", { name: "Ouvrir le parquet" }).click();
+      await expect(openParquet).toBeEnabled();
+      await remote.reload();
+      await expect(remote.getByText("Serveur connecté")).toBeVisible();
+      await expect(remote.getByRole("heading", { name: "Le capital vous attend." })).toBeVisible();
+      await remote.getByRole("button", { name: "Configurer le fonds 2" }).click();
+      const reloadedGuestSettings = remote.getByRole("dialog");
+      await expect(remote.getByLabel("Nom du fonds 2")).toHaveValue("Meridian invité");
+      await expect(remote.getByLabel("Pion du fonds 2")).toHaveValue("bull");
+      await reloadedGuestSettings.getByRole("button", { name: "Fermer", exact: true }).click();
+      await expect(remote.getByTestId("lobby-seat-p2").getByText("Prêt à investir")).toBeVisible();
+      await expect(host.locator(".lobby-player").filter({ hasText: "Meridian invité" }).getByText("Prêt à investir")).toBeVisible();
+      await openParquet.click();
       await expect(
         host.getByRole("heading", { name: "Le circuit des marchés" }),
       ).toBeVisible();
@@ -307,6 +342,47 @@ test.describe("Parcours jouables", () => {
       await remoteContext.close();
       await hostContext.close();
     }
+  });
+
+  test("l’hôte peut lancer avec une IA et une place distante absente sans renuméroter les fonds", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByText("Serveur connecté")).toBeVisible();
+    await page.getByRole("button", { name: "NOUVELLE PARTIE EN LIGNE", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "Le capital vous attend." })).toBeVisible();
+
+    const code = (await page.locator(".room-code b").innerText()).trim();
+    expect(code).toMatch(/^[A-Z0-9]{8}$/);
+    await expect(page.locator(".lobby-player")).toHaveCount(2);
+    await expect(page.locator(".lobby-player").nth(0)).toHaveAttribute("data-testid", "lobby-seat-p1");
+    await expect(page.locator(".lobby-player").nth(1)).toHaveAttribute("data-testid", "lobby-seat-p2");
+    await expect(page.getByText("Place de départ à choisir")).toHaveCount(2);
+
+    await page.getByLabel("Nombre de joueurs").selectOption("3");
+    await expect(page.locator(".lobby-player")).toHaveCount(3);
+    await expect(page.getByTestId("lobby-seat-p3")).toBeVisible();
+    await page.getByRole("button", { name: "Configurer le fonds 3" }).click();
+    await page.getByLabel("Type du fonds 3").selectOption("ai");
+    await page.getByLabel("Difficulté de l’IA 3").selectOption("hard");
+    await page.getByRole("dialog").getByRole("button", { name: "Fermer la configuration", exact: true }).click();
+    await page.getByRole("button", { name: "Configurer le fonds 1" }).click();
+    await page.getByLabel("Nom du fonds 1").fill("Apex Capital");
+    await page.getByLabel("Place de départ du fonds 1").selectOption("europe");
+
+    const omitStart = page.getByRole("button", { name: /^Ouvrir sans 1 invité absent$/ });
+    await expect(omitStart).toBeDisabled();
+    await page.getByRole("dialog").getByRole("button", { name: "Je suis prêt" }).click();
+    await expect(omitStart).toBeEnabled();
+
+    // The absent slot is p2; the human host and AI in p3 remain the two participants.
+    await expect(page.getByTestId("lobby-seat-p1")).toBeVisible();
+    await expect(page.getByTestId("lobby-seat-p2")).toContainText("En attente de votre invité");
+    await expect(page.getByTestId("lobby-seat-p3")).toContainText("IA");
+    await omitStart.click();
+    await expect(page.getByRole("heading", { name: "Le circuit des marchés" })).toBeVisible();
+    await expect(page.locator(".investor-card")).toHaveCount(2);
+    await expect(page.locator(".investor-card").filter({ hasText: "Apex Capital" })).toHaveCount(1);
+    await expect(page.locator(".investor-card").filter({ hasText: "Invité 3" })).toHaveCount(1);
+    await expect(page.locator(".investor-card").filter({ hasText: "Invité 2" })).toHaveCount(0);
   });
 
   test("sur tablette, le choix de marché initial reste utilisable sans écran modal bloquant", async ({

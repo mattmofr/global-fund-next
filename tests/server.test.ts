@@ -192,6 +192,14 @@ describe("authoritative socket server", () => {
     expect(
       (await emit(host, "room:start", { roomId: created.room.roomId })).ok,
     ).toBe(false);
+    expect(
+      (
+        await emit(guest, "room:ready", {
+          roomId: created.room.roomId,
+          ready: true,
+        })
+      ).ok,
+    ).toBe(true);
     const disconnectedState = new Promise<RoomView>((resolve) =>
       host.once("room:state", resolve),
     );
@@ -199,7 +207,7 @@ describe("authoritative socket server", () => {
     const afterDisconnect = await disconnectedState;
     expect(afterDisconnect.players[1]).toMatchObject({
       connected: false,
-      ready: false,
+      ready: true,
     });
     const claimant = await client(port);
     expect(
@@ -214,15 +222,10 @@ describe("authoritative socket server", () => {
     const resumed = await emit(resumedSocket, "room:resume", joined.session);
     expect(resumed.ok).toBe(true);
     if (!resumed.ok) return;
-    expect(resumed.room.players[1].ready).toBe(false);
-    expect(
-      (
-        await emit(resumedSocket, "room:ready", {
-          roomId: created.room.roomId,
-          ready: true,
-        })
-      ).ok,
-    ).toBe(true);
+    expect(resumed.room.players[1]).toMatchObject({
+      connected: true,
+      ready: true,
+    });
     const started = await emit(host, "room:start", {
       roomId: created.room.roomId,
     });
