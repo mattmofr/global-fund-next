@@ -140,10 +140,10 @@ function contextState(): GameState {
   return executeCommand(state, "p1", { type: "NEXT_TURN" });
 }
 
-function crashState(): GameState {
+function bearState(): GameState {
   const state = buildState();
   state.phase = "sector"; state.stage = "sector";
-  const targetIndex = state.board.findIndex((cell) => cell.kind === "market" && /crash/i.test(cell.label));
+  const targetIndex = state.board.findIndex((cell) => cell.kind === "market" && /bear/i.test(cell.label));
   state.players[0]!.sectorPosition = (targetIndex - 6 + state.board.length) % state.board.length;
   return executeWithSix(() => executeCommand(state, "p1", { type: "ROLL" }));
 }
@@ -209,12 +209,12 @@ function fixtures(): StoredRoom[] {
   const playing = (index: number, state: GameState) => room(ROOM_IDS[index]!, state);
   const contexts = contextState();
   const dividend = eventState("dividend", "Dividende exceptionnel");
-  const crash = crashState();
+  const bear = bearState();
   const prison = eventState("prison", "Enquête judiciaire");
-  for (const state of [gameplay, contexts, dividend, crash, prison]) assertShareCaps(state);
+  for (const state of [gameplay, contexts, dividend, bear, prison]) assertShareCaps(state);
   if (!contexts.currentContext || !contexts.notices.some((notice) => notice.cardType === "context")) throw new Error("Context fixture was not drawn by NEXT_TURN.");
   if (!dividend.notices.some((notice) => notice.cardId === "visual-dividend")) throw new Error("Board event fixture did not execute through ROLL.");
-  if (!crash.notices.some((notice) => /crash/i.test(notice.title ?? ""))) throw new Error("Market Crash fixture did not execute through ROLL.");
+  if (!bear.notices.some((notice) => /bear/i.test(notice.title ?? ""))) throw new Error("Market Bear fixture did not execute through ROLL.");
   if (!prison.players[0]?.jailed) throw new Error("Prison fixture did not detain the active fund through ROLL.");
   const travel = travelState();
   const ending = endingState();
@@ -222,7 +222,7 @@ function fixtures(): StoredRoom[] {
   for (const state of [travel, ending]) assertShareCaps(state);
   assertShareCaps(dice);
   const offices = MARKET_IDS.map((market, index) => room(ROOM_IDS[index + 12]!, officeState(market)));
-  return [room(ROOM_IDS[0]!, null, "lobby"), playing(1, gameplay), playing(2, gameplay), playing(3, contexts), playing(4, dividend), playing(5, crash), playing(6, prison), playing(7, travel), playing(8, ending), playing(9, dice), playing(10, dice), playing(11, dice), ...offices];
+  return [room(ROOM_IDS[0]!, null, "lobby"), playing(1, gameplay), playing(2, gameplay), playing(3, contexts), playing(4, dividend), playing(5, bear), playing(6, prison), playing(7, travel), playing(8, ending), playing(9, dice), playing(10, dice), playing(11, dice), ...offices];
 }
 
 async function waitReady(page: Page, gameRoom: boolean, driveClockForScene = false) {
@@ -250,7 +250,7 @@ async function capture(browser: Browser, name: string, roomId?: string, viewport
   const context = await browser.newContext({ viewport, deviceScaleFactor: 1, reducedMotion: options.reducedMotion ? "reduce" : "no-preference" });
   if (options.measure) await context.addInitScript("window.__visualFrameCount = 0; (() => { const frame = () => { window.__visualFrameCount += 1; requestAnimationFrame(frame); }; requestAnimationFrame(frame); })();");
   await context.addInitScript(({ roomId: id, token, quality, reducedMotion }) => {
-    if (id) localStorage.setItem("global-fund-next:session", JSON.stringify({ roomId: id, playerId: "p1", token }));
+    if (id) localStorage.setItem("global-fund-evolve:session", JSON.stringify({ roomId: id, playerId: "p1", token }));
     if (quality || reducedMotion !== undefined) localStorage.setItem("global-fund-presentation-settings", JSON.stringify({ quality: quality ?? "high", reducedMotion: reducedMotion ?? false }));
   }, { roomId, token: TOKEN, quality: options.quality, reducedMotion: options.reducedMotion });
   const page = await context.newPage();
@@ -428,7 +428,7 @@ async function capture(browser: Browser, name: string, roomId?: string, viewport
     await rail.evaluate((el) => { el.scrollTo({ left: 0, behavior: "instant" }); });
     await page.waitForFunction(() => Number(document.querySelector(".cs-rail")?.scrollLeft ?? 0) <= 1, undefined, { timeout: 5_000 });
   }
-  if (name === "prison" || name === "crash") {
+  if (name === "prison" || name === "bear") {
     const content = page.locator(".cs-content");
     const before = await content.evaluate((el) => ({ top: el.scrollTop, height: el.scrollHeight, client: el.clientHeight }));
     if (before.height > before.client + 1) {
@@ -520,7 +520,7 @@ async function capture(browser: Browser, name: string, roomId?: string, viewport
     };
   });
   if (metrics.docWidth > metrics.width) errors.push(`horizontal overflow ${metrics.docWidth}/${metrics.width}`);
-  if (["trading", "portfolio", "analysis", "statistics", "geography", "context", "event", "crash", "prison"].includes(name) && !metrics.centralContentBounds) {
+  if (["trading", "portfolio", "analysis", "statistics", "geography", "context", "event", "bear", "prison"].includes(name) && !metrics.centralContentBounds) {
     errors.push("expected central terminal, decision, or card content is missing");
   }
   if (metrics.centralBounds && metrics.centralContentBounds) {
@@ -612,7 +612,7 @@ async function main() {
       geography: full("geography", ROOM_IDS[7]!),
       context: full("context", ROOM_IDS[3]!, { expectedCardTitle: "Une nouvelle frontière énergétique" }),
       event: full("event", ROOM_IDS[4]!, { expectedCardTitle: "Dividende exceptionnel" }),
-      crash: full("crash", ROOM_IDS[5]!, { expectedCardTitle: "Market Crash" }),
+      bear: full("bear", ROOM_IDS[5]!, { expectedCardTitle: "Market Bear" }),
       prison: full("prison", ROOM_IDS[6]!, { expectedCardTitle: "Enquête judiciaire" }),
       ending: full("ending", ROOM_IDS[8]!),
       ...Object.fromEntries(MARKET_IDS.map((market, index) => [`office-${market}`, full(`office-${market}`, ROOM_IDS[index + 12]!, { boardView: true }, [1920, 1366])])),
@@ -621,7 +621,7 @@ async function main() {
 
     // Persist the static capture metrics before transient phase captures so an
     // interrupted phase run still leaves a truthful report and current aliases.
-    for (const name of ["main-menu", "lobby", "gameplay", "trading", "portfolio", "analysis", "statistics", "geography", "context", "event", "crash", "prison", "ending"]) {
+    for (const name of ["main-menu", "lobby", "gameplay", "trading", "portfolio", "analysis", "statistics", "geography", "context", "event", "bear", "prison", "ending"]) {
       if (!wants(name)) continue;
       const source = captures.find((item) => item.name === name && item.width === 1920)?.file;
       if (source) await copyFile(source, resolve("screenshots", `${name}.png`));

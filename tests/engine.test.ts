@@ -193,7 +193,7 @@ describe("dataset and opening", () => {
       10,
     );
     expect(state.board.filter((cell) => cell.kind === "market")).toHaveLength(
-      3,
+      2,
     );
     expect(state.board.filter((cell) => cell.kind === "start")).toHaveLength(1);
   });
@@ -723,9 +723,8 @@ describe("Context, bankruptcy and Event separation", () => {
     );
     expect(state.boardEventDeck).toEqual(before);
     expect(state.boardEventDiscard).toEqual(discard);
-    expect(
-      Object.values(state.zoneGrades).every((grade) => grade === "B"),
-    ).toBe(true);
+    for (const [zoneId, grade] of Object.entries(state.zoneGrades))
+      expect(grade).toBe(zoneId === active(state).zone ? "A" : "B");
   });
 });
 

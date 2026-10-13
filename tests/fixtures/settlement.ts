@@ -67,7 +67,8 @@ export function createIndustrySettlementReady(options: SettlementFixtureOptions 
     third.costBasis!.p3 = 20;
   }
 
-  const sectorCellIndex = state.board.findIndex(cell => cell.kind === "sector" && cell.sector === "industry");
+  // Keep this debt fixture away from Start: lap performance is a separate flow.
+  const sectorCellIndex = state.board.findIndex((cell, index) => index >= 6 && cell.kind === "sector" && cell.sector === "industry");
   if (sectorCellIndex < 0) throw new Error("Settlement fixture requires an Industry board cell.");
   state.players[0]!.sectorPosition = (sectorCellIndex - 6 + state.board.length) % state.board.length;
   state.players[0]!.fundValue = state.players[0]!.cash;

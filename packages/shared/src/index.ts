@@ -99,6 +99,8 @@ export interface Company {
 export interface BoardCell {
   kind: "start" | "sector" | "event" | "market";
   label: string;
+  /** Rule identity; labels remain presentation text. Older boards are adapted. */
+  marketEffect?: "bull" | "bear" | "crash";
   sector?: string;
   index?: number;
 }
@@ -250,6 +252,7 @@ export interface EventCard {
   amount?: number;
   quantity?: number;
   targetSector?: string;
+  balanceCategory?: "favorable" | "mixed" | "unfavorable";
 }
 export interface HistoryPoint {
   id?: number;
@@ -268,6 +271,8 @@ export interface GameView {
   zones: MarketEntry[];
   sectors: MarketEntry[];
   board: BoardCell[];
+  boardLayoutVersion?: number;
+  marketRulesVersion?: number;
   zoneGrades: Record<string, Grade>;
   sectorGrades: Record<string, Grade>;
   phase: Phase;
@@ -304,8 +309,9 @@ export interface GameState
   turnFormat?: string;
   eventTextVersion?: number;
   cardRulesVersion?: number;
+  /** Private, persisted targeting cooldown; public views omit it. */
+  recentEventTargets?: string[];
   nationalityRulesVersion?: number;
-  marketRulesVersion?: number;
   started?: boolean;
 }
 export type GameCommand =

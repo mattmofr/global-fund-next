@@ -107,6 +107,7 @@ const STORIES = [
 ];
 
 function eventPremise(event, zoneName, sectorName) {
+  if (typeof event.description === 'string' && event.description.trim()) return event.description;
   const template = STORIES[Number(event.id)];
   if (!template) {
     const title = String(event.title || 'Un changement inattendu').replace(/[.!?]+$/, '');

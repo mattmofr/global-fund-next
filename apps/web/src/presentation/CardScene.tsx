@@ -336,7 +336,8 @@ export default function CardScene({ notice, game, onClose, embedded = false }: P
     : undefined;
   const cellSectorId = notice.cell?.sector;
   const cellSector = cellSectorId ? game.sectors.find((sector) => sector.id === cellSectorId)?.name ?? cellSectorId : undefined;
-  const marketCell = notice.position == null ? undefined : game.board[notice.position];
+  // A resolved notice keeps its cell identity when an old board is upgraded.
+  const marketCell = notice.cell ?? (notice.position == null ? undefined : game.board[notice.position]);
   const exactMarketLabel = `${marketCell?.label ?? notice.title ?? ""}`.trim().toLocaleLowerCase();
   const marketEvent: MarketEvent | undefined = notice.source === "board" && marketCell?.kind === "market"
     ? exactMarketLabel === "bull market" ? "bull"

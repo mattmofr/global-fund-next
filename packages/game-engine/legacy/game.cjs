@@ -6,6 +6,8 @@ const data = require('./data/gameData.json');
 const nationalities = require('./data/nationalities.json');
 const { eventPremise } = require('./eventStories.cjs');
 const { BOARD_EVENT_CARDS } = require('./boardEventCards.cjs');
+const { BOARD_LAYOUT_VERSION, MARKET_RULES_VERSION, marketEffectFor, upgradeMarketBoard } = require('./marketRules.cjs');
+const { CARD_RULES_VERSION, EVENT_TEXT_VERSION, upgradeCardCatalogs } = require('./deckRules.cjs');
 
 const FACTOR = Object.freeze({ A: 1.5, B: 1.25, C: 1, D: 0.75, E: 0.5 });
 const GRADES = ['A', 'B', 'C', 'D', 'E'];
@@ -173,18 +175,14 @@ function eventDescription(game, event, outcomes) {
   const zoneName = game.zones.find(item => item.id === zoneChange?.id)?.name || zoneChange?.id || 'la région concernée';
   const sectorName = game.sectors.find(item => item.id === sectorChange?.id)?.name || sectorChange?.id || 'ce secteur';
   const premise = eventPremise(event, zoneName, sectorName);
-  const direction = scope => {
-    const target = outcomes.find(item => item.scope === scope);
-    if (!target) return null;
-    return Math.sign(GRADES.indexOf(target.after) - GRADES.indexOf(target.before));
-  };
-  const zoneDirection = direction('zone');
-  const sectorDirection = direction('sector');
-  const favorable = [zoneDirection, sectorDirection].some(value => value < 0);
-  const unfavorable = [zoneDirection, sectorDirection].some(value => value > 0);
+  const rising = outcomes.filter(change => GRADES.indexOf(change.after) < GRADES.indexOf(change.before));
+  const falling = outcomes.filter(change => GRADES.indexOf(change.after) > GRADES.indexOf(change.before));
+  const favorable = rising.length > 0;
+  const unfavorable = falling.length > 0;
+  const subject = change => `${change.scope === 'zone' ? 'la zone' : 'le secteur'} ${(change.scope === 'zone' ? game.zones : game.sectors).find(item => item.id === change.id)?.name || change.id}`;
   let response;
   if (favorable && unfavorable) {
-    response = `Le choc partage les marchés : des achats de soutien redressent ${zoneDirection < 0 ? `la zone ${zoneName}` : `le secteur ${sectorName}`}, tandis que les ventes pèsent sur ${zoneDirection > 0 ? `la zone ${zoneName}` : `le secteur ${sectorName}`}.`;
+    response = `Les capitaux se réorientent vers ${rising.map(subject).join(', ')}, tandis que les ventes pèsent sur ${falling.map(subject).join(', ')}.`;
   } else if (favorable) {
     response = event.type === 'negative' || event.type === 'prison'
       ? 'Malgré l’alerte, des achats de soutien l’emportent et les cours concernés se redressent.'
@@ -325,7 +323,15 @@ function eventTargetCompany(game, p, card) {
   const own = candidates.filter(c => sharesOf(c, p.id) > 0);
   const held = candidates.filter(c => totalHeld(c) > 0);
   const pool = own.length ? own : held.length ? held : candidates;
-  return pool[randInt(pool.length)];
+  const zones = [...new Set(pool.map(c => c.zone))];
+  const selectedZone = zones[randInt(zones.length)];
+  const zonePool = pool.filter(c => c.zone === selectedZone);
+  const recent = new Set(game.recentEventTargets || []);
+  const fresh = zonePool.filter(c => !recent.has(c.id));
+  const selection = fresh.length ? fresh : zonePool;
+  const target = selection[randInt(selection.length)];
+  game.recentEventTargets = [...(game.recentEventTargets || []), target.id].slice(-4);
+  return target;
 }
 
 function drawBoardEvent(game, p, die, cell) {
@@ -403,6 +409,7 @@ function drawBoardEvent(game, p, die, cell) {
     const sales = applyRegulation(game, card.targetSector, quantity);
     effectLines.push(...(sales.length ? sales : ['Aucun fonds ne détient une position dominante concernée.']));
   }
+  if (!effectLines.length) effectLines.push('Aucun versement ni mouvement de titres ; les positions et les indices restent inchangés.');
   const impacts = marketImpacts(game, before);
   game.log.push(`Événement de case : ${card.title} (${p.name})`);
   notice(game, { kind: 'event', source: 'board', cardType: 'event', cardId: card.id,
@@ -753,6 +760,43 @@ function sectorIdAt(game, position) {
   const cell = game.board[position % game.board.length];
   return cell && (cell.sector || cell.sectorId || (cell.kind === 'sector' ? cell.id : null));
 }
+function resolveMarketShock(game, p, cell, die) {
+  const before = marketSnapshot(game);
+  const effect = marketEffectFor(cell);
+  let targets;
+  let description = '';
+  if (!effect) {
+    // Unrecognized house-rule market cells retain their previous behavior.
+    const scope = randInt(2) === 0 ? 'zone' : 'sector';
+    const label = String(cell.label || '');
+    const delta = label.includes('Bull') ? -1 : label.includes('Crash') ? 2 : 1;
+    targets = (scope === 'zone' ? game.zones : game.sectors).map(item => ({ scope, id: item.id, delta }));
+  } else if (effect === 'crash') {
+    // Crash retains its existing random scope and two-grade decline.
+    const scope = randInt(2) === 0 ? 'zone' : 'sector';
+    targets = (scope === 'zone' ? game.zones : game.sectors)
+      .map(item => ({ scope, id: item.id, delta: 2 }));
+    description = `Krach : ${scope === 'zone' ? 'toutes les zones' : 'tous les secteurs'} reculent de deux niveaux, dans la limite E.`;
+  } else {
+    const delta = effect === 'bull' ? -1 : 1;
+    const focusZone = game.zones.find(item => item.id === p.zone);
+    if (!focusZone) fail('Le fonds actif doit être implanté sur un marché.');
+    targets = game.zones.map(item => ({ scope: 'zone', id: item.id, delta: delta * (item.id === focusZone.id ? 2 : 1) }));
+    description = `${effect === 'bull' ? 'Choc haussier' : 'Choc baissier'} : toutes les zones ${effect === 'bull' ? 'progressent' : 'reculent'} d’un niveau, et la zone ${focusZone.name} du fonds actif de deux niveaux au total. Les notes restent bornées de A à E ; les secteurs sont inchangés.`;
+  }
+  for (const target of targets) {
+    const oldGrade = currentGrade(game, target.scope, target.id);
+    setGrade(game, target.scope, target.id, GRADES[Math.max(0, Math.min(4, GRADES.indexOf(oldGrade) + target.delta))]);
+  }
+  bankruptCompanies(game);
+  const outcomes = gradeOutcomes(game, before, targets);
+  const movements = outcomes.map(change => `${change.scope === 'zone' ? 'Zone' : 'Secteur'} ${(change.scope === 'zone' ? game.zones : game.sectors).find(item => item.id === change.id)?.name || change.id} : ${change.before} → ${change.after}.`);
+  game.log.push(`${cell.label} : ${movements.join(' ')}`);
+  notice(game, { kind: 'event', source: 'board', title: cell.label, roll: die, position: p.sectorPosition,
+    playerId: p.id, playerName: p.name, cell: { kind: cell.kind, label: cell.label },
+    description: [description, describeGrades(game, before, targets)].filter(Boolean).join(' '),
+    effectLines: movements, gradeOutcomes: outcomes, ...marketImpacts(game, before) });
+}
 function roll(game, p, payload) {
   if (game.phase !== 'sector') fail('Le déplacement sectoriel n’est pas ouvert.');
   const die = suppliedDie(payload);
@@ -766,20 +810,7 @@ function roll(game, p, payload) {
   const landed = sectorIdAt(game, p.sectorPosition);
   if (cell && String(cell.kind || '').toLowerCase() === 'event') drawBoardEvent(game, p, die, cell);
   if (cell && String(cell.kind || '').toLowerCase() === 'market') {
-    const before = marketSnapshot(game);
-    const label = String(cell.label || '');
-    const scope = randInt(2) === 0 ? 'zone' : 'sector';
-    const list = scope === 'zone' ? game.zones : game.sectors;
-    const delta = label.includes('Bull') ? -1 : label.includes('Crash') ? 2 : 1;
-    list.forEach(item => {
-      const oldGrade = currentGrade(game, scope, item.id);
-      setGrade(game, scope, item.id, GRADES[Math.max(0, Math.min(4, GRADES.indexOf(oldGrade) + delta))]);
-    });
-    game.log.push(`${label} : ${scope === 'zone' ? 'zones' : 'secteurs'} ${delta < 0 ? 'en hausse' : 'en baisse'}`);
-    bankruptCompanies(game);
-    const targets = list.map(item => ({ scope, id: item.id }));
-    notice(game, { kind: 'event', source: 'board', title: label || 'Variation de marché', roll: die, position: p.sectorPosition, description: describeGrades(game, before, targets),
-      gradeOutcomes: gradeOutcomes(game, before, targets), ...marketImpacts(game, before) });
+    resolveMarketShock(game, p, cell, die);
   }
   // Freeze the entire sector debt list before any cash/ownership changes.
   const sectorLabel = game.sectors.find(item => item.id === landed)?.name || landed;
@@ -911,7 +942,7 @@ function createGame(names) {
     zoneGrades: Object.fromEntries(zones.map(z => [z.id, 'C'])),
     sectorGrades: Object.fromEntries(sectors.map(s => [s.id, 'C'])),
     companies: clone(data.companies || []).map(c => ({ ...c, id: String(c.id), zone: String(c.zone), sector: String(c.sector), holdings: {}, costBasis: {}, available: true })),
-    deck: contextDeck(), currentContext: null, boardEventDeck: shuffle(BOARD_EVENT_CARDS.map(clone)), boardEventDiscard: [], activeIndex: starterIndex, starterIndex, initiative, turnFormat: 'travel-first', rulesVersion: 3, eventTextVersion: 2, cardRulesVersion: 2, marketRulesVersion: 1, legacyOpening: false, stage: 'sector', phase: 'sector', cycle: 1, noticeSeq: 0, notices: [], finished: false, winnerIds: [], completedPlayers: [], log: [], started: true
+    deck: contextDeck(), currentContext: null, boardEventDeck: shuffle(BOARD_EVENT_CARDS.map(clone)), boardEventDiscard: [], activeIndex: starterIndex, starterIndex, initiative, turnFormat: 'travel-first', rulesVersion: 3, eventTextVersion: EVENT_TEXT_VERSION, cardRulesVersion: CARD_RULES_VERSION, marketRulesVersion: MARKET_RULES_VERSION, boardLayoutVersion: BOARD_LAYOUT_VERSION, legacyOpening: false, stage: 'sector', phase: 'sector', cycle: 1, noticeSeq: 0, notices: [], finished: false, winnerIds: [], completedPlayers: [], log: [], started: true
   };
   game.log.push(`${game.players[starterIndex].name} ouvre la partie (dé ${initiative[starterIndex]})`);
   game.log.push('Cycle d’ouverture : tous les indices commencent à C, sans carte Contexte.');
@@ -921,6 +952,10 @@ function createGame(names) {
 
 function applyAction(game, playerId, action, payload = {}) {
   if (!game || game.phase === 'finished') fail('La partie est terminée.');
+  if (game.marketRulesVersion > MARKET_RULES_VERSION || game.boardLayoutVersion > BOARD_LAYOUT_VERSION || game.cardRulesVersion > CARD_RULES_VERSION || game.eventTextVersion > EVENT_TEXT_VERSION)
+    fail('Cette version des règles de marché, du plateau ou des cartes n’est pas prise en charge.');
+  upgradeMarketBoard(game);
+  upgradeCardCatalogs(game);
   if (game.pendingSettlement) {
     settlementAction(game, playerId, action, payload);
     game.players.forEach(syncPlayerMarkets);
@@ -953,6 +988,8 @@ function applyAction(game, playerId, action, payload = {}) {
 }
 
 function publicState(game) {
+  upgradeMarketBoard(game);
+  upgradeCardCatalogs(game);
   // Upgrade old serialized rooms lazily when they are first observed.
   game.players.forEach(item => {
     syncPlayerMarkets(item);
@@ -979,6 +1016,7 @@ function publicState(game) {
   delete state.deck;
   delete state.boardEventDeck;
   delete state.boardEventDiscard;
+  delete state.recentEventTargets;
   return state;
 }
 

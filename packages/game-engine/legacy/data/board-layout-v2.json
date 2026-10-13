@@ -1,0 +1,251 @@
+[
+  {
+    "kind": "start",
+    "label": "Départ"
+  },
+  {
+    "kind": "sector",
+    "sector": "transport",
+    "label": "Transports"
+  },
+  {
+    "kind": "sector",
+    "sector": "agrifood",
+    "label": "Agroalimentaire"
+  },
+  {
+    "kind": "event",
+    "label": "Événement"
+  },
+  {
+    "kind": "sector",
+    "sector": "energy",
+    "label": "Énergie"
+  },
+  {
+    "kind": "sector",
+    "sector": "transport",
+    "label": "Transports & logistique"
+  },
+  {
+    "kind": "sector",
+    "sector": "industry",
+    "label": "Industrie"
+  },
+  {
+    "kind": "sector",
+    "sector": "health",
+    "label": "Santé"
+  },
+  {
+    "kind": "event",
+    "label": "Événement"
+  },
+  {
+    "kind": "sector",
+    "sector": "finance",
+    "label": "Finance"
+  },
+  {
+    "kind": "sector",
+    "sector": "technology",
+    "label": "Technologie"
+  },
+  {
+    "kind": "sector",
+    "sector": "media",
+    "label": "Communication"
+  },
+  {
+    "kind": "sector",
+    "sector": "realestate",
+    "label": "Immobilier & infrastructures"
+  },
+  {
+    "kind": "market",
+    "label": "Bull Market",
+    "marketEffect": "bull"
+  },
+  {
+    "kind": "sector",
+    "sector": "realestate",
+    "label": "Immobilier"
+  },
+  {
+    "kind": "sector",
+    "sector": "agrifood",
+    "label": "Agroalimentaire"
+  },
+  {
+    "kind": "event",
+    "label": "Événement"
+  },
+  {
+    "kind": "sector",
+    "sector": "energy",
+    "label": "Énergie"
+  },
+  {
+    "kind": "sector",
+    "sector": "industry",
+    "label": "Industrie"
+  },
+  {
+    "kind": "sector",
+    "sector": "media",
+    "label": "Communication & médias"
+  },
+  {
+    "kind": "sector",
+    "sector": "health",
+    "label": "Santé"
+  },
+  {
+    "kind": "event",
+    "label": "Événement"
+  },
+  {
+    "kind": "sector",
+    "sector": "finance",
+    "label": "Finance"
+  },
+  {
+    "kind": "sector",
+    "sector": "technology",
+    "label": "Technologie"
+  },
+  {
+    "kind": "sector",
+    "sector": "media",
+    "label": "Communication"
+  },
+  {
+    "kind": "market",
+    "label": "Market Crash",
+    "marketEffect": "crash"
+  },
+  {
+    "kind": "event",
+    "label": "Événement"
+  },
+  {
+    "kind": "sector",
+    "sector": "transport",
+    "label": "Transports"
+  },
+  {
+    "kind": "sector",
+    "sector": "agrifood",
+    "label": "Agroalimentaire"
+  },
+  {
+    "kind": "sector",
+    "sector": "energy",
+    "label": "Énergie"
+  },
+  {
+    "kind": "event",
+    "label": "Événement"
+  },
+  {
+    "kind": "sector",
+    "sector": "industry",
+    "label": "Industrie"
+  },
+  {
+    "kind": "sector",
+    "sector": "realestate",
+    "label": "Immobilier & infrastructures"
+  },
+  {
+    "kind": "sector",
+    "sector": "health",
+    "label": "Santé"
+  },
+  {
+    "kind": "sector",
+    "sector": "finance",
+    "label": "Finance"
+  },
+  {
+    "kind": "event",
+    "label": "Événement"
+  },
+  {
+    "kind": "sector",
+    "sector": "technology",
+    "label": "Technologie"
+  },
+  {
+    "kind": "sector",
+    "sector": "realestate",
+    "label": "Immobilier"
+  },
+  {
+    "kind": "event",
+    "label": "Événement"
+  },
+  {
+    "kind": "market",
+    "label": "Bear Market",
+    "marketEffect": "bear"
+  },
+  {
+    "kind": "sector",
+    "sector": "transport",
+    "label": "Transports"
+  },
+  {
+    "kind": "sector",
+    "sector": "agrifood",
+    "label": "Agroalimentaire"
+  },
+  {
+    "kind": "sector",
+    "sector": "energy",
+    "label": "Énergie"
+  },
+  {
+    "kind": "event",
+    "label": "Événement"
+  },
+  {
+    "kind": "sector",
+    "sector": "industry",
+    "label": "Industrie"
+  },
+  {
+    "kind": "sector",
+    "sector": "finance",
+    "label": "Finance"
+  },
+  {
+    "kind": "sector",
+    "sector": "health",
+    "label": "Santé"
+  },
+  {
+    "kind": "sector",
+    "sector": "finance",
+    "label": "Finance"
+  },
+  {
+    "kind": "event",
+    "label": "Événement"
+  },
+  {
+    "kind": "sector",
+    "sector": "technology",
+    "label": "Technologie"
+  },
+  {
+    "kind": "sector",
+    "sector": "technology",
+    "label": "Technologie"
+  },
+  {
+    "kind": "sector",
+    "sector": "media",
+    "label": "Communication"
+  }
+]

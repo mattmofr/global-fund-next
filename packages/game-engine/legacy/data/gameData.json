@@ -1655,18 +1655,18 @@
       "id": 1,
       "type": "positive",
       "title": "Hausse des commandes",
-      "description": "En Europe, les carnets de commandes se remplissent et les fournisseurs du secteur énergie prolongent leurs équipes.",
-      "effect": "Zone Europe → A; Secteur Énergie → A.",
+      "description": "« Hausse des commandes » attire les capitaux vers la zone Amériques (grade B) et le secteur Technologie (grade B) ; les indices ciblés sont fixés aux niveaux favorables indiqués.",
+      "effect": "zone Amériques → B; secteur Technologie → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "europe",
-          "grade": "A"
+          "id": "americas",
+          "grade": "B"
         },
         {
           "scope": "sector",
-          "id": "energy",
-          "grade": "A"
+          "id": "technology",
+          "grade": "B"
         }
       ]
     },
@@ -1674,27 +1674,8 @@
       "id": 2,
       "type": "positive",
       "title": "Relance des infrastructures",
-      "description": "Des chantiers longtemps bloqués redémarrent en Europe ; les entreprises du secteur industrie réembauchent.",
-      "effect": "Zone Europe → A; Secteur Industrie → A.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "europe",
-          "grade": "A"
-        },
-        {
-          "scope": "sector",
-          "id": "industry",
-          "grade": "A"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "type": "positive",
-      "title": "Relance budgétaire",
-      "description": "Un nouveau budget public est voté en Europe et promet des débouchés aux acteurs du secteur santé.",
-      "effect": "Zone Europe → B; Secteur Santé → B.",
+      "description": "« Relance des infrastructures » attire les capitaux vers la zone Europe (grade B) et le secteur Finance (grade B) ; les indices ciblés sont fixés aux niveaux favorables indiqués.",
+      "effect": "zone Europe → B; secteur Finance → B.",
       "changes": [
         {
           "scope": "zone",
@@ -1703,7 +1684,26 @@
         },
         {
           "scope": "sector",
-          "id": "health",
+          "id": "finance",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "positive",
+      "title": "Relance budgétaire",
+      "description": "« Relance budgétaire » attire les capitaux vers la zone Asie (grade B) et le secteur Industrie (grade B) ; les indices ciblés sont fixés aux niveaux favorables indiqués.",
+      "effect": "zone Asie → B; secteur Industrie → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "B"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
           "grade": "B"
         }
       ]
@@ -1712,18 +1712,18 @@
       "id": 4,
       "type": "positive",
       "title": "Découverte énergétique",
-      "description": "Une découverte de ressources en Asie mobilise les banques qui financent son exploitation.",
-      "effect": "Zone Asie → B; Secteur Finance → A.",
+      "description": "« Découverte énergétique » attire les capitaux vers la zone Afrique & Moyen-Orient (grade B) et le secteur Santé (grade B) ; les indices ciblés sont fixés aux niveaux favorables indiqués.",
+      "effect": "zone Afrique & Moyen-Orient → B; secteur Santé → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "asia",
+          "id": "africa",
           "grade": "B"
         },
         {
           "scope": "sector",
-          "id": "finance",
-          "grade": "A"
+          "id": "health",
+          "grade": "B"
         }
       ]
     },
@@ -1731,18 +1731,18 @@
       "id": 5,
       "type": "positive",
       "title": "Rebond manufacturier",
-      "description": "Les usines d’Océanie rouvrent des lignes de production ; les prêteurs accompagnent leur reprise.",
-      "effect": "Zone Océanie → A; Secteur Finance → A.",
+      "description": "« Rebond manufacturier » attire les capitaux vers la zone Océanie (grade B) et le secteur Énergie (grade B) ; les indices ciblés sont fixés aux niveaux favorables indiqués.",
+      "effect": "zone Océanie → B; secteur Énergie → B.",
       "changes": [
         {
           "scope": "zone",
           "id": "oceania",
-          "grade": "A"
+          "grade": "B"
         },
         {
           "scope": "sector",
-          "id": "finance",
-          "grade": "A"
+          "id": "energy",
+          "grade": "B"
         }
       ]
     },
@@ -1750,18 +1750,18 @@
       "id": 6,
       "type": "positive",
       "title": "Dynamisme des marchés émergents",
-      "description": "De nouveaux marchés s’ouvrent en Asie et les investisseurs s’intéressent aux entreprises du secteur santé.",
-      "effect": "Zone Asie → B; Secteur Santé → A.",
+      "description": "« Dynamisme des marchés émergents » attire les capitaux vers la zone Amériques (grade B) et le secteur Immobilier & infrastructures (grade B) ; les indices ciblés sont fixés aux niveaux favorables indiqués.",
+      "effect": "zone Amériques → B; secteur Immobilier & infrastructures → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "asia",
+          "id": "americas",
           "grade": "B"
         },
         {
           "scope": "sector",
-          "id": "health",
-          "grade": "A"
+          "id": "realestate",
+          "grade": "B"
         }
       ]
     },
@@ -1769,17 +1769,17 @@
       "id": 7,
       "type": "positive",
       "title": "Croissance au-dessus des attentes",
-      "description": "Les comptes publiés en Océanie surprennent les analystes et relancent les projets du secteur énergie.",
-      "effect": "Zone Océanie → A; Secteur Énergie → B.",
+      "description": "« Croissance au-dessus des attentes » attire les capitaux vers la zone Europe (grade B) et le secteur Agroalimentaire & ressources (grade B) ; les indices ciblés sont fixés aux niveaux favorables indiqués.",
+      "effect": "zone Europe → B; secteur Agroalimentaire & ressources → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "oceania",
-          "grade": "A"
+          "id": "europe",
+          "grade": "B"
         },
         {
           "scope": "sector",
-          "id": "energy",
+          "id": "agrifood",
           "grade": "B"
         }
       ]
@@ -1788,8 +1788,8 @@
       "id": 8,
       "type": "positive",
       "title": "Percée technologique",
-      "description": "Un laboratoire d’Asie présente une percée ; les groupes du secteur santé préparent son déploiement.",
-      "effect": "Zone Asie → B; Secteur Santé → A.",
+      "description": "« Percée technologique » attire les capitaux vers la zone Asie (grade B) et le secteur Communication & médias (grade B) ; les indices ciblés sont fixés aux niveaux favorables indiqués.",
+      "effect": "zone Asie → B; secteur Communication & médias → B.",
       "changes": [
         {
           "scope": "zone",
@@ -1798,8 +1798,8 @@
         },
         {
           "scope": "sector",
-          "id": "health",
-          "grade": "A"
+          "id": "media",
+          "grade": "B"
         }
       ]
     },
@@ -1807,18 +1807,18 @@
       "id": 9,
       "type": "positive",
       "title": "Accords énergétiques",
-      "description": "Un accord d’approvisionnement conclu en Europe rassure les financeurs des prochains projets.",
-      "effect": "Zone Europe → A; Secteur Finance → A.",
+      "description": "« Accords énergétiques » attire les capitaux vers la zone Afrique & Moyen-Orient (grade B) et le secteur Transports & logistique (grade B) ; les indices ciblés sont fixés aux niveaux favorables indiqués.",
+      "effect": "zone Afrique & Moyen-Orient → B; secteur Transports & logistique → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "europe",
-          "grade": "A"
+          "id": "africa",
+          "grade": "B"
         },
         {
           "scope": "sector",
-          "id": "finance",
-          "grade": "A"
+          "id": "transport",
+          "grade": "B"
         }
       ]
     },
@@ -1826,18 +1826,18 @@
       "id": 10,
       "type": "positive",
       "title": "Résultats supérieurs aux attentes",
-      "description": "Les entreprises d’Europe publient de meilleurs comptes ; les sociétés du secteur énergie revoient leurs prévisions.",
-      "effect": "Zone Europe → B; Secteur Énergie → A.",
+      "description": "« Résultats supérieurs aux attentes » attire les capitaux vers la zone Océanie (grade B) et le secteur Transports & logistique (grade B) ; les indices ciblés sont fixés aux niveaux favorables indiqués.",
+      "effect": "zone Océanie → B; secteur Transports & logistique → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "europe",
+          "id": "oceania",
           "grade": "B"
         },
         {
           "scope": "sector",
-          "id": "energy",
-          "grade": "A"
+          "id": "transport",
+          "grade": "B"
         }
       ]
     },
@@ -1845,18 +1845,28 @@
       "id": 11,
       "type": "positive",
       "title": "Accord commercial majeur",
-      "description": "Un grand accord commercial ouvre des routes en Afrique & Moyen-Orient et facilite l’accès aux produits du secteur santé.",
-      "effect": "Zone Afrique → B; Secteur Santé → B.",
+      "description": "« Accord commercial majeur » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade A), tandis que les retraits pèsent sur le secteur Finance (grade D). Les indices de la zone Europe ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → A; zone Europe → C; secteur Technologie → C; secteur Finance → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "africa",
-          "grade": "B"
+          "id": "americas",
+          "grade": "A"
+        },
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
         },
         {
           "scope": "sector",
-          "id": "health",
-          "grade": "B"
+          "id": "technology",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
+          "grade": "D"
         }
       ]
     },
@@ -1864,8 +1874,8 @@
       "id": 12,
       "type": "positive",
       "title": "Succès des introductions en bourse",
-      "description": "De nouvelles sociétés entrent en Bourse en Europe et lèvent des fonds pour leurs activités du secteur santé.",
-      "effect": "Zone Europe → A; Secteur Santé → B.",
+      "description": "« Succès des introductions en bourse » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade A), tandis que les retraits pèsent sur le secteur Industrie (grade D). Les indices de la zone Asie ainsi que du secteur Finance sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → A; zone Asie → C; secteur Finance → C; secteur Industrie → D.",
       "changes": [
         {
           "scope": "zone",
@@ -1873,9 +1883,19 @@
           "grade": "A"
         },
         {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "health",
-          "grade": "B"
+          "id": "finance",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
+          "grade": "D"
         }
       ]
     },
@@ -1883,18 +1903,28 @@
       "id": 13,
       "type": "positive",
       "title": "Plan climat ambitieux",
-      "description": "Un plan climat est annoncé en Europe ; les banques organisent le financement de la transition.",
-      "effect": "Zone Europe → A; Secteur Finance → A.",
+      "description": "« Plan climat ambitieux » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade A), tandis que les retraits pèsent sur le secteur Santé (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → A; zone Afrique & Moyen-Orient → C; secteur Industrie → C; secteur Santé → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "europe",
+          "id": "asia",
           "grade": "A"
         },
         {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "finance",
-          "grade": "A"
+          "id": "industry",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "D"
         }
       ]
     },
@@ -1902,18 +1932,28 @@
       "id": 14,
       "type": "positive",
       "title": "Amélioration du crédit",
-      "description": "Les banques d’Europe assouplissent le crédit et les entreprises du secteur technologie relancent leurs projets.",
-      "effect": "Zone Europe → A; Secteur Technologie → A.",
+      "description": "« Amélioration du crédit » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade A), tandis que les retraits pèsent sur le secteur Énergie (grade D). Les indices de la zone Océanie ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → A; zone Océanie → C; secteur Santé → C; secteur Énergie → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "europe",
+          "id": "africa",
           "grade": "A"
         },
         {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "technology",
-          "grade": "A"
+          "id": "health",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "D"
         }
       ]
     },
@@ -1921,18 +1961,28 @@
       "id": 15,
       "type": "positive",
       "title": "Boom des semi-conducteurs",
-      "description": "Une vague de commandes de composants traverse Océanie et remplit les ateliers du secteur industrie.",
-      "effect": "Zone Océanie → B; Secteur Industrie → A.",
+      "description": "« Boom des semi-conducteurs » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Océanie (grade A), tandis que les retraits pèsent sur le secteur Immobilier & infrastructures (grade D). Les indices de la zone Amériques ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → A; zone Amériques → C; secteur Énergie → C; secteur Immobilier & infrastructures → D.",
       "changes": [
         {
           "scope": "zone",
           "id": "oceania",
-          "grade": "B"
+          "grade": "A"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
         },
         {
           "scope": "sector",
-          "id": "industry",
-          "grade": "A"
+          "id": "energy",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "D"
         }
       ]
     },
@@ -1940,18 +1990,28 @@
       "id": 16,
       "type": "positive",
       "title": "Accès élargi au financement",
-      "description": "De nouveaux prêts deviennent accessibles en Afrique & Moyen-Orient et les jeunes entreprises du secteur technologie accélèrent.",
-      "effect": "Zone Afrique → A; Secteur Technologie → A.",
+      "description": "« Accès élargi au financement » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade A), tandis que les retraits pèsent sur le secteur Agroalimentaire & ressources (grade D). Les indices de la zone Europe ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → A; zone Europe → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "africa",
+          "id": "americas",
           "grade": "A"
         },
         {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "technology",
-          "grade": "A"
+          "id": "realestate",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "D"
         }
       ]
     },
@@ -1959,8 +2019,8 @@
       "id": 17,
       "type": "positive",
       "title": "Baisse surprise des taux",
-      "description": "La banque centrale surprend Europe avec une baisse des taux ; les sociétés du secteur technologie révisent leurs plans.",
-      "effect": "Zone Europe → A; Secteur Technologie → B.",
+      "description": "« Baisse surprise des taux » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade A), tandis que les retraits pèsent sur le secteur Communication & médias (grade D). Les indices de la zone Asie ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → A; zone Asie → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → D.",
       "changes": [
         {
           "scope": "zone",
@@ -1968,9 +2028,19 @@
           "grade": "A"
         },
         {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "technology",
-          "grade": "B"
+          "id": "agrifood",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "D"
         }
       ]
     },
@@ -1978,18 +2048,28 @@
       "id": 18,
       "type": "positive",
       "title": "Optimisme des entreprises",
-      "description": "Les dirigeants d’Europe annoncent davantage d’investissements et réservent des capacités dans le secteur industrie.",
-      "effect": "Zone Europe → B; Secteur Industrie → A.",
+      "description": "« Optimisme des entreprises » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade A), tandis que les retraits pèsent sur le secteur Transports & logistique (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Communication & médias sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → A; zone Afrique & Moyen-Orient → C; secteur Communication & médias → C; secteur Transports & logistique → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "europe",
-          "grade": "B"
+          "id": "asia",
+          "grade": "A"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
         },
         {
           "scope": "sector",
-          "id": "industry",
-          "grade": "A"
+          "id": "media",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
+          "grade": "D"
         }
       ]
     },
@@ -1997,18 +2077,28 @@
       "id": 19,
       "type": "positive",
       "title": "Stabilisation des devises",
-      "description": "Les monnaies se stabilisent en Afrique & Moyen-Orient ; les entreprises du secteur santé peuvent enfin chiffrer leurs contrats.",
-      "effect": "Zone Afrique → B; Secteur Santé → A.",
+      "description": "« Stabilisation des devises » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade A), tandis que les retraits pèsent sur le secteur Technologie (grade D). Les indices de la zone Océanie ainsi que du secteur Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → A; zone Océanie → C; secteur Transports & logistique → C; secteur Technologie → D.",
       "changes": [
         {
           "scope": "zone",
           "id": "africa",
-          "grade": "B"
+          "grade": "A"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
         },
         {
           "scope": "sector",
-          "id": "health",
-          "grade": "A"
+          "id": "transport",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
+          "grade": "D"
         }
       ]
     },
@@ -2016,18 +2106,28 @@
       "id": 20,
       "type": "positive",
       "title": "Cadre réglementaire favorable",
-      "description": "Un cadre plus lisible est adopté en Europe et les sociétés du secteur santé reprennent des projets suspendus.",
-      "effect": "Zone Europe → A; Secteur Santé → B.",
+      "description": "« Cadre réglementaire favorable » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Océanie (grade A), tandis que les retraits pèsent sur le secteur Finance (grade D). Les indices de la zone Amériques ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → A; zone Amériques → C; secteur Technologie → C; secteur Finance → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "europe",
+          "id": "oceania",
           "grade": "A"
         },
         {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "health",
-          "grade": "B"
+          "id": "technology",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
+          "grade": "D"
         }
       ]
     },
@@ -2035,274 +2135,8 @@
       "id": 21,
       "type": "positive",
       "title": "Plan d'investissement public",
-      "description": "L’État lance un programme d’investissement en Europe et commande de nouveaux équipements au secteur énergie.",
-      "effect": "Zone Europe → B; Secteur Énergie → B.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "europe",
-          "grade": "B"
-        },
-        {
-          "scope": "sector",
-          "id": "energy",
-          "grade": "B"
-        }
-      ]
-    },
-    {
-      "id": 22,
-      "type": "positive",
-      "title": "Exportations agricoles dynamiques",
-      "description": "Les exportateurs agricoles d’Europe signent des contrats ; la demande du secteur énergie suit leur croissance.",
-      "effect": "Zone Europe → B; Secteur Énergie → A.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "europe",
-          "grade": "B"
-        },
-        {
-          "scope": "sector",
-          "id": "energy",
-          "grade": "A"
-        }
-      ]
-    },
-    {
-      "id": 23,
-      "type": "positive",
-      "title": "Partenariat public-privé",
-      "description": "Un partenariat public-privé finance de nouveaux sites en Océanie et donne du travail au secteur industrie.",
-      "effect": "Zone Océanie → A; Secteur Industrie → A.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "oceania",
-          "grade": "A"
-        },
-        {
-          "scope": "sector",
-          "id": "industry",
-          "grade": "A"
-        }
-      ]
-    },
-    {
-      "id": 24,
-      "type": "positive",
-      "title": "Appétit pour le risque",
-      "description": "Les investisseurs acceptent davantage de risque en Afrique & Moyen-Orient et soutiennent les paris du secteur technologie.",
-      "effect": "Zone Afrique → A; Secteur Technologie → A.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "africa",
-          "grade": "A"
-        },
-        {
-          "scope": "sector",
-          "id": "technology",
-          "grade": "A"
-        }
-      ]
-    },
-    {
-      "id": 25,
-      "type": "positive",
-      "title": "Reprise immobilière",
-      "description": "Les transactions immobilières repartent en Europe ; les banques renégocient et financent les projets.",
-      "effect": "Zone Europe → B; Secteur Finance → A.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "europe",
-          "grade": "B"
-        },
-        {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "A"
-        }
-      ]
-    },
-    {
-      "id": 26,
-      "type": "positive",
-      "title": "Rebond des matières premières",
-      "description": "Le prix des matières premières rebondit en Asie et les producteurs du secteur énergie relancent leurs forages.",
-      "effect": "Zone Asie → B; Secteur Énergie → A.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "asia",
-          "grade": "B"
-        },
-        {
-          "scope": "sector",
-          "id": "energy",
-          "grade": "A"
-        }
-      ]
-    },
-    {
-      "id": 27,
-      "type": "positive",
-      "title": "Rallye boursier",
-      "description": "Une série d’achats entraîne la Bourse d’Asie ; les valeurs du secteur technologie concentrent les échanges.",
-      "effect": "Zone Asie → A; Secteur Technologie → A.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "asia",
-          "grade": "A"
-        },
-        {
-          "scope": "sector",
-          "id": "technology",
-          "grade": "A"
-        }
-      ]
-    },
-    {
-      "id": 28,
-      "type": "positive",
-      "title": "Innovation médicale",
-      "description": "Une avancée médicale est annoncée en Europe ; les banques financent les essais et leur industrialisation.",
-      "effect": "Zone Europe → A; Secteur Finance → B.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "europe",
-          "grade": "A"
-        },
-        {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "B"
-        }
-      ]
-    },
-    {
-      "id": 29,
-      "type": "positive",
-      "title": "Amélioration de la confiance",
-      "description": "Les ménages d’Afrique & Moyen-Orient reprennent confiance et les projets du secteur énergie trouvent de nouveaux clients.",
-      "effect": "Zone Afrique → A; Secteur Énergie → B.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "africa",
-          "grade": "A"
-        },
-        {
-          "scope": "sector",
-          "id": "energy",
-          "grade": "B"
-        }
-      ]
-    },
-    {
-      "id": 30,
-      "type": "positive",
-      "title": "Allègement fiscal",
-      "description": "Un allègement fiscal entre en vigueur en Océanie et libère des moyens pour les entreprises du secteur énergie.",
-      "effect": "Zone Océanie → A; Secteur Énergie → A.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "oceania",
-          "grade": "A"
-        },
-        {
-          "scope": "sector",
-          "id": "energy",
-          "grade": "A"
-        }
-      ]
-    },
-    {
-      "id": 31,
-      "type": "positive",
-      "title": "Reprise du tourisme",
-      "description": "Les réservations touristiques affluent en Europe ; les services du secteur santé préparent la saison.",
-      "effect": "Zone Europe → B; Secteur Santé → B.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "europe",
-          "grade": "B"
-        },
-        {
-          "scope": "sector",
-          "id": "health",
-          "grade": "B"
-        }
-      ]
-    },
-    {
-      "id": 32,
-      "type": "positive",
-      "title": "Flux d'investissements entrants",
-      "description": "Des capitaux étrangers arrivent en Océanie et les banques les orientent vers les entreprises locales.",
-      "effect": "Zone Océanie → A; Secteur Finance → A.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "oceania",
-          "grade": "A"
-        },
-        {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "A"
-        }
-      ]
-    },
-    {
-      "id": 33,
-      "type": "positive",
-      "title": "Accélération des exportations",
-      "description": "Les exportateurs d’Afrique & Moyen-Orient remplissent leurs carnets ; les usines du secteur industrie augmentent leurs cadences.",
-      "effect": "Zone Afrique → A; Secteur Industrie → B.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "africa",
-          "grade": "A"
-        },
-        {
-          "scope": "sector",
-          "id": "industry",
-          "grade": "B"
-        }
-      ]
-    },
-    {
-      "id": 34,
-      "type": "positive",
-      "title": "Records de productivité",
-      "description": "Les ateliers d’Océanie produisent davantage avec les mêmes moyens et les groupes du secteur industrie investissent.",
-      "effect": "Zone Océanie → B; Secteur Industrie → B.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "oceania",
-          "grade": "B"
-        },
-        {
-          "scope": "sector",
-          "id": "industry",
-          "grade": "B"
-        }
-      ]
-    },
-    {
-      "id": 35,
-      "type": "positive",
-      "title": "Rebond industriel",
-      "description": "Des chaînes de production redémarrent en Amériques, entraînant une nouvelle demande adressée au secteur énergie.",
-      "effect": "Zone Amériques → B; Secteur Énergie → A.",
+      "description": "« Plan d'investissement public » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade B), tandis que les retraits pèsent sur le secteur Industrie (grade D). Les indices de la zone Europe ainsi que du secteur Finance sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → B; zone Europe → C; secteur Finance → C; secteur Industrie → D.",
       "changes": [
         {
           "scope": "zone",
@@ -2310,9 +2144,425 @@
           "grade": "B"
         },
         {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "type": "positive",
+      "title": "Exportations agricoles dynamiques",
+      "description": "« Exportations agricoles dynamiques » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade B), tandis que les retraits pèsent sur le secteur Santé (grade D). Les indices de la zone Asie ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → B; zone Asie → C; secteur Industrie → C; secteur Santé → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "type": "positive",
+      "title": "Partenariat public-privé",
+      "description": "« Partenariat public-privé » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade B), tandis que les retraits pèsent sur le secteur Énergie (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → B; zone Afrique & Moyen-Orient → C; secteur Santé → C; secteur Énergie → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
           "id": "energy",
-          "grade": "A"
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "type": "positive",
+      "title": "Appétit pour le risque",
+      "description": "« Appétit pour le risque » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade B), tandis que les retraits pèsent sur le secteur Immobilier & infrastructures (grade D). Les indices de la zone Océanie ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → B; zone Océanie → C; secteur Énergie → C; secteur Immobilier & infrastructures → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "type": "positive",
+      "title": "Reprise immobilière",
+      "description": "« Reprise immobilière » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Océanie (grade B), tandis que les retraits pèsent sur le secteur Agroalimentaire & ressources (grade D). Les indices de la zone Amériques ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → B; zone Amériques → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "type": "positive",
+      "title": "Rebond des matières premières",
+      "description": "« Rebond des matières premières » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade B), tandis que les retraits pèsent sur le secteur Communication & médias (grade D). Les indices de la zone Europe ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → B; zone Europe → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "type": "positive",
+      "title": "Rallye boursier",
+      "description": "« Rallye boursier » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade B), tandis que les retraits pèsent sur le secteur Transports & logistique (grade D). Les indices de la zone Asie ainsi que du secteur Communication & médias sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → B; zone Asie → C; secteur Communication & médias → C; secteur Transports & logistique → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "type": "positive",
+      "title": "Innovation médicale",
+      "description": "« Innovation médicale » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade B), tandis que les retraits pèsent sur le secteur Technologie (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → B; zone Afrique & Moyen-Orient → C; secteur Transports & logistique → C; secteur Technologie → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "type": "positive",
+      "title": "Amélioration de la confiance",
+      "description": "« Amélioration de la confiance » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade B), tandis que les retraits pèsent sur le secteur Finance (grade D). Les indices de la zone Océanie ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → B; zone Océanie → C; secteur Technologie → C; secteur Finance → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "type": "positive",
+      "title": "Allègement fiscal",
+      "description": "« Allègement fiscal » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Océanie (grade B), tandis que les retraits pèsent sur le secteur Industrie (grade D). Les indices de la zone Amériques ainsi que du secteur Finance sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → B; zone Amériques → C; secteur Finance → C; secteur Industrie → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "type": "positive",
+      "title": "Reprise du tourisme",
+      "description": "« Reprise du tourisme » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade B), tandis que les retraits pèsent sur le secteur Santé (grade D). Les indices de la zone Europe ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → B; zone Europe → C; secteur Industrie → C; secteur Santé → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "type": "positive",
+      "title": "Flux d'investissements entrants",
+      "description": "« Flux d'investissements entrants » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade B), tandis que les retraits pèsent sur le secteur Énergie (grade D). Les indices de la zone Asie ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → B; zone Asie → C; secteur Santé → C; secteur Énergie → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "type": "positive",
+      "title": "Accélération des exportations",
+      "description": "« Accélération des exportations » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade B), tandis que les retraits pèsent sur le secteur Immobilier & infrastructures (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → B; zone Afrique & Moyen-Orient → C; secteur Énergie → C; secteur Immobilier & infrastructures → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "type": "positive",
+      "title": "Records de productivité",
+      "description": "« Records de productivité » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade B), tandis que les retraits pèsent sur le secteur Agroalimentaire & ressources (grade D). Les indices de la zone Océanie ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → B; zone Océanie → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "type": "positive",
+      "title": "Rebond industriel",
+      "description": "« Rebond industriel » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Océanie (grade B), tandis que les retraits pèsent sur le secteur Communication & médias (grade D). Les indices de la zone Amériques ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → B; zone Amériques → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "D"
         }
       ]
     },
@@ -2320,8 +2570,27 @@
       "id": 36,
       "type": "negative",
       "title": "Pénurie d'énergie",
-      "description": "Une pénurie d’électricité interrompt des sites en Europe et prive les entreprises du secteur technologie de capacité.",
-      "effect": "Zone Europe → D; Secteur Technologie → E.",
+      "description": "« Pénurie d'énergie » provoque des retraits de capitaux et place sous pression la zone Amériques (grade D) et le secteur Technologie (grade D).",
+      "effect": "zone Amériques → D; secteur Technologie → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "D"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "type": "negative",
+      "title": "Récession technique",
+      "description": "« Récession technique » provoque des retraits de capitaux et place sous pression la zone Europe (grade D) et le secteur Finance (grade D).",
+      "effect": "zone Europe → D; secteur Finance → D.",
       "changes": [
         {
           "scope": "zone",
@@ -2330,27 +2599,8 @@
         },
         {
           "scope": "sector",
-          "id": "technology",
-          "grade": "E"
-        }
-      ]
-    },
-    {
-      "id": 37,
-      "type": "negative",
-      "title": "Récession technique",
-      "description": "Deux trimestres de contraction sont annoncés en Afrique & Moyen-Orient ; les commandes du secteur énergie sont reportées.",
-      "effect": "Zone Afrique → E; Secteur Énergie → E.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "africa",
-          "grade": "E"
-        },
-        {
-          "scope": "sector",
-          "id": "energy",
-          "grade": "E"
+          "id": "finance",
+          "grade": "D"
         }
       ]
     },
@@ -2358,27 +2608,8 @@
       "id": 38,
       "type": "negative",
       "title": "Crise industrielle",
-      "description": "Plusieurs usines ferment temporairement en Asie et la demande adressée au secteur énergie se grippe.",
-      "effect": "Zone Asie → E; Secteur Énergie → E.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "asia",
-          "grade": "E"
-        },
-        {
-          "scope": "sector",
-          "id": "energy",
-          "grade": "E"
-        }
-      ]
-    },
-    {
-      "id": 39,
-      "type": "negative",
-      "title": "Détérioration du crédit",
-      "description": "Les défauts de paiement augmentent en Asie ; les banques resserrent leurs critères de crédit.",
-      "effect": "Zone Asie → D; Secteur Finance → D.",
+      "description": "« Crise industrielle » provoque des retraits de capitaux et place sous pression la zone Asie (grade D) et le secteur Industrie (grade D).",
+      "effect": "zone Asie → D; secteur Industrie → D.",
       "changes": [
         {
           "scope": "zone",
@@ -2387,7 +2618,26 @@
         },
         {
           "scope": "sector",
-          "id": "finance",
+          "id": "industry",
+          "grade": "D"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "type": "negative",
+      "title": "Détérioration du crédit",
+      "description": "« Détérioration du crédit » provoque des retraits de capitaux et place sous pression la zone Afrique & Moyen-Orient (grade D) et le secteur Santé (grade D).",
+      "effect": "zone Afrique & Moyen-Orient → D; secteur Santé → D.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "D"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
           "grade": "D"
         }
       ]
@@ -2396,18 +2646,18 @@
       "id": 40,
       "type": "negative",
       "title": "Pénuries alimentaires",
-      "description": "Les récoltes manquent en Afrique & Moyen-Orient ; les banques provisionnent les prêts des distributeurs fragilisés.",
-      "effect": "Zone Afrique → E; Secteur Finance → E.",
+      "description": "« Pénuries alimentaires » provoque des retraits de capitaux et place sous pression la zone Océanie (grade D) et le secteur Énergie (grade D).",
+      "effect": "zone Océanie → D; secteur Énergie → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "africa",
-          "grade": "E"
+          "id": "oceania",
+          "grade": "D"
         },
         {
           "scope": "sector",
-          "id": "finance",
-          "grade": "E"
+          "id": "energy",
+          "grade": "D"
         }
       ]
     },
@@ -2415,18 +2665,18 @@
       "id": 41,
       "type": "negative",
       "title": "Effondrement sectoriel",
-      "description": "Une série de mauvais résultats secoue Afrique & Moyen-Orient et les investisseurs désertent les valeurs du secteur technologie.",
-      "effect": "Zone Afrique → E; Secteur Technologie → E.",
+      "description": "« Effondrement sectoriel » provoque des retraits de capitaux et place sous pression la zone Amériques (grade D) et le secteur Immobilier & infrastructures (grade D).",
+      "effect": "zone Amériques → D; secteur Immobilier & infrastructures → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "africa",
-          "grade": "E"
+          "id": "americas",
+          "grade": "D"
         },
         {
           "scope": "sector",
-          "id": "technology",
-          "grade": "E"
+          "id": "realestate",
+          "grade": "D"
         }
       ]
     },
@@ -2434,18 +2684,18 @@
       "id": 42,
       "type": "negative",
       "title": "Crise climatique aiguë",
-      "description": "Des dégâts climatiques frappent Afrique & Moyen-Orient et interrompent des infrastructures indispensables au secteur technologie.",
-      "effect": "Zone Afrique → E; Secteur Technologie → E.",
+      "description": "« Crise climatique aiguë » provoque des retraits de capitaux et place sous pression la zone Europe (grade D) et le secteur Agroalimentaire & ressources (grade D).",
+      "effect": "zone Europe → D; secteur Agroalimentaire & ressources → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "africa",
-          "grade": "E"
+          "id": "europe",
+          "grade": "D"
         },
         {
           "scope": "sector",
-          "id": "technology",
-          "grade": "E"
+          "id": "agrifood",
+          "grade": "D"
         }
       ]
     },
@@ -2453,17 +2703,17 @@
       "id": 43,
       "type": "negative",
       "title": "Inflation persistante",
-      "description": "Les coûts de production montent en Afrique & Moyen-Orient ; les industriels du secteur industrie réduisent leurs marges.",
-      "effect": "Zone Afrique → D; Secteur Industrie → D.",
+      "description": "« Inflation persistante » provoque des retraits de capitaux et place sous pression la zone Asie (grade D) et le secteur Communication & médias (grade D).",
+      "effect": "zone Asie → D; secteur Communication & médias → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "africa",
+          "id": "asia",
           "grade": "D"
         },
         {
           "scope": "sector",
-          "id": "industry",
+          "id": "media",
           "grade": "D"
         }
       ]
@@ -2472,18 +2722,18 @@
       "id": 44,
       "type": "negative",
       "title": "Régime de change instable",
-      "description": "Une forte instabilité monétaire renchérit les importations en Europe et les achats des groupes du secteur santé.",
-      "effect": "Zone Europe → E; Secteur Santé → E.",
+      "description": "« Régime de change instable » provoque des retraits de capitaux et place sous pression la zone Afrique & Moyen-Orient (grade D) et le secteur Transports & logistique (grade D).",
+      "effect": "zone Afrique & Moyen-Orient → D; secteur Transports & logistique → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "europe",
-          "grade": "E"
+          "id": "africa",
+          "grade": "D"
         },
         {
           "scope": "sector",
-          "id": "health",
-          "grade": "E"
+          "id": "transport",
+          "grade": "D"
         }
       ]
     },
@@ -2491,17 +2741,17 @@
       "id": 45,
       "type": "negative",
       "title": "Dérive réglementaire",
-      "description": "Un changement imprévu des règles en Amériques inquiète les banques et retarde leurs financements.",
-      "effect": "Zone Amériques → D; Secteur Finance → D.",
+      "description": "« Dérive réglementaire » provoque des retraits de capitaux et place sous pression la zone Océanie (grade D) et le secteur Transports & logistique (grade D).",
+      "effect": "zone Océanie → D; secteur Transports & logistique → D.",
       "changes": [
         {
           "scope": "zone",
-          "id": "americas",
+          "id": "oceania",
           "grade": "D"
         },
         {
           "scope": "sector",
-          "id": "finance",
+          "id": "transport",
           "grade": "D"
         }
       ]
@@ -2510,18 +2760,28 @@
       "id": 46,
       "type": "negative",
       "title": "Fuite des capitaux",
-      "description": "Des investisseurs retirent leurs capitaux d’Europe et les projets du secteur énergie cherchent des fonds.",
-      "effect": "Zone Europe → E; Secteur Énergie → D.",
+      "description": "« Fuite des capitaux » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Finance (grade B), tandis que les retraits pèsent sur la zone Amériques (grade E). Les indices de la zone Europe ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → E; zone Europe → C; secteur Technologie → C; secteur Finance → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "europe",
+          "id": "americas",
           "grade": "E"
         },
         {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "energy",
-          "grade": "D"
+          "id": "technology",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
+          "grade": "B"
         }
       ]
     },
@@ -2529,18 +2789,28 @@
       "id": 47,
       "type": "negative",
       "title": "Crise immobilière",
-      "description": "Les ventes immobilières se figent en Asie ; les entreprises du secteur technologie repoussent leurs investissements.",
-      "effect": "Zone Asie → D; Secteur Technologie → E.",
+      "description": "« Crise immobilière » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Industrie (grade B), tandis que les retraits pèsent sur la zone Europe (grade E). Les indices de la zone Asie ainsi que du secteur Finance sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → E; zone Asie → C; secteur Finance → C; secteur Industrie → B.",
       "changes": [
         {
           "scope": "zone",
+          "id": "europe",
+          "grade": "E"
+        },
+        {
+          "scope": "zone",
           "id": "asia",
-          "grade": "D"
+          "grade": "C"
         },
         {
           "scope": "sector",
-          "id": "technology",
-          "grade": "E"
+          "id": "finance",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
+          "grade": "B"
         }
       ]
     },
@@ -2548,18 +2818,28 @@
       "id": 48,
       "type": "negative",
       "title": "Rupture logistique",
-      "description": "Des ports saturés retardent les livraisons en Asie et désorganisent les chaînes du secteur industrie.",
-      "effect": "Zone Asie → D; Secteur Industrie → D.",
+      "description": "« Rupture logistique » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Santé (grade B), tandis que les retraits pèsent sur la zone Asie (grade E). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → E; zone Afrique & Moyen-Orient → C; secteur Industrie → C; secteur Santé → B.",
       "changes": [
         {
           "scope": "zone",
           "id": "asia",
-          "grade": "D"
+          "grade": "E"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
         },
         {
           "scope": "sector",
           "id": "industry",
-          "grade": "D"
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "B"
         }
       ]
     },
@@ -2567,18 +2847,28 @@
       "id": 49,
       "type": "negative",
       "title": "Mauvais résultats",
-      "description": "Les comptes publiés en Amériques déçoivent ; les groupes du secteur santé abaissent leurs objectifs.",
-      "effect": "Zone Amériques → E; Secteur Santé → D.",
+      "description": "« Mauvais résultats » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Énergie (grade B), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade E). Les indices de la zone Océanie ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → E; zone Océanie → C; secteur Santé → C; secteur Énergie → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "americas",
+          "id": "africa",
           "grade": "E"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
         },
         {
           "scope": "sector",
           "id": "health",
-          "grade": "D"
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "B"
         }
       ]
     },
@@ -2586,18 +2876,28 @@
       "id": 50,
       "type": "negative",
       "title": "Rappel massif de produits",
-      "description": "Un défaut découvert après livraison impose des rappels en Asie et arrête des lignes du secteur industrie.",
-      "effect": "Zone Asie → E; Secteur Industrie → E.",
+      "description": "« Rappel massif de produits » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Immobilier & infrastructures (grade B), tandis que les retraits pèsent sur la zone Océanie (grade E). Les indices de la zone Amériques ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → E; zone Amériques → C; secteur Énergie → C; secteur Immobilier & infrastructures → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "asia",
+          "id": "oceania",
           "grade": "E"
         },
         {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "industry",
-          "grade": "E"
+          "id": "energy",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "B"
         }
       ]
     },
@@ -2605,18 +2905,28 @@
       "id": 51,
       "type": "negative",
       "title": "Dérive des coûts",
-      "description": "Les factures d’énergie et de transport gonflent en Océanie ; les marges du secteur industrie s’érodent.",
-      "effect": "Zone Océanie → E; Secteur Industrie → E.",
+      "description": "« Dérive des coûts » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Agroalimentaire & ressources (grade B), tandis que les retraits pèsent sur la zone Amériques (grade E). Les indices de la zone Europe ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → E; zone Europe → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "oceania",
+          "id": "americas",
           "grade": "E"
         },
         {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "industry",
-          "grade": "E"
+          "id": "realestate",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "B"
         }
       ]
     },
@@ -2624,18 +2934,28 @@
       "id": 52,
       "type": "negative",
       "title": "Retrait des investisseurs",
-      "description": "Les grands fonds quittent Asie et les banques doivent trouver de nouveaux prêteurs.",
-      "effect": "Zone Asie → E; Secteur Finance → E.",
+      "description": "« Retrait des investisseurs » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Communication & médias (grade B), tandis que les retraits pèsent sur la zone Europe (grade E). Les indices de la zone Asie ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → E; zone Asie → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "asia",
+          "id": "europe",
           "grade": "E"
         },
         {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "finance",
-          "grade": "E"
+          "id": "agrifood",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "B"
         }
       ]
     },
@@ -2643,18 +2963,28 @@
       "id": 53,
       "type": "negative",
       "title": "Changement politique brusque",
-      "description": "Un changement politique soudain suspend des projets en Océanie et inquiète les producteurs du secteur énergie.",
-      "effect": "Zone Océanie → E; Secteur Énergie → E.",
+      "description": "« Changement politique brusque » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Transports & logistique (grade B), tandis que les retraits pèsent sur la zone Asie (grade E). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Communication & médias sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → E; zone Afrique & Moyen-Orient → C; secteur Communication & médias → C; secteur Transports & logistique → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "oceania",
+          "id": "asia",
           "grade": "E"
         },
         {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "energy",
-          "grade": "E"
+          "id": "media",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
+          "grade": "B"
         }
       ]
     },
@@ -2662,18 +2992,28 @@
       "id": 54,
       "type": "negative",
       "title": "Stress de liquidité",
-      "description": "Les banques d’Océanie peinent à se refinancer et réduisent brutalement leurs nouveaux prêts.",
-      "effect": "Zone Océanie → E; Secteur Finance → E.",
+      "description": "« Stress de liquidité » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Technologie (grade B), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade E). Les indices de la zone Océanie ainsi que du secteur Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → E; zone Océanie → C; secteur Transports & logistique → C; secteur Technologie → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "oceania",
+          "id": "africa",
           "grade": "E"
         },
         {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "finance",
-          "grade": "E"
+          "id": "transport",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
+          "grade": "B"
         }
       ]
     },
@@ -2681,18 +3021,28 @@
       "id": 55,
       "type": "negative",
       "title": "Confiance en berne",
-      "description": "Les enquêtes de confiance se dégradent en Europe ; les clients du secteur technologie reportent leurs achats.",
-      "effect": "Zone Europe → D; Secteur Technologie → E.",
+      "description": "« Confiance en berne » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Finance (grade B), tandis que les retraits pèsent sur la zone Océanie (grade E). Les indices de la zone Amériques ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → E; zone Amériques → C; secteur Technologie → C; secteur Finance → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "europe",
-          "grade": "D"
+          "id": "oceania",
+          "grade": "E"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
         },
         {
           "scope": "sector",
           "id": "technology",
-          "grade": "E"
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
+          "grade": "B"
         }
       ]
     },
@@ -2700,18 +3050,28 @@
       "id": 56,
       "type": "negative",
       "title": "Déficit budgétaire record",
-      "description": "Le déficit public atteint un record en Amériques et le financement des projets du secteur énergie devient incertain.",
-      "effect": "Zone Amériques → E; Secteur Énergie → D.",
+      "description": "« Déficit budgétaire record » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Industrie (grade B), tandis que les retraits pèsent sur la zone Amériques (grade D). Les indices de la zone Europe ainsi que du secteur Finance sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → D; zone Europe → C; secteur Finance → C; secteur Industrie → B.",
       "changes": [
         {
           "scope": "zone",
           "id": "americas",
-          "grade": "E"
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
         },
         {
           "scope": "sector",
-          "id": "energy",
-          "grade": "D"
+          "id": "finance",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
+          "grade": "B"
         }
       ]
     },
@@ -2719,18 +3079,28 @@
       "id": 57,
       "type": "negative",
       "title": "Hausse des taux brutale",
-      "description": "Une hausse brutale des taux renchérit le crédit en Amériques et pèse sur les usines du secteur industrie.",
-      "effect": "Zone Amériques → E; Secteur Industrie → D.",
+      "description": "« Hausse des taux brutale » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Santé (grade B), tandis que les retraits pèsent sur la zone Europe (grade D). Les indices de la zone Asie ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → D; zone Asie → C; secteur Industrie → C; secteur Santé → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "americas",
-          "grade": "E"
+          "id": "europe",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "C"
         },
         {
           "scope": "sector",
           "id": "industry",
-          "grade": "D"
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "B"
         }
       ]
     },
@@ -2738,18 +3108,28 @@
       "id": 58,
       "type": "negative",
       "title": "Sanctions économiques",
-      "description": "De nouvelles sanctions coupent des circuits de paiement en Amériques et compliquent le travail des banques.",
-      "effect": "Zone Amériques → E; Secteur Finance → D.",
+      "description": "« Sanctions économiques » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Énergie (grade B), tandis que les retraits pèsent sur la zone Asie (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → D; zone Afrique & Moyen-Orient → C; secteur Santé → C; secteur Énergie → B.",
       "changes": [
         {
           "scope": "zone",
-          "id": "americas",
-          "grade": "E"
+          "id": "asia",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
         },
         {
           "scope": "sector",
-          "id": "finance",
-          "grade": "D"
+          "id": "health",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "B"
         }
       ]
     },
@@ -2757,237 +3137,14 @@
       "id": 59,
       "type": "negative",
       "title": "Choc pétrolier",
-      "description": "La flambée du pétrole alourdit les coûts en Europe et réduit les budgets disponibles pour le secteur technologie.",
-      "effect": "Zone Europe → E; Secteur Technologie → D.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "europe",
-          "grade": "E"
-        },
-        {
-          "scope": "sector",
-          "id": "technology",
-          "grade": "D"
-        }
-      ]
-    },
-    {
-      "id": 60,
-      "type": "negative",
-      "title": "Faillite bancaire",
-      "description": "Une banque importante vacille en Océanie ; les entreprises du secteur technologie cherchent d’urgence d’autres prêteurs.",
-      "effect": "Zone Océanie → D; Secteur Technologie → D.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "oceania",
-          "grade": "D"
-        },
-        {
-          "scope": "sector",
-          "id": "technology",
-          "grade": "D"
-        }
-      ]
-    },
-    {
-      "id": 61,
-      "type": "negative",
-      "title": "Guerre commerciale",
-      "description": "Des droits de douane apparaissent en Europe et ferment des débouchés aux entreprises du secteur technologie.",
-      "effect": "Zone Europe → E; Secteur Technologie → E.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "europe",
-          "grade": "E"
-        },
-        {
-          "scope": "sector",
-          "id": "technology",
-          "grade": "E"
-        }
-      ]
-    },
-    {
-      "id": 62,
-      "type": "negative",
-      "title": "Chute des devises",
-      "description": "Une chute des devises renchérit les machines importées en Asie et bloque des usines du secteur industrie.",
-      "effect": "Zone Asie → D; Secteur Industrie → E.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "asia",
-          "grade": "D"
-        },
-        {
-          "scope": "sector",
-          "id": "industry",
-          "grade": "E"
-        }
-      ]
-    },
-    {
-      "id": 63,
-      "type": "negative",
-      "title": "Grève générale",
-      "description": "Une grève générale interrompt les transports en Asie et immobilise les chaînes du secteur industrie.",
-      "effect": "Zone Asie → E; Secteur Industrie → E.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "asia",
-          "grade": "E"
-        },
-        {
-          "scope": "sector",
-          "id": "industry",
-          "grade": "E"
-        }
-      ]
-    },
-    {
-      "id": 64,
-      "type": "negative",
-      "title": "Affaiblissement des exportations",
-      "description": "Les commandes étrangères se raréfient en Océanie ; les entreprises du secteur santé revoient leurs budgets.",
-      "effect": "Zone Océanie → E; Secteur Santé → D.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "oceania",
-          "grade": "E"
-        },
-        {
-          "scope": "sector",
-          "id": "health",
-          "grade": "D"
-        }
-      ]
-    },
-    {
-      "id": 65,
-      "type": "negative",
-      "title": "Échec de négociations",
-      "description": "Des négociations commerciales échouent en Amériques et les industriels du secteur industrie perdent des contrats.",
-      "effect": "Zone Amériques → E; Secteur Industrie → E.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "americas",
-          "grade": "E"
-        },
-        {
-          "scope": "sector",
-          "id": "industry",
-          "grade": "E"
-        }
-      ]
-    },
-    {
-      "id": 66,
-      "type": "negative",
-      "title": "Cyberattaque systémique",
-      "description": "Une cyberattaque paralyse des réseaux en Asie et bloque des usines du secteur industrie.",
-      "effect": "Zone Asie → D; Secteur Industrie → E.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "asia",
-          "grade": "D"
-        },
-        {
-          "scope": "sector",
-          "id": "industry",
-          "grade": "E"
-        }
-      ]
-    },
-    {
-      "id": 67,
-      "type": "negative",
-      "title": "Krach boursier",
-      "description": "Une vague de ventes panique les opérateurs en Océanie ; même les valeurs du secteur santé sont entraînées.",
-      "effect": "Zone Océanie → D; Secteur Santé → D.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "oceania",
-          "grade": "D"
-        },
-        {
-          "scope": "sector",
-          "id": "health",
-          "grade": "D"
-        }
-      ]
-    },
-    {
-      "id": 68,
-      "type": "negative",
-      "title": "Désordre politique",
-      "description": "Une crise politique brouille les prévisions en Océanie et retarde les investissements du secteur industrie.",
-      "effect": "Zone Océanie → D; Secteur Industrie → D.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "oceania",
-          "grade": "D"
-        },
-        {
-          "scope": "sector",
-          "id": "industry",
-          "grade": "D"
-        }
-      ]
-    },
-    {
-      "id": 69,
-      "type": "negative",
-      "title": "Crise de la dette",
-      "description": "La dette publique inquiète les créanciers d’Océanie et les groupes du secteur industrie paient leur crédit plus cher.",
-      "effect": "Zone Océanie → E; Secteur Industrie → D.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "oceania",
-          "grade": "E"
-        },
-        {
-          "scope": "sector",
-          "id": "industry",
-          "grade": "D"
-        }
-      ]
-    },
-    {
-      "id": 70,
-      "type": "negative",
-      "title": "Volatilité extrême",
-      "description": "Des ordres contradictoires secouent les places d’Afrique & Moyen-Orient et les producteurs du secteur énergie hésitent à investir.",
-      "effect": "Zone Afrique → D; Secteur Énergie → E.",
+      "description": "« Choc pétrolier » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Immobilier & infrastructures (grade B), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade D). Les indices de la zone Océanie ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → D; zone Océanie → C; secteur Énergie → C; secteur Immobilier & infrastructures → B.",
       "changes": [
         {
           "scope": "zone",
           "id": "africa",
           "grade": "D"
         },
-        {
-          "scope": "sector",
-          "id": "energy",
-          "grade": "E"
-        }
-      ]
-    },
-    {
-      "id": 71,
-      "type": "neutral",
-      "title": "Flux commerciaux stables",
-      "description": "Les flux commerciaux se normalisent en Océanie et les entreprises du secteur énergie ajustent leurs stocks.",
-      "effect": "Zone Océanie → C; Secteur Énergie → C.",
-      "changes": [
         {
           "scope": "zone",
           "id": "oceania",
@@ -2996,6 +3153,359 @@
         {
           "scope": "sector",
           "id": "energy",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "type": "negative",
+      "title": "Faillite bancaire",
+      "description": "« Faillite bancaire » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Agroalimentaire & ressources (grade B), tandis que les retraits pèsent sur la zone Océanie (grade D). Les indices de la zone Amériques ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → D; zone Amériques → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "type": "negative",
+      "title": "Guerre commerciale",
+      "description": "« Guerre commerciale » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Communication & médias (grade B), tandis que les retraits pèsent sur la zone Amériques (grade D). Les indices de la zone Europe ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → D; zone Europe → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "type": "negative",
+      "title": "Chute des devises",
+      "description": "« Chute des devises » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Transports & logistique (grade B), tandis que les retraits pèsent sur la zone Europe (grade D). Les indices de la zone Asie ainsi que du secteur Communication & médias sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → D; zone Asie → C; secteur Communication & médias → C; secteur Transports & logistique → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "type": "negative",
+      "title": "Grève générale",
+      "description": "« Grève générale » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Technologie (grade B), tandis que les retraits pèsent sur la zone Asie (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → D; zone Afrique & Moyen-Orient → C; secteur Transports & logistique → C; secteur Technologie → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "type": "negative",
+      "title": "Affaiblissement des exportations",
+      "description": "« Affaiblissement des exportations » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Finance (grade B), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade D). Les indices de la zone Océanie ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → D; zone Océanie → C; secteur Technologie → C; secteur Finance → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "type": "negative",
+      "title": "Échec de négociations",
+      "description": "« Échec de négociations » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Industrie (grade B), tandis que les retraits pèsent sur la zone Océanie (grade D). Les indices de la zone Amériques ainsi que du secteur Finance sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → D; zone Amériques → C; secteur Finance → C; secteur Industrie → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "type": "negative",
+      "title": "Cyberattaque systémique",
+      "description": "« Cyberattaque systémique » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Santé (grade B), tandis que les retraits pèsent sur la zone Amériques (grade D). Les indices de la zone Europe ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → D; zone Europe → C; secteur Industrie → C; secteur Santé → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "type": "negative",
+      "title": "Krach boursier",
+      "description": "« Krach boursier » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Énergie (grade B), tandis que les retraits pèsent sur la zone Europe (grade D). Les indices de la zone Asie ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → D; zone Asie → C; secteur Santé → C; secteur Énergie → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "type": "negative",
+      "title": "Désordre politique",
+      "description": "« Désordre politique » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Immobilier & infrastructures (grade B), tandis que les retraits pèsent sur la zone Asie (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → D; zone Afrique & Moyen-Orient → C; secteur Énergie → C; secteur Immobilier & infrastructures → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "type": "negative",
+      "title": "Crise de la dette",
+      "description": "« Crise de la dette » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Agroalimentaire & ressources (grade B), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade D). Les indices de la zone Océanie ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → D; zone Océanie → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "type": "negative",
+      "title": "Volatilité extrême",
+      "description": "« Volatilité extrême » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Communication & médias (grade B), tandis que les retraits pèsent sur la zone Océanie (grade D). Les indices de la zone Amériques ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → D; zone Amériques → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → B.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "B"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "type": "neutral",
+      "title": "Flux commerciaux stables",
+      "description": "Après « Flux commerciaux stables », les investisseurs attendent un signal plus net ; les indices des zones Amériques et Europe ainsi que des secteurs Communication & médias et Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → C; zone Europe → C; secteur Communication & médias → C; secteur Transports & logistique → C.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
           "grade": "C"
         }
       ]
@@ -3004,9 +3514,14 @@
       "id": 72,
       "type": "neutral",
       "title": "Marchés prudents",
-      "description": "Les investisseurs observent les prochaines statistiques d’Asie avant de se positionner dans le secteur santé.",
-      "effect": "Zone Asie → C; Secteur Santé → C.",
+      "description": "Après « Marchés prudents », les investisseurs attendent un signal plus net ; les indices des zones Europe et Asie ainsi que des secteurs Transports & logistique et Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → C; zone Asie → C; secteur Transports & logistique → C; secteur Technologie → C.",
       "changes": [
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
         {
           "scope": "zone",
           "id": "asia",
@@ -3014,21 +3529,7 @@
         },
         {
           "scope": "sector",
-          "id": "health",
-          "grade": "C"
-        }
-      ]
-    },
-    {
-      "id": 73,
-      "type": "neutral",
-      "title": "Volatilité contenue",
-      "description": "Les séances deviennent moins agitées en Europe et les sociétés du secteur technologie retrouvent de la visibilité.",
-      "effect": "Zone Europe → C; Secteur Technologie → C.",
-      "changes": [
-        {
-          "scope": "zone",
-          "id": "europe",
+          "id": "transport",
           "grade": "C"
         },
         {
@@ -3039,15 +3540,25 @@
       ]
     },
     {
-      "id": 74,
+      "id": 73,
       "type": "neutral",
-      "title": "Rééquilibrage régional",
-      "description": "Les portefeuilles se rééquilibrent en Afrique & Moyen-Orient ; les banques revoient leurs allocations de prêts.",
-      "effect": "Zone Afrique → C; Secteur Finance → C.",
+      "title": "Volatilité contenue",
+      "description": "Après « Volatilité contenue », les investisseurs attendent un signal plus net ; les indices des zones Asie et Afrique & Moyen-Orient ainsi que des secteurs Technologie et Finance sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → C; zone Afrique & Moyen-Orient → C; secteur Technologie → C; secteur Finance → C.",
       "changes": [
         {
           "scope": "zone",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
+          "scope": "zone",
           "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
           "grade": "C"
         },
         {
@@ -3058,15 +3569,25 @@
       ]
     },
     {
-      "id": 75,
+      "id": 74,
       "type": "neutral",
-      "title": "Transition ordonnée",
-      "description": "Une transition économique progresse sans heurt en Afrique & Moyen-Orient et les usines du secteur industrie adaptent leur calendrier.",
-      "effect": "Zone Afrique → C; Secteur Industrie → C.",
+      "title": "Rééquilibrage régional",
+      "description": "Après « Rééquilibrage régional », les investisseurs attendent un signal plus net ; les indices des zones Afrique & Moyen-Orient et Océanie ainsi que des secteurs Finance et Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → C; zone Océanie → C; secteur Finance → C; secteur Industrie → C.",
       "changes": [
         {
           "scope": "zone",
           "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
           "grade": "C"
         },
         {
@@ -3077,20 +3598,59 @@
       ]
     },
     {
-      "id": 76,
+      "id": 75,
       "type": "neutral",
-      "title": "Stabilisation des marchés",
-      "description": "Après plusieurs séances tendues, les échanges se calment en Afrique & Moyen-Orient et les banques rouvrent leurs guichets.",
-      "effect": "Zone Afrique → C; Secteur Finance → C.",
+      "title": "Transition ordonnée",
+      "description": "Après « Transition ordonnée », les investisseurs attendent un signal plus net ; les indices des zones Océanie et Amériques ainsi que des secteurs Industrie et Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → C; zone Amériques → C; secteur Industrie → C; secteur Santé → C.",
       "changes": [
         {
           "scope": "zone",
-          "id": "africa",
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
           "grade": "C"
         },
         {
           "scope": "sector",
-          "id": "finance",
+          "id": "industry",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "C"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "type": "neutral",
+      "title": "Stabilisation des marchés",
+      "description": "Après « Stabilisation des marchés », les investisseurs attendent un signal plus net ; les indices des zones Amériques et Europe ainsi que des secteurs Communication & médias et Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → C; zone Europe → C; secteur Communication & médias → C; secteur Transports & logistique → C.",
+      "changes": [
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
           "grade": "C"
         }
       ]
@@ -3099,9 +3659,14 @@
       "id": 77,
       "type": "neutral",
       "title": "Pause réglementaire",
-      "description": "Les autorités marquent une pause réglementaire en Asie ; les producteurs du secteur énergie attendent les arbitrages.",
-      "effect": "Zone Asie → C; Secteur Énergie → C.",
+      "description": "Après « Pause réglementaire », les investisseurs attendent un signal plus net ; les indices des zones Europe et Asie ainsi que des secteurs Transports & logistique et Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → C; zone Asie → C; secteur Transports & logistique → C; secteur Technologie → C.",
       "changes": [
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
         {
           "scope": "zone",
           "id": "asia",
@@ -3109,7 +3674,12 @@
         },
         {
           "scope": "sector",
-          "id": "energy",
+          "id": "transport",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
           "grade": "C"
         }
       ]
@@ -3118,12 +3688,22 @@
       "id": 78,
       "type": "neutral",
       "title": "Indicateurs contrastés",
-      "description": "Des indicateurs opposés arrivent d’Amériques ; les banques attendent des données plus nettes.",
-      "effect": "Zone Amériques → C; Secteur Finance → C.",
+      "description": "Après « Indicateurs contrastés », les investisseurs attendent un signal plus net ; les indices des zones Asie et Afrique & Moyen-Orient ainsi que des secteurs Technologie et Finance sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → C; zone Afrique & Moyen-Orient → C; secteur Technologie → C; secteur Finance → C.",
       "changes": [
         {
           "scope": "zone",
-          "id": "americas",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
           "grade": "C"
         },
         {
@@ -3137,17 +3717,27 @@
       "id": 79,
       "type": "neutral",
       "title": "Attentisme monétaire",
-      "description": "La banque centrale diffère sa décision en Amériques ; les prêteurs gardent leurs conditions actuelles.",
-      "effect": "Zone Amériques → C; Secteur Finance → C.",
+      "description": "Après « Attentisme monétaire », les investisseurs attendent un signal plus net ; les indices des zones Afrique & Moyen-Orient et Océanie ainsi que des secteurs Finance et Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → C; zone Océanie → C; secteur Finance → C; secteur Industrie → C.",
       "changes": [
         {
           "scope": "zone",
-          "id": "americas",
+          "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
           "grade": "C"
         },
         {
           "scope": "sector",
           "id": "finance",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
           "grade": "C"
         }
       ]
@@ -3156,8 +3746,8 @@
       "id": 80,
       "type": "neutral",
       "title": "Neutralité budgétaire",
-      "description": "Un budget sans surprise est adopté en Océanie et les usines du secteur industrie poursuivent leurs plans.",
-      "effect": "Zone Océanie → C; Secteur Industrie → C.",
+      "description": "Après « Neutralité budgétaire », les investisseurs attendent un signal plus net ; les indices des zones Océanie et Amériques ainsi que des secteurs Industrie et Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → C; zone Amériques → C; secteur Industrie → C; secteur Santé → C.",
       "changes": [
         {
           "scope": "zone",
@@ -3165,8 +3755,18 @@
           "grade": "C"
         },
         {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
           "id": "industry",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
           "grade": "C"
         }
       ]
@@ -3175,18 +3775,28 @@
       "id": 81,
       "type": "prison",
       "title": "Détournement de fonds",
-      "description": "Scénario inspiré des fraudes à la Ponzi révélées dans l’histoire financière : des flux clients inexpliqués déclenchent une enquête en Asie.",
-      "effect": "Le joueur qui tire cette carte va en prison. Secteur Finance → D; Zone Asie → E.",
+      "description": "« Détournement de fonds » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade B), tandis que les retraits pèsent sur le secteur Énergie (grade D). Les indices de la zone Europe ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → B; zone Europe → C; secteur Santé → C; secteur Énergie → D.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "D"
+          "scope": "zone",
+          "id": "americas",
+          "grade": "B"
         },
         {
           "scope": "zone",
-          "id": "asia",
-          "grade": "E"
+          "id": "europe",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "D"
         }
       ]
     },
@@ -3194,17 +3804,27 @@
       "id": 82,
       "type": "prison",
       "title": "Créances inexpliquées",
-      "description": "Des créances sans activité économique identifiable apparaissent dans un dossier de Amériques ; les auditeurs demandent des justificatifs.",
-      "effect": "Le joueur qui tire cette carte va en prison. Secteur Finance → E; Zone Amériques → D.",
+      "description": "« Créances inexpliquées » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade B), tandis que les retraits pèsent sur le secteur Immobilier & infrastructures (grade D). Les indices de la zone Asie ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → B; zone Asie → C; secteur Énergie → C; secteur Immobilier & infrastructures → D.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "E"
+          "scope": "zone",
+          "id": "europe",
+          "grade": "B"
         },
         {
           "scope": "zone",
-          "id": "americas",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
           "grade": "D"
         }
       ]
@@ -3213,17 +3833,27 @@
       "id": 83,
       "type": "prison",
       "title": "Fuite d'informations confidentielles",
-      "description": "Une fuite d’informations avant une annonce officielle conduit les autorités de Afrique & Moyen-Orient à examiner les contrôles de marché.",
-      "effect": "Le joueur qui tire cette carte va en prison. Secteur Finance → E; Zone Afrique → D.",
+      "description": "« Fuite d'informations confidentielles » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade B), tandis que les retraits pèsent sur le secteur Agroalimentaire & ressources (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → B; zone Afrique & Moyen-Orient → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → D.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "E"
+          "scope": "zone",
+          "id": "asia",
+          "grade": "B"
         },
         {
           "scope": "zone",
           "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
           "grade": "D"
         }
       ]
@@ -3232,18 +3862,28 @@
       "id": 84,
       "type": "prison",
       "title": "Soupçons d'abus de marché",
-      "description": "Des transactions anticipent une annonce publique en Amériques ; les autorités vérifient si les règles de marché ont été respectées.",
-      "effect": "Le joueur qui tire cette carte va en prison. Secteur Finance → E; Zone Amériques → E.",
+      "description": "« Soupçons d'abus de marché » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade B), tandis que les retraits pèsent sur le secteur Communication & médias (grade D). Les indices de la zone Océanie ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → B; zone Océanie → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → D.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "E"
+          "scope": "zone",
+          "id": "africa",
+          "grade": "B"
         },
         {
           "scope": "zone",
-          "id": "americas",
-          "grade": "E"
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "D"
         }
       ]
     },
@@ -3251,17 +3891,27 @@
       "id": 85,
       "type": "prison",
       "title": "Perte dissimulée",
-      "description": "Une perte jusque-là mal documentée est réexaminée par les auditeurs d’un établissement de Amériques.",
-      "effect": "Le joueur qui tire cette carte va en prison. Secteur Finance → D; Zone Amériques → D.",
+      "description": "« Perte dissimulée » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Océanie (grade B), tandis que les retraits pèsent sur le secteur Transports & logistique (grade D). Les indices de la zone Amériques ainsi que du secteur Communication & médias sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → B; zone Amériques → C; secteur Communication & médias → C; secteur Transports & logistique → D.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "D"
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "B"
         },
         {
           "scope": "zone",
           "id": "americas",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
           "grade": "D"
         }
       ]
@@ -3270,18 +3920,28 @@
       "id": 86,
       "type": "prison",
       "title": "Conflit d'intérêts",
-      "description": "Un examen de gouvernance en Afrique & Moyen-Orient met l’accent sur les conflits d’intérêts dans l’attribution de contrats.",
-      "effect": "Le joueur qui tire cette carte va en prison. Secteur Finance → D; Zone Afrique → E.",
+      "description": "« Conflit d'intérêts » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Énergie (grade B), tandis que les retraits pèsent sur la zone Amériques (grade D). Les indices de la zone Europe ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → D; zone Europe → C; secteur Santé → C; secteur Énergie → B.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
+          "scope": "zone",
+          "id": "americas",
           "grade": "D"
         },
         {
           "scope": "zone",
-          "id": "africa",
-          "grade": "E"
+          "id": "europe",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "B"
         }
       ]
     },
@@ -3289,18 +3949,28 @@
       "id": 87,
       "type": "prison",
       "title": "Manipulation de marché présumée",
-      "description": "Des ordres coordonnés anormaux font l’objet d’une enquête sur une place de Asie ; les contrôles de marché sont renforcés.",
-      "effect": "Le joueur qui tire cette carte va en prison. Secteur Finance → E; Zone Asie → D.",
+      "description": "« Manipulation de marché présumée » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Immobilier & infrastructures (grade B), tandis que les retraits pèsent sur la zone Europe (grade D). Les indices de la zone Asie ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → D; zone Asie → C; secteur Énergie → C; secteur Immobilier & infrastructures → B.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "E"
+          "scope": "zone",
+          "id": "europe",
+          "grade": "D"
         },
         {
           "scope": "zone",
           "id": "asia",
-          "grade": "D"
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "B"
         }
       ]
     },
@@ -3308,18 +3978,28 @@
       "id": 88,
       "type": "prison",
       "title": "Enquête pour délit d'initié",
-      "description": "Des opérations réalisées avant une annonce sensible sont examinées dans une enquête pour délit d’initié en Amériques.",
-      "effect": "Le joueur qui tire cette carte va en prison. Secteur Finance → E; Zone Amériques → D.",
+      "description": "« Enquête pour délit d'initié » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Agroalimentaire & ressources (grade B), tandis que les retraits pèsent sur la zone Asie (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → D; zone Afrique & Moyen-Orient → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → B.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "E"
+          "scope": "zone",
+          "id": "asia",
+          "grade": "D"
         },
         {
           "scope": "zone",
-          "id": "americas",
-          "grade": "D"
+          "id": "africa",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "B"
         }
       ]
     },
@@ -3327,18 +4007,28 @@
       "id": 89,
       "type": "prison",
       "title": "Fraude comptable révélée",
-      "description": "Des écarts entre pièces justificatives et écritures comptables sont découverts dans un dossier de Océanie.",
-      "effect": "Le joueur qui tire cette carte va en prison. Secteur Finance → D; Zone Océanie → E.",
+      "description": "« Fraude comptable révélée » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Communication & médias (grade B), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade D). Les indices de la zone Océanie ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → D; zone Océanie → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → B.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
+          "scope": "zone",
+          "id": "africa",
           "grade": "D"
         },
         {
           "scope": "zone",
           "id": "oceania",
-          "grade": "E"
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "B"
         }
       ]
     },
@@ -3346,18 +4036,28 @@
       "id": 90,
       "type": "prison",
       "title": "Blanchiment présumé",
-      "description": "Une enquête sur des soupçons de blanchiment conduit les autorités de Océanie à renforcer la traçabilité des paiements.",
-      "effect": "Le joueur qui tire cette carte va en prison. Secteur Finance → D; Zone Océanie → D.",
+      "description": "« Blanchiment présumé » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Transports & logistique (grade B), tandis que les retraits pèsent sur la zone Océanie (grade D). Les indices de la zone Amériques ainsi que du secteur Communication & médias sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → D; zone Amériques → C; secteur Communication & médias → C; secteur Transports & logistique → B.",
       "changes": [
-        {
-          "scope": "sector",
-          "id": "finance",
-          "grade": "D"
-        },
         {
           "scope": "zone",
           "id": "oceania",
           "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
+          "grade": "B"
         }
       ]
     },
@@ -3365,12 +4065,27 @@
       "id": 91,
       "type": "regulation",
       "title": "Démantèlement d'un conglomérat",
-      "description": "Une étude de marché sur santé relance le débat sur la séparation d’activités dominantes.",
-      "effect": "Tous les joueurs en monopole sectoriel doivent céder des entreprises pour repasser sous 50 %. Secteur Santé → D.",
+      "description": "« Démantèlement d'un conglomérat » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade B), tandis que les retraits pèsent sur le secteur Technologie (grade D). Les indices de la zone Europe ainsi que du secteur Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → B; zone Europe → C; secteur Transports & logistique → C; secteur Technologie → D.",
       "changes": [
         {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "health",
+          "id": "transport",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
           "grade": "D"
         }
       ]
@@ -3379,12 +4094,27 @@
       "id": 92,
       "type": "regulation",
       "title": "Supervision accrue des monopoles",
-      "description": "Les autorités publient une revue générale de la concurrence dans le secteur santé ; les marchés évaluent les coûts possibles de conformité.",
-      "effect": "Tous les joueurs en monopole sectoriel doivent céder des entreprises pour repasser sous 50 %. Secteur Santé → D.",
+      "description": "« Supervision accrue des monopoles » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade B), tandis que les retraits pèsent sur le secteur Finance (grade D). Les indices de la zone Asie ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → B; zone Asie → C; secteur Technologie → C; secteur Finance → D.",
       "changes": [
         {
+          "scope": "zone",
+          "id": "europe",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "health",
+          "id": "technology",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
           "grade": "D"
         }
       ]
@@ -3393,13 +4123,28 @@
       "id": 93,
       "type": "regulation",
       "title": "Examen de concentration",
-      "description": "Un projet de fusion dans le secteur technologie fait l’objet d’un examen réglementaire, comme dans les procédures de concentration historiques.",
-      "effect": "Tous les joueurs en monopole sectoriel doivent céder des entreprises pour repasser sous 50 %. Secteur Technologie → C.",
+      "description": "« Examen de concentration » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade B), tandis que les retraits pèsent sur le secteur Santé (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → B; zone Afrique & Moyen-Orient → C; secteur Industrie → C; secteur Santé → D.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "technology",
+          "scope": "zone",
+          "id": "asia",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
           "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "industry",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
+          "grade": "D"
         }
       ]
     },
@@ -3407,13 +4152,28 @@
       "id": 94,
       "type": "regulation",
       "title": "Garde-fous sectoriels",
-      "description": "Après plusieurs crises sectorielles, de nouveaux contrôles sont proposés pour le secteur énergie.",
-      "effect": "Tous les joueurs en monopole sectoriel doivent céder des entreprises pour repasser sous 50 %. Secteur Énergie → B.",
+      "description": "« Garde-fous sectoriels » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade B), tandis que les retraits pèsent sur le secteur Immobilier & infrastructures (grade D). Les indices de la zone Océanie ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → B; zone Océanie → C; secteur Énergie → C; secteur Immobilier & infrastructures → D.",
       "changes": [
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
+        },
         {
           "scope": "sector",
           "id": "energy",
-          "grade": "B"
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "D"
         }
       ]
     },
@@ -3421,13 +4181,28 @@
       "id": 95,
       "type": "regulation",
       "title": "Encadrement des acquisitions",
-      "description": "Les autorités précisent les critères d’examen des acquisitions dans le secteur finance, ajoutant de l’incertitude aux projets en cours.",
-      "effect": "Tous les joueurs en monopole sectoriel doivent céder des entreprises pour repasser sous 50 %. Secteur Finance → C.",
+      "description": "« Encadrement des acquisitions » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Océanie (grade B), tandis que les retraits pèsent sur le secteur Communication & médias (grade D). Les indices de la zone Amériques ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → B; zone Amériques → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → D.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "B"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
           "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "agrifood",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
+          "grade": "D"
         }
       ]
     },
@@ -3435,13 +4210,28 @@
       "id": 96,
       "type": "regulation",
       "title": "Durcissement des règles concurrentielles",
-      "description": "Une réforme durcit l’application du droit de la concurrence dans le secteur santé et pousse les acteurs à revoir leurs contrats.",
-      "effect": "Tous les joueurs en monopole sectoriel doivent céder des entreprises pour repasser sous 50 %. Secteur Santé → C.",
+      "description": "« Durcissement des règles concurrentielles » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Technologie (grade B), tandis que les retraits pèsent sur la zone Amériques (grade D). Les indices de la zone Europe ainsi que du secteur Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → D; zone Europe → C; secteur Transports & logistique → C; secteur Technologie → B.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "health",
+          "scope": "zone",
+          "id": "americas",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "europe",
           "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "transport",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
+          "grade": "B"
         }
       ]
     },
@@ -3449,13 +4239,28 @@
       "id": 97,
       "type": "regulation",
       "title": "Contrôle des prix",
-      "description": "Un dispositif temporaire de contrôle des prix est débattu pour le secteur santé, ravivant le débat sur la protection des consommateurs.",
-      "effect": "Tous les joueurs en monopole sectoriel doivent céder des entreprises pour repasser sous 50 %. Secteur Santé → C.",
+      "description": "« Contrôle des prix » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Finance (grade B), tandis que les retraits pèsent sur la zone Europe (grade D). Les indices de la zone Asie ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → D; zone Asie → C; secteur Technologie → C; secteur Finance → B.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "health",
+          "scope": "zone",
+          "id": "europe",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "asia",
           "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "technology",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "finance",
+          "grade": "B"
         }
       ]
     },
@@ -3463,12 +4268,27 @@
       "id": 98,
       "type": "regulation",
       "title": "Limitation des positions dominantes",
-      "description": "Les régulateurs examinent des limites de détention dans le secteur industrie afin de réduire les risques de concentration.",
-      "effect": "Tous les joueurs en monopole sectoriel doivent céder des entreprises pour repasser sous 50 %. Secteur Industrie → B.",
+      "description": "« Limitation des positions dominantes » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Santé (grade B), tandis que les retraits pèsent sur la zone Asie (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → D; zone Afrique & Moyen-Orient → C; secteur Industrie → C; secteur Santé → B.",
       "changes": [
+        {
+          "scope": "zone",
+          "id": "asia",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "africa",
+          "grade": "C"
+        },
         {
           "scope": "sector",
           "id": "industry",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "health",
           "grade": "B"
         }
       ]
@@ -3477,13 +4297,28 @@
       "id": 99,
       "type": "regulation",
       "title": "Action antitrust renforcée",
-      "description": "Une enquête sectorielle sur finance vérifie les pratiques commerciales et les barrières à l’entrée.",
-      "effect": "Tous les joueurs en monopole sectoriel doivent céder des entreprises pour repasser sous 50 %. Secteur Finance → D.",
+      "description": "« Action antitrust renforcée » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Immobilier & infrastructures (grade B), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade D). Les indices de la zone Océanie ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → D; zone Océanie → C; secteur Énergie → C; secteur Immobilier & infrastructures → B.",
       "changes": [
         {
-          "scope": "sector",
-          "id": "finance",
+          "scope": "zone",
+          "id": "africa",
           "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "energy",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "realestate",
+          "grade": "B"
         }
       ]
     },
@@ -3491,12 +4326,27 @@
       "id": 100,
       "type": "regulation",
       "title": "Surveillance des plateformes",
-      "description": "Une consultation réglementaire sur les plateformes du secteur énergie demande davantage de transparence sur l’accès au marché.",
-      "effect": "Tous les joueurs en monopole sectoriel doivent céder des entreprises pour repasser sous 50 %. Secteur Énergie → B.",
+      "description": "« Surveillance des plateformes » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Communication & médias (grade B), tandis que les retraits pèsent sur la zone Océanie (grade D). Les indices de la zone Amériques ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → D; zone Amériques → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → B.",
       "changes": [
         {
+          "scope": "zone",
+          "id": "oceania",
+          "grade": "D"
+        },
+        {
+          "scope": "zone",
+          "id": "americas",
+          "grade": "C"
+        },
+        {
           "scope": "sector",
-          "id": "energy",
+          "id": "agrifood",
+          "grade": "C"
+        },
+        {
+          "scope": "sector",
+          "id": "media",
           "grade": "B"
         }
       ]
@@ -3509,22 +4359,17 @@
     },
     {
       "kind": "sector",
-      "sector": "transport",
-      "label": "Transports"
+      "sector": "industry",
+      "label": "Industrie"
     },
     {
       "kind": "sector",
-      "sector": "agrifood",
-      "label": "Agroalimentaire"
+      "sector": "technology",
+      "label": "Technologie"
     },
     {
       "kind": "event",
       "label": "Événement"
-    },
-    {
-      "kind": "sector",
-      "sector": "energy",
-      "label": "Énergie"
     },
     {
       "kind": "sector",
@@ -3533,13 +4378,18 @@
     },
     {
       "kind": "sector",
-      "sector": "industry",
-      "label": "Industrie"
+      "sector": "realestate",
+      "label": "Immobilier & infrastructures"
     },
     {
       "kind": "sector",
-      "sector": "health",
-      "label": "Santé"
+      "sector": "energy",
+      "label": "Énergie"
+    },
+    {
+      "kind": "sector",
+      "sector": "media",
+      "label": "Communication & médias"
     },
     {
       "kind": "event",
@@ -3552,13 +4402,28 @@
     },
     {
       "kind": "sector",
+      "sector": "agrifood",
+      "label": "Agroalimentaire & ressources"
+    },
+    {
+      "kind": "sector",
+      "sector": "health",
+      "label": "Santé"
+    },
+    {
+      "kind": "sector",
       "sector": "technology",
       "label": "Technologie"
     },
     {
+      "kind": "market",
+      "label": "Bull Market",
+      "marketEffect": "bull"
+    },
+    {
       "kind": "sector",
-      "sector": "media",
-      "label": "Communication"
+      "sector": "industry",
+      "label": "Industrie"
     },
     {
       "kind": "sector",
@@ -3566,18 +4431,71 @@
       "label": "Immobilier & infrastructures"
     },
     {
-      "kind": "market",
-      "label": "Bull Market"
+      "kind": "event",
+      "label": "Événement"
     },
     {
       "kind": "sector",
-      "sector": "realestate",
-      "label": "Immobilier"
+      "sector": "transport",
+      "label": "Transports & logistique"
+    },
+    {
+      "kind": "sector",
+      "sector": "energy",
+      "label": "Énergie"
+    },
+    {
+      "kind": "sector",
+      "sector": "finance",
+      "label": "Finance"
+    },
+    {
+      "kind": "sector",
+      "sector": "media",
+      "label": "Communication & médias"
+    },
+    {
+      "kind": "event",
+      "label": "Événement"
+    },
+    {
+      "kind": "sector",
+      "sector": "technology",
+      "label": "Technologie"
     },
     {
       "kind": "sector",
       "sector": "agrifood",
-      "label": "Agroalimentaire"
+      "label": "Agroalimentaire & ressources"
+    },
+    {
+      "kind": "sector",
+      "sector": "health",
+      "label": "Santé"
+    },
+    {
+      "kind": "sector",
+      "sector": "realestate",
+      "label": "Immobilier & infrastructures"
+    },
+    {
+      "kind": "event",
+      "label": "Événement"
+    },
+    {
+      "kind": "sector",
+      "sector": "industry",
+      "label": "Industrie"
+    },
+    {
+      "kind": "sector",
+      "sector": "transport",
+      "label": "Transports & logistique"
+    },
+    {
+      "kind": "sector",
+      "sector": "finance",
+      "label": "Finance"
     },
     {
       "kind": "event",
@@ -3590,8 +4508,8 @@
     },
     {
       "kind": "sector",
-      "sector": "industry",
-      "label": "Industrie"
+      "sector": "technology",
+      "label": "Technologie"
     },
     {
       "kind": "sector",
@@ -3600,6 +4518,20 @@
     },
     {
       "kind": "sector",
+      "sector": "realestate",
+      "label": "Immobilier & infrastructures"
+    },
+    {
+      "kind": "event",
+      "label": "Événement"
+    },
+    {
+      "kind": "sector",
+      "sector": "agrifood",
+      "label": "Agroalimentaire & ressources"
+    },
+    {
+      "kind": "sector",
       "sector": "health",
       "label": "Santé"
     },
@@ -3608,9 +4540,28 @@
       "label": "Événement"
     },
     {
+      "kind": "market",
+      "label": "Bear Market",
+      "marketEffect": "bear"
+    },
+    {
       "kind": "sector",
       "sector": "finance",
       "label": "Finance"
+    },
+    {
+      "kind": "sector",
+      "sector": "industry",
+      "label": "Industrie"
+    },
+    {
+      "kind": "sector",
+      "sector": "transport",
+      "label": "Transports & logistique"
+    },
+    {
+      "kind": "event",
+      "label": "Événement"
     },
     {
       "kind": "sector",
@@ -3619,40 +4570,8 @@
     },
     {
       "kind": "sector",
-      "sector": "media",
-      "label": "Communication"
-    },
-    {
-      "kind": "market",
-      "label": "Market Crash"
-    },
-    {
-      "kind": "event",
-      "label": "Événement"
-    },
-    {
-      "kind": "sector",
-      "sector": "transport",
-      "label": "Transports"
-    },
-    {
-      "kind": "sector",
-      "sector": "agrifood",
-      "label": "Agroalimentaire"
-    },
-    {
-      "kind": "sector",
       "sector": "energy",
       "label": "Énergie"
-    },
-    {
-      "kind": "event",
-      "label": "Événement"
-    },
-    {
-      "kind": "sector",
-      "sector": "industry",
-      "label": "Industrie"
     },
     {
       "kind": "sector",
@@ -3661,64 +4580,17 @@
     },
     {
       "kind": "sector",
-      "sector": "health",
-      "label": "Santé"
-    },
-    {
-      "kind": "sector",
-      "sector": "finance",
-      "label": "Finance"
+      "sector": "media",
+      "label": "Communication & médias"
     },
     {
       "kind": "event",
       "label": "Événement"
-    },
-    {
-      "kind": "sector",
-      "sector": "technology",
-      "label": "Technologie"
-    },
-    {
-      "kind": "sector",
-      "sector": "realestate",
-      "label": "Immobilier"
-    },
-    {
-      "kind": "market",
-      "label": "Bear Market"
-    },
-    {
-      "kind": "event",
-      "label": "Événement"
-    },
-    {
-      "kind": "sector",
-      "sector": "transport",
-      "label": "Transports"
     },
     {
       "kind": "sector",
       "sector": "agrifood",
-      "label": "Agroalimentaire"
-    },
-    {
-      "kind": "sector",
-      "sector": "energy",
-      "label": "Énergie"
-    },
-    {
-      "kind": "event",
-      "label": "Événement"
-    },
-    {
-      "kind": "sector",
-      "sector": "industry",
-      "label": "Industrie"
-    },
-    {
-      "kind": "sector",
-      "sector": "finance",
-      "label": "Finance"
+      "label": "Agroalimentaire & ressources"
     },
     {
       "kind": "sector",
@@ -3729,25 +4601,6 @@
       "kind": "sector",
       "sector": "finance",
       "label": "Finance"
-    },
-    {
-      "kind": "event",
-      "label": "Événement"
-    },
-    {
-      "kind": "sector",
-      "sector": "technology",
-      "label": "Technologie"
-    },
-    {
-      "kind": "sector",
-      "sector": "technology",
-      "label": "Technologie"
-    },
-    {
-      "kind": "sector",
-      "sector": "media",
-      "label": "Communication"
     }
   ]
 }

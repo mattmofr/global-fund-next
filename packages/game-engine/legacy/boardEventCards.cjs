@@ -6,436 +6,486 @@ const BOARD_EVENT_CARDS = [
   {
     "id": "board-01",
     "title": "Contrat public inattendu",
-    "story": "Un marché public est attribué à {company} après une procédure concurrentielle. Le fonds actif reçoit une indemnité liée à la transaction.",
+    "story": "Une opération de financement liée à {company} se conclut par une indemnité versée au fonds actif.",
     "effect": "cash",
     "activeCash": 2,
-    "amount": 2
+    "balanceCategory": "favorable",
+    "targetSector": "finance"
   },
   {
     "id": "board-02",
     "title": "Prime de fidélité bancaire",
-    "story": "Une banque partenaire réorganise ses réserves et distribue une prime exceptionnelle aux porteurs de {company}.",
+    "story": "Une banque du secteur de {company} distribue une prime ponctuelle de 2 M€ par titre détenu.",
     "effect": "dividend",
     "activeCash": 1,
-    "amount": 2,
-    "targetSector": "finance"
+    "balanceCategory": "favorable",
+    "targetSector": "finance",
+    "amount": 2
   },
   {
     "id": "board-03",
     "title": "Rachat stratégique",
-    "story": "Une offre de rachat avec prime est déposée sur {company} afin de sécuriser une chaîne d’approvisionnement.",
+    "story": "Un partenaire industriel rachète chaque titre détenu de {company} au cours du marché, avec une prime de 2 M€ par titre.",
     "effect": "buyback",
-    "activeCash": 3,
-    "amount": 3,
-    "targetSector": "industry"
+    "activeCash": 1,
+    "balanceCategory": "favorable",
+    "targetSector": "industry",
+    "amount": 2
   },
   {
     "id": "board-04",
     "title": "Crédit d’innovation",
-    "story": "Un fonds d’innovation règle une avance au fonds actif après la validation d’un programme lié à {company}.",
+    "story": "Un crédit d’innovation est versé au fonds actif à la suite d’un programme de recherche coté.",
     "effect": "cash",
     "activeCash": 1,
-    "amount": 1
+    "balanceCategory": "favorable"
   },
   {
     "id": "board-05",
     "title": "Dividende exceptionnel",
-    "story": "Après la cession d’un actif, {company} décide une distribution ponctuelle aux actionnaires.",
+    "story": "Après la cession d’un actif énergétique lié à {company}, une distribution ponctuelle de 2 M€ par titre est versée.",
     "effect": "dividend",
-    "activeCash": 2,
-    "amount": 3,
-    "targetSector": "energy"
+    "activeCash": 1,
+    "balanceCategory": "favorable",
+    "targetSector": "energy",
+    "amount": 2
   },
   {
     "id": "board-06",
     "title": "Commande humanitaire",
-    "story": "Une commande d’urgence de matériel médical est attribuée à {company}. Une indemnité de mobilisation revient au fonds actif.",
+    "story": "La commande humanitaire concernant {company} reste à l’étude; aucun versement ni coût ne s’applique pour le moment.",
     "effect": "cash",
-    "activeCash": 3,
-    "amount": 3
+    "activeCash": 0,
+    "balanceCategory": "mixed"
   },
   {
     "id": "board-07",
     "title": "Offre de retrait",
-    "story": "Un investisseur propose un retrait avec prime sur {company} pour financer la rénovation d’actifs immobiliers.",
+    "story": "Un investisseur rachète chaque titre détenu de {company} au cours du marché, avec une prime de 2 M€ par titre.",
     "effect": "buyback",
-    "activeCash": 2,
-    "amount": 2,
-    "targetSector": "realestate"
+    "activeCash": 1,
+    "balanceCategory": "favorable",
+    "targetSector": "realestate",
+    "amount": 2
   },
   {
     "id": "board-08",
     "title": "Brevet décisif",
-    "story": "Une licence de brevet ouvre de nouveaux débouchés à {company} ; les actionnaires reçoivent une distribution exceptionnelle.",
+    "story": "Une licence de brevet liée à {company} ouvre un nouveau débouché; les porteurs reçoivent 2 M€ par titre.",
     "effect": "dividend",
     "activeCash": 1,
-    "amount": 2,
-    "targetSector": "technology"
+    "balanceCategory": "favorable",
+    "targetSector": "technology",
+    "amount": 2
   },
   {
     "id": "board-09",
     "title": "Amende de conformité",
-    "story": "Un audit de conformité révèle des dossiers incomplets autour de {company}. Le fonds actif règle les frais de procédure.",
+    "story": "Un défaut de conformité dans les activités de santé liées à {company} entraîne des frais de 1 M€ par titre détenu.",
     "effect": "fine",
-    "activeCash": -2,
-    "amount": 2
+    "activeCash": -1,
+    "balanceCategory": "unfavorable",
+    "targetSector": "health",
+    "amount": 1
   },
   {
     "id": "board-10",
     "title": "Rappel de sécurité",
-    "story": "Un défaut détecté lors d’un contrôle qualité entraîne le rappel d’un lot de {company} ; les porteurs financent une partie des coûts.",
+    "story": "Un rappel de sécurité sur un équipement de {company} entraîne 2 M€ de frais par titre détenu.",
     "effect": "fine",
-    "activeCash": -3,
-    "amount": 3,
-    "targetSector": "industry"
+    "activeCash": -1,
+    "balanceCategory": "unfavorable",
+    "targetSector": "industry",
+    "amount": 2
   },
   {
     "id": "board-11",
     "title": "Taxe carbone accélérée",
-    "story": "Une tarification carbone entre en vigueur plus tôt que prévu et renchérit l’exposition associée à {company}.",
+    "story": "Une taxe carbone accélérée sur les activités de {company} entraîne 1 M€ de frais par titre détenu.",
     "effect": "fine",
     "activeCash": -1,
-    "amount": 1,
-    "targetSector": "energy"
+    "balanceCategory": "unfavorable",
+    "targetSector": "energy",
+    "amount": 1
   },
   {
     "id": "board-12",
     "title": "Frais de restructuration",
-    "story": "Le conseil de {company} lance une réorganisation. Les coûts de conseil et de transition pèsent sur les détenteurs de titres.",
+    "story": "La restructuration des activités de {company} entraîne 1 M€ de frais par titre détenu.",
     "effect": "fine",
-    "activeCash": -2,
-    "amount": 2
+    "activeCash": -1,
+    "balanceCategory": "unfavorable",
+    "targetSector": "media",
+    "amount": 1
   },
   {
     "id": "board-13",
     "title": "Vente réglementaire",
-    "story": "Une nouvelle règle prudentielle impose de réduire une position concentrée dans {company}.",
-    "effect": "forcedSale",
-    "activeCash": -1,
-    "quantity": 1,
-    "targetSector": "finance"
+    "story": "Une règle prudentielle plafonne les détentions dominantes autour de {company}; le fonds actif reçoit 1 M€ et les monopoles immobiliers cèdent une action par société concernée.",
+    "effect": "regulation",
+    "activeCash": 1,
+    "balanceCategory": "mixed",
+    "targetSector": "realestate",
+    "quantity": 1
   },
   {
     "id": "board-14",
     "title": "Désengagement d’un assureur",
-    "story": "Un assureur révise les conditions de couverture de {company} ; certains fonds réduisent leur exposition.",
+    "story": "Un assureur réduit son exposition aux activités de santé de {company}; chaque détenteur cède une action au cours du marché. Le fonds actif règle 1 M€ de frais.",
     "effect": "forcedSale",
-    "activeCash": -2,
-    "quantity": 1,
-    "targetSector": "health"
+    "activeCash": -1,
+    "balanceCategory": "unfavorable",
+    "targetSector": "health",
+    "quantity": 1
   },
   {
     "id": "board-15",
     "title": "Audit des participations croisées",
-    "story": "Un audit indépendant relève des participations croisées autour de {company}. Les porteurs réduisent leurs lignes.",
+    "story": "Un audit des participations croisées liées à {company} impose la cession de deux actions par détenteur au cours du marché. Le fonds actif règle 1 M€ de frais.",
     "effect": "forcedSale",
-    "activeCash": -3,
-    "quantity": 2,
-    "targetSector": "technology"
+    "activeCash": -1,
+    "balanceCategory": "unfavorable",
+    "targetSector": "technology",
+    "quantity": 2
   },
   {
     "id": "board-16",
     "title": "Liquidité sous surveillance",
-    "story": "Des créanciers demandent un plan de liquidité après la réévaluation d’actifs liés à {company}.",
+    "story": "Une surveillance de liquidité dans la filière de {company} conduit chaque détenteur à céder une action au cours du marché. Le fonds actif règle 1 M€ de frais.",
     "effect": "forcedSale",
-    "activeCash": -2,
-    "quantity": 1,
-    "targetSector": "realestate"
+    "activeCash": -1,
+    "balanceCategory": "unfavorable",
+    "targetSector": "agrifood",
+    "quantity": 1
   },
   {
     "id": "board-17",
     "title": "Garantie de rachat",
-    "story": "Un partenaire industriel propose une sortie à prime pour les titres de {company}.",
+    "story": "Un partenaire de transport rachète chaque titre détenu de {company} au cours du marché, avec une prime de 1 M€ par titre.",
     "effect": "buyback",
     "activeCash": 1,
-    "amount": 2,
-    "targetSector": "transport"
+    "balanceCategory": "favorable",
+    "targetSector": "transport",
+    "amount": 1
   },
   {
     "id": "board-18",
     "title": "Appel de marge",
-    "story": "Une séance très volatile sur {company} déclenche un appel de marge pour le fonds actif.",
+    "story": "Une forte volatilité sur {company} entraîne un dépôt de garantie de 2 M€ pour le fonds actif s’il détient cette société.",
     "effect": "marginCall",
-    "activeCash": -3,
-    "amount": 3,
-    "targetSector": "finance"
+    "activeCash": 0,
+    "balanceCategory": "unfavorable",
+    "targetSector": "finance",
+    "amount": 2
   },
   {
     "id": "board-19",
     "title": "Collatéral déprécié",
-    "story": "La valeur du collatéral adossé à {company} baisse ; le fonds actif doit reconstituer sa garantie.",
+    "story": "La baisse de valeur d’un collatéral énergétique lié à {company} entraîne un dépôt de garantie de 1 M€ si le fonds actif détient cette société.",
     "effect": "marginCall",
-    "activeCash": -2,
-    "amount": 2,
-    "targetSector": "energy"
+    "activeCash": 0,
+    "balanceCategory": "unfavorable",
+    "targetSector": "energy",
+    "amount": 1
   },
   {
     "id": "board-20",
     "title": "Risque de change",
-    "story": "Un mouvement de change renchérit les contrats associés à {company} et entraîne un appel de marge.",
+    "story": "Le renchérissement des contrats industriels liés à {company} entraîne un dépôt de garantie de 1 M€ si le fonds actif détient cette société.",
     "effect": "marginCall",
-    "activeCash": -1,
-    "amount": 1,
-    "targetSector": "agrifood"
+    "activeCash": 0,
+    "balanceCategory": "unfavorable",
+    "targetSector": "industry",
+    "amount": 1
   },
   {
     "id": "board-21",
     "title": "Convocation judiciaire",
-    "story": "Une enquête sur des opérations liées à {company} conduit le gestionnaire du fonds à être entendu par la justice.",
+    "story": "Une enquête judiciaire liée à {company} convoque le gestionnaire actif; s’il détient cette société, il est placé en prison. Le fonds actif règle 1 M€ de frais.",
     "effect": "prison",
-    "activeCash": -1
+    "activeCash": -1,
+    "balanceCategory": "unfavorable"
   },
   {
     "id": "board-22",
     "title": "Soupçon de délit d’initié",
-    "story": "Des ordres atypiques précèdent une annonce concernant {company}. Une enquête de marché est ouverte et le gestionnaire exposé est convoqué.",
-    "effect": "prison",
-    "activeCash": -2,
-    "targetSector": "finance"
+    "story": "Après un examen des transactions dans le secteur de {company}, une règle de transparence limite les positions dominantes; le fonds actif reçoit 1 M€ et les monopoles médias cèdent une action par société concernée.",
+    "effect": "regulation",
+    "activeCash": 1,
+    "balanceCategory": "mixed",
+    "targetSector": "media",
+    "quantity": 1
   },
   {
     "id": "board-23",
     "title": "Saisie préventive",
-    "story": "Des pièces comptables liées à {company} sont saisies pour expertise ; le gestionnaire exposé est retenu le temps des auditions.",
-    "effect": "prison",
-    "activeCash": -3
+    "story": "Des pièces comptables sur {company} sont saisies pour expertise; les porteurs règlent 1 M€ de frais par titre détenu.",
+    "effect": "fine",
+    "activeCash": -1,
+    "balanceCategory": "unfavorable",
+    "targetSector": "media",
+    "amount": 1
   },
   {
     "id": "board-24",
     "title": "Plafond de détention",
-    "story": "Un régulateur plafonne les participations croisées dans {company} afin d’ouvrir davantage le marché.",
+    "story": "Un plafond de détention ouvre le marché industriel de {company}; le fonds actif reçoit 1 M€ et les monopoles du secteur cèdent une action par société concernée.",
     "effect": "regulation",
     "activeCash": 1,
-    "quantity": 1,
-    "targetSector": "media"
+    "balanceCategory": "mixed",
+    "targetSector": "industry",
+    "quantity": 1
   },
   {
     "id": "board-25",
     "title": "Accès équitable au réseau",
-    "story": "Une autorité impose un accès ouvert à des infrastructures liées à {company}, réduisant les avantages d’une position dominante.",
+    "story": "Une règle d’accès équitable au réseau de {company} limite les positions dominantes; le fonds actif reçoit 1 M€ et les monopoles énergétiques cèdent une action par société concernée.",
     "effect": "regulation",
-    "activeCash": 2,
-    "targetSector": "transport"
+    "activeCash": 1,
+    "balanceCategory": "mixed",
+    "targetSector": "energy",
+    "quantity": 1
   },
   {
     "id": "board-26",
     "title": "Fin du privilège exclusif",
-    "story": "Un contrat d’exclusivité associé à {company} est révisé après un examen de concurrence ; les positions dominantes sont réduites.",
+    "story": "La fin d’un privilège exclusif autour de {company} ouvre le secteur de la santé; le fonds actif reçoit 1 M€ et les monopoles concernés cèdent une action par société.",
     "effect": "regulation",
-    "activeCash": 3,
-    "quantity": 1,
-    "targetSector": "health"
+    "activeCash": 1,
+    "balanceCategory": "mixed",
+    "targetSector": "health",
+    "quantity": 1
   },
   {
     "id": "board-27",
     "title": "Indemnité de livraison",
-    "story": "Un retard de livraison imputable à un prestataire de {company} donne lieu à une indemnité versée au fonds actif.",
+    "story": "L’examen du retard de livraison concernant {company} est reporté; aucune indemnité ni charge n’est versée à ce stade.",
     "effect": "cash",
-    "activeCash": 2,
-    "amount": 2,
-    "targetSector": "transport"
+    "activeCash": 0,
+    "balanceCategory": "mixed"
   },
   {
     "id": "board-28",
     "title": "Récolte sous assurance",
-    "story": "Une assurance couvre une partie des pertes d’une filière liée à {company} après une saison difficile ; une distribution suit.",
+    "story": "Une assurance couvre les pertes de la filière liée à {company}; les porteurs reçoivent une distribution de 2 M€ par titre.",
     "effect": "dividend",
-    "activeCash": 3,
-    "amount": 2,
-    "targetSector": "agrifood"
+    "activeCash": 1,
+    "balanceCategory": "favorable",
+    "targetSector": "agrifood",
+    "amount": 2
   },
   {
     "id": "board-29",
     "title": "Accord de cybersécurité",
-    "story": "Un audit de cybersécurité valide un plan de continuité lié à {company}. Le fonds actif reçoit une indemnité d’assurance.",
+    "story": "La validation d’un plan de cybersécurité lié à {company} déclenche une indemnité de 2 M€ pour le fonds actif.",
     "effect": "cash",
     "activeCash": 2,
+    "balanceCategory": "favorable",
     "targetSector": "technology"
   },
   {
     "id": "board-30",
     "title": "Licence médicale",
-    "story": "Une nouvelle autorisation commerciale ouvre un marché à {company}, qui distribue une partie des premières recettes.",
+    "story": "Une nouvelle autorisation commerciale pour {company} ouvre un marché; les porteurs reçoivent 2 M€ par titre.",
     "effect": "dividend",
     "activeCash": 1,
-    "amount": 2,
-    "targetSector": "health"
+    "balanceCategory": "favorable",
+    "targetSector": "health",
+    "amount": 2
   },
   {
     "id": "board-31",
     "title": "Révision des normes comptables",
-    "story": "Une révision comptable liée à {company} entraîne des frais de contrôle supplémentaires pour ses porteurs.",
+    "story": "Une révision comptable dans le secteur de {company} entraîne 1 M€ de frais par titre détenu.",
     "effect": "fine",
     "activeCash": -1,
-    "amount": 1,
-    "targetSector": "finance"
+    "balanceCategory": "unfavorable",
+    "targetSector": "finance",
+    "amount": 1
   },
   {
     "id": "board-32",
     "title": "Conversion des entrepôts",
-    "story": "Un investisseur propose une prime de rachat sur {company} pour financer la reconversion d’entrepôts.",
+    "story": "Un investisseur rachète chaque titre détenu de {company} au cours du marché, avec une prime de 2 M€ par titre.",
     "effect": "buyback",
     "activeCash": 1,
-    "amount": 2,
-    "targetSector": "realestate"
+    "balanceCategory": "favorable",
+    "targetSector": "realestate",
+    "amount": 2
   },
   {
     "id": "board-33",
     "title": "Fret exceptionnel",
-    "story": "Une mission de fret urgente mobilise {company} ; le fonds actif reçoit une indemnité de disponibilité.",
+    "story": "Une mission de fret urgente mobilise {company}; le fonds actif reçoit une indemnité de disponibilité de 2 M€.",
     "effect": "cash",
-    "activeCash": 3,
+    "activeCash": 2,
+    "balanceCategory": "favorable",
     "targetSector": "transport"
   },
   {
     "id": "board-34",
     "title": "Couverture agricole",
-    "story": "Après des intempéries, un assureur indemnise une filière liée à {company}, qui partage une partie des recettes avec ses porteurs.",
-    "effect": "dividend",
-    "activeCash": 2,
-    "amount": 1,
-    "targetSector": "agrifood"
+    "story": "La couverture d’assurance de la filière liée à {company} laisse des frais de 1 M€ par titre détenu à la charge des porteurs.",
+    "effect": "fine",
+    "activeCash": -1,
+    "balanceCategory": "unfavorable",
+    "targetSector": "agrifood",
+    "amount": 1
   },
   {
     "id": "board-35",
     "title": "Violation de données",
-    "story": "Une fuite de données impose des frais de notification et de sécurisation autour de {company}.",
+    "story": "Une fuite de données liée à {company} entraîne 2 M€ de frais de notification et de sécurisation par titre détenu.",
     "effect": "fine",
-    "activeCash": -2,
-    "amount": 2,
-    "targetSector": "technology"
+    "activeCash": -1,
+    "balanceCategory": "unfavorable",
+    "targetSector": "technology",
+    "amount": 2
   },
   {
     "id": "board-36",
     "title": "Réparation du réseau",
-    "story": "Une panne sur un réseau lié à {company} exige une réparation exceptionnelle, financée en partie par les détenteurs de titres.",
-    "effect": "fine",
-    "activeCash": -1,
-    "amount": 2,
-    "targetSector": "energy"
+    "story": "Le diagnostic de la panne sur le réseau lié à {company} est en cours; aucune réparation ni charge ne s’applique à ce stade.",
+    "effect": "cash",
+    "activeCash": 0,
+    "balanceCategory": "mixed"
   },
   {
     "id": "board-37",
     "title": "Autorisation de distribution",
-    "story": "Une licence de distribution internationale est accordée à {company} ; une avance revient au fonds actif.",
+    "story": "Une licence de distribution liée à {company} génère une avance de 2 M€ au fonds actif.",
     "effect": "cash",
     "activeCash": 2,
+    "balanceCategory": "favorable",
     "targetSector": "media"
   },
   {
     "id": "board-38",
     "title": "Simplification de la structure",
-    "story": "Une simplification des filiales de {company} réduit les participations croisées et entraîne une cession de titres.",
-    "effect": "forcedSale",
-    "activeCash": -1,
-    "quantity": 1,
-    "targetSector": "industry"
+    "story": "Une simplification des participations croisées autour de {company} ouvre le secteur des transports; le fonds actif reçoit 1 M€ et les monopoles concernés cèdent une action par société.",
+    "effect": "regulation",
+    "activeCash": 1,
+    "balanceCategory": "mixed",
+    "targetSector": "transport",
+    "quantity": 1
   },
   {
     "id": "board-39",
     "title": "Offre de coopérative",
-    "story": "Une coopérative propose une offre de rachat avec prime sur {company} pour fiabiliser les livraisons locales.",
+    "story": "Une coopérative rachète chaque titre détenu de {company} au cours du marché, avec une prime de 1 M€ par titre.",
     "effect": "buyback",
-    "activeCash": 2,
-    "amount": 1,
-    "targetSector": "agrifood"
+    "activeCash": 1,
+    "balanceCategory": "favorable",
+    "targetSector": "agrifood",
+    "amount": 1
   },
   {
     "id": "board-40",
     "title": "Chambre de compensation",
-    "story": "Une chambre de compensation relève les garanties exigées sur les positions associées à {company}.",
+    "story": "Une chambre de compensation relève les garanties sur les positions de {company}; le fonds actif dépose 2 M€ s’il détient cette société.",
     "effect": "marginCall",
-    "activeCash": -1,
-    "amount": 2,
-    "targetSector": "transport"
+    "activeCash": 0,
+    "balanceCategory": "unfavorable",
+    "targetSector": "transport",
+    "amount": 2
   },
   {
     "id": "board-41",
     "title": "Diversification imposée",
-    "story": "Une règle de diversification limite l’exposition du fonds à {company} ; une partie de la ligne est cédée.",
-    "effect": "forcedSale",
-    "activeCash": -2,
-    "quantity": 2,
-    "targetSector": "energy"
+    "story": "Une règle de diversification limite les positions dominantes autour de {company}; le fonds actif reçoit 1 M€ et les monopoles agroalimentaires cèdent une action par société concernée.",
+    "effect": "regulation",
+    "activeCash": 1,
+    "balanceCategory": "mixed",
+    "targetSector": "agrifood",
+    "quantity": 1
   },
   {
     "id": "board-42",
     "title": "Clause de transparence",
-    "story": "Une autorité examine les positions dominantes autour de {company} et exige une cession pour rouvrir le marché.",
+    "story": "Une clause de transparence ouvre le marché de {company}; le fonds actif reçoit 1 M€ et les monopoles financiers cèdent une action par société concernée.",
     "effect": "regulation",
     "activeCash": 1,
-    "quantity": 1,
-    "targetSector": "finance"
+    "balanceCategory": "mixed",
+    "targetSector": "finance",
+    "quantity": 1
   },
   {
     "id": "board-43",
     "title": "Commercialisation d’un vaccin",
-    "story": "Après l’autorisation d’un nouveau produit de santé lié à {company}, une distribution exceptionnelle est versée aux actionnaires.",
+    "story": "Après l’autorisation d’un produit de santé lié à {company}, les porteurs reçoivent une distribution de 2 M€ par titre.",
     "effect": "dividend",
-    "activeCash": 2,
-    "amount": 2,
-    "targetSector": "health"
+    "activeCash": 1,
+    "balanceCategory": "favorable",
+    "targetSector": "health",
+    "amount": 2
   },
   {
     "id": "board-44",
     "title": "Contrôle des loyers",
-    "story": "Une révision réglementaire des baux associés à {company} entraîne des frais administratifs pour ses porteurs.",
+    "story": "Une révision des baux associés à {company} entraîne 1 M€ de frais administratifs par titre détenu.",
     "effect": "fine",
-    "activeCash": -2,
-    "amount": 1,
-    "targetSector": "realestate"
+    "activeCash": -1,
+    "balanceCategory": "unfavorable",
+    "targetSector": "realestate",
+    "amount": 1
   },
   {
     "id": "board-45",
     "title": "Archives judiciaires",
-    "story": "Des archives liées à {company} sont examinées ; le gestionnaire exposé est entendu.",
+    "story": "Des archives sur les opérations de {company} sont examinées; si le fonds actif détient cette société, son gestionnaire est placé en prison. Le fonds actif règle 1 M€ de frais.",
     "effect": "prison",
     "activeCash": -1,
-    "targetSector": "industry"
+    "balanceCategory": "unfavorable",
+    "targetSector": "transport"
   },
   {
     "id": "board-46",
     "title": "Redevances audiovisuelles",
-    "story": "Les droits d’exploitation de contenus associés à {company} génèrent une recette ponctuelle, partagée avec ses porteurs.",
+    "story": "Les droits de contenus associés à {company} génèrent une recette ponctuelle de 2 M€ par titre détenu.",
     "effect": "dividend",
     "activeCash": 1,
-    "amount": 2,
-    "targetSector": "media"
+    "balanceCategory": "favorable",
+    "targetSector": "media",
+    "amount": 2
   },
   {
     "id": "board-47",
     "title": "Garantie de chantier",
-    "story": "La réévaluation d’un chantier lié à {company} conduit le courtier à demander un dépôt complémentaire.",
+    "story": "La réévaluation d’un chantier lié à {company} conduit le courtier à demander 2 M€ de garantie au fonds actif s’il détient cette société.",
     "effect": "marginCall",
-    "activeCash": -2,
-    "amount": 3,
-    "targetSector": "realestate"
+    "activeCash": 0,
+    "balanceCategory": "unfavorable",
+    "targetSector": "realestate",
+    "amount": 2
   },
   {
     "id": "board-48",
     "title": "Programme de recyclage",
-    "story": "Un programme de recyclage lié à {company} obtient une subvention ; une avance est créditée au fonds actif.",
+    "story": "Un programme de recyclage industriel lié à {company} obtient une subvention de 1 M€ pour le fonds actif.",
     "effect": "cash",
     "activeCash": 1,
+    "balanceCategory": "favorable",
     "targetSector": "industry"
   },
   {
     "id": "board-49",
     "title": "Ouverture des brevets",
-    "story": "Une autorité ouvre l’accès à des brevets associés à {company} pour stimuler la concurrence ; les positions dominantes sont réduites.",
+    "story": "L’ouverture des brevets liés à {company} stimule la concurrence; le fonds actif reçoit 1 M€ et les monopoles technologiques cèdent une action par société concernée.",
     "effect": "regulation",
-    "activeCash": 2,
-    "quantity": 1,
-    "targetSector": "technology"
+    "activeCash": 1,
+    "balanceCategory": "mixed",
+    "targetSector": "technology",
+    "quantity": 1
   },
   {
     "id": "board-50",
     "title": "Rachat du réseau local",
-    "story": "Un opérateur propose une prime pour regrouper des infrastructures liées à {company}.",
+    "story": "Un opérateur rachète chaque titre détenu de {company} au cours du marché, avec une prime de 2 M€ par titre.",
     "effect": "buyback",
     "activeCash": 1,
-    "amount": 3,
-    "targetSector": "energy"
+    "balanceCategory": "favorable",
+    "targetSector": "energy",
+    "amount": 2
   }
 ];
 
