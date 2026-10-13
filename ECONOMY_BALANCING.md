@@ -1,5 +1,7 @@
 # Équilibrage de l’économie
 
+**12 octobre 2026 — chocs de marché** : Bull/Bear utilisent désormais une portée de zones déterministe, avec un niveau supplémentaire dans la zone du fonds actif ; Bear est en case 40. Les mesures de cette itération figurent dans [ENGINE_RULES.md](ENGINE_RULES.md) et [market-shock-simulation.json](docs/market-shock-simulation.json). Les anciennes campagnes ci-dessous conservent leurs paramètres et ne sont pas une validation des nouvelles règles.
+
 **Règle actualisée le 9 octobre 2026** : le fonds actif ne perçoit plus de revenu sectoriel de la banque pour ses propres participations. Ses entreprises rapportent lorsqu’un autre fonds tombe sur le secteur. Les simulations et comparaisons ci-dessous ont précédé ce changement ; elles restent des résultats historiques et ne mesurent pas l’équilibre de cette nouvelle règle. Les prix et revenus de base ne sont pas recalibrés dans cette correction.
 
 ## Objectif et unités

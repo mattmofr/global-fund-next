@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-12",
+  "project": "/home/codex/projects/global-fund-evolve",
+  "release": "/home/codex/deployments/global-fund-evolve/releases/20261012T215056Z-market-v2",
+  "rulesDocument": "ENGINE_RULES.md",
+  "bear": {
+    "previousCase": 39,
+    "case": 40,
+    "index": 39,
+    "boardLength": 52,
+    "eventNowCase": 39
+  },
+  "rules": {
+    "bull": {
+      "allOtherZones": -1,
+      "activeZone": -2
+    },
+    "bear": {
+      "allOtherZones": 1,
+      "activeZone": 2
+    },
+    "gradeOrder": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "sectorsUnchanged": true,
+    "scopeDeterministic": true,
+    "crashPreserved": true,
+    "marketRulesVersion": 2,
+    "boardLayoutVersion": 2
+  },
+  "tests": {
+    "unitAndIntegration": 150,
+    "files": 11,
+    "failures": 0,
+    "typecheck": "passed",
+    "build": "passed",
+    "independentReview": "passed"
+  },
+  "browser": {
+    "ok": true,
+    "origin": "http://127.0.0.1:3194",
+    "isolated": true,
+    "errors": [],
+    "bull": {
+      "cardVisible": true,
+      "marketPhaseReached": true,
+      "zoneGrades": {
+        "americas": "B",
+        "europe": "A",
+        "asia": "B",
+        "africa": "B",
+        "oceania": "B"
+      },
+      "bearPosition": 40,
+      "cashPreserved": true
+    },
+    "bear": {
+      "cardVisible": true,
+      "marketPhaseReached": true,
+      "zoneGrades": {
+        "americas": "D",
+        "europe": "E",
+        "asia": "D",
+        "africa": "D",
+        "oceania": "D"
+      },
+      "bearPosition": 40,
+      "cashPreserved": true
+    },
+    "historical": {
+      "cardVisible": true,
+      "marketPhaseReached": true,
+      "zoneGrades": {
+        "americas": "D",
+        "europe": "E",
+        "asia": "D",
+        "africa": "D",
+        "oceania": "D"
+      },
+      "bearPosition": 40,
+      "cashPreserved": true
+    }
+  },
+  "online": {
+    "ok": true,
+    "url": "https://global-fund-evolve.213.199.40.67.sslip.io",
+    "legacyRoom": "4A6A2BE5",
+    "freshRoom": "E4D018F1",
+    "legacySessionResumed": true,
+    "migratedBearCase": 40,
+    "positionsAndCashPreserved": true,
+    "realRollAccepted": true,
+    "freshGameRulesVersion": 2
+  },
+  "deployment": {
+    "httpsHealth": {
+      "status": 200,
+      "body": {
+        "serviceName": "global-fund-evolve",
+        "version": "0.1.0",
+        "status": "ok"
+      }
+    },
+    "indexMatchesValidatedBuild": true,
+    "sourceManifestSha256": "33f31a3825629d35deebbda2dfcdfb28c7afd9ff778433391c8c742e2550babe",
+    "backup": "before-20261012T215056Z-market-v2.dump",
+    "service": "global-fund-evolve.service"
+  },
+  "simulation": {
+    "report": "docs/market-shock-simulation.json",
+    "requestedGames": 20,
+    "completedGames": 20,
+    "seed": 20261012,
+    "commands": 11732,
+    "errors": [],
+    "byKind": {
+      "bull": {
+        "occurrences": 63,
+        "rankingPairFlips": 15,
+        "bankruptcyTransitions": 0,
+        "newInsolvenciesOnShock": 0
+      },
+      "bear": {
+        "occurrences": 55,
+        "rankingPairFlips": 7,
+        "bankruptcyTransitions": 530,
+        "newInsolvenciesOnShock": 0
+      },
+      "crash": {
+        "occurrences": 59,
+        "rankingPairFlips": 8,
+        "bankruptcyTransitions": 710,
+        "newInsolvenciesOnShock": 0
+      }
+    },
+    "hashesMatchFinalSources": true,
+    "limits": "20 games of three AI difficulties; bankruptcy transitions include unheld companies and repeat closures. Not a universal balance guarantee."
+  },
+  "scope": {
+    "changedPreexistingFiles": [
+      "ENGINE_AUDIT.md",
+      "DECISIONS.md",
+      "ECONOMY_BALANCING.md",
+      "PROGRESS.md",
+      "README.md",
+      "apps/web/src/presentation/CardScene.tsx",
+      "packages/game-engine/README.md",
+      "packages/game-engine/legacy/data/gameData.json",
+      "packages/game-engine/legacy/game.cjs",
+      "packages/shared/src/index.ts",
+      "tests/engine.test.ts"
+    ],
+    "frontendFiles": [
+      "apps/web/src/presentation/CardScene.tsx"
+    ],
+    "frontendChange": "Read frozen notice cell identity after saved-board migration; no visual layout or style change.",
+    "visualAssetsAndStylesUnchanged": true
+  },
+  "v2": {
+    "archive": "/home/codex/projects/global-fund-next",
+    "entries": 39872,
+    "unchanged": true,
+    "configurationUnchanged": true,
+    "serviceNotRestarted": true,
+    "httpsHealthy": true
+  },
+  "screenshots": [
+    "screenshots/market-shocks/bull.png",
+    "screenshots/market-shocks/bear.png",
+    "screenshots/market-shocks/historical.png"
+  ]
+}

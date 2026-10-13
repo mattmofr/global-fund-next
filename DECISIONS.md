@@ -1,5 +1,38 @@
 # Décisions
 
+## 13 octobre 2026 — répartition du plateau et équilibre des cartes
+
+- Le plateau v3 garde 52 cases : 39 secteurs, 10 Événements, Bull et Bear, et Départ. Immobilier remplace Crash en case 26 ; Bull reste en case 14 et Bear en case 40.
+- Finance, Technologie et Immobilier ont cinq cases chacun ; les six autres secteurs en ont quatre. Chaque quart de 13 cases contient les neuf secteurs, avec des écarts circulaires de 9 à 14 cases entre occurrences d’un même secteur.
+- Le paquet de 50 Événements garde ses IDs et titres : cinq cartes par secteur et cinq cartes globales, réparties en 19 favorables, 19 défavorables et 12 mixtes. La sélection choisit uniformément une zone parmi celles présentes dans le pool prioritaire (sociétés détenues par l’actif, sinon par un joueur, sinon toutes disponibles), puis une société dans cette zone ; elle écarte les quatre dernières entreprises ciblées parmi les candidates de cette zone si une alternative existe.
+- Les 100 Contextes gardent leurs quotas par type. Leur nouvelle distribution produit 70 rotations depuis C, 20 changements directionnels purs et 10 affectations neutres à C ; les zones sont couvertes 36 fois chacune et les secteurs 20 fois chacun. Les grades sont assignés en absolu, et non comme un déplacement relatif garanti.
+- Les versions actives sont plateau 3, cartes 3 et règles de marché 2. La migration du plateau ne réordonne que les sauvegardes dont le plateau complet officiel est reconnu ; positions, historique et notifications résolues restent figés. Pour les paquets, les IDs connus sont remplacés à leur place sans réordonner le deck ; un Contexte déjà révélé ne change pas.
+- Les audits et limites sont détaillés dans [BOARD_BALANCE_AUDIT.md](BOARD_BALANCE_AUDIT.md), [EVENT_BALANCE_AUDIT.md](EVENT_BALANCE_AUDIT.md), [CONTEXT_BALANCE_AUDIT.md](CONTEXT_BALANCE_AUDIT.md) et [ENGINE_RULES.md](ENGINE_RULES.md). **Validation finale** : 174 tests unitaires/intégration, TypeScript et build passent. Les neuf parcours navigateur (marchés, ancienne notification, Immobilier, Contextes et Événements) sont validés ; le navigateur public crée une partie, lance le dé, achète une action, passe au fonds suivant et reprend après rechargement. La campagne termine 20/20 parties et mesure 2 000 paquets de Contextes sans dérive marquée. Preuve : [board-deck-validation.json](docs/board-deck-validation.json), [simulation](docs/board-deck-simulation.json).
+
+## 12 octobre 2026 — Bear case 40 et chocs prévisibles
+
+Cette décision décrit l’itération précédente. La distribution active du 13 octobre remplace désormais le marché Crash par Immobilier en case 26 ; Bull/Bear ne changent pas.
+
+- Bear et l'Événement adjacent échangent les cases 39/40, sans changer les 52 cases ni les répartitions. Bull et Crash gardent leurs positions.
+- Bull/Bear déplacent les cinq notes de zone de ±1 niveau, avec ±2 niveaux au total dans la zone du fonds actif. Le sens, la portée et l'intensité sont prévisibles ; les notes sectorielles restent inchangées. Crash conserve sa règle.
+- L'importance est symétrique en niveaux ; depuis C, le choc vaut ±25 % ailleurs et ±50 % dans la zone active. Les liquidations E/E restent celles du moteur, sans débit exceptionnel du cash ni déclaration d'insolvabilité sur la seule baisse de NAV.
+- La migration n'échange que les cellules d'un ancien plateau officiel reconnu ; elle conserve les positions numériques et fige l'identité des notifications historiques. Une lecture minimale de cette identité côté UI suffit, sans changement graphique.
+- Les règles, limites et mesures sont dans [ENGINE_RULES.md](ENGINE_RULES.md). L'archive V2 et les rapports historiques restent séparés.
+
+## 11 octobre 2026 — mise en ligne d'Evolve
+
+- Evolve possède son hôte HTTPS `global-fund-evolve.213.199.40.67.sslip.io`, son certificat Let's Encrypt, son service sur 3102 et sa base PostgreSQL `global_fund_evolve`. Les services et les données de V2 restent séparés.
+- La livraison utilise un instantané des sources locales dans une release autonome, avec bascule du lien `current`. Aucun push ni workflow de livraison V2 n'est déclenché.
+- Les navigateurs sans WebGL matériel utilisent le fond CSS des menus et le plateau 2D existant. Cela évite la saturation du rendu logiciel constatée pendant le chargement ; le rendu 3D est conservé sur GPU matériel.
+- La disponibilité du plateau est conservée dans l'état React. Le chargement possède aussi une sortie temporisée indépendante de la cadence de rendu ; elle ne peut pas rouvrir un écran déjà terminé.
+
+## 11 octobre 2026 — Global Fund Evolve et archive V2
+
+- Le projet actif `global-fund-next-new` devient `global-fund-evolve`. Le répertoire `global-fund-next` est conservé intact comme version 2.
+- La branche locale `global-fund-evolve` reprend la PR #1 du dépôt source `mattmofr/global-fund-next`, au commit `58493e0e805820a9c5ea29d39dad4c9229afceb2`. Cette PR est en brouillon ; son import ne fusionne pas `main` sur GitHub.
+- Les ports par défaut sont 3102 et 5175. Les sessions navigateur, la base et le volume Compose ainsi que les exemples de service et de stockage utilisent le nom Evolve, sans reprendre les données V2.
+- Les URL du dépôt source et les comptes rendus historiques gardent leur nom d’origine. Les modèles de déploiement Evolve sont préparés localement ; le VPS V2 reste inchangé.
+
 ## 7 octobre 2026 — terminal, implantation et économie
 
 | Problème | Options | Décision | Raison et conséquence |

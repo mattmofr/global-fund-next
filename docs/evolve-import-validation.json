@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-11",
+  "project": "global-fund-evolve",
+  "previous_active_directory": "global-fund-next-new",
+  "directory": "/home/codex/projects/global-fund-evolve",
+  "local_branch": "global-fund-evolve",
+  "source": {
+    "repository": "mattmofr/global-fund-next",
+    "pull_request": 1,
+    "url": "https://github.com/mattmofr/global-fund-next/pull/1",
+    "draft": true,
+    "head_branch": "refonte-front",
+    "head_repository": "armineba/global-fund-next",
+    "commit": "58493e0e805820a9c5ea29d39dad4c9229afceb2",
+    "base_commit": "8f241a3bd0b4bdb56c9c6e0d876221242b6e3178",
+    "remote_merge_performed": false
+  },
+  "archive_v2": {
+    "archive": "/home/codex/projects/global-fund-next",
+    "entries_before": 39872,
+    "entries_after": 39872,
+    "changed_entries": [],
+    "unchanged": true,
+    "sha256_manifest": "71cb846734b9c78aecc38eed185bec71ff0d32e77822ff7266351434c19529cd",
+    "seconds": 29.17
+  },
+  "validation": {
+    "npm_ci": "passed (283 packages installed)",
+    "unit_integration_tests": "135 passed in 9 files",
+    "typescript": "passed",
+    "web_build": "passed",
+    "dev_ports_smoke": {
+      "evolve_server_3102": {
+        "serviceName": "global-fund-evolve",
+        "version": "0.1.0",
+        "status": "ok"
+      },
+      "evolve_web_5175": true,
+      "vite_health_proxy": {
+        "serviceName": "global-fund-evolve",
+        "version": "0.1.0",
+        "status": "ok"
+      },
+      "temporary_servers_stopped": true,
+      "v2_server_3101": {
+        "serviceName": "global-fund-next",
+        "version": "0.1.0",
+        "status": "ok"
+      }
+    },
+    "shell_syntax": "passed for deploy/deploy-vps.sh and deploy/ssh-deploy.sh",
+    "git_diff_check": "passed",
+    "symlinks_targeting_v2": [],
+    "browser_suite": {
+      "command": "npm run test:e2e",
+      "status": "stopped after repeated failures",
+      "tests_total": 21,
+      "failure": ".fund-board-canvas data-scene-ready remained false instead of true within the expected timeout",
+      "remaining_tests": "not fully executed",
+      "trace_directory": "test-results/",
+      "failed": 4,
+      "interrupted": 1,
+      "not_run": 16,
+      "exit_code": 130
+    }
+  }
+}

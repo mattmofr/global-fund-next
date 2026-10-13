@@ -1,3 +1,21 @@
+# Global Fund Evolve
+
+Jouer en ligne : **<https://global-fund-evolve.213.199.40.67.sslip.io>**. Le serveur Evolve utilise son propre service et sa propre base PostgreSQL ; les parties peuvent être reprises après rechargement. Voir [l'installation VPS](deploy/VPS_DEPLOYMENT.md).
+
+Le plateau 3D utilise l'accélération graphique. Lorsque WebGL est absent ou rendu par logiciel, un plateau 2D affiche les mêmes cases et positions, et les commandes de jeu restent disponibles.
+
+## Équilibrage moteur — 13 octobre 2026
+
+L’état actif du moteur répartit les 52 cases en **39 secteurs, 10 Événements de case, 2 marchés et 1 Départ**. Immobilier occupe la case 26 à la place de Crash ; Bull reste en case 14 et Bear en case 40. Finance, Technologie et Immobilier ont cinq cases chacun, les six autres secteurs quatre. Chacun des quatre quarts du plateau contient les neuf secteurs, et les occurrences d’un secteur sont séparées de 9 à 14 cases, y compris à la jonction Départ.
+
+Le paquet de **50 Événements** comprend 19 cartes favorables, 19 défavorables et 12 mixtes : cinq cartes sectorielles par secteur et cinq cartes globales. Les **100 Contextes** gardent leurs quotas 35 positifs, 35 négatifs, 10 neutres, 10 prison et 10 régulation. Le nouvel équilibre prévoit 70 rotations d’indices depuis C, 20 effets directionnels purs et 10 neutres à C ; chaque zone est couverte 36 fois et chaque secteur 20 fois. Les cartes écrivent des notes absolues. Les analyses et limites figurent dans [BOARD_BALANCE_AUDIT.md](BOARD_BALANCE_AUDIT.md), [EVENT_BALANCE_AUDIT.md](EVENT_BALANCE_AUDIT.md), [CONTEXT_BALANCE_AUDIT.md](CONTEXT_BALANCE_AUDIT.md) et [ENGINE_RULES.md](ENGINE_RULES.md).
+
+Les sauvegardes reconnues sont migrées vers le plateau v3 et les catalogues de cartes v3 : les positions, l’historique et les notifications résolues restent figés ; les cartes connues encore dans les paquets sont actualisées sans changer leur ordre, et le Contexte déjà révélé reste identique. Les règles de marché sont en version 2. **Validation finale** : 174 tests unitaires/intégration, TypeScript et build passent. Les neuf parcours navigateur (marchés, ancienne notification, Immobilier, Contextes et Événements) sont validés ; le navigateur public crée une partie, lance le dé, achète une action, passe au fonds suivant et reprend après rechargement. La campagne termine 20/20 parties et mesure 2 000 paquets de Contextes sans dérive marquée. Preuve : [board-deck-validation.json](docs/board-deck-validation.json), [simulation](docs/board-deck-simulation.json).
+
+Projet actif : `/home/codex/projects/global-fund-evolve`, anciennement `global-fund-next-new`. Le répertoire `/home/codex/projects/global-fund-next` est l’archive conservée de la **version 2** ; ses sources et ses données restent indépendantes.
+
+La branche locale `global-fund-evolve` reprend la [PR #1 — refonte du front 3D](https://github.com/mattmofr/global-fund-next/pull/1), au commit `58493e0e805820a9c5ea29d39dad4c9229afceb2` récupéré le 11 octobre 2026. La PR est encore en brouillon. Les ports par défaut d’Evolve sont **3102** pour le serveur et **5175** pour Vite ; ses sessions navigateur, sa base et son volume Compose portent son propre nom.
+
 ## Règlements consolidés — 9 octobre 2026
 
 La synthèse rassemble les mouvements sous leur motif (par exemple **Revenus du secteur Énergie**) : chaque ligne indique les noms du fonds émetteur et du bénéficiaire, dans le sens réel du versement. Les titres intermédiaires répétés sont supprimés. Le **total réglé** suit les mouvements, puis le carrousel des entreprises concernées.
@@ -48,7 +66,6 @@ Règles détaillées : [SETTLEMENT_RULES.md](SETTLEMENT_RULES.md). Les archives 
 
 Documentation : [UI_AUDIT.md](UI_AUDIT.md), [BOARD_PROJECTION.md](BOARD_PROJECTION.md), [COMPANY_AUDIT.md](COMPANY_AUDIT.md), [MARKET_DISTRIBUTION.md](MARKET_DISTRIBUTION.md). Captures de cette itération : `screenshots/current/` ; référence avant modification : `baseline/board-game-2026-10-06/`.
 
-# Global Fund Next
 
 ## Scène immersive — octobre 2026
 
@@ -62,13 +79,13 @@ La partie s'affiche maintenant comme une table de stratégie en plein écran : p
 
 La ville du bureau suit le fonds humain du navigateur, indépendamment du fonds inspecté. Sa valeur fait évoluer la tonalité et l'indication de prestige : difficulté sous 50 M€, bureau normal, desk à 500 M€, bureau en tour à 1 Md€, salle mondiale à 5 Md€, décor doré à 10 Md€ et influence mondiale à 100 Md€. Ces indications n'ajoutent aucun bonus financier.
 
-Les fenêtres de résultat attendent la fin des déplacements. Les Contextes, Événements, Bull/Bear/Crash et situations judiciaires ont leur propre présentation ; la lecture reste libre. Échap ferme la carte puis déclenche l’animation des conséquences ; les notes, cours et fonds restent à leurs valeurs précédentes pendant la lecture. Les entreprises concernées défilent horizontalement à la molette ou au toucher ; les listes d'impacts plus longues restent défilables.
+Les fenêtres de résultat attendent la fin des déplacements. Les Contextes, Événements, Bull/Bear et situations judiciaires ont leur propre présentation ; la lecture reste libre. Échap ferme la carte puis déclenche l’animation des conséquences ; les notes, cours et fonds restent à leurs valeurs précédentes pendant la lecture. Les entreprises concernées défilent horizontalement à la molette ou au toucher ; les listes d'impacts plus longues restent défilables.
 
 **Règles conservées** : implantation avant le dé, cycle initial à C/C sans Contexte, cinq zones du moteur historique (Amériques, Europe, Asie, Afrique/Moyen-Orient, Océanie). Les 91 IDs et les entreprises incorporées aux sauvegardes restent conservés. Les nouvelles parties utilisent le catalogue courant et sa grille économique documentée ; le serveur garde l'autorité sur chaque action.
 
 Direction et suivi : [VISUAL_AUDIT.md](VISUAL_AUDIT.md), [ART_DIRECTION.md](ART_DIRECTION.md), [PROGRESS.md](PROGRESS.md), [ASSET_LICENSES.md](ASSET_LICENSES.md). Captures reproductibles : `npm run build`, puis `npm run capture:visuals` ; elles utilisent uniquement des salons de test isolés. Voir [VISUAL_VALIDATION.md](docs/VISUAL_VALIDATION.md).
 
-Aperçus : [plateau](screenshots/gameplay.png), [trading](screenshots/trading.png), [portefeuille](screenshots/portfolio.png), [Contexte](screenshots/context.png), [Crash](screenshots/crash.png), [justice](screenshots/prison.png). Les sprites originaux et leurs prompts sont décrits dans [generated-assets.md](docs/generated-assets.md) et [generated-prompts.md](docs/generated-prompts.md).
+Aperçus : [plateau](screenshots/gameplay.png), [trading](screenshots/trading.png), [portefeuille](screenshots/portfolio.png), [Contexte](screenshots/context.png), [Bull](screenshots/market-shocks/bull.png), [Bear](screenshots/market-shocks/bear.png). La capture [Crash](screenshots/crash.png) documente l’ancien plateau et est conservée comme référence historique. Les sprites originaux et leurs prompts sont décrits dans [generated-assets.md](docs/generated-assets.md) et [generated-prompts.md](docs/generated-prompts.md).
 
 Le build web prépare une nouvelle release avant de remplacer le lien `apps/web/dist`. Les anciennes ressources hashées restent servies aux clients déjà ouverts. Les dossiers `apps/web/.releases` sont ignorés par Git et ne sont pas purgés automatiquement. Le contexte Docker exclut ces releases et les captures de validation ; son build produit sa propre release.
 
@@ -77,7 +94,7 @@ Nouvelle application autonome de Global Fund. Le projet de référence reste sé
 ## Première tranche jouable
 
 - Ouvrir un salon de 2 à 6 fonds, avec des personnes sur le même écran, des invités distants ou des IA de trois niveaux. Les salons proposent un code/lien d'invitation, un état « prêt », la reprise de session et un chat.
-- Jouer sur un plateau de 52 cases avec 91 sociétés, neuf secteurs, cinq zones économiques, 100 cartes Contexte et 50 Événements. Le cycle d'ouverture place gratuitement chaque fonds sur sa place de marché choisie, à indices C/C. À partir du cycle 2, une carte Contexte commune est tirée puis chaque fonds choisit son implantation **avant le dé** : rester ne coûte rien, changer de zone coûte 1 M€.
+- Jouer sur un plateau de 52 cases avec 91 sociétés, neuf secteurs, cinq zones économiques, 100 cartes Contexte et 50 Événements. La distribution active est de 39 cases sectorielles, 10 Événements, Bull et Bear, et Départ ; Crash a été retiré du plateau. Le cycle d'ouverture place gratuitement chaque fonds sur sa place de marché choisie, à indices C/C. À partir du cycle 2, une carte Contexte commune est tirée puis chaque fonds choisit son implantation **avant le dé** : rester ne coûte rien, changer de zone coûte 1 M€.
 - Acheter et vendre jusqu'à cinq parts par société, suivre les cours et le portefeuille, et voir les historiques construits pendant la partie. Le contrôle complet (5/5) garantit au moins C/C de revenu ; un monopole exige toutes les parts de toutes les sociétés du groupe zone/secteur et garantit au moins A/A. La faillite E/E liquide les parts puis suspend la société jusqu'à amélioration d'une note.
 - Résoudre les revenus, événements, détentions, passages à Départ et fins de partie du moteur. À Départ, la variation de valeur du fonds est mesurée hors apports/retraits depuis le précédent passage : +20 M€ si elle est positive, −20 M€ si elle est négative, aucun flux si elle est nulle. La partie se termine après le cycle de la 100e carte Contexte ou lorsqu’un seul fonds reste solvable.
 - Synchroniser les commandes par Socket.IO avec contrôles serveur du joueur, du tour, de la phase et de la révision. Les dés et les tirages restent décidés par le moteur, côté serveur.
@@ -105,7 +122,9 @@ Les dés de départ sont tirés par le serveur et leurs résultats sont affiché
 
 Sur une case sectorielle, le joueur actif paie les autres détenteurs au prorata des parts. **Il ne reçoit aucun revenu du marché ou de la banque pour ses propres participations lorsqu’il tombe sur ce secteur**, même avec un contrôle total ou un monopole. Ces participations rapportent leurs revenus lorsqu’un autre fonds tombe sur le secteur. Les détenus ne perçoivent pas de revenus : ceux qui leur étaient dus vont à la banque. Une société contrôlée à 5/5 garantit au moins le revenu C/C ; le contrôle intégral de toutes les entreprises d'un groupe zone/secteur garantit A/A.
 
-Le **Contexte** est collectif et modifie les notes, cours, revenus et valorisations. Il n'envoie pas directement en prison et n'impose pas de vente. Un **Événement**, tiré sur sa case, concerne surtout le joueur actif : dividende, amende, financement, vente imposée ou enquête. Il ne modifie pas les notes. Bull, Bear et Crash modifient directement le marché.
+Le **Contexte** est collectif et modifie les notes, cours, revenus et valorisations. Il n'envoie pas directement en prison et n'impose pas de vente. Un **Événement**, tiré sur sa case, concerne surtout le joueur actif : dividende, amende, financement, vente imposée ou enquête. Il ne modifie pas les notes. Bull et Bear modifient directement le marché ; Crash reste seulement dans les références historiques.
+
+**Bear Market est en case 40**. Bull améliore toutes les zones d'un niveau et celle du fonds actif de deux niveaux au total ; Bear applique la baisse symétrique. Les secteurs restent inchangés et les notes sont bornées A–E. À partir de C/C, les cours changent de ±25 % dans les autres zones et de ±50 % dans la zone active. Règles, liquidations et compatibilité des sauvegardes : [ENGINE_RULES.md](ENGINE_RULES.md).
 
 Une enquête ciblant une entreprise n'emprisonne que le joueur qui en détient des parts. La détention suspend ses échanges et revenus ; les participations continuent à être valorisées. Le procès commence au tour suivant : sortie sur 6 au premier procès, sur 5 ou 6 au deuxième, puis sortie forcée pour 5 M€ au troisième selon le mécanisme conservé.
 
@@ -115,7 +134,7 @@ Une dette peut imposer la vente de titres. Un fonds incapable de la régler apr�
 
 ## GitHub, développement sur Mac et déploiement automatique
 
-Le code est partagé sur [mattmofr/global-fund-next](https://github.com/mattmofr/global-fund-next). Chaque push sur `main` lance les tests unitaires, la compilation et les parcours Playwright ; leur réussite déclenche la mise à jour du VPS. Le [guide Mac et GitHub Actions](deploy/GITHUB_WORKFLOW.md) décrit le clone local, les commandes Git et le retour à une version précédente.
+Le dépôt source conserve son nom [mattmofr/global-fund-next](https://github.com/mattmofr/global-fund-next). La branche locale `global-fund-evolve` reprend la PR #1, encore en brouillon. Le workflow historique sur `main` concerne le déploiement V2 ; cette récupération locale ne le déclenche pas. Le [guide Mac et GitHub Actions](deploy/GITHUB_WORKFLOW.md) décrit le clone local, les commandes Git et le retour à une version précédente.
 
 ## Prérequis et démarrage local
 
@@ -127,7 +146,7 @@ npm ci
 npm run dev
 ```
 
-Ouvrir <http://localhost:5174>. Vite sert l'interface et relaie Socket.IO vers le serveur sur le port 3101. Les variables locales de [`.env.example`](.env.example) sont `HOST`, `PORT`, `PUBLIC_ORIGIN` et, facultativement, `DATABASE_URL`. Ne mettez pas de secret dans ce fichier modèle ou dans le dépôt. Le fichier `.env` est ignoré par Git.
+Ouvrir <http://localhost:5175>. Vite sert l'interface et relaie Socket.IO vers le serveur sur le port 3102. Les variables locales de [`.env.example`](.env.example) sont `HOST`, `PORT`, `PUBLIC_ORIGIN` et, facultativement, `DATABASE_URL`. Ne mettez pas de secret dans ce fichier modèle ou dans le dépôt. Le fichier `.env` est ignoré par Git.
 
 ## Commandes courantes
 
@@ -151,43 +170,43 @@ Les tests navigateur démarrent leur propre serveur isolé, sans base PostgreSQL
 | Variable | Usage |
 | --- | --- |
 | `HOST` | Adresse d'écoute du serveur (`127.0.0.1` par défaut ; `0.0.0.0` dans Compose). |
-| `PORT` | Port du serveur HTTP et Socket.IO (3101 par défaut). |
-| `PUBLIC_ORIGIN` | Origine autorisée pour les connexions Socket.IO depuis un navigateur. En production : `https://global-fund-next.213.199.40.67.sslip.io`. |
+| `PORT` | Port du serveur HTTP et Socket.IO (3102 par défaut). |
+| `PUBLIC_ORIGIN` | Origine autorisée pour les connexions Socket.IO depuis un navigateur. En développement : `http://localhost:5175` ; en production, utiliser le domaine propre à Evolve. |
 | `DATABASE_URL` | URL PostgreSQL facultative ; sa présence active le stockage Drizzle des salons. |
 | `POSTGRES_PASSWORD` | Secret exigé par Compose pour son conteneur PostgreSQL ; à définir uniquement dans le `.env` local non versionné. |
 
-En production, utiliser une base PostgreSQL dédiée `global_fund_next`, créée avec un compte applicatif séparé. Ne réutilisez ni la base ni les identifiants de la référence. `DATABASE_URL` contient un secret : donnez au fichier d'environnement système des droits `0600`, et choisissez pour Compose un mot de passe hexadécimal afin qu'il reste utilisable sans encodage dans une URL.
+En production, utiliser une base PostgreSQL dédiée `global_fund_evolve`, créée avec un compte applicatif séparé. Ne réutilisez ni la base ni les identifiants de la référence. `DATABASE_URL` contient un secret : donnez au fichier d'environnement système des droits `0600`, et choisissez pour Compose un mot de passe hexadécimal afin qu'il reste utilisable sans encodage dans une URL.
 
 ## Déploiement Linux
 
-Le jeu est accessible à <https://global-fund-next.213.199.40.67.sslip.io>, via Nginx et le service systemd séparés sur le port local 3101. Ce déploiement réutilise l'infrastructure existante ; il ne requiert pas le redémarrage du service de référence.
+Le déploiement historique de la version 2 reste à <https://global-fund-next.213.199.40.67.sslip.io>, sur le port local 3101. Evolve utilise le port 3102 et ses propres chemins, service, base et volume. Les exemples ci-dessous préparent une installation séparée ; ils ne sont pas installés sur le VPS par cette récupération.
 
 L’installation effective de ce VPS est décrite dans [deploy/VPS_DEPLOYMENT.md](deploy/VPS_DEPLOYMENT.md). Les étapes ci-dessous décrivent une installation portable dans `/opt/`.
 
-1. Installer Node.js 22.12+, npm, PostgreSQL et Nginx sur l'hôte. Créer l'utilisateur système `global-fund-next`, la base dédiée `global_fund_next` et son utilisateur SQL. Préparer `/opt/global-fund-next/current` avec les sources et dépendances npm, puis un lien `/opt/global-fund-next/current/runtime` vers un répertoire persistant appartenant à cet utilisateur.
-2. Construire l'interface (`npm ci && npm run build`) et créer `/etc/global-fund-next/global-fund-next.env`, lisible uniquement par root et le service. Il doit définir `PUBLIC_ORIGIN=https://global-fund-next.213.199.40.67.sslip.io` et `DATABASE_URL=postgres://.../global_fund_next`. `HOST=127.0.0.1` et `PORT=3101` sont définis par l'unité. Garder les secrets hors du dépôt.
-3. Installer [l'exemple systemd](deploy/global-fund-next.service.example) sous `/etc/systemd/system/global-fund-next.service`, puis charger et démarrer le service :
+1. Installer Node.js 22.12+, npm, PostgreSQL et Nginx sur l'hôte. Créer l'utilisateur système `global-fund-evolve`, la base dédiée `global_fund_evolve` et son utilisateur SQL. Préparer `/opt/global-fund-evolve/current` avec les sources et dépendances npm, puis un lien `/opt/global-fund-evolve/current/runtime` vers un répertoire persistant appartenant à cet utilisateur.
+2. Construire l'interface (`npm ci && npm run build`) et créer `/etc/global-fund-evolve/global-fund-evolve.env`, lisible uniquement par root et le service. Il doit définir `PUBLIC_ORIGIN=https://global-fund-evolve.213.199.40.67.sslip.io` et `DATABASE_URL=postgres://.../global_fund_evolve`. `HOST=127.0.0.1` et `PORT=3102` sont définis par l'unité. Garder les secrets hors du dépôt.
+3. Installer [l'exemple systemd](deploy/global-fund-evolve.service.example) sous `/etc/systemd/system/global-fund-evolve.service`, puis charger et démarrer le service :
 
    ```sh
    sudo systemctl daemon-reload
-   sudo systemctl enable --now global-fund-next
-   sudo systemctl status global-fund-next
+   sudo systemctl enable --now global-fund-evolve
+   sudo systemctl status global-fund-evolve
    ```
 
-   L'unité applique les migrations au démarrage et relance le serveur en cas d'échec. Les journaux sont consultables avec `journalctl -u global-fund-next`.
-4. Installer [l'exemple Nginx](deploy/nginx.conf.example), vérifier que le certificat TLS du nom prévu existe dans `/etc/letsencrypt/live/`, puis vérifier et recharger Nginx (`nginx -t && systemctl reload nginx`). Le bloc dédié relaie aussi les connexions WebSocket de `/socket.io/` vers le port 3101.
+   L'unité applique les migrations au démarrage et relance le serveur en cas d'échec. Les journaux sont consultables avec `journalctl -u global-fund-evolve`.
+4. Installer [l'exemple Nginx](deploy/nginx.conf.example), vérifier que le certificat TLS du nom prévu existe dans `/etc/letsencrypt/live/`, puis vérifier et recharger Nginx (`nginx -t && systemctl reload nginx`). Le bloc dédié relaie aussi les connexions WebSocket de `/socket.io/` vers le port 3102.
 
 Les chemins d'installation et de certificat des exemples supposent cette disposition et peuvent être ajustés à l'hôte. L'exemple Nginx suppose que les certificats ACME sont déjà émis ; il ne les demande pas. Avant d'exposer le service, contrôler l'accès HTTPS à l'interface et à un salon avec un invité distant.
 
 ### Alternative Docker Compose
 
-Un `compose.yaml` autonome fournit l'application et un PostgreSQL avec volume nommé, attente de disponibilité et port applicatif lié à `127.0.0.1:3101`. Aucun port PostgreSQL n'est publié sur l'hôte. Compose n'est pas le déploiement retenu pour le VPS ; Docker n'y est pas installé et ces fichiers n'y ont pas été exécutés.
+Un `compose.yaml` autonome fournit l'application et un PostgreSQL avec volume nommé, attente de disponibilité et port applicatif lié à `127.0.0.1:3102`. Aucun port PostgreSQL n'est publié sur l'hôte. Compose n'est pas le déploiement retenu pour le VPS ; Docker n'y est pas installé et ces fichiers n'y ont pas été exécutés.
 
 Pour l'essayer sur une machine équipée de Docker Compose, créer un `.env` racine non versionné avec un mot de passe alphanumérique fort et une origine adaptée, par exemple :
 
 ```dotenv
 POSTGRES_PASSWORD=remplacer-par-un-secret-hexadecimal
-PUBLIC_ORIGIN=http://localhost:3101
+PUBLIC_ORIGIN=http://localhost:3102
 ```
 
 Puis construire et lancer :
@@ -197,11 +216,11 @@ docker compose up --build -d
 docker compose logs -f app
 ```
 
-Le volume `global_fund_next_pgdata` conserve PostgreSQL entre redémarrages. Une base persistante exige une sauvegarde externe ; supprimer ce volume détruit les données. Pour arrêter les services sans supprimer la base : `docker compose down`.
+Le volume `global_fund_evolve_pgdata` conserve PostgreSQL entre redémarrages. Une base persistante exige une sauvegarde externe ; supprimer ce volume détruit les données. Pour arrêter les services sans supprimer la base : `docker compose down`.
 
 ## Structure et documentation
 
-- `apps/web` : React, Vite, PixiJS pour le plateau et ECharts pour les cours.
+- `apps/web` : React, Vite, React Three Fiber / Three.js pour le plateau 3D et ECharts pour les cours.
 - `apps/server` : Fastify, Socket.IO, sessions et persistance.
 - `packages/game-engine` : moteur métier indépendant de l'interface et du réseau.
 - `packages/shared` : contrats et données partagés.

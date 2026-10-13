@@ -1,0 +1,1713 @@
+{
+  "objective": "Simuler les distributions de contexte et les parties complètes avec les règles de plateau et de cartes courantes.",
+  "configuration": {
+    "contextDecks": 2000,
+    "contextsPerDeck": 100,
+    "fullGames": 20,
+    "seed": 20261013,
+    "timeCapSeconds": 600,
+    "maxCommandsPerGame": 20000,
+    "seatMarkets": [
+      "europe",
+      "americas",
+      "asia"
+    ],
+    "difficulties": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "historyRetention": 2,
+    "contextOnlyMode": "createGame factory followed by replay of each actual card changes vector; prison and regulation effects do not alter player status or holdings in this analysis"
+  },
+  "hashes": {
+    "packages/game-engine/src/index.ts": "74071ac5ffdfff269b7303584437ce72012c970d3dffcb3d338c2c3491d8669b",
+    "packages/game-engine/legacy/game.cjs": "30ab4e9f421965de7800959c5f9e4309b8925dcee40a23c8d4dfd50749eb4577",
+    "packages/game-engine/legacy/marketRules.cjs": "399542ecd808583307e8aa25e5c38d6d78b01b9a4de09a3bd2ea4a7624fa3b57",
+    "packages/game-engine/legacy/deckRules.cjs": "dc6198ec9a81125c94379dc385037ed2fdd03ec4ad4302727934ba46dc3f757e",
+    "packages/game-engine/legacy/eventStories.cjs": "58e4b9baa1d8898c61427557fd234b23958616f1fa52cf320b8366a8b108ebde",
+    "packages/game-engine/legacy/boardEventCards.cjs": "480f4970afcbe89bc4a87c8552eff3bddc44df754a2377ad58edbcb374913b25",
+    "packages/game-engine/legacy/data/gameData.json": "f25889f672123ff5837bf083e35e6cbb4241d79a7fe5b6bd7bc3822474802bbc"
+  },
+  "catalogAudit": {
+    "eventCount": 100,
+    "totalGradeTargets": 360,
+    "cardTypes": {
+      "positive": 35,
+      "negative": 35,
+      "neutral": 10,
+      "prison": 10,
+      "regulation": 10
+    },
+    "targetGrades": {
+      "A": 10,
+      "B": 80,
+      "C": 180,
+      "D": 80,
+      "E": 10
+    },
+    "byAxis": {
+      "zone": {
+        "targets": 180,
+        "grades": {
+          "A": 10,
+          "B": 35,
+          "C": 90,
+          "D": 35,
+          "E": 10
+        },
+        "byId": {
+          "americas": 36,
+          "europe": 36,
+          "asia": 36,
+          "africa": 36,
+          "oceania": 36
+        }
+      },
+      "sector": {
+        "targets": 180,
+        "grades": {
+          "A": 0,
+          "B": 45,
+          "C": 90,
+          "D": 45,
+          "E": 0
+        },
+        "byId": {
+          "technology": 20,
+          "finance": 20,
+          "industry": 20,
+          "health": 20,
+          "energy": 20,
+          "realestate": 20,
+          "agrifood": 20,
+          "media": 20,
+          "transport": 20
+        }
+      }
+    },
+    "mirrorPairs": {
+      "pairCount": 50,
+      "pairs": [
+        {
+          "first": 1,
+          "second": 36
+        },
+        {
+          "first": 2,
+          "second": 37
+        },
+        {
+          "first": 3,
+          "second": 38
+        },
+        {
+          "first": 4,
+          "second": 39
+        },
+        {
+          "first": 5,
+          "second": 40
+        },
+        {
+          "first": 6,
+          "second": 41
+        },
+        {
+          "first": 7,
+          "second": 42
+        },
+        {
+          "first": 8,
+          "second": 43
+        },
+        {
+          "first": 9,
+          "second": 44
+        },
+        {
+          "first": 10,
+          "second": 45
+        },
+        {
+          "first": 11,
+          "second": 46
+        },
+        {
+          "first": 12,
+          "second": 47
+        },
+        {
+          "first": 13,
+          "second": 48
+        },
+        {
+          "first": 14,
+          "second": 49
+        },
+        {
+          "first": 15,
+          "second": 50
+        },
+        {
+          "first": 16,
+          "second": 51
+        },
+        {
+          "first": 17,
+          "second": 52
+        },
+        {
+          "first": 18,
+          "second": 53
+        },
+        {
+          "first": 19,
+          "second": 54
+        },
+        {
+          "first": 20,
+          "second": 55
+        },
+        {
+          "first": 21,
+          "second": 56
+        },
+        {
+          "first": 22,
+          "second": 57
+        },
+        {
+          "first": 23,
+          "second": 58
+        },
+        {
+          "first": 24,
+          "second": 59
+        },
+        {
+          "first": 94,
+          "second": 99
+        },
+        {
+          "first": 25,
+          "second": 60
+        },
+        {
+          "first": 26,
+          "second": 61
+        },
+        {
+          "first": 27,
+          "second": 62
+        },
+        {
+          "first": 28,
+          "second": 63
+        },
+        {
+          "first": 29,
+          "second": 64
+        },
+        {
+          "first": 30,
+          "second": 65
+        },
+        {
+          "first": 31,
+          "second": 66
+        },
+        {
+          "first": 32,
+          "second": 67
+        },
+        {
+          "first": 33,
+          "second": 68
+        },
+        {
+          "first": 34,
+          "second": 69
+        },
+        {
+          "first": 35,
+          "second": 70
+        },
+        {
+          "first": 95,
+          "second": 100
+        },
+        {
+          "first": 71,
+          "second": 76
+        },
+        {
+          "first": 72,
+          "second": 77
+        },
+        {
+          "first": 73,
+          "second": 78
+        },
+        {
+          "first": 74,
+          "second": 79
+        },
+        {
+          "first": 75,
+          "second": 80
+        },
+        {
+          "first": 81,
+          "second": 86
+        },
+        {
+          "first": 82,
+          "second": 87
+        },
+        {
+          "first": 83,
+          "second": 88
+        },
+        {
+          "first": 84,
+          "second": 89
+        },
+        {
+          "first": 85,
+          "second": 90
+        },
+        {
+          "first": 91,
+          "second": 96
+        },
+        {
+          "first": 92,
+          "second": 97
+        },
+        {
+          "first": 93,
+          "second": 98
+        }
+      ]
+    }
+  },
+  "contextOnly": {
+    "requestedDecks": 2000,
+    "contextsPerDeck": 100,
+    "decksCompleted": 2000,
+    "checkpoints": {
+      "10": {
+        "zone": {
+          "entities": 10000,
+          "gradeCounts": {
+            "A": 561,
+            "B": 1890,
+            "C": 5096,
+            "D": 1890,
+            "E": 563
+          },
+          "frequencies": {
+            "A": 0.0561,
+            "B": 0.189,
+            "C": 0.5096,
+            "D": 0.189,
+            "E": 0.0563
+          },
+          "meanGradeOffsetFromC": 0.0004,
+          "probabilityAB": 0.2451,
+          "probabilityDE": 0.2453,
+          "probabilityABMinusDE": -0.0002
+        },
+        "sector": {
+          "entities": 18000,
+          "gradeCounts": {
+            "A": 0,
+            "B": 4067,
+            "C": 9893,
+            "D": 4040,
+            "E": 0
+          },
+          "frequencies": {
+            "A": 0,
+            "B": 0.22594444444444445,
+            "C": 0.5496111111111112,
+            "D": 0.22444444444444445,
+            "E": 0
+          },
+          "meanGradeOffsetFromC": -0.0015,
+          "probabilityAB": 0.22594444444444445,
+          "probabilityDE": 0.22444444444444445,
+          "probabilityABMinusDE": 0.0015
+        },
+        "global": {
+          "entities": 28000,
+          "gradeCounts": {
+            "A": 561,
+            "B": 5957,
+            "C": 14989,
+            "D": 5930,
+            "E": 563
+          },
+          "frequencies": {
+            "A": 0.020035714285714285,
+            "B": 0.21275,
+            "C": 0.5353214285714286,
+            "D": 0.2117857142857143,
+            "E": 0.020107142857142858
+          },
+          "meanGradeOffsetFromC": -0.0008214285714285715,
+          "probabilityAB": 0.2327857142857143,
+          "probabilityDE": 0.23189285714285715,
+          "probabilityABMinusDE": 0.0008928571428571428
+        }
+      },
+      "50": {
+        "zone": {
+          "entities": 10000,
+          "gradeCounts": {
+            "A": 567,
+            "B": 1939,
+            "C": 4988,
+            "D": 1960,
+            "E": 546
+          },
+          "frequencies": {
+            "A": 0.0567,
+            "B": 0.1939,
+            "C": 0.4988,
+            "D": 0.196,
+            "E": 0.0546
+          },
+          "meanGradeOffsetFromC": -0.0021,
+          "probabilityAB": 0.2506,
+          "probabilityDE": 0.2506,
+          "probabilityABMinusDE": 0
+        },
+        "sector": {
+          "entities": 18000,
+          "gradeCounts": {
+            "A": 0,
+            "B": 4506,
+            "C": 8962,
+            "D": 4532,
+            "E": 0
+          },
+          "frequencies": {
+            "A": 0,
+            "B": 0.25033333333333335,
+            "C": 0.4978888888888889,
+            "D": 0.25177777777777777,
+            "E": 0
+          },
+          "meanGradeOffsetFromC": 0.0014444444444444444,
+          "probabilityAB": 0.25033333333333335,
+          "probabilityDE": 0.25177777777777777,
+          "probabilityABMinusDE": -0.0014444444444444444
+        },
+        "global": {
+          "entities": 28000,
+          "gradeCounts": {
+            "A": 567,
+            "B": 6445,
+            "C": 13950,
+            "D": 6492,
+            "E": 546
+          },
+          "frequencies": {
+            "A": 0.02025,
+            "B": 0.23017857142857143,
+            "C": 0.4982142857142857,
+            "D": 0.23185714285714284,
+            "E": 0.0195
+          },
+          "meanGradeOffsetFromC": 0.00017857142857142857,
+          "probabilityAB": 0.25042857142857144,
+          "probabilityDE": 0.25135714285714283,
+          "probabilityABMinusDE": -0.0009285714285714286
+        }
+      },
+      "100": {
+        "zone": {
+          "entities": 10000,
+          "gradeCounts": {
+            "A": 575,
+            "B": 2012,
+            "C": 4935,
+            "D": 1936,
+            "E": 542
+          },
+          "frequencies": {
+            "A": 0.0575,
+            "B": 0.2012,
+            "C": 0.4935,
+            "D": 0.1936,
+            "E": 0.0542
+          },
+          "meanGradeOffsetFromC": -0.0142,
+          "probabilityAB": 0.2587,
+          "probabilityDE": 0.2478,
+          "probabilityABMinusDE": 0.0109
+        },
+        "sector": {
+          "entities": 18000,
+          "gradeCounts": {
+            "A": 0,
+            "B": 4493,
+            "C": 9036,
+            "D": 4471,
+            "E": 0
+          },
+          "frequencies": {
+            "A": 0,
+            "B": 0.24961111111111112,
+            "C": 0.502,
+            "D": 0.24838888888888888,
+            "E": 0
+          },
+          "meanGradeOffsetFromC": -0.0012222222222222222,
+          "probabilityAB": 0.24961111111111112,
+          "probabilityDE": 0.24838888888888888,
+          "probabilityABMinusDE": 0.0012222222222222222
+        },
+        "global": {
+          "entities": 28000,
+          "gradeCounts": {
+            "A": 575,
+            "B": 6505,
+            "C": 13971,
+            "D": 6407,
+            "E": 542
+          },
+          "frequencies": {
+            "A": 0.020535714285714286,
+            "B": 0.23232142857142857,
+            "C": 0.4989642857142857,
+            "D": 0.22882142857142856,
+            "E": 0.019357142857142857
+          },
+          "meanGradeOffsetFromC": -0.005857142857142857,
+          "probabilityAB": 0.25285714285714284,
+          "probabilityDE": 0.24817857142857142,
+          "probabilityABMinusDE": 0.004678571428571429
+        }
+      }
+    },
+    "typeCounts": {
+      "negative": 70000,
+      "positive": 70000,
+      "neutral": 20000,
+      "prison": 20000,
+      "regulation": 20000
+    },
+    "actualTransitions": {
+      "zone": {
+        "up": 123370,
+        "down": 123231,
+        "unchanged": 113399,
+        "steps": {
+          "0": 113399,
+          "1": 158202,
+          "2": 69489,
+          "3": 16566,
+          "4": 2344
+        }
+      },
+      "sector": {
+        "up": 116216,
+        "down": 116161,
+        "unchanged": 127623,
+        "steps": {
+          "0": 127623,
+          "1": 187500,
+          "2": 44877
+        }
+      },
+      "global": {
+        "up": 239586,
+        "down": 239392,
+        "unchanged": 241022,
+        "steps": {
+          "0": 241022,
+          "1": 345702,
+          "2": 114366,
+          "3": 16566,
+          "4": 2344
+        }
+      }
+    },
+    "mixedDirectionCards": 125396,
+    "directionReversals": 236553,
+    "snapshotCount": 6000,
+    "longRunChecks": {
+      "zone": {
+        "meanGradeOffsetFromC": -0.0142,
+        "probabilityABMinusDE": 0.0109,
+        "driftWithinPointOne": true,
+        "tailsWithinPointOne": true
+      },
+      "sector": {
+        "meanGradeOffsetFromC": -0.0012222222222222222,
+        "probabilityABMinusDE": 0.0012222222222222222,
+        "driftWithinPointOne": true,
+        "tailsWithinPointOne": true
+      },
+      "global": {
+        "meanGradeOffsetFromC": -0.005857142857142857,
+        "probabilityABMinusDE": 0.004678571428571429,
+        "driftWithinPointOne": true,
+        "tailsWithinPointOne": true
+      }
+    }
+  },
+  "fullGames": {
+    "requestedGames": 20,
+    "gamesRecorded": 20,
+    "completedGames": 20,
+    "averageCycles": 72.3,
+    "averageSeconds": 10.142652970750001,
+    "averageContextCards": 71.3,
+    "averageBuys": 29.85,
+    "averageBankruptcies": 0,
+    "averageInsolventFunds": 1.7,
+    "averageSurvivorNAVPerGame": 303.34325,
+    "pooledAverageSurvivorNAV": 279.9611538461538,
+    "totals": {
+      "buys": 597,
+      "bankruptcies": 0,
+      "contextsByType": {
+        "neutral": 143,
+        "negative": 498,
+        "positive": 502,
+        "prison": 141,
+        "regulation": 142
+      },
+      "contextCards": 1426,
+      "contextGradeOutcomes": {
+        "up": 1731,
+        "down": 1773,
+        "stable": 1626
+      },
+      "boardMarkets": {
+        "bull": 68,
+        "bear": 64,
+        "crash": 0,
+        "unknown": 0
+      },
+      "boardEvents": 716,
+      "boardEventsByCategory": {
+        "unfavorable": 272,
+        "mixed": 175,
+        "favorable": 269
+      },
+      "boardEventsBySector": {
+        "industry": 85,
+        "energy": 90,
+        "transport": 73,
+        "realestate": 80,
+        "technology": 77,
+        "finance": 87,
+        "media": 81,
+        "health": 73,
+        "agrifood": 70
+      },
+      "boardEventsByZone": {
+        "americas": 206,
+        "asia": 98,
+        "europe": 158,
+        "africa": 153,
+        "oceania": 101
+      },
+      "boardEventImpactClass": {
+        "positive": 398,
+        "negative": 234,
+        "neutral": 84
+      },
+      "rankingPairFlips": 240,
+      "insolvencies": 34,
+      "contextCausedBankruptcies": 0,
+      "boardEventCausedBankruptcies": 0
+    },
+    "boardAudit": {
+      "length": 52,
+      "sectorCells": 39,
+      "marketCells": 2,
+      "eventCells": 10,
+      "markets": [
+        {
+          "label": "Bull Market",
+          "effect": "bull",
+          "positionZeroBased": 13,
+          "positionOneBased": 14
+        },
+        {
+          "label": "Bear Market",
+          "effect": "bear",
+          "positionZeroBased": 39,
+          "positionOneBased": 40
+        }
+      ],
+      "sectorCellCounts": {
+        "technology": 5,
+        "finance": 5,
+        "industry": 4,
+        "health": 4,
+        "energy": 4,
+        "realestate": 5,
+        "agrifood": 4,
+        "media": 4,
+        "transport": 4
+      },
+      "boardEventDeck": {
+        "cardCount": 50,
+        "categoryCounts": {
+          "favorable": 19,
+          "mixed": 12,
+          "unfavorable": 19
+        },
+        "targetSectorCounts": {
+          "finance": 5,
+          "industry": 5,
+          "energy": 5,
+          "realestate": 5,
+          "technology": 5,
+          "health": 5,
+          "media": 5,
+          "agrifood": 5,
+          "transport": 5
+        }
+      },
+      "boardEventTargetSelection": "uniform random choice among eligible zones, then eligible company in that zone; the four most recent global company target IDs are filtered out of the selected zone when at least one nonrecent candidate is available, otherwise selection falls back to that zone’s full pool"
+    },
+    "records": [
+      {
+        "game": 1,
+        "seed": 20263013,
+        "finished": true,
+        "cycles": 92,
+        "commands": 981,
+        "durationSeconds": 12.41271551,
+        "error": null,
+        "contextCards": 91,
+        "contextsByType": {
+          "neutral": 10,
+          "negative": 32,
+          "positive": 31,
+          "prison": 9,
+          "regulation": 9
+        },
+        "contextGradeOutcomes": {
+          "up": 104,
+          "down": 112,
+          "stable": 112
+        },
+        "buys": 36,
+        "boardMarkets": {
+          "bull": 6,
+          "bear": 5,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 38,
+        "eventImpactClass": {
+          "positive": 21,
+          "negative": 13,
+          "neutral": 4
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 11,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 453.85,
+        "medianSurvivorNAV": 453.85,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 453.85,
+          "hard": 0
+        }
+      },
+      {
+        "game": 2,
+        "seed": 20263014,
+        "finished": true,
+        "cycles": 56,
+        "commands": 596,
+        "durationSeconds": 7.594413834999999,
+        "error": null,
+        "contextCards": 55,
+        "contextsByType": {
+          "positive": 20,
+          "prison": 5,
+          "negative": 20,
+          "regulation": 5,
+          "neutral": 5
+        },
+        "contextGradeOutcomes": {
+          "up": 59,
+          "down": 74,
+          "stable": 59
+        },
+        "buys": 27,
+        "boardMarkets": {
+          "bull": 7,
+          "bear": 1,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 24,
+        "eventImpactClass": {
+          "positive": 12,
+          "negative": 8,
+          "neutral": 4
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 9,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 297.46,
+        "medianSurvivorNAV": 297.46,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 297.46
+        }
+      },
+      {
+        "game": 3,
+        "seed": 20263015,
+        "finished": true,
+        "cycles": 101,
+        "commands": 1078,
+        "durationSeconds": 14.917230991999997,
+        "error": null,
+        "contextCards": 100,
+        "contextsByType": {
+          "positive": 35,
+          "negative": 35,
+          "neutral": 10,
+          "regulation": 10,
+          "prison": 10
+        },
+        "contextGradeOutcomes": {
+          "up": 129,
+          "down": 118,
+          "stable": 113
+        },
+        "buys": 39,
+        "boardMarkets": {
+          "bull": 3,
+          "bear": 6,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 52,
+        "eventImpactClass": {
+          "positive": 29,
+          "negative": 18,
+          "neutral": 5
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 18,
+        "survivingFunds": 2,
+        "insolventFunds": 1,
+        "averageSurvivorNAV": 224.935,
+        "medianSurvivorNAV": 287.58,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 162.29,
+          "hard": 287.58
+        }
+      },
+      {
+        "game": 4,
+        "seed": 20263016,
+        "finished": true,
+        "cycles": 41,
+        "commands": 470,
+        "durationSeconds": 6.364743661,
+        "error": null,
+        "contextCards": 40,
+        "contextsByType": {
+          "regulation": 4,
+          "negative": 14,
+          "positive": 14,
+          "neutral": 4,
+          "prison": 4
+        },
+        "contextGradeOutcomes": {
+          "up": 43,
+          "down": 48,
+          "stable": 51
+        },
+        "buys": 24,
+        "boardMarkets": {
+          "bull": 2,
+          "bear": 1,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 17,
+        "eventImpactClass": {
+          "positive": 7,
+          "negative": 6,
+          "neutral": 4
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 7,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 503.99,
+        "medianSurvivorNAV": 503.99,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 503.99
+        }
+      },
+      {
+        "game": 5,
+        "seed": 20263017,
+        "finished": true,
+        "cycles": 101,
+        "commands": 965,
+        "durationSeconds": 12.873425607999998,
+        "error": null,
+        "contextCards": 100,
+        "contextsByType": {
+          "positive": 35,
+          "negative": 35,
+          "regulation": 10,
+          "neutral": 10,
+          "prison": 10
+        },
+        "contextGradeOutcomes": {
+          "up": 121,
+          "down": 128,
+          "stable": 111
+        },
+        "buys": 33,
+        "boardMarkets": {
+          "bull": 6,
+          "bear": 4,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 44,
+        "eventImpactClass": {
+          "positive": 23,
+          "negative": 17,
+          "neutral": 4
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 6,
+        "survivingFunds": 2,
+        "insolventFunds": 1,
+        "averageSurvivorNAV": 237.535,
+        "medianSurvivorNAV": 319.44,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 319.44,
+          "hard": 155.63
+        }
+      },
+      {
+        "game": 6,
+        "seed": 20263018,
+        "finished": true,
+        "cycles": 75,
+        "commands": 816,
+        "durationSeconds": 12.884903908000007,
+        "error": null,
+        "contextCards": 74,
+        "contextsByType": {
+          "negative": 26,
+          "positive": 26,
+          "regulation": 8,
+          "prison": 7,
+          "neutral": 7
+        },
+        "contextGradeOutcomes": {
+          "up": 94,
+          "down": 91,
+          "stable": 85
+        },
+        "buys": 31,
+        "boardMarkets": {
+          "bull": 2,
+          "bear": 3,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 41,
+        "eventImpactClass": {
+          "positive": 23,
+          "negative": 14,
+          "neutral": 4
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 4,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 281.39,
+        "medianSurvivorNAV": 281.39,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 281.39
+        }
+      },
+      {
+        "game": 7,
+        "seed": 20263019,
+        "finished": true,
+        "cycles": 101,
+        "commands": 994,
+        "durationSeconds": 13.49742216500001,
+        "error": null,
+        "contextCards": 100,
+        "contextsByType": {
+          "negative": 35,
+          "neutral": 10,
+          "positive": 35,
+          "regulation": 10,
+          "prison": 10
+        },
+        "contextGradeOutcomes": {
+          "up": 123,
+          "down": 129,
+          "stable": 108
+        },
+        "buys": 28,
+        "boardMarkets": {
+          "bull": 5,
+          "bear": 3,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 41,
+        "eventImpactClass": {
+          "positive": 25,
+          "negative": 14,
+          "neutral": 2
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 21,
+        "survivingFunds": 2,
+        "insolventFunds": 1,
+        "averageSurvivorNAV": 167.93,
+        "medianSurvivorNAV": 195.43,
+        "finalNAV": {
+          "easy": 140.43,
+          "normal": 195.43,
+          "hard": 0
+        }
+      },
+      {
+        "game": 8,
+        "seed": 20263020,
+        "finished": true,
+        "cycles": 73,
+        "commands": 803,
+        "durationSeconds": 9.901973683000003,
+        "error": null,
+        "contextCards": 72,
+        "contextsByType": {
+          "negative": 26,
+          "positive": 25,
+          "regulation": 7,
+          "prison": 7,
+          "neutral": 7
+        },
+        "contextGradeOutcomes": {
+          "up": 95,
+          "down": 92,
+          "stable": 73
+        },
+        "buys": 26,
+        "boardMarkets": {
+          "bull": 3,
+          "bear": 3,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 43,
+        "eventImpactClass": {
+          "positive": 23,
+          "negative": 12,
+          "neutral": 8
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 14,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 179.38,
+        "medianSurvivorNAV": 179.38,
+        "finalNAV": {
+          "easy": 179.38,
+          "normal": 0,
+          "hard": 0
+        }
+      },
+      {
+        "game": 9,
+        "seed": 20263021,
+        "finished": true,
+        "cycles": 62,
+        "commands": 678,
+        "durationSeconds": 8.55704632600001,
+        "error": null,
+        "contextCards": 61,
+        "contextsByType": {
+          "neutral": 6,
+          "positive": 22,
+          "negative": 21,
+          "regulation": 6,
+          "prison": 6
+        },
+        "contextGradeOutcomes": {
+          "up": 72,
+          "down": 78,
+          "stable": 68
+        },
+        "buys": 29,
+        "boardMarkets": {
+          "bull": 3,
+          "bear": 1,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 34,
+        "eventImpactClass": {
+          "positive": 21,
+          "negative": 10,
+          "neutral": 3
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 11,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 365.5,
+        "medianSurvivorNAV": 365.5,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 365.5
+        }
+      },
+      {
+        "game": 10,
+        "seed": 20263022,
+        "finished": true,
+        "cycles": 58,
+        "commands": 588,
+        "durationSeconds": 7.430316698000009,
+        "error": null,
+        "contextCards": 57,
+        "contextsByType": {
+          "negative": 20,
+          "prison": 6,
+          "positive": 19,
+          "neutral": 6,
+          "regulation": 6
+        },
+        "contextGradeOutcomes": {
+          "up": 65,
+          "down": 67,
+          "stable": 74
+        },
+        "buys": 25,
+        "boardMarkets": {
+          "bull": 1,
+          "bear": 3,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 26,
+        "eventImpactClass": {
+          "positive": 11,
+          "negative": 10,
+          "neutral": 5
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 8,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 418.59,
+        "medianSurvivorNAV": 418.59,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 418.59
+        }
+      },
+      {
+        "game": 11,
+        "seed": 20263023,
+        "finished": true,
+        "cycles": 101,
+        "commands": 987,
+        "durationSeconds": 12.393875707,
+        "error": null,
+        "contextCards": 100,
+        "contextsByType": {
+          "negative": 35,
+          "prison": 10,
+          "positive": 35,
+          "regulation": 10,
+          "neutral": 10
+        },
+        "contextGradeOutcomes": {
+          "up": 121,
+          "down": 125,
+          "stable": 114
+        },
+        "buys": 40,
+        "boardMarkets": {
+          "bull": 3,
+          "bear": 4,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 54,
+        "eventImpactClass": {
+          "positive": 31,
+          "negative": 19,
+          "neutral": 4
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 5,
+        "survivingFunds": 2,
+        "insolventFunds": 1,
+        "averageSurvivorNAV": 306.355,
+        "medianSurvivorNAV": 588.45,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 588.45,
+          "hard": 24.26
+        }
+      },
+      {
+        "game": 12,
+        "seed": 20263024,
+        "finished": true,
+        "cycles": 57,
+        "commands": 680,
+        "durationSeconds": 8.46553162200001,
+        "error": null,
+        "contextCards": 56,
+        "contextsByType": {
+          "regulation": 5,
+          "prison": 6,
+          "negative": 21,
+          "positive": 18,
+          "neutral": 6
+        },
+        "contextGradeOutcomes": {
+          "up": 71,
+          "down": 65,
+          "stable": 70
+        },
+        "buys": 33,
+        "boardMarkets": {
+          "bull": 0,
+          "bear": 3,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 29,
+        "eventImpactClass": {
+          "positive": 18,
+          "negative": 7,
+          "neutral": 4
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 20,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 300.79,
+        "medianSurvivorNAV": 300.79,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 300.79
+        }
+      },
+      {
+        "game": 13,
+        "seed": 20263025,
+        "finished": true,
+        "cycles": 63,
+        "commands": 714,
+        "durationSeconds": 9.831563676999998,
+        "error": null,
+        "contextCards": 62,
+        "contextsByType": {
+          "negative": 20,
+          "neutral": 6,
+          "positive": 24,
+          "prison": 6,
+          "regulation": 6
+        },
+        "contextGradeOutcomes": {
+          "up": 76,
+          "down": 72,
+          "stable": 68
+        },
+        "buys": 29,
+        "boardMarkets": {
+          "bull": 2,
+          "bear": 4,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 31,
+        "eventImpactClass": {
+          "positive": 17,
+          "negative": 9,
+          "neutral": 5
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 13,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 410.12,
+        "medianSurvivorNAV": 410.12,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 410.12
+        }
+      },
+      {
+        "game": 14,
+        "seed": 20263026,
+        "finished": true,
+        "cycles": 101,
+        "commands": 1053,
+        "durationSeconds": 13.369662529999973,
+        "error": null,
+        "contextCards": 100,
+        "contextsByType": {
+          "negative": 35,
+          "positive": 35,
+          "regulation": 10,
+          "neutral": 10,
+          "prison": 10
+        },
+        "contextGradeOutcomes": {
+          "up": 114,
+          "down": 119,
+          "stable": 127
+        },
+        "buys": 28,
+        "boardMarkets": {
+          "bull": 5,
+          "bear": 7,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 47,
+        "eventImpactClass": {
+          "positive": 25,
+          "negative": 15,
+          "neutral": 7
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 15,
+        "survivingFunds": 2,
+        "insolventFunds": 1,
+        "averageSurvivorNAV": 142.56,
+        "medianSurvivorNAV": 153.43,
+        "finalNAV": {
+          "easy": 153.43,
+          "normal": 0,
+          "hard": 131.69
+        }
+      },
+      {
+        "game": 15,
+        "seed": 20263027,
+        "finished": true,
+        "cycles": 62,
+        "commands": 701,
+        "durationSeconds": 9.336905562,
+        "error": null,
+        "contextCards": 61,
+        "contextsByType": {
+          "negative": 22,
+          "positive": 21,
+          "regulation": 6,
+          "neutral": 6,
+          "prison": 6
+        },
+        "contextGradeOutcomes": {
+          "up": 77,
+          "down": 80,
+          "stable": 65
+        },
+        "buys": 29,
+        "boardMarkets": {
+          "bull": 3,
+          "bear": 3,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 36,
+        "eventImpactClass": {
+          "positive": 20,
+          "negative": 10,
+          "neutral": 6
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 12,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 333.62,
+        "medianSurvivorNAV": 333.62,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 333.62
+        }
+      },
+      {
+        "game": 16,
+        "seed": 20263028,
+        "finished": true,
+        "cycles": 33,
+        "commands": 414,
+        "durationSeconds": 4.989095952999982,
+        "error": null,
+        "contextCards": 32,
+        "contextsByType": {
+          "regulation": 3,
+          "positive": 12,
+          "negative": 10,
+          "prison": 3,
+          "neutral": 4
+        },
+        "contextGradeOutcomes": {
+          "up": 38,
+          "down": 41,
+          "stable": 37
+        },
+        "buys": 23,
+        "boardMarkets": {
+          "bull": 2,
+          "bear": 2,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 14,
+        "eventImpactClass": {
+          "positive": 9,
+          "negative": 4,
+          "neutral": 1
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 12,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 320.2,
+        "medianSurvivorNAV": 320.2,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 320.2
+        }
+      },
+      {
+        "game": 17,
+        "seed": 20263029,
+        "finished": true,
+        "cycles": 47,
+        "commands": 534,
+        "durationSeconds": 6.431921704000008,
+        "error": null,
+        "contextCards": 46,
+        "contextsByType": {
+          "positive": 18,
+          "negative": 15,
+          "prison": 4,
+          "regulation": 4,
+          "neutral": 5
+        },
+        "contextGradeOutcomes": {
+          "up": 57,
+          "down": 60,
+          "stable": 49
+        },
+        "buys": 23,
+        "boardMarkets": {
+          "bull": 3,
+          "bear": 2,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 24,
+        "eventImpactClass": {
+          "positive": 12,
+          "negative": 11,
+          "neutral": 1
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 13,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 212.04,
+        "medianSurvivorNAV": 212.04,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 212.04
+        }
+      },
+      {
+        "game": 18,
+        "seed": 20263030,
+        "finished": true,
+        "cycles": 101,
+        "commands": 1004,
+        "durationSeconds": 12.952333031999995,
+        "error": null,
+        "contextCards": 100,
+        "contextsByType": {
+          "positive": 35,
+          "prison": 10,
+          "negative": 35,
+          "regulation": 10,
+          "neutral": 10
+        },
+        "contextGradeOutcomes": {
+          "up": 120,
+          "down": 124,
+          "stable": 116
+        },
+        "buys": 29,
+        "boardMarkets": {
+          "bull": 4,
+          "bear": 3,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 53,
+        "eventImpactClass": {
+          "positive": 29,
+          "negative": 19,
+          "neutral": 5
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 12,
+        "survivingFunds": 2,
+        "insolventFunds": 1,
+        "averageSurvivorNAV": 132.81,
+        "medianSurvivorNAV": 210.49,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 210.49,
+          "hard": 55.13
+        }
+      },
+      {
+        "game": 19,
+        "seed": 20263031,
+        "finished": true,
+        "cycles": 58,
+        "commands": 668,
+        "durationSeconds": 8.560570963000005,
+        "error": null,
+        "contextCards": 57,
+        "contextsByType": {
+          "negative": 19,
+          "positive": 21,
+          "prison": 6,
+          "regulation": 6,
+          "neutral": 5
+        },
+        "contextGradeOutcomes": {
+          "up": 76,
+          "down": 75,
+          "stable": 57
+        },
+        "buys": 29,
+        "boardMarkets": {
+          "bull": 3,
+          "bear": 3,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 24,
+        "eventImpactClass": {
+          "positive": 15,
+          "negative": 6,
+          "neutral": 3
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 9,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 333.17,
+        "medianSurvivorNAV": 333.17,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 333.17,
+          "hard": 0
+        }
+      },
+      {
+        "game": 20,
+        "seed": 20263032,
+        "finished": true,
+        "cycles": 63,
+        "commands": 789,
+        "durationSeconds": 10.087406279000017,
+        "error": null,
+        "contextCards": 62,
+        "contextsByType": {
+          "prison": 6,
+          "positive": 21,
+          "negative": 22,
+          "regulation": 7,
+          "neutral": 6
+        },
+        "contextGradeOutcomes": {
+          "up": 76,
+          "down": 75,
+          "stable": 69
+        },
+        "buys": 36,
+        "boardMarkets": {
+          "bull": 5,
+          "bear": 3,
+          "crash": 0,
+          "unknown": 0
+        },
+        "boardEvents": 44,
+        "eventImpactClass": {
+          "positive": 27,
+          "negative": 12,
+          "neutral": 5
+        },
+        "bankruptcies": 0,
+        "contextCausedBankruptcies": 0,
+        "boardEventCausedBankruptcies": 0,
+        "rankingPairFlips": 20,
+        "survivingFunds": 1,
+        "insolventFunds": 2,
+        "averageSurvivorNAV": 444.64,
+        "medianSurvivorNAV": 444.64,
+        "finalNAV": {
+          "easy": 0,
+          "normal": 0,
+          "hard": 444.64
+        }
+      }
+    ]
+  },
+  "checks": [
+    {
+      "name": "contextsExactly100",
+      "pass": true
+    },
+    {
+      "name": "contextGradeTargetsExactly360",
+      "pass": true
+    },
+    {
+      "name": "gradeTargetDistributionA10B80C180D80E10",
+      "pass": true
+    },
+    {
+      "name": "zoneTargetFrequency36Each",
+      "pass": true
+    },
+    {
+      "name": "sectorTargetFrequency20Each",
+      "pass": true
+    },
+    {
+      "name": "mirrorPairs50",
+      "pass": true
+    },
+    {
+      "name": "boardHasNoCrash",
+      "pass": true
+    },
+    {
+      "name": "boardHas39SectorSpacesWith4or5Each",
+      "pass": true
+    },
+    {
+      "name": "bearAtCase40Index39",
+      "pass": true
+    },
+    {
+      "name": "boardHas10EventSpaces",
+      "pass": true
+    },
+    {
+      "name": "boardHas50EventCards",
+      "pass": true
+    },
+    {
+      "name": "boardEventCategories19_19_12",
+      "pass": true
+    },
+    {
+      "name": "boardEventsFivePerSector",
+      "pass": true
+    },
+    {
+      "name": "contextLongRunDriftWithinPointOne",
+      "pass": true
+    },
+    {
+      "name": "allFullGamesFinished",
+      "pass": true
+    },
+    {
+      "name": "noMarketCrashObserved",
+      "pass": true
+    }
+  ],
+  "durationSeconds": 218.17241259,
+  "errors": []
+}

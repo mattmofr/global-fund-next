@@ -1,14 +1,16 @@
-# Global Fund Next — Architecture
+# Global Fund Evolve — Architecture
 
 ## Isolation
 
-Le projet de référence est `/home/codex/projects/trading-game`. Le nouveau projet est `/home/codex/projects/global-fund-next`. Toutes les sources, données et ressources nécessaires sont copiées dans Next. Aucun import, lien symbolique, stockage, port, service ou processus du nouveau jeu ne dépend du projet de référence. Son manifeste SHA-256 initial est conservé dans `/tmp/global-fund-current-manifest.json` pour contrôler l'absence de modification.
+Le projet actif est `/home/codex/projects/global-fund-evolve`, anciennement `global-fund-next-new`. Le répertoire `/home/codex/projects/global-fund-next` est conservé intact comme archive de la version 2. La référence initiale `/home/codex/projects/trading-game` reste également séparée. Evolve possède ses sources et ressources locales, ses ports 3102/5175 et ses propres identifiants de service, sessions navigateur, base et volume Compose. Aucun chemin de configuration ou de stockage actif ne cible l’archive V2.
+
+La branche locale `global-fund-evolve` part du commit `58493e0e805820a9c5ea29d39dad4c9229afceb2` de la PR #1 du dépôt source `mattmofr/global-fund-next`, récupéré le 11 octobre 2026. La PR est en brouillon ; aucune fusion ou publication GitHub n’a été effectuée.
 
 ## Responsabilités
 
 ```text
 apps/web       React 19 + TypeScript + Vite + Tailwind CSS 4
-  board/       PixiJS 8 + @pixi/react : plateau, pions, dé, mouvement, routes
+  board/       React Three Fiber + Three.js : plateau 3D, pions, dé, voyages
   trading/     React/HTML + ECharts : titres, portefeuille, diversification
   presentation/ cartes, résultats et audio
 apps/server    Fastify 5 + Socket.IO : sessions, salons, commandes, IA
@@ -38,7 +40,7 @@ Un contrôleur humain peut piloter plusieurs places locales ; une place distante
 
 Les données de la version actuelle ne sont pas importées automatiquement. Le nouveau jeu change le plateau et les règles ; une reprise transparente de ses parties serait trompeuse.
 
-## Règles Next
+## Règles Evolve
 
 - Cycle 1 : indices C/C, placement gratuit sur la place de marché choisie par chaque humain, IA réparties côté serveur, sans carte Contexte ni voyage. `startingMarket` conserve l'origine et `currentMarket` expose la position courante ; `nationality` reste seulement une métadonnée de compatibilité des anciens états.
 - Dès le cycle 2 : une carte Contexte collective, puis implantation → dé → case → transactions. L'ordre implantation avant dé a été confirmé par l'utilisateur le 4 octobre 2026.
@@ -50,13 +52,13 @@ Les données de la version actuelle ne sont pas importées automatiquement. Le n
 
 ## Rendu et audio
 
-PixiJS rend les seules surfaces graphiques : le plateau et ses objets. Les menus, tableaux et décisions restent du HTML accessible. Le plateau utilise une géométrie logique constante et se redimensionne dans son cadre ; les pions sont sur une couche distincte au-dessus des cases. Le ticker anime les objets directement, sans provoquer une mise à jour React à chaque image.
+React Three Fiber et Three.js rendent le plateau 3D, ses objets et la cinématique de voyage. Les menus, tableaux et décisions restent des composants HTML. La refonte du front et ses conventions sont décrites dans [REDESIGN.md](docs/REDESIGN.md). Le serveur, le moteur et le protocole issus de V2 sont conservés.
 
 ECharts affiche uniquement l'historique réel du moteur et se libère à la fermeture des composants. Les graphiques ont un résumé HTML. Les mouvements réduits désactivent les transitions et délais superflus. L'audio démarre après un geste, reste facultatif et propose plusieurs volumes.
 
 ## Déploiement
 
-Next écoute sur `127.0.0.1:3101`, séparément du port 3001 de la référence. Un service `global-fund-next.service` et un hôte Nginx distinct réutilisent l'infrastructure fiable existante. Aucun redémarrage du service de référence n'est requis. Docker Compose est fourni pour une installation indépendante, mais Docker n'est pas installé sur le VPS et n'est pas requis pour cette scène.
+Evolve écoute sur `127.0.0.1:3102`, avec Vite sur 5175 en développement, séparément de V2 sur 3101 et de la référence sur 3001. Le service `global-fund-evolve.service` sert une release autonome derrière Nginx à <https://global-fund-evolve.213.199.40.67.sslip.io>. PostgreSQL utilise la base et le rôle `global_fund_evolve` ; la configuration privée et le stockage sont sous `/home/codex/deployments/global-fund-evolve/shared/`. [VPS_DEPLOYMENT.md](deploy/VPS_DEPLOYMENT.md) décrit Evolve et conserve l’installation historique de V2. Docker Compose est fourni pour une installation indépendante.
 
 ## Sources techniques
 

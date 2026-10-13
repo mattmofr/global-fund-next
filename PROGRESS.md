@@ -1,3 +1,55 @@
+# Équilibrage du plateau et des paquets — 13 octobre 2026
+
+**Moteur et données** : le plateau actif compte 39 secteurs, 10 Événements, deux marchés (Bull en case 14, Bear en case 40) et Départ. Immobilier remplace Crash à la case 26. Finance, Technologie et Immobilier apparaissent cinq fois ; les six autres secteurs quatre fois. Chaque quart contient les neuf secteurs, avec des écarts circulaires de 9 à 14 cases.
+
+**Événements** : 50 cartes, cinq par secteur et cinq globales ; 19 favorables, 19 défavorables et 12 mixtes. Les cibles sont choisies dans un pool prioritaire de sociétés détenues puis disponibles, avec sélection uniforme de la zone, et un cooldown de quatre cibles dans la zone lorsque des alternatives existent.
+
+**Contextes** : 100 cartes et quotas par type conservés (35 positives, 35 négatives, 10 neutres, 10 prison, 10 régulation). La distribution équilibrée couvre chaque zone 36 fois et chaque secteur 20 fois ; elle comprend 70 rotations depuis C, 20 effets directionnels purs et 10 affectations neutres à C. Les cartes assignent des grades absolus.
+
+**Compatibilité** : plateau v3, cartes v3, règles de marché v2. Les plateaux officiels reconnus v1/v2 migrent vers la disposition courante tout en conservant les positions, historiques et identités figées des notifications. La migration des paquets remplace les cartes connues à leur place sans modifier leur ordre et préserve le Contexte révélé.
+
+**Documentation** : [BOARD_BALANCE_AUDIT.md](BOARD_BALANCE_AUDIT.md), [EVENT_BALANCE_AUDIT.md](EVENT_BALANCE_AUDIT.md), [CONTEXT_BALANCE_AUDIT.md](CONTEXT_BALANCE_AUDIT.md), [ENGINE_RULES.md](ENGINE_RULES.md) et l’addendum de [ENGINE_AUDIT.md](ENGINE_AUDIT.md). **Validation finale** : 174 tests unitaires/intégration, TypeScript et build passent. Les neuf parcours navigateur (marchés, ancienne notification, Immobilier, Contextes et Événements) sont validés ; le navigateur public crée une partie, lance le dé, achète une action, passe au fonds suivant et reprend après rechargement. La campagne termine 20/20 parties et mesure 2 000 paquets de Contextes sans dérive marquée. Preuve : [board-deck-validation.json](docs/board-deck-validation.json), [simulation](docs/board-deck-simulation.json).
+
+**Livré** : release `20261012T222344Z-board-decks-v3`, HTTPS et WebSocket validés, sauvegarde PostgreSQL dédiée vérifiée. Une ancienne partie reprend en v3 ; les cartes restantes sont actualisées sans changement d’ordre. L’archive V2 conserve ses 39 872 entrées, ses configurations et son service. Aucun fichier front-end n’a changé dans cette itération.
+
+---
+
+# Bear case 40 et chocs de marché — 12 octobre 2026
+
+Cette entrée garde le suivi de l’itération précédente ; depuis le 13 octobre, Immobilier a remplacé le marché Crash en case 26. Les faits propres à la distribution de plateau et aux paquets décrivent leur état à cette date.
+
+**Moteur et données** : Bear échange sa case 39 avec l'Événement en case 40. Les 52 cases et toutes les répartitions sont conservées. Bull/Bear appliquent ±1 niveau aux cinq zones, avec ±2 niveaux au total dans la zone actuelle du fonds actif ; secteurs inchangés, bornage A–E, Crash conservé. L'effet est prévisible et atteint ±50 % dans la zone active depuis C/C, contre ±25 % ailleurs. Les liquidations E/E et les planchers restent ceux du moteur.
+
+**Compatibilité** : les anciens plateaux officiels sont reconnus avant migration. Positions numériques, portefeuilles, cash, historiques et règlements sont conservés. Les anciennes notifications figent leur identité ; un seul ajustement de lecture côté `CardScene` permet de les afficher après déplacement de Bear. Aucun style, layout, asset, HUD ou animation n'est changé.
+
+**Validation** : 150 tests unitaires/intégration, TypeScript et build passent. Le navigateur valide Bull, Bear et une ancienne notification, puis le retour au trading. La campagne de 20 parties seedées termine sans erreur (11 732 commandes), avec 30 inversions de paires de rang et aucune insolvabilité immédiate sur un choc. Bear provoque néanmoins des liquidations E/E et 39 des 60 fonds finissent insolvables plus tard ; ce screening ne démontre pas un équilibre universel.
+
+**Livré** : release `20261012T215056Z-market-v2`, sauvegarde PostgreSQL vérifiée, HTTPS et WebSocket sains. Une partie créée avant livraison reprend avec Bear en case 40, positions/cash conservés ; commande de dé réelle acceptée, nouvelles parties en règles v2. L'archive V2 conserve ses 39 872 entrées et son service n'est pas redémarré. Règles : [ENGINE_RULES.md](ENGINE_RULES.md). Preuves : [market-shock-validation.json](docs/market-shock-validation.json), [market-shock-simulation.json](docs/market-shock-simulation.json).
+
+---
+
+# Global Fund Evolve en ligne — 11 octobre 2026
+
+**Livré** : <https://global-fund-evolve.213.199.40.67.sslip.io>, certificat Let's Encrypt valide, redirection HTTPS, Nginx/WebSocket, service `global-fund-evolve.service` activé au démarrage sur 3102. La release `20261011T191339Z-58493e0-online` reprend la PR #1 avec les adaptations locales, sans push GitHub. PostgreSQL, configuration et données Evolve sont dédiés ; une sauvegarde avant activation est vérifiée.
+
+**Jeu** : la saturation du rendu logiciel des menus est évitée par le fond CSS ; le plateau 2D existant prend le relais sans GPU matériel. La disponibilité du plateau est conservée dans l'état React, et le chargement possède une sortie temporisée indépendante du rendu. La 3D reste utilisée avec un GPU matériel.
+
+**Validation publique** : Chromium ouvre l'URL en HTTPS, se connecte à Socket.IO, crée une partie, affiche le plateau, lance le dé, achète une part, termine le marché et passe au joueur suivant. Rechargement puis redémarrage du seul service Evolve : même salon repris et achat toujours présent dans PostgreSQL. Aucun échec JavaScript ; plateau prêt en environ trois secondes en rendu logiciel. Les 135 tests unitaires/intégration, TypeScript, le build et la revue indépendante passent. Les captures du plateau et de l'achat sont sous `screenshots/online-validation/`. La 3D sur GPU matériel n'est pas mesurée sur ce serveur.
+
+**V2 préservée** : 39 872 entrées de `/home/codex/projects/global-fund-next` comparées sans différence. Configurations V2 identiques ; même PID et même date de démarrage de son service, santé HTTPS OK. Preuve : [evolve-online-validation.json](docs/evolve-online-validation.json).
+
+---
+
+# Import de Global Fund Evolve — 11 octobre 2026
+
+**Réalisé** : le projet actif `global-fund-next-new` est renommé `global-fund-evolve`. La dernière PR GitHub, [#1 — refonte du front 3D](https://github.com/mattmofr/global-fund-next/pull/1), est récupérée sur la branche locale `global-fund-evolve`, au commit `58493e0e805820a9c5ea29d39dad4c9229afceb2`. La PR reste en brouillon sur GitHub.
+
+**Isolation** : `/home/codex/projects/global-fund-next` est conservé comme archive de la version 2. Evolve utilise les ports 3102/5175 et ses propres identifiants de service, sessions navigateur, base et volume Compose. Les modèles de déploiement sont adaptés à Evolve ; le VPS V2 n’est pas modifié. Les documents et preuves historiques conservent leurs références d’origine.
+
+**Validation** : `npm ci`, les 135 tests unitaires/intégration, TypeScript et le build passent. Un lancement temporaire confirme le serveur Evolve sur 3102, Vite et son proxy sur 5175, tandis que V2 reste saine sur 3101. Le manifeste SHA-256 compare 39 872 entrées de l’archive V2 avant/après : aucune différence. La suite navigateur est arrêtée après quatre échecs répétés : le plateau 3D ne signale pas `data-scene-ready=true` dans le délai attendu. Un parcours est interrompu et seize ne sont pas exécutés. Preuve : [evolve-import-validation.json](docs/evolve-import-validation.json).
+
+---
+
 # Règle du 9 octobre 2026 — ordre de jeu fixe
 
 ## ENGINE

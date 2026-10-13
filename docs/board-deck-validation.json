@@ -1,0 +1,331 @@
+{
+  "dateUTC": "2026-10-12T22:40:02.118362+00:00",
+  "phase": "complete-and-live",
+  "project": "/home/codex/projects/global-fund-evolve",
+  "url": "https://global-fund-evolve.213.199.40.67.sslip.io",
+  "tests": {
+    "success": true,
+    "passed": 174,
+    "failed": 0,
+    "files": 13
+  },
+  "typecheck": true,
+  "webBuild": true,
+  "frontIntegrity": {
+    "baselineFiles": 566,
+    "changedExistingFiles": [
+      "ENGINE_AUDIT.md",
+      "ENGINE_RULES.md",
+      "packages/game-engine/legacy/marketRules.cjs",
+      "tests/market-shocks.test.ts",
+      "DECISIONS.md",
+      "PROGRESS.md",
+      "README.md",
+      "packages/game-engine/README.md",
+      "packages/game-engine/legacy/boardEventCards.cjs",
+      "packages/game-engine/legacy/data/gameData.json",
+      "packages/game-engine/legacy/eventStories.cjs",
+      "packages/game-engine/legacy/game.cjs",
+      "packages/shared/src/index.ts",
+      "scripts/capture-visuals.ts",
+      "tests/engine.test.ts",
+      "tests/fixtures/settlement.ts"
+    ],
+    "frontChangedFilesThisIteration": []
+  },
+  "archiveIntegrity": {
+    "archivePath": "/home/codex/projects/global-fund-next",
+    "entries": 39872,
+    "unchanged": true,
+    "changedEntries": []
+  },
+  "releasePrepared": "20261012T222344Z-board-decks-v3",
+  "release": "20261012T222344Z-board-decks-v3",
+  "localBrowser": {
+    "ok": true,
+    "origin": "http://127.0.0.1:3194",
+    "isolated": true,
+    "errors": [],
+    "scenarios": {
+      "bull": {
+        "cardVisible": true,
+        "marketPhaseReached": true,
+        "grades": {
+          "americas": "B",
+          "europe": "A",
+          "asia": "B",
+          "africa": "B",
+          "oceania": "B"
+        },
+        "bullCase": 14,
+        "bearCase": 40,
+        "officialCrash": false
+      },
+      "bear": {
+        "cardVisible": true,
+        "marketPhaseReached": true,
+        "grades": {
+          "americas": "D",
+          "europe": "E",
+          "asia": "D",
+          "africa": "D",
+          "oceania": "D"
+        },
+        "bullCase": 14,
+        "bearCase": 40,
+        "officialCrash": false
+      },
+      "historicalCrash": {
+        "cardVisible": true,
+        "frozenCell": {
+          "kind": "market",
+          "label": "Market Crash"
+        },
+        "position": 25,
+        "gradesPreservedWithoutReplay": true
+      },
+      "arrival26": {
+        "sectorLanding": true,
+        "boardLabel": "Immobilier & infrastructures",
+        "noShock": true,
+        "gradesPreserved": true,
+        "accessibleCell": true
+      },
+      "positive": {
+        "cardVisible": true,
+        "title": "Accord commercial majeur",
+        "contextId": 11,
+        "gradeChanges": [
+          {
+            "scope": "zone",
+            "id": "americas",
+            "before": "C",
+            "after": "A"
+          },
+          {
+            "scope": "sector",
+            "id": "finance",
+            "before": "C",
+            "after": "D"
+          }
+        ],
+        "gradeOutcomes": [
+          {
+            "scope": "zone",
+            "id": "americas",
+            "before": "C",
+            "after": "A"
+          },
+          {
+            "scope": "zone",
+            "id": "europe",
+            "before": "C",
+            "after": "C"
+          },
+          {
+            "scope": "sector",
+            "id": "technology",
+            "before": "C",
+            "after": "C"
+          },
+          {
+            "scope": "sector",
+            "id": "finance",
+            "before": "C",
+            "after": "D"
+          }
+        ],
+        "destinationPanelAccessible": true,
+        "phaseRemainsGeography": true
+      },
+      "neutral": {
+        "cardVisible": true,
+        "title": "Flux commerciaux stables",
+        "contextId": 71,
+        "gradeChanges": [
+          {
+            "scope": "zone",
+            "id": "americas",
+            "before": "B",
+            "after": "C"
+          },
+          {
+            "scope": "zone",
+            "id": "europe",
+            "before": "B",
+            "after": "C"
+          },
+          {
+            "scope": "sector",
+            "id": "media",
+            "before": "B",
+            "after": "C"
+          },
+          {
+            "scope": "sector",
+            "id": "transport",
+            "before": "B",
+            "after": "C"
+          }
+        ],
+        "gradeOutcomes": [
+          {
+            "scope": "zone",
+            "id": "americas",
+            "before": "B",
+            "after": "C"
+          },
+          {
+            "scope": "zone",
+            "id": "europe",
+            "before": "B",
+            "after": "C"
+          },
+          {
+            "scope": "sector",
+            "id": "media",
+            "before": "B",
+            "after": "C"
+          },
+          {
+            "scope": "sector",
+            "id": "transport",
+            "before": "B",
+            "after": "C"
+          }
+        ],
+        "destinationPanelAccessible": true,
+        "phaseRemainsGeography": true
+      },
+      "negative": {
+        "cardVisible": true,
+        "title": "Pénurie d'énergie",
+        "contextId": 36,
+        "gradeChanges": [
+          {
+            "scope": "zone",
+            "id": "americas",
+            "before": "C",
+            "after": "D"
+          },
+          {
+            "scope": "sector",
+            "id": "technology",
+            "before": "C",
+            "after": "D"
+          }
+        ],
+        "gradeOutcomes": [
+          {
+            "scope": "zone",
+            "id": "americas",
+            "before": "C",
+            "after": "D"
+          },
+          {
+            "scope": "sector",
+            "id": "technology",
+            "before": "C",
+            "after": "D"
+          }
+        ],
+        "destinationPanelAccessible": true,
+        "phaseRemainsGeography": true
+      },
+      "neutral-event": {
+        "cardVisible": true,
+        "cardId": "board-06",
+        "title": "Commande humanitaire",
+        "target": null,
+        "cash": 40,
+        "contextDeckUnchanged": true,
+        "boardEventsRemaining": 49
+      },
+      "fine-event": {
+        "cardVisible": true,
+        "cardId": "board-09",
+        "title": "Amende de conformité",
+        "target": "AstraZeneca PLC",
+        "cash": 37,
+        "contextDeckUnchanged": true,
+        "boardEventsRemaining": 49
+      }
+    }
+  },
+  "publicBrowser": {
+    "url": "https://global-fund-evolve.213.199.40.67.sslip.io",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "errors": [],
+    "roomId": "DBD67DC7",
+    "boardReady": true,
+    "boardLoadMs": 3426,
+    "boardMode": "software fallback",
+    "firstActiveFund": "Validation Plateau A",
+    "dieResolved": true,
+    "purchaseWorks": true,
+    "nextTurnWorks": true,
+    "sessionReloadWorks": true,
+    "ok": true
+  },
+  "onlineMigration": {
+    "ok": true,
+    "url": "https://global-fund-evolve.213.199.40.67.sslip.io",
+    "legacyRoom": "383FC956",
+    "freshRoom": "F7F4932E",
+    "legacySessionResumed": true,
+    "migratedBearCase": 40,
+    "positionsAndCashPreserved": true,
+    "realRollAccepted": true,
+    "freshGameBoardVersion": 3,
+    "freshGameCardVersion": 3,
+    "officialCrashRemoved": true
+  },
+  "databaseMigration": {
+    "ok": true,
+    "dedicatedEvolveDatabase": true,
+    "boardVersion": 3,
+    "cardVersion": 3,
+    "textVersion": 3,
+    "contextDrawOrderPreserved": true,
+    "eventDrawOrderPreserved": true,
+    "allRemainingContextsUpgraded": true,
+    "allRemainingEventsUpgraded": true,
+    "discardUpgraded": true
+  },
+  "serviceIntegrity": {
+    "serviceUnchanged": true,
+    "configsUnchanged": true,
+    "evolveActiveRelease": "/home/codex/deployments/global-fund-evolve/releases/20261012T222344Z-board-decks-v3"
+  },
+  "databaseBackup": {
+    "dedicatedDatabase": "global_fund_evolve",
+    "dumpValidated": true,
+    "file": "shared/runtime/backups/before-20261012T222344Z-board-decks-v3.dump"
+  },
+  "simulation": {
+    "report": "docs/board-deck-simulation.json",
+    "contextDecks": 2000,
+    "fullGamesFinished": 20,
+    "checksPassed": 16,
+    "allChecksPassed": true,
+    "errors": [],
+    "engineHashesMatch": true
+  },
+  "sourceHashes": {
+    "packages/game-engine/src/index.ts": "74071ac5ffdfff269b7303584437ce72012c970d3dffcb3d338c2c3491d8669b",
+    "packages/game-engine/legacy/game.cjs": "30ab4e9f421965de7800959c5f9e4309b8925dcee40a23c8d4dfd50749eb4577",
+    "packages/game-engine/legacy/marketRules.cjs": "399542ecd808583307e8aa25e5c38d6d78b01b9a4de09a3bd2ea4a7624fa3b57",
+    "packages/game-engine/legacy/deckRules.cjs": "dc6198ec9a81125c94379dc385037ed2fdd03ec4ad4302727934ba46dc3f757e",
+    "packages/game-engine/legacy/eventStories.cjs": "58e4b9baa1d8898c61427557fd234b23958616f1fa52cf320b8366a8b108ebde",
+    "packages/game-engine/legacy/boardEventCards.cjs": "480f4970afcbe89bc4a87c8552eff3bddc44df754a2377ad58edbcb374913b25",
+    "packages/game-engine/legacy/data/gameData.json": "f25889f672123ff5837bf083e35e6cbb4241d79a7fe5b6bd7bc3822474802bbc",
+    "packages/shared/src/index.ts": "72538f723794433f2e4ceb93a23fa0eda54a0c9e667483a32ba2a9323c31898e",
+    "packages/game-engine/legacy/data/board-layout-v2.json": "da0cdc14ee376a544ae3a86803da997e2b90b441d78305116ed6519e5fd72b9c",
+    "scripts/simulate-board-decks.ts": "50d204a1ad53359d773d5cf6f3cd70006d5c4f6ee21ab9080f2afef6602cc5b6"
+  },
+  "companyCatalogUnchanged": true,
+  "ok": true
+}

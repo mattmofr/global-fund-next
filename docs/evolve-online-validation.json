@@ -1,0 +1,90 @@
+{
+  "validatedAt": "2026-10-11T19:17:19.532455+00:00",
+  "url": "https://global-fund-evolve.213.199.40.67.sslip.io",
+  "release": "/home/codex/deployments/global-fund-evolve/releases/20261011T191339Z-58493e0-online",
+  "sourceCommit": "58493e0e805820a9c5ea29d39dad4c9229afceb2",
+  "sourceManifestSha256": "f01efed57cfc529c66028f6b2ecffffbf95c6a3f34c6af0a7d58d808e38d1c89",
+  "delivery": "Local source snapshot, no GitHub push or V2 workflow triggered",
+  "browser": {
+    "url": "https://global-fund-evolve.213.199.40.67.sslip.io",
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "errors": [],
+    "roomId": "6A4F920D",
+    "boardReady": true,
+    "boardLoadMs": 3023,
+    "boardMode": "software fallback",
+    "firstActiveFund": "Validation Evolve B",
+    "dieResolved": true,
+    "purchaseWorks": true,
+    "nextTurnWorks": true,
+    "sessionReloadWorks": true,
+    "restartPersistenceWorks": true,
+    "persistedRoomId": "6A4F920D",
+    "ok": true
+  },
+  "postgresAfterRestart": {
+    "phase": "sector",
+    "roomId": "6A4F920D",
+    "status": "playing",
+    "purchasedCompanies": [
+      {
+        "id": "vodafone-group-plc",
+        "name": "Vodafone Group Plc",
+        "holdings": {
+          "p2": 1
+        }
+      }
+    ]
+  },
+  "https": {
+    "evolve": {
+      "status": 200,
+      "body": {
+        "serviceName": "global-fund-evolve",
+        "version": "0.1.0",
+        "status": "ok"
+      }
+    },
+    "v2": {
+      "status": 200,
+      "body": {
+        "serviceName": "global-fund-next",
+        "version": "0.1.0",
+        "status": "ok"
+      }
+    }
+  },
+  "certificate": "issuer=C = US, O = Let's Encrypt, CN = YE2\nnotBefore=Oct 11 17:54:47 2026 GMT\nnotAfter=Jan  9 17:54:46 2027 GMT\nX509v3 Subject Alternative Name: \n    DNS:global-fund-evolve.213.199.40.67.sslip.io",
+  "service": {
+    "name": "global-fund-evolve.service",
+    "enabled": true,
+    "port": 3102,
+    "database": "global_fund_evolve",
+    "nginxSyntax": "passed"
+  },
+  "v2": {
+    "archive": "/home/codex/projects/global-fund-next",
+    "entries": 39872,
+    "archiveUnchanged": true,
+    "configurationUnchanged": true,
+    "serviceNotRestarted": true
+  },
+  "validation": {
+    "unitAndIntegrationTests": 135,
+    "typecheck": "passed",
+    "build": "passed",
+    "independentReview": "passed",
+    "browserRenderer": "Chromium SwiftShader, software fallback",
+    "hardware3d": "preserved; not measured on this server"
+  },
+  "notes": [
+    "A transient WebSocket 502 occurred only during the intentional Evolve service restart; automatic reconnection and session recovery succeeded."
+  ],
+  "screenshots": [
+    "screenshots/online-validation/board-1366.png",
+    "screenshots/online-validation/terminal-1366.png"
+  ]
+}
