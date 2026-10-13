@@ -21,10 +21,10 @@ const service = await createServer({
       ? { storageFile: configuredStorage }
       : {}),
 });
-const port = Number(process.env.PORT ?? 3101);
+const port = Number(process.env.PORT ?? 3102);
 const host = process.env.HOST ?? "127.0.0.1";
 await service.app.listen({ host, port });
-console.info(`Global Fund server listening on http://${host}:${port}`);
+console.info(`Global Fund Evolve server listening on http://${host}:${port}`);
 for (const signal of ["SIGINT", "SIGTERM"] as const)
   process.once(signal, () => {
     void service.close();

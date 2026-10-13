@@ -1,35 +1,44 @@
+map $http_upgrade $global_fund_evolve_upgrade {
+    default upgrade;
+    '' close;
+}
 server {
     listen 80;
-    server_name global-fund-next.213.199.40.67.sslip.io;
-    return 301 https://$host$request_uri;
+    listen [::]:80;
+    server_name global-fund-evolve.213.199.40.67.sslip.io;
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/global-fund-evolve-acme;
+        default_type text/plain;
+        try_files $uri =404;
+    }
+    location / { return 301 https://$host$request_uri; }
 }
-
 server {
-    listen 443 ssl http2;
-    server_name global-fund-next.213.199.40.67.sslip.io;
-
-    # Provision these certificates with the host's existing ACME/certificate setup.
-    ssl_certificate     /etc/letsencrypt/live/global-fund-next.213.199.40.67.sslip.io/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/global-fund-next.213.199.40.67.sslip.io/privkey.pem;
-
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name global-fund-evolve.213.199.40.67.sslip.io;
+    ssl_certificate /etc/letsencrypt/live/global-fund-evolve.213.199.40.67.sslip.io/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/global-fund-evolve.213.199.40.67.sslip.io/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    add_header Strict-Transport-Security "max-age=31536000" always;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy strict-origin-when-cross-origin always;
     location /socket.io/ {
-        proxy_pass http://127.0.0.1:3101/socket.io/;
+        proxy_pass http://127.0.0.1:3102;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
+        proxy_set_header Connection $global_fund_evolve_upgrade;
         proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_read_timeout 86400s;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_read_timeout 75s;
+        proxy_buffering off;
     }
-
     location / {
-        proxy_pass http://127.0.0.1:3101;
+        proxy_pass http://127.0.0.1:3102;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 }

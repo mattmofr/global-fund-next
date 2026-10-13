@@ -199,7 +199,7 @@ async function continueUntil(page: Page, done: () => Promise<boolean>) {
   }
 }
 async function attachSession(ctx: Ctx, session: Session) {
-  await ctx.context.addInitScript((value) => localStorage.setItem("global-fund-next:session", JSON.stringify(value)), session);
+  await ctx.context.addInitScript((value) => localStorage.setItem("global-fund-evolve:session", JSON.stringify(value)), session);
   await ctx.page.goto(ctx.webOrigin, { waitUntil: "domcontentloaded" });
 }
 async function postFixture(ctx: Ctx, path: string, body: unknown = {}) {
@@ -319,7 +319,7 @@ const SCENES: Record<string, Scene> = {
     await ctx.page.getByRole("button", { name: /Proposer au créancier/ }).click();
     const creditorContext = await ctx.browser.newContext({ viewport: ctx.size, deviceScaleFactor: 1, reducedMotion: MOTION === "full" ? "no-preference" : "reduce" });
     try {
-      await creditorContext.addInitScript((value) => localStorage.setItem("global-fund-next:session", JSON.stringify(value)), sessions[1]!);
+      await creditorContext.addInitScript((value) => localStorage.setItem("global-fund-evolve:session", JSON.stringify(value)), sessions[1]!);
       const page = await creditorContext.newPage();
       await page.goto(ctx.webOrigin, { waitUntil: "domcontentloaded" });
       await waitBoard(page);
@@ -394,7 +394,7 @@ async function main() {
         const scene = SCENES[name]!;
         const roomId = typeof scene.room === "function" ? scene.room(sizeIndex) : scene.room;
         const context = await browser.newContext({ viewport: size, deviceScaleFactor: 1, reducedMotion: MOTION === "full" ? "no-preference" : "reduce" });
-        if (roomId) await context.addInitScript(({ roomId, token }) => localStorage.setItem("global-fund-next:session", JSON.stringify({ roomId, playerId: "p1", token })), { roomId, token: TOKEN });
+        if (roomId) await context.addInitScript(({ roomId, token }) => localStorage.setItem("global-fund-evolve:session", JSON.stringify({ roomId, playerId: "p1", token })), { roomId, token: TOKEN });
         await context.addInitScript((reduced) => localStorage.setItem("global-fund-presentation-settings", JSON.stringify({ quality: "high", reducedMotion: reduced })), MOTION !== "full");
         const page = await context.newPage();
         const errors: string[] = [];

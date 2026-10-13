@@ -6,7 +6,7 @@ const ORIGIN = "http://127.0.0.1:3191";
 type FixtureResponse = { roomId: string; sessions: Session[] };
 
 async function attach(page: Page, session: Session) {
-  await page.addInitScript(value => localStorage.setItem("global-fund-next:session", JSON.stringify(value)), session);
+  await page.addInitScript(value => localStorage.setItem("global-fund-evolve:session", JSON.stringify(value)), session);
   await page.goto(ORIGIN);
   await expect(page.locator(".game-world")).toBeVisible({ timeout: 30_000 });
 }

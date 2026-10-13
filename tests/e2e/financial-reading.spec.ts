@@ -12,7 +12,7 @@ for (const motion of ["no-preference", "reduce"] as const) {
       const response = await page.request.post("http://127.0.0.1:3191/__test/income-fixture");
       expect(response.ok()).toBe(true);
       const { session } = await response.json() as { session: Session };
-      await page.addInitScript(value => localStorage.setItem("global-fund-next:session", JSON.stringify(value)), session);
+      await page.addInitScript(value => localStorage.setItem("global-fund-evolve:session", JSON.stringify(value)), session);
       await page.goto("/");
       const world = page.locator(".game-world");
       const card = page.locator(".cs-scene.is-payments");

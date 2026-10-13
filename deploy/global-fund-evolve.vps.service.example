@@ -1,0 +1,25 @@
+[Unit]
+Description=Global Fund Evolve trading game
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=codex
+Group=codex
+WorkingDirectory=/home/codex/deployments/global-fund-evolve/current
+Environment=NODE_ENV=production
+EnvironmentFile=/home/codex/deployments/global-fund-evolve/shared/evolve.env
+ExecStartPre=/usr/local/bin/node /home/codex/deployments/global-fund-evolve/current/node_modules/tsx/dist/cli.mjs apps/server/src/migrate.ts
+ExecStart=/usr/local/bin/node /home/codex/deployments/global-fund-evolve/current/node_modules/tsx/dist/cli.mjs apps/server/src/index.ts
+Restart=always
+RestartSec=3
+TimeoutStopSec=30
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/home/codex/deployments/global-fund-evolve/shared/runtime
+
+[Install]
+WantedBy=multi-user.target

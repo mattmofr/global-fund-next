@@ -80,8 +80,8 @@ export async function createServer(options: Options = {}) {
       process.env.PUBLIC_ORIGIN,
       "http://localhost:5173",
       "http://127.0.0.1:5173",
-      "http://localhost:5174",
-      "http://127.0.0.1:5174",
+      "http://localhost:5175",
+      "http://127.0.0.1:5175",
     ].filter((x): x is string => Boolean(x)),
   );
   const io = new SocketServer(app.server, {
@@ -737,7 +737,7 @@ export async function createServer(options: Options = {}) {
     decorateReply: true,
   });
   app.get("/health", async () => ({
-    serviceName: "global-fund-next",
+    serviceName: "global-fund-evolve",
     version: "0.1.0",
     status: "ok",
   }));

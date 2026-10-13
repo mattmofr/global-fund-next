@@ -1,8 +1,8 @@
-# Install as /etc/systemd/system/global-fund-next.service.d/github-deploy.conf.
+# Install as /etc/systemd/system/global-fund-evolve.service.d/github-deploy.conf.
 # The original EnvironmentFile and writable runtime directory remain configured.
 [Service]
-WorkingDirectory=/home/codex/deployments/global-fund-next/current
+WorkingDirectory=/home/codex/deployments/global-fund-evolve/current
 ExecStartPre=
-ExecStartPre=/usr/local/bin/node /home/codex/deployments/global-fund-next/current/node_modules/tsx/dist/cli.mjs apps/server/src/migrate.ts
+ExecStartPre=/usr/local/bin/node /home/codex/deployments/global-fund-evolve/current/node_modules/tsx/dist/cli.mjs apps/server/src/migrate.ts
 ExecStart=
-ExecStart=/usr/local/bin/node /home/codex/deployments/global-fund-next/current/node_modules/tsx/dist/cli.mjs apps/server/src/index.ts
+ExecStart=/usr/local/bin/node /home/codex/deployments/global-fund-evolve/current/node_modules/tsx/dist/cli.mjs apps/server/src/index.ts

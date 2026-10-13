@@ -16,7 +16,7 @@ RUN npm ci && npm run build
 
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
-ENV PORT=3101
-EXPOSE 3101
+ENV PORT=3102
+EXPOSE 3102
 
 CMD ["npm", "run", "start"]

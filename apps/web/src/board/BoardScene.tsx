@@ -76,6 +76,7 @@ export default function BoardScene({
 }: BoardSceneProps) {
   const host = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(() => typeof document === "undefined" || !document.hidden);
+  const [fallbackReady, setFallbackReady] = useState(false);
   const [systemReduced, setSystemReduced] = useState(false);
   const [hovered, setHovered] = useState<number | null>(null);
   const [viewport, setViewport] = useState(() => ({ width: window.innerWidth, height: window.innerHeight }));
@@ -213,7 +214,7 @@ export default function BoardScene({
   // Frame budget attributes: fps "0" when not animating, readiness fallback after 4 s.
   useEffect(() => { if ((animateLess || !visible) && host.current) host.current.dataset.fps = "0"; }, [animateLess, visible]);
   useEffect(() => {
-    const timer = setTimeout(() => { if (host.current) host.current.dataset.sceneReady = "true"; }, 4000);
+    const timer = setTimeout(() => setFallbackReady(true), 4000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -237,8 +238,8 @@ export default function BoardScene({
       data-pawn-state={stage === "PAWN_MOVING" && !animateLess ? "moving" : "idle"}
       data-mood={mood ?? undefined}
     >
-      <div ref={host} className="fund-board-canvas" role="img" aria-label={`Plateau Global Fund. ${summary}`} data-camera={flightActive && !animateLess ? "flight" : cameraMode} data-fps="0" data-scene-ready="false">
-        {probe.available ? (
+      <div ref={host} className="fund-board-canvas" role="img" aria-label={`Plateau Global Fund. ${summary}`} data-camera={flightActive && !animateLess ? "flight" : cameraMode} data-fps="0" data-scene-ready={fallbackReady ? "true" : "false"}>
+        {probe.available && !probe.software ? (
           <CanvasBoundary fallback={fallback}>
             <Canvas
               key={canvasKey}

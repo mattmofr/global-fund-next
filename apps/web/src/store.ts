@@ -10,7 +10,7 @@ import type {
   ZoneId,
 } from "@global-fund/shared";
 
-const SESSION_KEY = "global-fund-next:session";
+const SESSION_KEY = "global-fund-evolve:session";
 function savedSession(): Session | null {
   try {
     return JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
@@ -21,7 +21,7 @@ function savedSession(): Session | null {
 function savedAcks(roomId: string): number[] {
   try {
     return JSON.parse(
-      localStorage.getItem(`global-fund-next:read:${roomId}`) || "[]",
+      localStorage.getItem(`global-fund-evolve:read:${roomId}`) || "[]",
     );
   } catch {
     return [];
@@ -80,7 +80,7 @@ export const useGameStore = create<ClientStore>((set, get) => ({
     const acknowledged = [...new Set([...state.acknowledged, id])].slice(-500);
     if (state.room)
       localStorage.setItem(
-        `global-fund-next:read:${state.room.roomId}`,
+        `global-fund-evolve:read:${state.room.roomId}`,
         JSON.stringify(acknowledged),
       );
     set({ acknowledged });

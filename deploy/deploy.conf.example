@@ -1,8 +1,10 @@
-# Install as /etc/global-fund-next/deploy.conf, owned by root (mode 0644).
+# Install as /etc/global-fund-evolve/deploy.conf, owned by root (mode 0644).
 # Secrets stay in ENV_FILE, which is never copied into GitHub.
 REPOSITORY_URL=https://github.com/mattmofr/global-fund-next.git
-DEPLOY_ROOT=/home/codex/deployments/global-fund-next
-ENV_FILE=/home/codex/projects/global-fund-next/.env
-RUNTIME_DIR=/home/codex/projects/global-fund-next/runtime
-HEALTH_URL=http://127.0.0.1:3101/health
-PUBLIC_HEALTH_URL=https://global-fund-next.213.199.40.67.sslip.io/health
+# Publish the renamed project on this branch before enabling Evolve deployment.
+DEPLOY_REF=refs/heads/global-fund-evolve
+DEPLOY_ROOT=/home/codex/deployments/global-fund-evolve
+ENV_FILE=/home/codex/deployments/global-fund-evolve/shared/evolve.env
+RUNTIME_DIR=/home/codex/deployments/global-fund-evolve/shared/runtime
+HEALTH_URL=http://127.0.0.1:3102/health
+PUBLIC_HEALTH_URL=https://global-fund-evolve.213.199.40.67.sslip.io/health

@@ -27,6 +27,9 @@ export function SceneLoader({ world, reducedMotion }: { world: RefObject<HTMLEle
 
   useEffect(() => {
     let frame = 0;
+    const failsafe = window.setTimeout(() => {
+      setState(current => current === "loading" ? "leaving" : current);
+    }, FAILSAFE_MS + 3_000);
     let phase: Phase = "code";
     let progress = 0.04;
     let readyAt = 0;
@@ -53,7 +56,7 @@ export function SceneLoader({ world, reducedMotion }: { world: RefObject<HTMLEle
       frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
+    return () => { cancelAnimationFrame(frame); window.clearTimeout(failsafe); };
   }, [world]);
 
   useEffect(() => {

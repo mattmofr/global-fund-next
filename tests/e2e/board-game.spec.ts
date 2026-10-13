@@ -31,7 +31,7 @@ async function enterLocalGame(page: Page) {
 
 async function installMarketMovingContextFixture(page: Page) {
   const roomId = await page.evaluate(() => {
-    const session = JSON.parse(localStorage.getItem("global-fund-next:session") || "null") as { roomId?: string } | null;
+    const session = JSON.parse(localStorage.getItem("global-fund-evolve:session") || "null") as { roomId?: string } | null;
     if (!session?.roomId) throw new Error("A test room session is required.");
     return session.roomId;
   });

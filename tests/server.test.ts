@@ -440,7 +440,7 @@ describe("authoritative socket server", () => {
     const host = await client(port);
     const health = await service.app.inject({ method: "GET", url: "/health" });
     expect(health.json()).toMatchObject({
-      serviceName: "global-fund-next",
+      serviceName: "global-fund-evolve",
       version: "0.1.0",
       status: "ok",
     });

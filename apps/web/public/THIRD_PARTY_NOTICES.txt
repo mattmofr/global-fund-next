@@ -1,4 +1,4 @@
-Global Fund Next — Notices des bibliothèques distribuées
+Global Fund Evolve — Notices des bibliothèques distribuées
 
 Les ressources graphiques libres sont référencées dans ASSET_LICENSES.md.
 

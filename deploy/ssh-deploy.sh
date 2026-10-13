@@ -8,4 +8,4 @@ if [[ ! "${SSH_ORIGINAL_COMMAND:-}" =~ ^deploy\ ([a-f0-9]{40})$ ]]; then
 fi
 
 exec /usr/bin/env -i HOME=/home/codex PATH=/usr/local/bin:/usr/bin:/bin \
-  /usr/bin/bash /usr/local/libexec/global-fund-next/deploy-vps.sh "${BASH_REMATCH[1]}"
+  /usr/bin/bash /usr/local/libexec/global-fund-evolve/deploy-vps.sh "${BASH_REMATCH[1]}"

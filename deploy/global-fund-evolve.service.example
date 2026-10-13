@@ -1,0 +1,25 @@
+[Unit]
+Description=Global Fund Evolve
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=global-fund-evolve
+Group=global-fund-evolve
+WorkingDirectory=/opt/global-fund-evolve/current
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=3102
+EnvironmentFile=/etc/global-fund-evolve/global-fund-evolve.env
+ExecStartPre=/usr/bin/npm run db:migrate
+ExecStart=/usr/bin/npm run start
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/global-fund-evolve/shared/runtime
+
+[Install]
+WantedBy=multi-user.target

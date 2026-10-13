@@ -12,7 +12,7 @@
  *   menu  — the globe is the hero on the right half, the left stays calm
  *   setup — the configured figurines line up; the chosen one steps forward
  *   lobby — the seated funds' figurines circle a small globe, centred
- * Reduced motion: a static frame rendered on demand. Software WebGL → low tier.
+ * Reduced motion: a static frame rendered on demand. Software WebGL uses the CSS backdrop.
  */
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
@@ -24,7 +24,8 @@ import { PLAYER_COLORS, type Grade, type PawnId, type ZoneId } from "@global-fun
 import { usePresentationSettings } from "../../presentation/settings";
 import { ArmillaryGlobe, GlobeStand } from "./globe";
 import { PawnModel, PAWN_IDS, usePiecesReady } from "./pawns";
-import { isSoftwareRenderer, pieceMaterial, type ObjectQuality } from "./materials";
+import { pieceMaterial, type ObjectQuality } from "./materials";
+import { probeRenderer } from "./quality";
 
 export interface MenuHeroProps {
   /** Camera pose / composition: title screen, fund setup, or lobby table. */
@@ -48,20 +49,6 @@ const CSS_BACKDROP = `radial-gradient(85% 75% at 68% 42%, ${BACKDROP.inner} 0%, 
 const PLINTH_RADIUS = 3.15;
 const GLOBE_HEIGHT = 1.92;
 const OPENING_GRADES: Record<ZoneId, Grade> = { americas: "C", europe: "C", asia: "C", africa: "C", oceania: "C" };
-
-/** One throwaway context tells us, before the real canvas exists, whether WebGL is software. */
-let softwareProbe: boolean | null = null;
-function probeSoftware() {
-  if (softwareProbe !== null) return softwareProbe;
-  softwareProbe = false;
-  try {
-    const canvas = document.createElement("canvas");
-    const gl = canvas.getContext("webgl2") ?? canvas.getContext("webgl");
-    softwareProbe = isSoftwareRenderer(gl);
-    gl?.getExtension("WEBGL_lose_context")?.loseContext();
-  } catch { /* keep the default tier */ }
-  return softwareProbe;
-}
 
 // ------------------------------------------------------------------ poses --
 interface Pose { tx: number; ty: number; tz: number; az: number; el: number; dist: number; fov: number; shift: number }
@@ -449,7 +436,8 @@ function HeroScene({ variant, pawns, focusPawn, quality, still, focusZone, zoneG
 export default function MenuHero({ variant, pawns, focusPawn = null, reducedMotion, quality, focusZone = null, zoneGrades }: MenuHeroProps) {
   const settings = usePresentationSettings();
   const still = reducedMotion ?? settings.reducedMotion;
-  const [software] = useState(probeSoftware);
+  const [probe] = useState(probeRenderer);
+  const software = !probe.available || probe.software;
   const tier: ObjectQuality = software ? "low" : quality ?? settings.quality;
   const cast = pawns && pawns.length ? pawns : PAWN_IDS;
   const grades = useMemo(() => ({ ...OPENING_GRADES, ...zoneGrades }), [zoneGrades]);
@@ -459,11 +447,11 @@ export default function MenuHero({ variant, pawns, focusPawn = null, reducedMoti
     <div
       className={`menu-hero menu-hero--${variant}`}
       aria-hidden="true"
-      data-ready={shown ? "true" : "false"}
+      data-ready={software || shown ? "true" : "false"}
       data-quality={tier}
       style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", background: CSS_BACKDROP, overflow: "hidden" }}
     >
-      <Canvas
+      {!software && <Canvas
         dpr={dpr}
         frameloop={still || software ? "demand" : "always"}
         shadows={tier !== "low" ? "soft" : false}
@@ -487,7 +475,7 @@ export default function MenuHero({ variant, pawns, focusPawn = null, reducedMoti
             onShown={() => setShown(true)}
           />
         </Suspense>
-      </Canvas>
+      </Canvas>}
     </div>
   );
 }

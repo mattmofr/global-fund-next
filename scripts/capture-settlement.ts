@@ -19,7 +19,7 @@ const VIEWPORTS = [
 ];
 
 async function attach(page: Page, session: Session) {
-  await page.addInitScript(value => localStorage.setItem("global-fund-next:session", JSON.stringify(value)), session);
+  await page.addInitScript(value => localStorage.setItem("global-fund-evolve:session", JSON.stringify(value)), session);
   await page.goto(ORIGIN);
   await page.locator(".game-world").waitFor({ state: "visible", timeout: 30_000 });
 }

@@ -9,9 +9,10 @@ if [[ $# != 1 || ! "$1" =~ ^[a-f0-9]{40}$ ]]; then
 fi
 commit=$1
 # This configuration and these helpers are installed by root, outside releases.
-source /etc/global-fund-next/deploy.conf
-helpers=/usr/local/libexec/global-fund-next
-service=global-fund-next.service
+source /etc/global-fund-evolve/deploy.conf
+: "${DEPLOY_REF:?Configure the published Evolve branch in deploy.conf}"
+helpers=/usr/local/libexec/global-fund-evolve
+service=global-fund-evolve.service
 stage=''
 switched=false
 previous=''
@@ -61,10 +62,10 @@ if [[ ! -d "$repository" ]]; then
   git --git-dir="$repository" remote add origin "$REPOSITORY_URL"
 fi
 git --git-dir="$repository" fetch --no-tags --depth=1 origin \
-  +refs/heads/main:refs/heads/main
-head=$(git --git-dir="$repository" rev-parse refs/heads/main)
+  "+$DEPLOY_REF:refs/heads/deployment"
+head=$(git --git-dir="$repository" rev-parse refs/heads/deployment)
 if [[ "$head" != "$commit" ]]; then
-  echo 'A newer commit exists on main; this outdated deployment is skipped.'
+  echo 'A newer commit exists on the deployment ref; this outdated deployment is skipped.'
   exit 0
 fi
 
@@ -102,11 +103,11 @@ fi
 backup="$DEPLOY_ROOT/backups/$(date -u +%Y%m%dT%H%M%SZ)-$commit.dump"
 /usr/local/bin/node "$helpers/backup-database.mjs" "$ENV_FILE" "$backup"
 
-# Check main once more after the build, before migrating or restarting anything.
+# Check the deployment ref again before migrating or restarting anything.
 git --git-dir="$repository" fetch --no-tags --depth=1 origin \
-  +refs/heads/main:refs/heads/main
-if [[ "$(git --git-dir="$repository" rev-parse refs/heads/main)" != "$commit" ]]; then
-  echo 'Main changed during preparation; activation is skipped.'
+  "+$DEPLOY_REF:refs/heads/deployment"
+if [[ "$(git --git-dir="$repository" rev-parse refs/heads/deployment)" != "$commit" ]]; then
+  echo 'The deployment ref changed during preparation; activation is skipped.'
   exit 0
 fi
 
