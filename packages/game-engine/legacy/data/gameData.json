@@ -81,13 +81,13 @@
       "sector": "realestate",
       "country": "Égypte",
       "basePrice": 25,
-      "baseIncome": 2.5,
+      "baseIncome": 2.51,
       "source": "classeur",
       "marketCapUSD": 1750000000,
       "marketCapAsOf": "2026-10-06",
       "marketCapSource": "https://stockanalysis.com/quote/adx/ORAS/market-cap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "tata-motors",
@@ -95,14 +95,14 @@
       "zone": "asia",
       "sector": "transport",
       "country": "Inde",
-      "basePrice": 81.13,
-      "baseIncome": 8.11,
+      "basePrice": 95.53,
+      "baseIncome": 9.88,
       "source": "classeur",
       "marketCapUSD": 18000000000,
       "marketCapAsOf": "2026-09-24",
       "marketCapSource": "https://www.nseindia.com/get-quote/equity/TMCV/Tata-Motors",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "maroc-telecom",
@@ -110,14 +110,14 @@
       "zone": "africa",
       "sector": "media",
       "country": "Maroc",
-      "basePrice": 63.37,
-      "baseIncome": 6.34,
+      "basePrice": 49.36,
+      "baseIncome": 5.02,
       "source": "classeur",
       "marketCapUSD": 8610000000,
       "marketCapAsOf": "2026-10-06",
       "marketCapSource": "https://www.zonebourse.com/cours/action/MAROC-TELECOM-5274/valorisation/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "enersis",
@@ -125,31 +125,35 @@
       "zone": "americas",
       "sector": "energy",
       "country": "Chili",
-      "basePrice": 54.67,
-      "baseIncome": 5.47,
+      "basePrice": 35.21,
+      "baseIncome": 3.56,
       "source": "classeur",
       "marketCapUSD": 6000000000,
       "marketCapAsOf": "2026-10-06",
       "marketCapSource": "https://stockanalysis.com/stocks/enic/market-cap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "bank-central-asia",
-      "name": "PT Bank Central Asia Tbk",
+      "name": "TAIWAN BUSINESS BANK",
       "zone": "asia",
       "sector": "finance",
-      "country": "Indonésie",
-      "basePrice": 188.34,
-      "baseIncome": 22.6,
-      "source": "classeur",
-      "marketCapUSD": 45020000000,
-      "marketCapAsOf": "2026-09",
-      "marketCapSource": "https://companiesmarketcap.com/bank-central-asia/marketcap/",
-      "capCategory": "medium",
-      "economyVersion": 3,
-      "logoPath": "/assets/companies/logos/bca.svg",
-      "logoSource": "https://commons.wikimedia.org/wiki/File:Bank_Central_Asia_(with_slogan).svg"
+      "country": "Taiwan",
+      "basePrice": 27.17,
+      "baseIncome": 2.74,
+      "source": "https://www.tbb.com.tw/zh-tw/about/intro/brief/profile",
+      "marketCapUSD": 4570525963,
+      "marketCapAsOf": "2026-03-27",
+      "marketCapSource": "https://www.twse.com.tw/pdf/en/2834_en.pdf",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "2834",
+      "exchange": "Taiwan Stock Exchange (TWSE)",
+      "catalogVersion": 4,
+      "legacyIdAliases": [
+        "bank-central-asia"
+      ]
     },
     {
       "id": "astra-international",
@@ -157,8 +161,8 @@
       "zone": "asia",
       "sector": "industry",
       "country": "Japon",
-      "basePrice": 98.07,
-      "baseIncome": 9.81,
+      "basePrice": 169.82,
+      "baseIncome": 18.11,
       "source": "classeur",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -172,7 +176,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/fanuc/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "industries-qatar",
@@ -180,8 +184,8 @@
       "zone": "africa",
       "sector": "realestate",
       "country": "Émirats arabes unis (Dubaï)",
-      "basePrice": 91.4,
-      "baseIncome": 9.14,
+      "basePrice": 136.43,
+      "baseIncome": 14.35,
       "source": "https://www.emaar.com/en/investor-relations/emaar-properties-pjsc",
       "catalogVersion": 3,
       "logoPath": "/assets/companies/logos/emaar.svg",
@@ -191,7 +195,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/emaar-properties/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "mtn-group",
@@ -199,14 +203,14 @@
       "zone": "africa",
       "sector": "media",
       "country": "Afrique du Sud",
-      "basePrice": 86.91,
-      "baseIncome": 8.69,
+      "basePrice": 117.06,
+      "baseIncome": 12.21,
       "source": "classeur",
       "marketCapUSD": 22880000000,
       "marketCapAsOf": "2026-09",
       "marketCapSource": "https://companiesmarketcap.com/mtn-group/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/mtn.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:MTN_2022_logo.svg"
     },
@@ -216,14 +220,14 @@
       "zone": "africa",
       "sector": "finance",
       "country": "Qatar",
-      "basePrice": 100,
-      "baseIncome": 10,
+      "basePrice": 180.53,
+      "baseIncome": 19.34,
       "source": "classeur",
       "marketCapUSD": 39400000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/qnb-qatar-national-bank/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/qnb.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:QNB_Logo.svg"
     },
@@ -233,14 +237,14 @@
       "zone": "africa",
       "sector": "energy",
       "country": "Afrique du Sud",
-      "basePrice": 65.51,
-      "baseIncome": 6.55,
+      "basePrice": 53.57,
+      "baseIncome": 5.46,
       "source": "classeur",
       "marketCapUSD": 9410000000,
       "marketCapAsOf": "2026-09",
       "marketCapSource": "https://companiesmarketcap.com/sasol/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "banco-brasil",
@@ -248,14 +252,14 @@
       "zone": "americas",
       "sector": "finance",
       "country": "Brésil",
-      "basePrice": 93.44,
-      "baseIncome": 9.34,
+      "basePrice": 146.01,
+      "baseIncome": 15.41,
       "source": "classeur",
       "marketCapUSD": 30000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/banco-do-brasil/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "amx",
@@ -263,14 +267,14 @@
       "zone": "americas",
       "sector": "media",
       "country": "Mexique",
-      "basePrice": 260.59,
-      "baseIncome": 31.27,
+      "basePrice": 264.11,
+      "baseIncome": 29.42,
       "source": "classeur",
       "marketCapUSD": 67000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/america-movil/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "walmex",
@@ -278,14 +282,14 @@
       "zone": "americas",
       "sector": "agrifood",
       "country": "Mexique",
-      "basePrice": 192.26,
-      "baseIncome": 23.07,
+      "basePrice": 202.66,
+      "baseIncome": 21.93,
       "source": "classeur",
       "marketCapUSD": 46000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/walmex/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/walmart-mexico-2025.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Walmart_México_y_Centroamérica_logo_(2025).svg"
     },
@@ -295,8 +299,8 @@
       "zone": "europe",
       "sector": "agrifood",
       "country": "Pays-Bas",
-      "basePrice": 184.18,
-      "baseIncome": 22.1,
+      "basePrice": 196.12,
+      "baseIncome": 21.16,
       "source": "classeur",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -310,7 +314,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/heineken/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "vodafone-group-plc",
@@ -318,14 +322,14 @@
       "zone": "europe",
       "sector": "media",
       "country": "Royaume-Uni",
-      "basePrice": 99.75,
-      "baseIncome": 9.98,
+      "basePrice": 179.14,
+      "baseIncome": 19.18,
       "source": "classeur",
       "marketCapUSD": 39000000000,
       "marketCapAsOf": "2026-10-05",
       "marketCapSource": "https://companiesmarketcap.com/vodafone/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "mcdonald-s-corp",
@@ -333,14 +337,14 @@
       "zone": "americas",
       "sector": "agrifood",
       "country": "États-Unis",
-      "basePrice": 418.77,
-      "baseIncome": 50.25,
+      "basePrice": 445.83,
+      "baseIncome": 54.4,
       "source": "classeur",
       "marketCapUSD": 160000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/mcdonald/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/mcdonalds-arches.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:McDonald's_cutted_arches.svg"
     },
@@ -350,14 +354,14 @@
       "zone": "europe",
       "sector": "health",
       "country": "Royaume-Uni",
-      "basePrice": 627.92,
-      "baseIncome": 87.91,
+      "basePrice": 566.83,
+      "baseIncome": 73.18,
       "source": "classeur",
       "marketCapUSD": 260000000000,
       "marketCapAsOf": "2026-09",
       "marketCapSource": "https://companiesmarketcap.com/astrazeneca/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/astrazeneca.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Astrazeneca_text_logo.svg"
     },
@@ -367,8 +371,8 @@
       "zone": "europe",
       "sector": "industry",
       "country": "Allemagne",
-      "basePrice": 604.15,
-      "baseIncome": 84.58,
+      "basePrice": 546.11,
+      "baseIncome": 69.88,
       "source": "classeur",
       "logoPath": "/assets/companies/logos/siemens.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Siemens_AG_logo.svg",
@@ -376,24 +380,28 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/siemens/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "sap",
-      "name": "SAP SE",
+      "name": "TeamViewer SE",
       "zone": "europe",
       "sector": "technology",
-      "country": "Allemagne",
-      "basePrice": 604.15,
-      "baseIncome": 84.58,
-      "source": "classeur",
-      "logoPath": "/assets/companies/logos/sap.svg",
-      "logoSource": "https://commons.wikimedia.org/wiki/File:SAP_2011_logo.svg",
-      "marketCapUSD": 240000000000,
-      "marketCapAsOf": "2026-10",
-      "marketCapSource": "https://companiesmarketcap.com/sap/marketcap/",
-      "capCategory": "large",
-      "economyVersion": 3
+      "country": "Germany",
+      "basePrice": 25,
+      "baseIncome": 2.51,
+      "source": "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline",
+      "marketCapUSD": 1160000000,
+      "marketCapAsOf": "2025-12-30",
+      "marketCapSource": "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "TMV",
+      "exchange": "Frankfurt Stock Exchange / Xetra (Prime Standard)",
+      "catalogVersion": 4,
+      "legacyIdAliases": [
+        "sap"
+      ]
     },
     {
       "id": "lvmh-sa",
@@ -401,14 +409,14 @@
       "zone": "europe",
       "sector": "industry",
       "country": "France",
-      "basePrice": 564.49,
-      "baseIncome": 79.03,
+      "basePrice": 512.18,
+      "baseIncome": 64.54,
       "source": "classeur",
       "marketCapUSD": 210000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/lvmh/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/lvmh.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:LVMH_logo.svg"
     },
@@ -418,8 +426,8 @@
       "zone": "asia",
       "sector": "technology",
       "country": "Taïwan",
-      "basePrice": 1294.38,
-      "baseIncome": 181.21,
+      "basePrice": 1215.59,
+      "baseIncome": 170.18,
       "source": "classeur",
       "marketCapUSD": 2452000000000,
       "marketCapAsOf": "2026-10",
@@ -427,7 +435,7 @@
       "capCategory": "large",
       "logoPath": "/assets/companies/logos/tsmc.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:TSMC_wordmark.svg",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "nike-inc",
@@ -435,29 +443,35 @@
       "zone": "americas",
       "sector": "industry",
       "country": "États-Unis",
-      "basePrice": 207.41,
-      "baseIncome": 24.89,
+      "basePrice": 215.34,
+      "baseIncome": 23.44,
       "source": "classeur",
       "marketCapUSD": 50000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/nike/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "united-parcel-service",
-      "name": "United Parcel Service, Inc.",
+      "name": "JetBlue Airways Corporation",
       "zone": "americas",
       "sector": "transport",
-      "country": "États-Unis",
-      "basePrice": 290.53,
-      "baseIncome": 34.86,
-      "source": "classeur",
-      "marketCapUSD": 79000000000,
-      "marketCapAsOf": "2026-10",
-      "marketCapSource": "https://companiesmarketcap.com/ups/marketcap/",
-      "capCategory": "medium",
-      "economyVersion": 3
+      "country": "United States",
+      "basePrice": 25,
+      "baseIncome": 2.51,
+      "source": "https://www.ir.jetblue.com/resources/stock-info/default.aspx",
+      "marketCapUSD": 1450000000,
+      "marketCapAsOf": "2026-10-09",
+      "marketCapSource": "https://www.ir.jetblue.com/resources/stock-info/default.aspx",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "JBLU",
+      "exchange": "NASDAQ",
+      "catalogVersion": 4,
+      "legacyIdAliases": [
+        "united-parcel-service"
+      ]
     },
     {
       "id": "gazprom",
@@ -465,8 +479,8 @@
       "zone": "asia",
       "sector": "industry",
       "country": "Japon",
-      "basePrice": 293.9,
-      "baseIncome": 35.27,
+      "basePrice": 297.99,
+      "baseIncome": 33.75,
       "source": "classeur",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -482,24 +496,28 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/mitsubishi-heavy-industries/marketcap",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "british-american-tobacco-plc",
-      "name": "British American Tobacco p.l.c.",
+      "name": "KION GROUP AG",
       "zone": "europe",
       "sector": "industry",
-      "country": "Royaume-Uni",
-      "basePrice": 366.5,
-      "baseIncome": 43.98,
-      "source": "classeur",
-      "marketCapUSD": 120000000000,
-      "marketCapAsOf": "2026-09",
-      "marketCapSource": "https://companiesmarketcap.com/british-american-tobacco/marketcap/",
-      "capCategory": "medium",
-      "economyVersion": 3,
-      "logoPath": "/assets/companies/logos/bat-2020.svg",
-      "logoSource": "https://commons.wikimedia.org/wiki/File:Bat_logo20.svg"
+      "country": "Germany",
+      "basePrice": 33.54,
+      "baseIncome": 3.39,
+      "source": "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html",
+      "marketCapUSD": 5700000000,
+      "marketCapAsOf": "2026-06-30",
+      "marketCapSource": "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "KGX",
+      "exchange": "Frankfurt Stock Exchange / Xetra",
+      "catalogVersion": 4,
+      "legacyIdAliases": [
+        "british-american-tobacco-plc"
+      ]
     },
     {
       "id": "3m-co",
@@ -507,14 +525,14 @@
       "zone": "americas",
       "sector": "industry",
       "country": "États-Unis",
-      "basePrice": 301.68,
-      "baseIncome": 36.2,
+      "basePrice": 306.26,
+      "baseIncome": 34.83,
       "source": "classeur",
       "marketCapUSD": 84000000000,
       "marketCapAsOf": "2026-09",
       "marketCapSource": "https://companiesmarketcap.com/3m/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/3m.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:3M_wordmark.svg"
     },
@@ -524,14 +542,14 @@
       "zone": "americas",
       "sector": "finance",
       "country": "États-Unis",
-      "basePrice": 810.01,
-      "baseIncome": 113.4,
+      "basePrice": 733.44,
+      "baseIncome": 100.02,
       "source": "classeur",
       "marketCapUSD": 480000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/mastercard/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/mastercard-2019.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Mastercard_2019_logo.svg"
     },
@@ -541,8 +559,8 @@
       "zone": "americas",
       "sector": "industry",
       "country": "États-Unis",
-      "basePrice": 407.04,
-      "baseIncome": 48.84,
+      "basePrice": 430.68,
+      "baseIncome": 52.16,
       "source": "classeur",
       "marketCapUSD": 150000000000,
       "marketCapAsOf": "2026-10",
@@ -550,7 +568,7 @@
       "capCategory": "medium",
       "logoPath": "/assets/companies/logos/boeing.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Boeing_full_logo.svg",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "daimler-ag",
@@ -558,14 +576,14 @@
       "zone": "europe",
       "sector": "transport",
       "country": "Allemagne",
-      "basePrice": 180,
-      "baseIncome": 21.6,
+      "basePrice": 192.79,
+      "baseIncome": 20.77,
       "source": "classeur",
       "marketCapUSD": 43000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/mercedes-benz-group/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "inditex-s-a",
@@ -573,14 +591,14 @@
       "zone": "europe",
       "sector": "industry",
       "country": "Espagne",
-      "basePrice": 450,
-      "baseIncome": 54,
+      "basePrice": 487.32,
+      "baseIncome": 60.69,
       "source": "classeur",
       "marketCapUSD": 190000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/inditex/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/inditex.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Inditex_logo_black.svg"
     },
@@ -590,14 +608,14 @@
       "zone": "europe",
       "sector": "industry",
       "country": "France",
-      "basePrice": 578.31,
-      "baseIncome": 80.96,
+      "basePrice": 523.91,
+      "baseIncome": 66.37,
       "source": "classeur",
       "marketCapUSD": 220000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/l-oreal/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/loreal.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:L'Oréal_logo.svg"
     },
@@ -607,14 +625,14 @@
       "zone": "europe",
       "sector": "health",
       "country": "Royaume-Uni",
-      "basePrice": 322.12,
-      "baseIncome": 38.65,
+      "basePrice": 328.62,
+      "baseIncome": 37.79,
       "source": "classeur",
       "marketCapUSD": 94000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/glaxo-smith-kline/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "petrobras",
@@ -622,14 +640,14 @@
       "zone": "americas",
       "sector": "energy",
       "country": "Brésil",
-      "basePrice": 418.77,
-      "baseIncome": 50.25,
+      "basePrice": 445.83,
+      "baseIncome": 54.4,
       "source": "classeur",
       "marketCapUSD": 160000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/petrobras/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "ping-an-insurance-group-co-of-china-ltd",
@@ -637,14 +655,14 @@
       "zone": "asia",
       "sector": "finance",
       "country": "Chine",
-      "basePrice": 399.53,
-      "baseIncome": 47.94,
+      "basePrice": 421.09,
+      "baseIncome": 50.75,
       "source": "classeur",
       "marketCapUSD": 143920000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/ping-an-insurance/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/ping-an.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Ping_An_Logo_(2022).svg"
     },
@@ -654,14 +672,14 @@
       "zone": "europe",
       "sector": "finance",
       "country": "Espagne",
-      "basePrice": 550,
-      "baseIncome": 77,
+      "basePrice": 500,
+      "baseIncome": 62.64,
       "source": "classeur",
       "marketCapUSD": 200000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/santander/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "total-sa",
@@ -669,8 +687,8 @@
       "zone": "europe",
       "sector": "energy",
       "country": "France",
-      "basePrice": 450,
-      "baseIncome": 54,
+      "basePrice": 487.32,
+      "baseIncome": 60.69,
       "source": "classeur",
       "logoPath": "/assets/companies/logos/totalenergies.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:TotalEnergies_wordmark_(2021-present).svg",
@@ -678,7 +696,7 @@
       "marketCapAsOf": "2026-10-05",
       "marketCapSource": "https://companiesmarketcap.com/totalenergies/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "volkswagen-ag",
@@ -686,8 +704,8 @@
       "zone": "europe",
       "sector": "transport",
       "country": "Allemagne",
-      "basePrice": 99.13,
-      "baseIncome": 9.91,
+      "basePrice": 175.62,
+      "baseIncome": 18.78,
       "source": "classeur",
       "marketCapUSD": 38000000000,
       "marketCapAsOf": "2026-10",
@@ -695,7 +713,7 @@
       "capCategory": "small",
       "logoPath": "/assets/companies/logos/volkswagen.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Volkswagen_logo_2019.svg",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "bp-plc",
@@ -703,14 +721,14 @@
       "zone": "europe",
       "sector": "energy",
       "country": "Royaume-Uni",
-      "basePrice": 350.68,
-      "baseIncome": 42.08,
+      "basePrice": 361.35,
+      "baseIncome": 42.25,
       "source": "classeur",
       "marketCapUSD": 110000000000,
       "marketCapAsOf": "2026-10-05",
       "marketCapSource": "https://companiesmarketcap.com/bp/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "philip-morris-international",
@@ -718,31 +736,35 @@
       "zone": "americas",
       "sector": "agrifood",
       "country": "États-Unis",
-      "basePrice": 670.42,
-      "baseIncome": 93.86,
+      "basePrice": 604.53,
+      "baseIncome": 79.24,
       "source": "classeur",
       "marketCapUSD": 300000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/philip-morris/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "bayer-ag",
-      "name": "Bayer AG",
+      "name": "Carl Zeiss Meditec AG",
       "zone": "europe",
       "sector": "health",
-      "country": "Allemagne",
-      "basePrice": 224.73,
-      "baseIncome": 26.97,
-      "source": "classeur",
-      "marketCapUSD": 55000000000,
-      "marketCapAsOf": "2026-09",
-      "marketCapSource": "https://companiesmarketcap.com/bayer/marketcap/",
-      "capCategory": "medium",
-      "economyVersion": 3,
-      "logoPath": "/assets/companies/logos/bayer-2018.svg",
-      "logoSource": "https://commons.wikimedia.org/wiki/File:Logo_Bayer.svg"
+      "country": "Germany",
+      "basePrice": 27.34,
+      "baseIncome": 2.76,
+      "source": "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf",
+      "marketCapUSD": 4600000000,
+      "marketCapAsOf": "2025-11-27",
+      "marketCapSource": "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "AFX",
+      "exchange": "Xetra / Frankfurt Stock Exchange (Prime Standard)",
+      "catalogVersion": 4,
+      "legacyIdAliases": [
+        "bayer-ag"
+      ]
     },
     {
       "id": "sinopec",
@@ -750,14 +772,14 @@
       "zone": "asia",
       "sector": "energy",
       "country": "Chine",
-      "basePrice": 324.5,
-      "baseIncome": 38.94,
+      "basePrice": 331.28,
+      "baseIncome": 38.15,
       "source": "classeur",
       "marketCapUSD": 95240000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/sinopec/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "unilever-nv",
@@ -765,29 +787,35 @@
       "zone": "europe",
       "sector": "agrifood",
       "country": "Royaume-Uni",
-      "basePrice": 381.04,
-      "baseIncome": 45.72,
+      "basePrice": 397.94,
+      "baseIncome": 47.4,
       "source": "classeur",
       "marketCapUSD": 130000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/unilever/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "ambev",
-      "name": "Ambev S.A.",
+      "name": "Cal-Maine Foods, Inc.",
       "zone": "americas",
       "sector": "agrifood",
-      "country": "Brésil",
-      "basePrice": 207.41,
-      "baseIncome": 24.89,
-      "source": "classeur",
-      "marketCapUSD": 50000000000,
-      "marketCapAsOf": "2026-10",
-      "marketCapSource": "https://companiesmarketcap.com/ambev/marketcap/",
-      "capCategory": "medium",
-      "economyVersion": 3
+      "country": "United States",
+      "basePrice": 25,
+      "baseIncome": 2.51,
+      "source": "https://investors.calmainefoods.com/stock-information/historical-price-lookup",
+      "marketCapUSD": 3019000000,
+      "marketCapAsOf": "2026-10-09",
+      "marketCapSource": "https://investors.calmainefoods.com/stock-information/historical-price-lookup",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "CALM",
+      "exchange": "NASDAQ Global Select Market",
+      "catalogVersion": 4,
+      "legacyIdAliases": [
+        "ambev"
+      ]
     },
     {
       "id": "sanofi",
@@ -795,14 +823,14 @@
       "zone": "europe",
       "sector": "health",
       "country": "France",
-      "basePrice": 324.04,
-      "baseIncome": 38.88,
+      "basePrice": 330.77,
+      "baseIncome": 38.08,
       "source": "classeur",
       "marketCapUSD": 95000000000,
       "marketCapAsOf": "2026-10-05",
       "marketCapSource": "https://companiesmarketcap.com/sanofi/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/sanofi-2022.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Sanofi-2022.svg"
     },
@@ -812,14 +840,14 @@
       "zone": "americas",
       "sector": "agrifood",
       "country": "États-Unis",
-      "basePrice": 429.79,
-      "baseIncome": 51.57,
+      "basePrice": 460.29,
+      "baseIncome": 56.57,
       "source": "classeur",
       "marketCapUSD": 170000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/pepsico/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "cisco-systems",
@@ -827,8 +855,8 @@
       "zone": "americas",
       "sector": "technology",
       "country": "États-Unis",
-      "basePrice": 797.37,
-      "baseIncome": 111.63,
+      "basePrice": 721.49,
+      "baseIncome": 98.12,
       "source": "classeur",
       "marketCapUSD": 460000000000,
       "marketCapAsOf": "2026-10",
@@ -836,24 +864,28 @@
       "capCategory": "large",
       "logoPath": "/assets/companies/logos/cisco.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Cisco_logo_blue_2016.svg",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "intel-corp",
-      "name": "Intel Corporation",
+      "name": "UiPath, Inc.",
       "zone": "americas",
       "sector": "technology",
-      "country": "États-Unis",
-      "basePrice": 881.19,
-      "baseIncome": 123.37,
-      "source": "classeur",
-      "logoPath": "/assets/companies/logos/intel.svg",
-      "logoSource": "https://commons.wikimedia.org/wiki/File:Intel_logo_2023.svg",
-      "marketCapUSD": 610000000000,
-      "marketCapAsOf": "2026-10",
-      "marketCapSource": "https://companiesmarketcap.com/intel/marketcap/",
-      "capCategory": "large",
-      "economyVersion": 3
+      "country": "United States",
+      "basePrice": 36.53,
+      "baseIncome": 3.7,
+      "source": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf",
+      "marketCapUSD": 6238000000,
+      "marketCapAsOf": "2025-07-31",
+      "marketCapSource": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "PATH",
+      "exchange": "NYSE",
+      "catalogVersion": 4,
+      "legacyIdAliases": [
+        "intel-corp"
+      ]
     },
     {
       "id": "hsbc-holdings-plc",
@@ -861,14 +893,14 @@
       "zone": "europe",
       "sector": "finance",
       "country": "Royaume-Uni",
-      "basePrice": 698.73,
-      "baseIncome": 97.82,
+      "basePrice": 630.08,
+      "baseIncome": 83.37,
       "source": "classeur",
       "marketCapUSD": 330000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/hsbc/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "ibm-corp",
@@ -876,8 +908,8 @@
       "zone": "americas",
       "sector": "technology",
       "country": "États-Unis",
-      "basePrice": 564.49,
-      "baseIncome": 79.03,
+      "basePrice": 512.18,
+      "baseIncome": 64.54,
       "source": "classeur",
       "logoPath": "/assets/companies/logos/ibm.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:IBM_logo.svg",
@@ -885,7 +917,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/ibm/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "visa-inc",
@@ -893,14 +925,14 @@
       "zone": "americas",
       "sector": "finance",
       "country": "États-Unis",
-      "basePrice": 917.79,
-      "baseIncome": 128.49,
+      "basePrice": 837.13,
+      "baseIncome": 116.14,
       "source": "classeur",
       "marketCapUSD": 690000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/visa/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/visa-2021.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Visa_Inc._logo_(2021–present).svg"
     },
@@ -910,14 +942,14 @@
       "zone": "americas",
       "sector": "media",
       "country": "États-Unis",
-      "basePrice": 429.79,
-      "baseIncome": 51.57,
+      "basePrice": 460.29,
+      "baseIncome": 56.57,
       "source": "classeur",
       "marketCapUSD": 170000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/att/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "the-coca-cola-co",
@@ -925,14 +957,14 @@
       "zone": "americas",
       "sector": "agrifood",
       "country": "États-Unis",
-      "basePrice": 732.71,
-      "baseIncome": 102.58,
+      "basePrice": 661.17,
+      "baseIncome": 88.41,
       "source": "classeur",
       "marketCapUSD": 370000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/coca-cola/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "toyota-motor",
@@ -940,8 +972,8 @@
       "zone": "asia",
       "sector": "transport",
       "country": "Japon",
-      "basePrice": 575.64,
-      "baseIncome": 80.59,
+      "basePrice": 521.63,
+      "baseIncome": 66.01,
       "source": "classeur",
       "marketCapUSD": 218030000000,
       "marketCapAsOf": "2026-10",
@@ -949,7 +981,7 @@
       "capCategory": "large",
       "logoPath": "/assets/companies/logos/toyota.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Toyota_carlogo.svg",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "the-walt-disney-co",
@@ -957,14 +989,14 @@
       "zone": "americas",
       "sector": "media",
       "country": "États-Unis",
-      "basePrice": 440.18,
-      "baseIncome": 52.82,
+      "basePrice": 474.1,
+      "baseIncome": 58.66,
       "source": "classeur",
       "marketCapUSD": 180000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/walt-disney/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "tencent-holdings-ltd",
@@ -972,14 +1004,14 @@
       "zone": "asia",
       "sector": "technology",
       "country": "Chine",
-      "basePrice": 809.85,
-      "baseIncome": 113.38,
+      "basePrice": 733.29,
+      "baseIncome": 100,
       "source": "classeur",
       "marketCapUSD": 479740000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/tencent/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/tencent.png",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Tencent_logo_2017.svg"
     },
@@ -989,8 +1021,8 @@
       "zone": "europe",
       "sector": "energy",
       "country": "Royaume-Uni",
-      "basePrice": 649.93,
-      "baseIncome": 90.99,
+      "basePrice": 586.25,
+      "baseIncome": 76.29,
       "source": "classeur",
       "logoPath": "/assets/companies/logos/shell.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Shell_wordmark_2019.svg",
@@ -998,7 +1030,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/shell/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "agricultural-bank-of-china",
@@ -1006,8 +1038,8 @@
       "zone": "asia",
       "sector": "realestate",
       "country": "Hong Kong",
-      "basePrice": 99.47,
-      "baseIncome": 9.95,
+      "basePrice": 177.56,
+      "baseIncome": 19,
       "source": "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1022/2025102200125.pdf",
       "catalogVersion": 3,
       "logoPath": "/assets/companies/logos/sun-hung-kai.svg",
@@ -1017,7 +1049,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/sun-hung-kai-properties/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "oracle-corp",
@@ -1025,8 +1057,8 @@
       "zone": "americas",
       "sector": "technology",
       "country": "États-Unis",
-      "basePrice": 777.34,
-      "baseIncome": 108.83,
+      "basePrice": 702.66,
+      "baseIncome": 95.1,
       "source": "classeur",
       "logoPath": "/assets/companies/logos/oracle.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Oracle_wordmark.svg",
@@ -1034,24 +1066,28 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/oracle/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "alibaba-group-holding",
-      "name": "Alibaba Group Holding Limited",
+      "name": "CHICONY ELECTRONICS CO., LTD.",
       "zone": "asia",
       "sector": "technology",
-      "country": "Chine",
-      "basePrice": 645.27,
-      "baseIncome": 90.34,
-      "source": "classeur",
-      "marketCapUSD": 275640000000,
-      "marketCapAsOf": "2026-10",
-      "marketCapSource": "https://companiesmarketcap.com/alibaba/marketcap/",
-      "capCategory": "large",
-      "economyVersion": 3,
-      "logoPath": "/assets/companies/logos/alibaba.svg",
-      "logoSource": "https://commons.wikimedia.org/wiki/File:Alibaba_en_logo.svg"
+      "country": "Taiwan",
+      "basePrice": 25,
+      "baseIncome": 2.52,
+      "source": "https://www.chicony.com/chicony/en/about/profile",
+      "marketCapUSD": 3218350150,
+      "marketCapAsOf": "2026-05-27",
+      "marketCapSource": "https://www.twse.com.tw/pdf/en/2385_en.pdf",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "2385",
+      "exchange": "Taiwan Stock Exchange (TWSE)",
+      "catalogVersion": 4,
+      "legacyIdAliases": [
+        "alibaba-group-holding"
+      ]
     },
     {
       "id": "bank-of-china-ltd",
@@ -1059,14 +1095,14 @@
       "zone": "asia",
       "sector": "finance",
       "country": "Chine",
-      "basePrice": 693.23,
-      "baseIncome": 97.05,
+      "basePrice": 625.09,
+      "baseIncome": 82.56,
       "source": "classeur",
       "marketCapUSD": 323950000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/bank-of-china/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "chevron-corp",
@@ -1074,14 +1110,14 @@
       "zone": "americas",
       "sector": "energy",
       "country": "États-Unis",
-      "basePrice": 763.2,
-      "baseIncome": 106.85,
+      "basePrice": 689.43,
+      "baseIncome": 92.97,
       "source": "classeur",
       "marketCapUSD": 410000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/chevron/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/chevron.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Chevron_Logo.svg"
     },
@@ -1091,25 +1127,25 @@
       "zone": "europe",
       "sector": "agrifood",
       "country": "Belgique",
-      "basePrice": 407.04,
-      "baseIncome": 48.84,
+      "basePrice": 430.68,
+      "baseIncome": 52.16,
       "source": "classeur",
       "marketCapUSD": 150000000000,
       "marketCapAsOf": "2026-09",
       "marketCapSource": "https://companiesmarketcap.com/anheuser-busch-inbev/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "china-construction-bank-corp",
-      "name": "Komatsu Ltd.",
+      "name": "NITTO KOGYO CORPORATION",
       "zone": "asia",
       "sector": "industry",
-      "country": "Japon",
-      "basePrice": 182.64,
-      "baseIncome": 21.92,
-      "source": "classeur",
-      "catalogVersion": 2,
+      "country": "Japan",
+      "basePrice": 25,
+      "baseIncome": 2.51,
+      "source": "https://www.nito.co.jp/english/IR/stock/basic/",
+      "catalogVersion": 4,
       "legacyIdAliases": [
         "china-construction-bank-corp"
       ],
@@ -1117,13 +1153,13 @@
         "China Construction Bank Corp"
       ],
       "catalogSourceURL": "https://www.komatsu.com/en-us/about",
-      "marketCapUSD": 43630000000,
-      "marketCapAsOf": "2026-10",
-      "marketCapSource": "https://companiesmarketcap.com/komatsu/marketcap/",
-      "capCategory": "medium",
-      "logoPath": "/assets/companies/logos/komatsu.svg",
-      "logoSource": "https://commons.wikimedia.org/wiki/File:Komatsu_company_logos.svg",
-      "economyVersion": 3
+      "marketCapUSD": 1170584800,
+      "marketCapAsOf": "2026-09-11",
+      "marketCapSource": "https://www.jpx.co.jp/automation/markets/statistics-equities/daily/files/202609/stq_20260911.pdf",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "6651",
+      "exchange": "Tokyo Stock Exchange (Prime Market); also Nagoya Stock Exchange (Premier Market)"
     },
     {
       "id": "samsung-electronics-co-ltd",
@@ -1131,33 +1167,37 @@
       "zone": "asia",
       "sector": "technology",
       "country": "Corée du Sud",
-      "basePrice": 1113.59,
-      "baseIncome": 155.9,
+      "basePrice": 1031.64,
+      "baseIncome": 144.38,
       "source": "classeur",
       "marketCapUSD": 1334000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/samsung/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/samsung-electronics.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Samsung_wordmark.svg"
     },
     {
       "id": "pfizer-inc",
-      "name": "Pfizer Inc.",
+      "name": "Hims & Hers Health, Inc.",
       "zone": "americas",
       "sector": "health",
-      "country": "États-Unis",
-      "basePrice": 418.77,
-      "baseIncome": 50.25,
-      "source": "classeur",
-      "marketCapUSD": 160000000000,
-      "marketCapAsOf": "2026-10",
-      "marketCapSource": "https://companiesmarketcap.com/pfizer/marketcap/",
-      "capCategory": "medium",
-      "logoPath": "/assets/companies/logos/pfizer.svg",
-      "logoSource": "https://commons.wikimedia.org/wiki/File:Pfizer_(2021).svg",
-      "economyVersion": 3
+      "country": "United States",
+      "basePrice": 43.06,
+      "baseIncome": 4.37,
+      "source": "https://investors.hims.com/stock-info/",
+      "marketCapUSD": 7433000000,
+      "marketCapAsOf": "2026-08-20",
+      "marketCapSource": "https://investors.hims.com/stock-info/",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "HIMS",
+      "exchange": "NYSE",
+      "catalogVersion": 4,
+      "legacyIdAliases": [
+        "pfizer-inc"
+      ]
     },
     {
       "id": "procter-gamble-co",
@@ -1165,14 +1205,14 @@
       "zone": "americas",
       "sector": "industry",
       "country": "États-Unis",
-      "basePrice": 707.6,
-      "baseIncome": 99.06,
+      "basePrice": 638.15,
+      "baseIncome": 84.68,
       "source": "classeur",
       "marketCapUSD": 340000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/procter-and-gamble/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/procter-gamble.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Procter_&_Gamble_logo.svg"
     },
@@ -1182,14 +1222,14 @@
       "zone": "europe",
       "sector": "agrifood",
       "country": "Suisse",
-      "basePrice": 591.51,
-      "baseIncome": 82.81,
+      "basePrice": 535.21,
+      "baseIncome": 68.15,
       "source": "classeur",
       "marketCapUSD": 230000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/nestle/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/nestle-wordmark-2024.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Nestlé_textlogo.svg"
     },
@@ -1199,14 +1239,14 @@
       "zone": "europe",
       "sector": "health",
       "country": "Suisse",
-      "basePrice": 639.13,
-      "baseIncome": 89.48,
+      "basePrice": 576.69,
+      "baseIncome": 74.76,
       "source": "classeur",
       "marketCapUSD": 270000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/novartis/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/novartis-2023.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Novartis-Logo-2023.svg"
     },
@@ -1216,14 +1256,14 @@
       "zone": "americas",
       "sector": "finance",
       "country": "États-Unis",
-      "basePrice": 990.03,
-      "baseIncome": 138.6,
+      "basePrice": 908.13,
+      "baseIncome": 126.69,
       "source": "classeur",
       "marketCapUSD": 880000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/jp-morgan-chase/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "roche",
@@ -1231,14 +1271,14 @@
       "zone": "europe",
       "sector": "health",
       "country": "Suisse",
-      "basePrice": 707.6,
-      "baseIncome": 99.06,
+      "basePrice": 638.15,
+      "baseIncome": 84.68,
       "source": "classeur",
       "marketCapUSD": 340000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/roche/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "general-electric",
@@ -1246,8 +1286,8 @@
       "zone": "americas",
       "sector": "industry",
       "country": "États-Unis",
-      "basePrice": 689.59,
-      "baseIncome": 96.54,
+      "basePrice": 621.79,
+      "baseIncome": 82.03,
       "source": "classeur",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -1261,7 +1301,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/general-electric/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "wal-mart-stores-inc",
@@ -1269,14 +1309,14 @@
       "zone": "americas",
       "sector": "agrifood",
       "country": "États-Unis",
-      "basePrice": 972.66,
-      "baseIncome": 136.17,
+      "basePrice": 890.96,
+      "baseIncome": 124.17,
       "source": "classeur",
       "marketCapUSD": 830000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/walmart/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/walmart-inc-2025.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Walmart_logo_(2025).svg"
     },
@@ -1286,14 +1326,14 @@
       "zone": "asia",
       "sector": "media",
       "country": "Hong Kong (RAS de Chine)",
-      "basePrice": 575.64,
-      "baseIncome": 80.59,
+      "basePrice": 521.63,
+      "baseIncome": 66.01,
       "source": "classeur",
       "marketCapUSD": 218030000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/china-mobile/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "icbc-ltd",
@@ -1301,33 +1341,37 @@
       "zone": "asia",
       "sector": "finance",
       "country": "Chine",
-      "basePrice": 706.37,
-      "baseIncome": 98.89,
+      "basePrice": 637.03,
+      "baseIncome": 84.5,
       "source": "classeur",
       "marketCapUSD": 338600000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/icbc/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/icbc.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:ICBC_China_logo.svg"
     },
     {
       "id": "wells-fargo-co",
-      "name": "Wells Fargo & Company",
+      "name": "NMI Holdings, Inc.",
       "zone": "americas",
       "sector": "finance",
-      "country": "États-Unis",
-      "basePrice": 616.27,
-      "baseIncome": 86.28,
-      "source": "classeur",
-      "marketCapUSD": 250000000000,
-      "marketCapAsOf": "2026-10",
-      "marketCapSource": "https://companiesmarketcap.com/wells-fargo/marketcap/",
-      "capCategory": "large",
-      "economyVersion": 3,
-      "logoPath": "/assets/companies/logos/wells-fargo-2020.svg",
-      "logoSource": "https://commons.wikimedia.org/wiki/File:Wells_Fargo_Logo_(2020).svg"
+      "country": "United States",
+      "basePrice": 25,
+      "baseIncome": 2.52,
+      "source": "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862",
+      "marketCapUSD": 3121000000,
+      "marketCapAsOf": "2026-02-06",
+      "marketCapSource": "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862",
+      "capCategory": "small",
+      "economyVersion": 4,
+      "ticker": "NMIH",
+      "exchange": "NASDAQ",
+      "catalogVersion": 4,
+      "legacyIdAliases": [
+        "wells-fargo-co"
+      ]
     },
     {
       "id": "johnson-johnson",
@@ -1335,14 +1379,14 @@
       "zone": "americas",
       "sector": "health",
       "country": "États-Unis",
-      "basePrice": 881.19,
-      "baseIncome": 123.37,
+      "basePrice": 801.59,
+      "baseIncome": 110.7,
       "source": "classeur",
       "marketCapUSD": 610000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/johnson-and-johnson/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "petrochina-co-ltd",
@@ -1350,14 +1394,14 @@
       "zone": "asia",
       "sector": "energy",
       "country": "Chine",
-      "basePrice": 585.67,
-      "baseIncome": 81.99,
+      "basePrice": 530.2,
+      "baseIncome": 67.36,
       "source": "classeur",
       "marketCapUSD": 225520000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/petro-china/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "microsoft-corp",
@@ -1365,8 +1409,8 @@
       "zone": "americas",
       "sector": "technology",
       "country": "États-Unis",
-      "basePrice": 1424.49,
-      "baseIncome": 199.43,
+      "basePrice": 1349.48,
+      "baseIncome": 188.93,
       "source": "classeur",
       "logoPath": "/assets/companies/logos/microsoft.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Microsoft.svg",
@@ -1374,7 +1418,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/microsoft/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "exxon-mobil-corp",
@@ -1382,14 +1426,14 @@
       "zone": "americas",
       "sector": "energy",
       "country": "États-Unis",
-      "basePrice": 909.06,
-      "baseIncome": 127.27,
+      "basePrice": 828.62,
+      "baseIncome": 114.84,
       "source": "classeur",
       "marketCapUSD": 670000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/exxon-mobil/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "berkshire-hathaway-inc",
@@ -1397,14 +1441,14 @@
       "zone": "americas",
       "sector": "finance",
       "country": "États-Unis",
-      "basePrice": 1056.31,
-      "baseIncome": 147.88,
+      "basePrice": 974.1,
+      "baseIncome": 136.21,
       "source": "classeur",
       "marketCapUSD": 1100000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/berkshire-hathaway/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "alphabet-google-inc",
@@ -1412,8 +1456,8 @@
       "zone": "americas",
       "sector": "technology",
       "country": "États-Unis",
-      "basePrice": 1454.22,
-      "baseIncome": 203.59,
+      "basePrice": 1380.19,
+      "baseIncome": 193.23,
       "source": "classeur",
       "marketCapUSD": 4200000000000,
       "marketCapAsOf": "2026-10",
@@ -1421,7 +1465,7 @@
       "capCategory": "large",
       "logoPath": "/assets/companies/logos/alphabet.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Alphabet_Inc_Logo_2015.svg",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "apple-inc",
@@ -1429,14 +1473,14 @@
       "zone": "americas",
       "sector": "technology",
       "country": "États-Unis",
-      "basePrice": 1500,
-      "baseIncome": 210,
+      "basePrice": 1427.55,
+      "baseIncome": 199.86,
       "source": "classeur",
       "marketCapUSD": 4900000000000,
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/apple/marketcap/",
       "capCategory": "large",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "pacifica-minerals",
@@ -1444,8 +1488,8 @@
       "zone": "oceania",
       "sector": "agrifood",
       "country": "Australie",
-      "basePrice": 96.62,
-      "baseIncome": 9.66,
+      "basePrice": 162.06,
+      "baseIncome": 17.23,
       "source": "jeu",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -1459,7 +1503,7 @@
       "marketCapAsOf": "2026-09",
       "marketCapSource": "https://companiesmarketcap.com/woolworths-group/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "southern-cross-energy",
@@ -1467,8 +1511,8 @@
       "zone": "oceania",
       "sector": "energy",
       "country": "Australie",
-      "basePrice": 73.57,
-      "baseIncome": 7.36,
+      "basePrice": 72.54,
+      "baseIncome": 7.44,
       "source": "jeu",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -1482,7 +1526,7 @@
       "marketCapAsOf": "2026-09",
       "marketCapSource": "https://companiesmarketcap.com/origin-energy/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "coral-reef-health",
@@ -1490,8 +1534,8 @@
       "zone": "oceania",
       "sector": "health",
       "country": "Australie",
-      "basePrice": 235.94,
-      "baseIncome": 28.31,
+      "basePrice": 240.68,
+      "baseIncome": 26.51,
       "source": "jeu",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -1505,7 +1549,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/csl/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/csl.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:CSL_Limited_logo.svg"
     },
@@ -1515,8 +1559,8 @@
       "zone": "oceania",
       "sector": "media",
       "country": "Australie",
-      "basePrice": 98.75,
-      "baseIncome": 9.88,
+      "basePrice": 173.53,
+      "baseIncome": 18.54,
       "source": "jeu",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -1530,7 +1574,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/telstra/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "harbour-infrastructure",
@@ -1538,8 +1582,8 @@
       "zone": "oceania",
       "sector": "realestate",
       "country": "Australie",
-      "basePrice": 98.8,
-      "baseIncome": 9.88,
+      "basePrice": 173.78,
+      "baseIncome": 18.57,
       "source": "jeu",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -1553,7 +1597,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/goodman/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "oceanic-air",
@@ -1561,8 +1605,8 @@
       "zone": "oceania",
       "sector": "transport",
       "country": "Australie",
-      "basePrice": 65.92,
-      "baseIncome": 6.59,
+      "basePrice": 54.41,
+      "baseIncome": 5.54,
       "source": "jeu",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -1576,7 +1620,7 @@
       "marketCapAsOf": "2026-09",
       "marketCapSource": "https://companiesmarketcap.com/qantas-airways/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3,
+      "economyVersion": 4,
       "logoPath": "/assets/companies/logos/qantas-wordmark.svg",
       "logoSource": "https://commons.wikimedia.org/wiki/File:Qantas_wordmark_2016.svg"
     },
@@ -1586,8 +1630,8 @@
       "zone": "oceania",
       "sector": "finance",
       "country": "Australie",
-      "basePrice": 437.48,
-      "baseIncome": 52.5,
+      "basePrice": 470.5,
+      "baseIncome": 58.12,
       "source": "jeu",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -1601,7 +1645,7 @@
       "marketCapAsOf": "2026-10",
       "marketCapSource": "https://companiesmarketcap.com/commonwealth-bank/marketcap/",
       "capCategory": "medium",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "reef-data-systems",
@@ -1609,8 +1653,8 @@
       "zone": "oceania",
       "sector": "technology",
       "country": "Australie",
-      "basePrice": 60.21,
-      "baseIncome": 6.02,
+      "basePrice": 43.69,
+      "baseIncome": 4.43,
       "source": "jeu",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -1624,7 +1668,7 @@
       "marketCapAsOf": "2026-09",
       "marketCapSource": "https://companiesmarketcap.com/wisetech-global/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     },
     {
       "id": "austral-manufacturing",
@@ -1632,8 +1676,8 @@
       "zone": "oceania",
       "sector": "industry",
       "country": "Australie",
-      "basePrice": 98.5,
-      "baseIncome": 9.85,
+      "basePrice": 172.15,
+      "baseIncome": 18.38,
       "source": "jeu",
       "catalogVersion": 2,
       "legacyIdAliases": [
@@ -1647,7 +1691,7 @@
       "marketCapAsOf": "2026-09",
       "marketCapSource": "https://companiesmarketcap.com/fortescue/marketcap/",
       "capCategory": "small",
-      "economyVersion": 3
+      "economyVersion": 4
     }
   ],
   "events": [
@@ -1845,8 +1889,8 @@
       "id": 11,
       "type": "positive",
       "title": "Accord commercial majeur",
-      "description": "« Accord commercial majeur » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade A), tandis que les retraits pèsent sur le secteur Finance (grade D). Les indices de la zone Europe ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Amériques → A; zone Europe → C; secteur Technologie → C; secteur Finance → D.",
+      "description": "« Accord commercial majeur » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade A), tandis que les retraits pèsent sur le secteur Finance (grade E). Les indices de la zone Europe ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → A; zone Europe → C; secteur Technologie → C; secteur Finance → E.",
       "changes": [
         {
           "scope": "zone",
@@ -1866,7 +1910,7 @@
         {
           "scope": "sector",
           "id": "finance",
-          "grade": "D"
+          "grade": "E"
         }
       ]
     },
@@ -1874,8 +1918,8 @@
       "id": 12,
       "type": "positive",
       "title": "Succès des introductions en bourse",
-      "description": "« Succès des introductions en bourse » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade A), tandis que les retraits pèsent sur le secteur Industrie (grade D). Les indices de la zone Asie ainsi que du secteur Finance sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Europe → A; zone Asie → C; secteur Finance → C; secteur Industrie → D.",
+      "description": "« Succès des introductions en bourse » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade A), tandis que les retraits pèsent sur le secteur Industrie (grade E). Les indices de la zone Asie ainsi que du secteur Finance sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → A; zone Asie → C; secteur Finance → C; secteur Industrie → E.",
       "changes": [
         {
           "scope": "zone",
@@ -1895,7 +1939,7 @@
         {
           "scope": "sector",
           "id": "industry",
-          "grade": "D"
+          "grade": "E"
         }
       ]
     },
@@ -1903,8 +1947,8 @@
       "id": 13,
       "type": "positive",
       "title": "Plan climat ambitieux",
-      "description": "« Plan climat ambitieux » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade A), tandis que les retraits pèsent sur le secteur Santé (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Asie → A; zone Afrique & Moyen-Orient → C; secteur Industrie → C; secteur Santé → D.",
+      "description": "« Plan climat ambitieux » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade A), tandis que les retraits pèsent sur le secteur Santé (grade E). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → A; zone Afrique & Moyen-Orient → C; secteur Industrie → C; secteur Santé → E.",
       "changes": [
         {
           "scope": "zone",
@@ -1924,7 +1968,7 @@
         {
           "scope": "sector",
           "id": "health",
-          "grade": "D"
+          "grade": "E"
         }
       ]
     },
@@ -1932,8 +1976,8 @@
       "id": 14,
       "type": "positive",
       "title": "Amélioration du crédit",
-      "description": "« Amélioration du crédit » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade A), tandis que les retraits pèsent sur le secteur Énergie (grade D). Les indices de la zone Océanie ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Afrique & Moyen-Orient → A; zone Océanie → C; secteur Santé → C; secteur Énergie → D.",
+      "description": "« Amélioration du crédit » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade A), tandis que les retraits pèsent sur le secteur Énergie (grade E). Les indices de la zone Océanie ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → A; zone Océanie → C; secteur Santé → C; secteur Énergie → E.",
       "changes": [
         {
           "scope": "zone",
@@ -1953,7 +1997,7 @@
         {
           "scope": "sector",
           "id": "energy",
-          "grade": "D"
+          "grade": "E"
         }
       ]
     },
@@ -1961,8 +2005,8 @@
       "id": 15,
       "type": "positive",
       "title": "Boom des semi-conducteurs",
-      "description": "« Boom des semi-conducteurs » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Océanie (grade A), tandis que les retraits pèsent sur le secteur Immobilier & infrastructures (grade D). Les indices de la zone Amériques ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Océanie → A; zone Amériques → C; secteur Énergie → C; secteur Immobilier & infrastructures → D.",
+      "description": "« Boom des semi-conducteurs » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Océanie (grade A), tandis que les retraits pèsent sur le secteur Immobilier & infrastructures (grade E). Les indices de la zone Amériques ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → A; zone Amériques → C; secteur Énergie → C; secteur Immobilier & infrastructures → E.",
       "changes": [
         {
           "scope": "zone",
@@ -1982,7 +2026,7 @@
         {
           "scope": "sector",
           "id": "realestate",
-          "grade": "D"
+          "grade": "E"
         }
       ]
     },
@@ -1990,8 +2034,8 @@
       "id": 16,
       "type": "positive",
       "title": "Accès élargi au financement",
-      "description": "« Accès élargi au financement » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade A), tandis que les retraits pèsent sur le secteur Agroalimentaire & ressources (grade D). Les indices de la zone Europe ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Amériques → A; zone Europe → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → D.",
+      "description": "« Accès élargi au financement » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Amériques (grade A), tandis que les retraits pèsent sur le secteur Agroalimentaire & ressources (grade E). Les indices de la zone Europe ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → A; zone Europe → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → E.",
       "changes": [
         {
           "scope": "zone",
@@ -2011,7 +2055,7 @@
         {
           "scope": "sector",
           "id": "agrifood",
-          "grade": "D"
+          "grade": "E"
         }
       ]
     },
@@ -2019,8 +2063,8 @@
       "id": 17,
       "type": "positive",
       "title": "Baisse surprise des taux",
-      "description": "« Baisse surprise des taux » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade A), tandis que les retraits pèsent sur le secteur Communication & médias (grade D). Les indices de la zone Asie ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Europe → A; zone Asie → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → D.",
+      "description": "« Baisse surprise des taux » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Europe (grade A), tandis que les retraits pèsent sur le secteur Communication & médias (grade E). Les indices de la zone Asie ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → A; zone Asie → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → E.",
       "changes": [
         {
           "scope": "zone",
@@ -2040,7 +2084,7 @@
         {
           "scope": "sector",
           "id": "media",
-          "grade": "D"
+          "grade": "E"
         }
       ]
     },
@@ -2048,8 +2092,8 @@
       "id": 18,
       "type": "positive",
       "title": "Optimisme des entreprises",
-      "description": "« Optimisme des entreprises » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade A), tandis que les retraits pèsent sur le secteur Transports & logistique (grade D). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Communication & médias sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Asie → A; zone Afrique & Moyen-Orient → C; secteur Communication & médias → C; secteur Transports & logistique → D.",
+      "description": "« Optimisme des entreprises » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Asie (grade A), tandis que les retraits pèsent sur le secteur Transports & logistique (grade E). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Communication & médias sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → A; zone Afrique & Moyen-Orient → C; secteur Communication & médias → C; secteur Transports & logistique → E.",
       "changes": [
         {
           "scope": "zone",
@@ -2069,7 +2113,7 @@
         {
           "scope": "sector",
           "id": "transport",
-          "grade": "D"
+          "grade": "E"
         }
       ]
     },
@@ -2077,8 +2121,8 @@
       "id": 19,
       "type": "positive",
       "title": "Stabilisation des devises",
-      "description": "« Stabilisation des devises » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade A), tandis que les retraits pèsent sur le secteur Technologie (grade D). Les indices de la zone Océanie ainsi que du secteur Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Afrique & Moyen-Orient → A; zone Océanie → C; secteur Transports & logistique → C; secteur Technologie → D.",
+      "description": "« Stabilisation des devises » entraîne une réallocation des portefeuilles : les capitaux favorisent la zone Afrique & Moyen-Orient (grade A), tandis que les retraits pèsent sur le secteur Technologie (grade E). Les indices de la zone Océanie ainsi que du secteur Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → A; zone Océanie → C; secteur Transports & logistique → C; secteur Technologie → E.",
       "changes": [
         {
           "scope": "zone",
@@ -2098,7 +2142,7 @@
         {
           "scope": "sector",
           "id": "technology",
-          "grade": "D"
+          "grade": "E"
         }
       ]
     },
@@ -2760,8 +2804,8 @@
       "id": 46,
       "type": "negative",
       "title": "Fuite des capitaux",
-      "description": "« Fuite des capitaux » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Finance (grade B), tandis que les retraits pèsent sur la zone Amériques (grade E). Les indices de la zone Europe ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Amériques → E; zone Europe → C; secteur Technologie → C; secteur Finance → B.",
+      "description": "« Fuite des capitaux » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Finance (grade A), tandis que les retraits pèsent sur la zone Amériques (grade E). Les indices de la zone Europe ainsi que du secteur Technologie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → E; zone Europe → C; secteur Technologie → C; secteur Finance → A.",
       "changes": [
         {
           "scope": "zone",
@@ -2781,7 +2825,7 @@
         {
           "scope": "sector",
           "id": "finance",
-          "grade": "B"
+          "grade": "A"
         }
       ]
     },
@@ -2789,8 +2833,8 @@
       "id": 47,
       "type": "negative",
       "title": "Crise immobilière",
-      "description": "« Crise immobilière » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Industrie (grade B), tandis que les retraits pèsent sur la zone Europe (grade E). Les indices de la zone Asie ainsi que du secteur Finance sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Europe → E; zone Asie → C; secteur Finance → C; secteur Industrie → B.",
+      "description": "« Crise immobilière » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Industrie (grade A), tandis que les retraits pèsent sur la zone Europe (grade E). Les indices de la zone Asie ainsi que du secteur Finance sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → E; zone Asie → C; secteur Finance → C; secteur Industrie → A.",
       "changes": [
         {
           "scope": "zone",
@@ -2810,7 +2854,7 @@
         {
           "scope": "sector",
           "id": "industry",
-          "grade": "B"
+          "grade": "A"
         }
       ]
     },
@@ -2818,8 +2862,8 @@
       "id": 48,
       "type": "negative",
       "title": "Rupture logistique",
-      "description": "« Rupture logistique » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Santé (grade B), tandis que les retraits pèsent sur la zone Asie (grade E). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Asie → E; zone Afrique & Moyen-Orient → C; secteur Industrie → C; secteur Santé → B.",
+      "description": "« Rupture logistique » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Santé (grade A), tandis que les retraits pèsent sur la zone Asie (grade E). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Industrie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → E; zone Afrique & Moyen-Orient → C; secteur Industrie → C; secteur Santé → A.",
       "changes": [
         {
           "scope": "zone",
@@ -2839,7 +2883,7 @@
         {
           "scope": "sector",
           "id": "health",
-          "grade": "B"
+          "grade": "A"
         }
       ]
     },
@@ -2847,8 +2891,8 @@
       "id": 49,
       "type": "negative",
       "title": "Mauvais résultats",
-      "description": "« Mauvais résultats » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Énergie (grade B), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade E). Les indices de la zone Océanie ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Afrique & Moyen-Orient → E; zone Océanie → C; secteur Santé → C; secteur Énergie → B.",
+      "description": "« Mauvais résultats » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Énergie (grade A), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade E). Les indices de la zone Océanie ainsi que du secteur Santé sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → E; zone Océanie → C; secteur Santé → C; secteur Énergie → A.",
       "changes": [
         {
           "scope": "zone",
@@ -2868,7 +2912,7 @@
         {
           "scope": "sector",
           "id": "energy",
-          "grade": "B"
+          "grade": "A"
         }
       ]
     },
@@ -2876,8 +2920,8 @@
       "id": 50,
       "type": "negative",
       "title": "Rappel massif de produits",
-      "description": "« Rappel massif de produits » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Immobilier & infrastructures (grade B), tandis que les retraits pèsent sur la zone Océanie (grade E). Les indices de la zone Amériques ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Océanie → E; zone Amériques → C; secteur Énergie → C; secteur Immobilier & infrastructures → B.",
+      "description": "« Rappel massif de produits » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Immobilier & infrastructures (grade A), tandis que les retraits pèsent sur la zone Océanie (grade E). Les indices de la zone Amériques ainsi que du secteur Énergie sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Océanie → E; zone Amériques → C; secteur Énergie → C; secteur Immobilier & infrastructures → A.",
       "changes": [
         {
           "scope": "zone",
@@ -2897,7 +2941,7 @@
         {
           "scope": "sector",
           "id": "realestate",
-          "grade": "B"
+          "grade": "A"
         }
       ]
     },
@@ -2905,8 +2949,8 @@
       "id": 51,
       "type": "negative",
       "title": "Dérive des coûts",
-      "description": "« Dérive des coûts » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Agroalimentaire & ressources (grade B), tandis que les retraits pèsent sur la zone Amériques (grade E). Les indices de la zone Europe ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Amériques → E; zone Europe → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → B.",
+      "description": "« Dérive des coûts » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Agroalimentaire & ressources (grade A), tandis que les retraits pèsent sur la zone Amériques (grade E). Les indices de la zone Europe ainsi que du secteur Immobilier & infrastructures sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Amériques → E; zone Europe → C; secteur Immobilier & infrastructures → C; secteur Agroalimentaire & ressources → A.",
       "changes": [
         {
           "scope": "zone",
@@ -2926,7 +2970,7 @@
         {
           "scope": "sector",
           "id": "agrifood",
-          "grade": "B"
+          "grade": "A"
         }
       ]
     },
@@ -2934,8 +2978,8 @@
       "id": 52,
       "type": "negative",
       "title": "Retrait des investisseurs",
-      "description": "« Retrait des investisseurs » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Communication & médias (grade B), tandis que les retraits pèsent sur la zone Europe (grade E). Les indices de la zone Asie ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Europe → E; zone Asie → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → B.",
+      "description": "« Retrait des investisseurs » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Communication & médias (grade A), tandis que les retraits pèsent sur la zone Europe (grade E). Les indices de la zone Asie ainsi que du secteur Agroalimentaire & ressources sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Europe → E; zone Asie → C; secteur Agroalimentaire & ressources → C; secteur Communication & médias → A.",
       "changes": [
         {
           "scope": "zone",
@@ -2955,7 +2999,7 @@
         {
           "scope": "sector",
           "id": "media",
-          "grade": "B"
+          "grade": "A"
         }
       ]
     },
@@ -2963,8 +3007,8 @@
       "id": 53,
       "type": "negative",
       "title": "Changement politique brusque",
-      "description": "« Changement politique brusque » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Transports & logistique (grade B), tandis que les retraits pèsent sur la zone Asie (grade E). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Communication & médias sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Asie → E; zone Afrique & Moyen-Orient → C; secteur Communication & médias → C; secteur Transports & logistique → B.",
+      "description": "« Changement politique brusque » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Transports & logistique (grade A), tandis que les retraits pèsent sur la zone Asie (grade E). Les indices de la zone Afrique & Moyen-Orient ainsi que du secteur Communication & médias sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Asie → E; zone Afrique & Moyen-Orient → C; secteur Communication & médias → C; secteur Transports & logistique → A.",
       "changes": [
         {
           "scope": "zone",
@@ -2984,7 +3028,7 @@
         {
           "scope": "sector",
           "id": "transport",
-          "grade": "B"
+          "grade": "A"
         }
       ]
     },
@@ -2992,8 +3036,8 @@
       "id": 54,
       "type": "negative",
       "title": "Stress de liquidité",
-      "description": "« Stress de liquidité » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Technologie (grade B), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade E). Les indices de la zone Océanie ainsi que du secteur Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
-      "effect": "zone Afrique & Moyen-Orient → E; zone Océanie → C; secteur Transports & logistique → C; secteur Technologie → B.",
+      "description": "« Stress de liquidité » entraîne une réallocation des portefeuilles : les capitaux favorisent le secteur Technologie (grade A), tandis que les retraits pèsent sur la zone Afrique & Moyen-Orient (grade E). Les indices de la zone Océanie ainsi que du secteur Transports & logistique sont ramenés au niveau C, leur point d’ancrage.",
+      "effect": "zone Afrique & Moyen-Orient → E; zone Océanie → C; secteur Transports & logistique → C; secteur Technologie → A.",
       "changes": [
         {
           "scope": "zone",
@@ -3013,7 +3057,7 @@
         {
           "scope": "sector",
           "id": "technology",
-          "grade": "B"
+          "grade": "A"
         }
       ]
     },

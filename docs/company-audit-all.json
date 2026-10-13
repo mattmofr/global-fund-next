@@ -2,7 +2,7 @@
   "scope": "All 91 catalog slots",
   "verifiedOn": "2026-10-06",
   "catalogueModified": true,
-  "catalogVersion": 2,
+  "catalogVersion": 4,
   "companies": [
     {
       "id": "enersis",
@@ -29,13 +29,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 5.0,
-      "baseIncome": 5.0,
-      "marketCapUSD": 6000000000.0,
+      "basePrice": 35.21,
+      "baseIncome": 3.56,
+      "marketCapUSD": 6000000000,
       "capCategory": "small",
       "marketCapSource": "https://stockanalysis.com/stocks/enic/market-cap/",
       "marketCapAsOf": "2026-10-06",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "banco-brasil",
@@ -63,8 +64,8 @@
         "summary": "La page IR officielle identifie Banco do Brasil S.A. comme société cotée contrôlée par l’État et organisée comme banque multiple; elle cite explicitement la Constitution brésilienne. Cela confirme le nom, le pays et finance.",
         "retrievalMethodStatus": "direct_page_content_accessed"
       },
-      "basePrice": 40.0,
-      "baseIncome": 10.0,
+      "basePrice": 146.01,
+      "baseIncome": 15.41,
       "priorEvidence": {
         "url": "https://www.bb.com.br/site/sobre-nos/fatos/",
         "evidence": {
@@ -74,11 +75,12 @@
           "checkedDate": "2026-10-06"
         }
       },
-      "marketCapUSD": 30000000000.0,
+      "marketCapUSD": 30000000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/banco-do-brasil/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "amx",
@@ -106,8 +108,8 @@
         "summary": "Le 20-F 2024 identifie América Móvil, S.A.B. de C.V., société constituée au Mexique, avec siège exécutif à Mexico; le rapport décrit des services de télécommunications et une activité mobile, fixe, haut débit et TV payante. Mexique et catégorie media (télécommunications) sont donc justifiés.",
         "retrievalMethodStatus": "direct_page_content_accessed"
       },
-      "basePrice": 50.0,
-      "baseIncome": 10.0,
+      "basePrice": 264.11,
+      "baseIncome": 29.42,
       "priorEvidence": {
         "url": "https://www.americamovil.com/",
         "evidence": {
@@ -117,11 +119,12 @@
           "checkedDate": "2026-10-06"
         }
       },
-      "marketCapUSD": 67000000000.0,
+      "marketCapUSD": 67000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/america-movil/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "walmex",
@@ -148,13 +151,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 60.0,
-      "baseIncome": 20.0,
-      "marketCapUSD": 46000000000.0,
+      "basePrice": 202.66,
+      "baseIncome": 21.93,
+      "marketCapUSD": 46000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/walmex/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "mcdonald-s-corp",
@@ -181,13 +185,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 90.0,
-      "baseIncome": 20.0,
-      "marketCapUSD": 160000000000.0,
+      "basePrice": 445.83,
+      "baseIncome": 54.4,
+      "marketCapUSD": 160000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/mcdonald/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "nike-inc",
@@ -214,46 +219,54 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 90.0,
-      "baseIncome": 10.0,
-      "marketCapUSD": 50000000000.0,
+      "basePrice": 215.34,
+      "baseIncome": 23.44,
+      "marketCapUSD": 50000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/nike/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "united-parcel-service",
       "oldName": "United Parcel Service",
-      "currentName": "United Parcel Service, Inc.",
-      "country": "États-Unis",
+      "currentName": "JetBlue Airways Corporation",
+      "country": "United States",
       "zone": "americas",
       "sector": "transport",
-      "verifiedSourceURL": "https://about.ups.com/us/en/our-company.html",
-      "modification": "Forme légale ajoutée; secteur transport confirmé.",
+      "verifiedSourceURL": "https://www.ir.jetblue.com/resources/stock-info/default.aspx",
+      "modification": "Catalog v4: United Parcel Service, Inc. replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "high",
       "logo": {
         "status": "fallback-monogram",
         "assetPath": null,
-        "provenance": null,
-        "license": null,
-        "reason": "Aucun fichier de marque téléchargé : la source officielle consultée ne fournit pas une licence ouverte ou une autorisation générale de réutilisation dans le jeu. Utiliser le monogramme généré par l’interface."
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "retrievalDate": "2026-10-06",
-      "verificationStatus": "verified_official_page_consulted",
+      "retrievalDate": "2026-10-13",
+      "verificationStatus": "verified_primary_source_content_consulted",
       "evidence": {
         "status": "direct_page_content_accessed",
-        "summary": "Official company page content was opened and consulted to verify the current identity and stated business activity; sector mapping is the audit recommendation.",
         "sourceVerified": true,
-        "checkedDate": "2026-10-06"
+        "checkedDate": "2026-10-13",
+        "summary": "Issuer stock quote directly reports market capitalization of $1.45bn (close $3.84).",
+        "sources": [
+          "https://www.ir.jetblue.com/resources/stock-info/default.aspx",
+          "https://ir.jetblue.com/resources/faqs/default.aspx"
+        ],
+        "confidence": "high"
       },
-      "basePrice": 90.0,
-      "baseIncome": 10.0,
-      "marketCapUSD": 79000000000.0,
-      "capCategory": "medium",
-      "marketCapSource": "https://companiesmarketcap.com/ups/marketcap/",
-      "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "basePrice": 25,
+      "baseIncome": 2.51,
+      "marketCapUSD": 1450000000,
+      "capCategory": "small",
+      "marketCapSource": "https://www.ir.jetblue.com/resources/stock-info/default.aspx",
+      "marketCapAsOf": "2026-10-09",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "JBLU",
+      "exchange": "NASDAQ",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "3m-co",
@@ -280,13 +293,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 100.0,
-      "baseIncome": 10.0,
-      "marketCapUSD": 84000000000.0,
+      "basePrice": 306.26,
+      "baseIncome": 34.83,
+      "marketCapUSD": 84000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/3m/marketcap/",
       "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "mastercard-inc",
@@ -313,13 +327,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 100.0,
-      "baseIncome": 10.0,
-      "marketCapUSD": 480000000000.0,
+      "basePrice": 733.44,
+      "baseIncome": 100.02,
+      "marketCapUSD": 480000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/mastercard/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "the-boeing-company",
@@ -346,13 +361,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 100.0,
-      "baseIncome": 10.0,
-      "marketCapUSD": 150000000000.0,
+      "basePrice": 430.68,
+      "baseIncome": 52.16,
+      "marketCapUSD": 150000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/boeing/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "petrobras",
@@ -380,8 +396,8 @@
         "summary": "La page officielle Perfil nomme Petrobras/Petróleo Brasileiro S.A. comme société brésilienne cotée et décrit son activité intégrée de pétrole, gaz naturel et énergie; confirme Brésil et energy.",
         "retrievalMethodStatus": "direct_page_content_accessed"
       },
-      "basePrice": 110.0,
-      "baseIncome": 20.0,
+      "basePrice": 445.83,
+      "baseIncome": 54.4,
       "priorEvidence": {
         "url": "https://petrobras.com.br/quem-somos/perfil",
         "evidence": {
@@ -391,11 +407,12 @@
           "checkedDate": "2026-10-06"
         }
       },
-      "marketCapUSD": 160000000000.0,
+      "marketCapUSD": 160000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/petrobras/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "philip-morris-international",
@@ -422,42 +439,46 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 120.0,
-      "baseIncome": 30.0,
-      "marketCapUSD": 300000000000.0,
+      "basePrice": 604.53,
+      "baseIncome": 79.24,
+      "marketCapUSD": 300000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/philip-morris/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "ambev",
       "oldName": "Ambev",
-      "currentName": "Ambev S.A.",
-      "country": "Brésil",
+      "currentName": "Cal-Maine Foods, Inc.",
+      "country": "United States",
       "zone": "americas",
       "sector": "agrifood",
-      "verifiedSourceURL": "https://www.sec.gov/Archives/edgar/data/1565025/0001292814-26-000640-index.html",
-      "modification": "Nom légal normalisé; boissons confirmées.",
+      "verifiedSourceURL": "https://investors.calmainefoods.com/stock-information/historical-price-lookup",
+      "modification": "Catalog v4: Ambev S.A. replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "élevée (source primaire consultée)",
       "logo": {
         "status": "fallback-monogram",
         "assetPath": null,
-        "provenance": null,
-        "license": null,
-        "reason": "Aucun fichier de marque téléchargé : la source officielle consultée ne fournit pas une licence ouverte ou une autorisation générale de réutilisation dans le jeu. Utiliser le monogramme généré par l’interface."
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "retrievalDate": "2026-10-06",
+      "retrievalDate": "2026-10-13",
       "verificationStatus": "verified_primary_source_content_consulted",
       "evidence": {
         "status": "direct_page_content_accessed",
         "sourceVerified": true,
-        "checkedDate": "2026-10-06",
-        "summary": "L’index EDGAR de son 20-F 2025 identifie AMBEV S.A. (filer), adresse commerciale et postale à São Paulo, Brazil, et SIC 2080 Beverages / Manufacturing; confirme le nom, pays et activité boissons, cohérente avec agrifood.",
-        "retrievalMethodStatus": "direct_page_content_accessed"
+        "checkedDate": "2026-10-13",
+        "summary": "$64.35 official historical close × 46,917,080 shares = ~$3.02bn.",
+        "sources": [
+          "https://investors.calmainefoods.com/stock-information/historical-price-lookup",
+          "https://investors.calmainefoods.com/node/14891/xbrl-viewer",
+          "https://investors.calmainefoods.com/news-releases/news-release-details/cal-maine-foods-reports-first-quarter-fiscal-2027-results"
+        ],
+        "confidence": "high; share count precedes quote by ~11 weeks"
       },
-      "basePrice": 130.0,
-      "baseIncome": 30.0,
+      "basePrice": 25,
+      "baseIncome": 2.51,
       "priorEvidence": {
         "url": "https://ri.ambev.com.br/en/faqs/",
         "evidence": {
@@ -467,11 +488,15 @@
           "checkedDate": "2026-10-06"
         }
       },
-      "marketCapUSD": 50000000000.0,
-      "capCategory": "medium",
-      "marketCapSource": "https://companiesmarketcap.com/ambev/marketcap/",
-      "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "marketCapUSD": 3019000000,
+      "capCategory": "small",
+      "marketCapSource": "https://investors.calmainefoods.com/stock-information/historical-price-lookup",
+      "marketCapAsOf": "2026-10-09",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "CALM",
+      "exchange": "NASDAQ Global Select Market",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "pepsico",
@@ -498,13 +523,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 140.0,
-      "baseIncome": 30.0,
-      "marketCapUSD": 170000000000.0,
+      "basePrice": 460.29,
+      "baseIncome": 56.57,
+      "marketCapUSD": 170000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/pepsico/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "cisco-systems",
@@ -531,47 +557,55 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 140.0,
-      "baseIncome": 20.0,
-      "marketCapUSD": 460000000000.0,
+      "basePrice": 721.49,
+      "baseIncome": 98.12,
+      "marketCapUSD": 460000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/cisco/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "intel-corp",
       "oldName": "Intel Corp",
-      "currentName": "Intel Corporation",
-      "country": "États-Unis",
+      "currentName": "UiPath, Inc.",
+      "country": "United States",
       "zone": "americas",
       "sector": "technology",
-      "verifiedSourceURL": "https://www.intel.com/content/www/us/en/company-overview/company-overview.html",
-      "modification": "Nom légal normalisé; conception/fabrication de semi-conducteurs, technologie confirmée.",
+      "verifiedSourceURL": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf",
+      "modification": "Catalog v4: Intel Corporation replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "high",
       "logo": {
-        "status": "local-commons-svg",
-        "assetPath": "/assets/companies/logos/intel.svg",
-        "provenance": "https://commons.wikimedia.org/wiki/File:Intel_logo_2023.svg",
-        "license": "PD-textlogo/simple / domaine public (texte et formes simples)",
-        "trademark": "Oui — avertissement Trademarked explicite sur Commons",
-        "retrievedDate": "2026-10-06"
+        "status": "fallback-monogram",
+        "assetPath": null,
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "retrievalDate": "2026-10-06",
-      "verificationStatus": "verified_official_page_consulted",
+      "retrievalDate": "2026-10-13",
+      "verificationStatus": "verified_primary_source_content_consulted",
       "evidence": {
         "status": "direct_page_content_accessed",
-        "summary": "Official company page content was opened and consulted to verify the current identity and stated business activity; sector mapping is the audit recommendation.",
         "sourceVerified": true,
-        "checkedDate": "2026-10-06"
+        "checkedDate": "2026-10-13",
+        "summary": "Official FY2026 10-K states NYSE-reported Class A close of $11.75 on 2025-07-31. Official Q2 FY2026 10-Q balance sheet has 453,404,000 Class A shares outstanding plus 77,453,000 Class B shares outstanding on 2025-07-31; Class A and B have identical dividend and liquidation/economic rights. $11.75 × 530,857,000 = $6,237,569,750 (~$6.24bn). This is total equity capitalization, not nonaffiliate public float.",
+        "sources": [
+          "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf",
+          "https://ir.uipath.com/financials/sec-filings/content/0001734722-25-000043/path-20250731.htm",
+          "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000030/uipathinc_arx2026xflat.pdf"
+        ],
+        "confidence": "high; matched same-date issuer close and outstanding share count"
       },
-      "basePrice": 150.0,
-      "baseIncome": 20.0,
-      "marketCapUSD": 610000000000.0,
-      "capCategory": "large",
-      "marketCapSource": "https://companiesmarketcap.com/intel/marketcap/",
-      "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "basePrice": 36.53,
+      "baseIncome": 3.7,
+      "marketCapUSD": 6238000000,
+      "capCategory": "small",
+      "marketCapSource": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf",
+      "marketCapAsOf": "2025-07-31",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "PATH",
+      "exchange": "NYSE",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "ibm-corp",
@@ -599,13 +633,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 160.0,
-      "baseIncome": 30.0,
-      "marketCapUSD": 210000000000.0,
+      "basePrice": 512.18,
+      "baseIncome": 64.54,
+      "marketCapUSD": 210000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/ibm/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "visa-inc",
@@ -633,8 +668,8 @@
         "summary": "Le 10-K 2025 identifie Visa Inc. comme entreprise mondiale de technologie de paiement, exploitant VisaNet, et précise explicitement que Visa n’est pas une institution financière. Le pays États-Unis est confirmé par l’en-tête SEC; finance reste la catégorie de jeu la plus proche pour un réseau de paiements, pas une classification réglementaire.",
         "retrievalMethodStatus": "direct_page_content_accessed"
       },
-      "basePrice": 160.0,
-      "baseIncome": 10.0,
+      "basePrice": 837.13,
+      "baseIncome": 116.14,
       "priorEvidence": {
         "url": "https://corporate.visa.com/en/about-visa/mediakits.html",
         "evidence": {
@@ -644,11 +679,12 @@
           "checkedDate": "2026-10-06"
         }
       },
-      "marketCapUSD": 690000000000.0,
+      "marketCapUSD": 690000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/visa/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "at-t-inc",
@@ -676,8 +712,8 @@
         "summary": "Le rapport annuel 2025 identifie l’émetteur comme AT&T Inc., donne son siège à Dallas, Texas, et décrit le secteur Communications avec services télécoms et réseau. Confirme nom, États-Unis et catégorie media (télécommunications).",
         "retrievalMethodStatus": "direct_page_content_accessed"
       },
-      "basePrice": 170.0,
-      "baseIncome": 20.0,
+      "basePrice": 460.29,
+      "baseIncome": 56.57,
       "priorEvidence": {
         "url": "https://about.att.com/ecms/dam/snrdocs/2025-annual-report-complete-annual-report.pdf",
         "evidence": {
@@ -687,11 +723,12 @@
           "checkedDate": "2026-10-06"
         }
       },
-      "marketCapUSD": 170000000000.0,
+      "marketCapUSD": 170000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/att/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "the-coca-cola-co",
@@ -718,13 +755,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 180.0,
-      "baseIncome": 30.0,
-      "marketCapUSD": 370000000000.0,
+      "basePrice": 661.17,
+      "baseIncome": 88.41,
+      "marketCapUSD": 370000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/coca-cola/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "the-walt-disney-co",
@@ -751,13 +789,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 180.0,
-      "baseIncome": 20.0,
-      "marketCapUSD": 180000000000.0,
+      "basePrice": 474.1,
+      "baseIncome": 58.66,
+      "marketCapUSD": 180000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/walt-disney/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "oracle-corp",
@@ -785,13 +824,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 190.0,
-      "baseIncome": 30.0,
-      "marketCapUSD": 430000000000.0,
+      "basePrice": 702.66,
+      "baseIncome": 95.1,
+      "marketCapUSD": 430000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/oracle/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "chevron-corp",
@@ -819,8 +859,8 @@
         "summary": "L’index EDGAR du 10-K 2025 identifie Chevron Corp, siège commercial à Houston, Texas, et SIC 2911 Petroleum Refining, rattaché par la SEC à Energy & Transportation; confirme nom, pays et classement energy.",
         "retrievalMethodStatus": "direct_page_content_accessed"
       },
-      "basePrice": 200.0,
-      "baseIncome": 40.0,
+      "basePrice": 689.43,
+      "baseIncome": 92.97,
       "priorEvidence": {
         "url": "https://www.chevron.com/who-we-are",
         "evidence": {
@@ -830,44 +870,52 @@
           "checkedDate": "2026-10-06"
         }
       },
-      "marketCapUSD": 410000000000.0,
+      "marketCapUSD": 410000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/chevron/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "pfizer-inc",
       "oldName": "Pfizer Inc",
-      "currentName": "Pfizer Inc.",
-      "country": "États-Unis",
+      "currentName": "Hims & Hers Health, Inc.",
+      "country": "United States",
       "zone": "americas",
       "sector": "health",
-      "verifiedSourceURL": "https://www.pfizer.com/about",
-      "modification": "Nom actuel confirmé; biopharmaceutique/santé confirmé.",
+      "verifiedSourceURL": "https://investors.hims.com/stock-info/",
+      "modification": "Catalog v4: Pfizer Inc. replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "high",
       "logo": {
         "status": "fallback-monogram",
         "assetPath": null,
-        "provenance": null,
-        "license": null,
-        "reason": "Aucun fichier de marque téléchargé : la source officielle consultée ne fournit pas une licence ouverte ou une autorisation générale de réutilisation dans le jeu. Utiliser le monogramme généré par l’interface."
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "retrievalDate": "2026-10-06",
-      "verificationStatus": "verified_official_page_consulted",
+      "retrievalDate": "2026-10-13",
+      "verificationStatus": "verified_primary_source_content_consulted",
       "evidence": {
         "status": "direct_page_content_accessed",
-        "summary": "Official company page content was opened and consulted to verify the current identity and stated business activity; sector mapping is the audit recommendation.",
         "sourceVerified": true,
-        "checkedDate": "2026-10-06"
+        "checkedDate": "2026-10-13",
+        "summary": "($31.86 official IR quote) × (224,920,310 Class A + 8,377,623 Class V shares) = ~$7.43bn.",
+        "sources": [
+          "https://investors.hims.com/stock-info/",
+          "https://investors.hims.com/news/news-details/2026/Hims--Hers-Health-Inc--Reports-Second-Quarter-2026-Financial-Results/default.aspx"
+        ],
+        "confidence": "high"
       },
-      "basePrice": 210.0,
-      "baseIncome": 30.0,
-      "marketCapUSD": 160000000000.0,
-      "capCategory": "medium",
-      "marketCapSource": "https://companiesmarketcap.com/pfizer/marketcap/",
-      "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "basePrice": 43.06,
+      "baseIncome": 4.37,
+      "marketCapUSD": 7433000000,
+      "capCategory": "small",
+      "marketCapSource": "https://investors.hims.com/stock-info/",
+      "marketCapAsOf": "2026-08-20",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "HIMS",
+      "exchange": "NYSE",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "procter-gamble-co",
@@ -895,8 +943,8 @@
         "summary": "Le 10-K 2025 nomme The Procter & Gamble Company, précise Cincinnati (Ohio) et l’État d’incorporation Ohio; décrit P&G comme entreprise mondiale de produits de consommation. Confirme États-Unis et industry comme catégorie de biens de consommation.",
         "retrievalMethodStatus": "direct_page_content_accessed"
       },
-      "basePrice": 220.0,
-      "baseIncome": 30.0,
+      "basePrice": 638.15,
+      "baseIncome": 84.68,
       "priorEvidence": {
         "url": "https://us.pg.com/who-we-are/",
         "evidence": {
@@ -906,11 +954,12 @@
           "checkedDate": "2026-10-06"
         }
       },
-      "marketCapUSD": 340000000000.0,
+      "marketCapUSD": 340000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/procter-and-gamble/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "jpmorgan-chase-co",
@@ -937,13 +986,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 230.0,
-      "baseIncome": 40.0,
-      "marketCapUSD": 880000000000.0,
+      "basePrice": 908.13,
+      "baseIncome": 126.69,
+      "marketCapUSD": 880000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/jp-morgan-chase/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "general-electric",
@@ -972,8 +1022,8 @@
         "corroboratingSourceURL": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000008/ge-20251231.htm",
         "retrievalMethodStatus": "direct_page_content_accessed"
       },
-      "basePrice": 250.0,
-      "baseIncome": 30.0,
+      "basePrice": 621.79,
+      "baseIncome": 82.03,
       "catalogVersion": 2,
       "legacyIdAliases": [
         "general-electric"
@@ -990,11 +1040,12 @@
           "checkedDate": "2026-10-06"
         }
       },
-      "marketCapUSD": 320000000000.0,
+      "marketCapUSD": 320000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/general-electric/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "wal-mart-stores-inc",
@@ -1021,46 +1072,54 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 260.0,
-      "baseIncome": 30.0,
-      "marketCapUSD": 830000000000.0,
+      "basePrice": 890.96,
+      "baseIncome": 124.17,
+      "marketCapUSD": 830000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/walmart/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "wells-fargo-co",
       "oldName": "Wells Fargo & Co",
-      "currentName": "Wells Fargo & Company",
-      "country": "États-Unis",
+      "currentName": "NMI Holdings, Inc.",
+      "country": "United States",
       "zone": "americas",
       "sector": "finance",
-      "verifiedSourceURL": "https://www.wellsfargo.com/about/corporate/",
-      "modification": "Nom légal normalisé; services financiers confirmés.",
+      "verifiedSourceURL": "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862",
+      "modification": "Catalog v4: Wells Fargo & Company replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "high",
       "logo": {
         "status": "fallback-monogram",
         "assetPath": null,
-        "provenance": null,
-        "license": null,
-        "reason": "Aucun fichier de marque téléchargé : la source officielle consultée ne fournit pas une licence ouverte ou une autorisation générale de réutilisation dans le jeu. Utiliser le monogramme généré par l’interface."
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "retrievalDate": "2026-10-06",
-      "verificationStatus": "verified_official_page_consulted",
+      "retrievalDate": "2026-10-13",
+      "verificationStatus": "verified_primary_source_content_consulted",
       "evidence": {
         "status": "direct_page_content_accessed",
-        "summary": "Official company page content was opened and consulted to verify the current identity and stated business activity; sector mapping is the audit recommendation.",
         "sourceVerified": true,
-        "checkedDate": "2026-10-06"
+        "checkedDate": "2026-10-13",
+        "summary": "$41.05 closing share price × 76,032,627 shares = ~$3.12bn.",
+        "sources": [
+          "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862",
+          "https://ir.nationalmi.com/"
+        ],
+        "confidence": "high; dated primary data"
       },
-      "basePrice": 280.0,
-      "baseIncome": 50.0,
-      "marketCapUSD": 250000000000.0,
-      "capCategory": "large",
-      "marketCapSource": "https://companiesmarketcap.com/wells-fargo/marketcap/",
-      "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "basePrice": 25,
+      "baseIncome": 2.52,
+      "marketCapUSD": 3121000000,
+      "capCategory": "small",
+      "marketCapSource": "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862",
+      "marketCapAsOf": "2026-02-06",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "NMIH",
+      "exchange": "NASDAQ",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "johnson-johnson",
@@ -1087,13 +1146,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 280.0,
-      "baseIncome": 40.0,
-      "marketCapUSD": 610000000000.0,
+      "basePrice": 801.59,
+      "baseIncome": 110.7,
+      "marketCapUSD": 610000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/johnson-and-johnson/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "microsoft-corp",
@@ -1121,13 +1181,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 330.0,
-      "baseIncome": 50.0,
-      "marketCapUSD": 3800000000000.0,
+      "basePrice": 1349.48,
+      "baseIncome": 188.93,
+      "marketCapUSD": 3800000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/microsoft/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "exxon-mobil-corp",
@@ -1156,8 +1217,8 @@
         "corroboratingSourceURL": "https://corporate.exxonmobil.com/what-we-do",
         "retrievalMethodStatus": "direct_page_content_accessed"
       },
-      "basePrice": 350.0,
-      "baseIncome": 50.0,
+      "basePrice": 828.62,
+      "baseIncome": 114.84,
       "priorEvidence": {
         "url": "https://corporate.exxonmobil.com/what-we-do",
         "evidence": {
@@ -1167,11 +1228,12 @@
           "checkedDate": "2026-10-06"
         }
       },
-      "marketCapUSD": 670000000000.0,
+      "marketCapUSD": 670000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/exxon-mobil/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "berkshire-hathaway-inc",
@@ -1198,13 +1260,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 350.0,
-      "baseIncome": 50.0,
-      "marketCapUSD": 1100000000000.0,
+      "basePrice": 974.1,
+      "baseIncome": 136.21,
+      "marketCapUSD": 1100000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/berkshire-hathaway/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "alphabet-google-inc",
@@ -1231,13 +1294,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 400.0,
-      "baseIncome": 60.0,
-      "marketCapUSD": 4200000000000.0,
+      "basePrice": 1380.19,
+      "baseIncome": 193.23,
+      "marketCapUSD": 4200000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/usd/alphabet-google/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "apple-inc",
@@ -1264,13 +1328,14 @@
         "sourceVerified": true,
         "checkedDate": "2026-10-06"
       },
-      "basePrice": 700.0,
-      "baseIncome": 110.0,
-      "marketCapUSD": 4900000000000.0,
+      "basePrice": 1427.55,
+      "baseIncome": 199.86,
+      "marketCapUSD": 4900000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/apple/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "sabmiller-plc",
@@ -1297,8 +1362,8 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 80.0,
-      "baseIncome": 16.0,
+      "basePrice": 196.12,
+      "baseIncome": 21.16,
       "catalogVersion": 2,
       "legacyIdAliases": [
         "sabmiller-plc"
@@ -1310,7 +1375,8 @@
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/heineken/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "vodafone-group-plc",
@@ -1337,13 +1403,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 90.0,
-      "baseIncome": 30.0,
+      "basePrice": 179.14,
+      "baseIncome": 19.18,
       "marketCapUSD": 39000000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/vodafone/marketcap/",
       "marketCapAsOf": "2026-10-05",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "astrazeneca-plc",
@@ -1370,13 +1437,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 90.0,
-      "baseIncome": 20.0,
+      "basePrice": 566.83,
+      "baseIncome": 73.18,
       "marketCapUSD": 260000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/astrazeneca/marketcap/",
       "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "siemens-ag",
@@ -1404,47 +1472,55 @@
         "trademark": "Oui — avertissement Trademarked explicite sur Commons",
         "retrievedDate": "2026-10-06"
       },
-      "basePrice": 90.0,
-      "baseIncome": 18.0,
+      "basePrice": 546.11,
+      "baseIncome": 69.88,
       "marketCapUSD": 240000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/siemens/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "sap",
       "oldName": "SAP",
-      "currentName": "SAP SE",
-      "country": "Allemagne",
+      "currentName": "TeamViewer SE",
+      "country": "Germany",
       "zone": "europe",
       "sector": "technology",
-      "verifiedSourceURL": "https://www.sap.com/about/company.html",
-      "modification": "Current legal name is SAP SE.",
+      "verifiedSourceURL": "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline",
+      "modification": "Catalog v4: SAP SE replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "moyenne",
-      "retrievalDate": "2026-10-06",
+      "retrievalDate": "2026-10-13",
       "evidence": {
         "status": "direct_page_content_accessed",
-        "summary": "official page identifies SAP SE board and enterprise applications/business AI.",
         "sourceVerified": true,
-        "checkedDate": "2026-10-06"
+        "checkedDate": "2026-10-13",
+        "summary": "Issuer FY2025 annual report states Xetra close €6.05 on 2025-12-30 and market capitalization €989m on that date. USD is approximate: €989m × rough 1.17 ≈ $1.16bn; market cap itself is the cited primary value.",
+        "sources": [
+          "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline",
+          "https://live.deutsche-boerse.com/equity/teamviewer-ag/price-history/historical-prices-and-volumes",
+          "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+        ],
+        "confidence": "high for issuer EUR snapshot; medium for rough USD conversion"
       },
-      "verificationStatus": "verified_official_page_consulted",
+      "verificationStatus": "verified_primary_source_content_consulted",
       "logo": {
-        "status": "local-commons-svg",
-        "assetPath": "/assets/companies/logos/sap.svg",
-        "provenance": "https://commons.wikimedia.org/wiki/File:SAP_2011_logo.svg",
-        "license": "PD-textlogo / domaine public (texte et formes simples)",
-        "trademark": "Oui — avertissement Trademarked explicite sur Commons",
-        "retrievedDate": "2026-10-06"
+        "status": "fallback-monogram",
+        "assetPath": null,
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "basePrice": 90.0,
-      "baseIncome": 17.0,
-      "marketCapUSD": 240000000000,
-      "capCategory": "large",
-      "marketCapSource": "https://companiesmarketcap.com/sap/marketcap/",
-      "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "basePrice": 25,
+      "baseIncome": 2.51,
+      "marketCapUSD": 1160000000,
+      "capCategory": "small",
+      "marketCapSource": "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline",
+      "marketCapAsOf": "2025-12-30",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "TMV",
+      "exchange": "Frankfurt Stock Exchange / Xetra (Prime Standard)",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "lvmh-sa",
@@ -1471,46 +1547,55 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 90.0,
-      "baseIncome": 16.0,
+      "basePrice": 512.18,
+      "baseIncome": 64.54,
       "marketCapUSD": 210000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/lvmh/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "british-american-tobacco-plc",
       "oldName": "British American Tobacco PLC",
-      "currentName": "British American Tobacco p.l.c.",
-      "country": "Royaume-Uni",
+      "currentName": "KION GROUP AG",
+      "country": "Germany",
       "zone": "europe",
       "sector": "industry",
-      "verifiedSourceURL": "https://www.bat.com/who-we-are/our-business",
-      "modification": "Tobacco/nicotine consumer goods, not agrofood; industry is nearest available category.",
+      "verifiedSourceURL": "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html",
+      "modification": "Catalog v4: British American Tobacco p.l.c. replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "moyenne",
-      "retrievalDate": "2026-10-06",
+      "retrievalDate": "2026-10-13",
       "evidence": {
         "status": "direct_page_content_accessed",
-        "summary": "official page describes BAT as a consumer goods business focused on tobacco/nicotine.",
         "sourceVerified": true,
-        "checkedDate": "2026-10-06"
+        "checkedDate": "2026-10-13",
+        "summary": "Issuer reports ~€5.1bn market capitalization as of 2026-06-30; approximate USD equivalent ~$5.7bn.",
+        "sources": [
+          "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html",
+          "https://reports.kiongroup.com/2026/ir/2/notes/notes-to-the-statement-of-financial-position.html",
+          "https://www.kiongroup.com/en/Investors/Facts-Figures/Investment-Highlights/"
+        ],
+        "confidence": "high; official market cap, rounded FX conversion"
       },
-      "verificationStatus": "verified_official_page_consulted",
+      "verificationStatus": "verified_primary_source_content_consulted",
       "logo": {
         "status": "fallback-monogram",
         "assetPath": null,
-        "provenance": null,
-        "license": null,
-        "reason": "No downloadable asset with explicit reusable license documented in the audit."
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "basePrice": 100.0,
-      "baseIncome": 20.0,
-      "marketCapUSD": 120000000000,
-      "capCategory": "medium",
-      "marketCapSource": "https://companiesmarketcap.com/british-american-tobacco/marketcap/",
-      "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "basePrice": 33.54,
+      "baseIncome": 3.39,
+      "marketCapUSD": 5700000000,
+      "capCategory": "small",
+      "marketCapSource": "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html",
+      "marketCapAsOf": "2026-06-30",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "KGX",
+      "exchange": "Frankfurt Stock Exchange / Xetra",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "daimler-ag",
@@ -1537,13 +1622,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 100.0,
-      "baseIncome": 10.0,
+      "basePrice": 192.79,
+      "baseIncome": 20.77,
       "marketCapUSD": 43000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/mercedes-benz-group/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "inditex-s-a",
@@ -1570,13 +1656,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 100.0,
-      "baseIncome": 10.0,
+      "basePrice": 487.32,
+      "baseIncome": 60.69,
       "marketCapUSD": 190000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/inditex/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "l-oreal-sa",
@@ -1603,13 +1690,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 100.0,
-      "baseIncome": 10.0,
+      "basePrice": 523.91,
+      "baseIncome": 66.37,
       "marketCapUSD": 220000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/l-oreal/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "glaxosmithkline-plc",
@@ -1636,13 +1724,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 110.0,
-      "baseIncome": 20.0,
+      "basePrice": 328.62,
+      "baseIncome": 37.79,
       "marketCapUSD": 94000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/glaxo-smith-kline/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "banco-santander-s-a",
@@ -1669,13 +1758,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 110.0,
-      "baseIncome": 10.0,
+      "basePrice": 500,
+      "baseIncome": 62.64,
       "marketCapUSD": 200000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/santander/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "total-sa",
@@ -1703,13 +1793,14 @@
         "trademark": "Oui — avertissement Trademarked explicite sur Commons",
         "retrievedDate": "2026-10-06"
       },
-      "basePrice": 120.0,
-      "baseIncome": 40.0,
+      "basePrice": 487.32,
+      "baseIncome": 60.69,
       "marketCapUSD": 190000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/totalenergies/marketcap/",
       "marketCapAsOf": "2026-10-05",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "volkswagen-ag",
@@ -1736,13 +1827,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 120.0,
-      "baseIncome": 40.0,
+      "basePrice": 175.62,
+      "baseIncome": 18.78,
       "marketCapUSD": 38000000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/volkswagen/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "bp-plc",
@@ -1769,46 +1861,55 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 120.0,
-      "baseIncome": 30.0,
+      "basePrice": 361.35,
+      "baseIncome": 42.25,
       "marketCapUSD": 110000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/bp/marketcap/",
       "marketCapAsOf": "2026-10-05",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "bayer-ag",
       "oldName": "Bayer AG",
-      "currentName": "Bayer AG",
-      "country": "Allemagne",
+      "currentName": "Carl Zeiss Meditec AG",
+      "country": "Germany",
       "zone": "europe",
       "sector": "health",
-      "verifiedSourceURL": "https://www.bayer.com/en/science",
-      "modification": "Life sciences group; health is nearest available category.",
+      "verifiedSourceURL": "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf",
+      "modification": "Catalog v4: Bayer AG replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "moyenne",
-      "retrievalDate": "2026-10-06",
+      "retrievalDate": "2026-10-13",
       "evidence": {
         "status": "direct_page_content_accessed",
-        "summary": "official Bayer page describes core Life Science competencies in health care and agriculture.",
         "sourceVerified": true,
-        "checkedDate": "2026-10-06"
+        "checkedDate": "2026-10-13",
+        "summary": "Issuer reports €3,999.8m total market capitalization; × approximate 1.15 USD/EUR = ~$4.6bn.",
+        "sources": [
+          "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf",
+          "https://www.zeiss.com/meditec-ag/de/investor-relations/carl-zeiss-meditec-aktie.html",
+          "https://www.zeiss.com/meditec-ag/en/media-news/press-releases/2026/half-year-financial-communication-2025-26.html"
+        ],
+        "confidence": "medium-high; cap value is from issuer, USD conversion approximate"
       },
-      "verificationStatus": "verified_official_page_consulted",
+      "verificationStatus": "verified_primary_source_content_consulted",
       "logo": {
         "status": "fallback-monogram",
         "assetPath": null,
-        "provenance": null,
-        "license": null,
-        "reason": "No downloadable asset with explicit reusable license documented in the audit."
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "basePrice": 120.0,
-      "baseIncome": 20.0,
-      "marketCapUSD": 55000000000,
-      "capCategory": "medium",
-      "marketCapSource": "https://companiesmarketcap.com/bayer/marketcap/",
-      "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "basePrice": 27.34,
+      "baseIncome": 2.76,
+      "marketCapUSD": 4600000000,
+      "capCategory": "small",
+      "marketCapSource": "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf",
+      "marketCapAsOf": "2025-11-27",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "AFX",
+      "exchange": "Xetra / Frankfurt Stock Exchange (Prime Standard)",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "unilever-nv",
@@ -1835,13 +1936,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 120.0,
-      "baseIncome": 20.0,
+      "basePrice": 397.94,
+      "baseIncome": 47.4,
       "marketCapUSD": 130000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/unilever/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "sanofi",
@@ -1868,13 +1970,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 130.0,
-      "baseIncome": 30.0,
+      "basePrice": 330.77,
+      "baseIncome": 38.08,
       "marketCapUSD": 95000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/sanofi/marketcap/",
       "marketCapAsOf": "2026-10-05",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "hsbc-holdings-plc",
@@ -1901,13 +2004,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 160.0,
-      "baseIncome": 30.0,
+      "basePrice": 630.08,
+      "baseIncome": 83.37,
       "marketCapUSD": 330000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/hsbc/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "royal-dutch-shell",
@@ -1935,13 +2039,14 @@
         "trademark": "Oui — avertissement Trademarked explicite sur Commons",
         "retrievedDate": "2026-10-06"
       },
-      "basePrice": 190.0,
-      "baseIncome": 50.0,
+      "basePrice": 586.25,
+      "baseIncome": 76.29,
       "marketCapUSD": 280000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/shell/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "anheuser-busch",
@@ -1968,13 +2073,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 200.0,
-      "baseIncome": 30.0,
+      "basePrice": 430.68,
+      "baseIncome": 52.16,
       "marketCapUSD": 150000000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/anheuser-busch-inbev/marketcap/",
       "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "nestle",
@@ -2001,13 +2107,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 230.0,
-      "baseIncome": 50.0,
+      "basePrice": 535.21,
+      "baseIncome": 68.15,
       "marketCapUSD": 230000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/nestle/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "novartis",
@@ -2034,13 +2141,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 230.0,
-      "baseIncome": 40.0,
+      "basePrice": 576.69,
+      "baseIncome": 74.76,
       "marketCapUSD": 270000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/novartis/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "roche",
@@ -2067,13 +2175,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 230.0,
-      "baseIncome": 40.0,
+      "basePrice": 638.15,
+      "baseIncome": 84.68,
       "marketCapUSD": 340000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/roche/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "orascom-construction-industries",
@@ -2100,13 +2209,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 5.0,
-      "baseIncome": 5.0,
+      "basePrice": 25,
+      "baseIncome": 2.51,
       "marketCapUSD": 1750000000,
       "capCategory": "small",
       "marketCapSource": "https://stockanalysis.com/quote/adx/ORAS/market-cap/",
       "marketCapAsOf": "2026-10-06",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "tata-motors",
@@ -2133,8 +2243,8 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 5.0,
-      "baseIncome": 5.0,
+      "basePrice": 95.53,
+      "baseIncome": 9.88,
       "priorEvidence": {
         "url": "https://www.tatamotors.com/organisation/about-us/",
         "evidence": {
@@ -2149,7 +2259,8 @@
       "capCategory": "small",
       "marketCapSource": "https://www.nseindia.com/get-quote/equity/TMCV/Tata-Motors",
       "marketCapAsOf": "2026-09-24",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "maroc-telecom",
@@ -2176,46 +2287,54 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 5.0,
-      "baseIncome": 5.0,
+      "basePrice": 49.36,
+      "baseIncome": 5.02,
       "marketCapUSD": 8610000000,
       "capCategory": "small",
       "marketCapSource": "https://www.zonebourse.com/cours/action/MAROC-TELECOM-5274/valorisation/",
       "marketCapAsOf": "2026-10-06",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "bank-central-asia",
       "oldName": "Bank Central Asia",
-      "currentName": "PT Bank Central Asia Tbk",
-      "country": "Indonésie",
+      "currentName": "TAIWAN BUSINESS BANK",
+      "country": "Taiwan",
       "zone": "asia",
       "sector": "finance",
-      "verifiedSourceURL": "https://www.bca.co.id/en/tentang-bca",
-      "modification": "Société existante confirmée par la source officielle; nom, pays et secteur cohérents à ce niveau d’audit.",
+      "verifiedSourceURL": "https://www.tbb.com.tw/zh-tw/about/intro/brief/profile",
+      "modification": "Catalog v4: PT Bank Central Asia Tbk replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "élevée",
       "evidence": {
-        "checkedDate": "2026-10-06",
         "status": "direct_page_content_accessed",
-        "summary": "Page About BCA; affiche siège à Jakarta et indicateurs d’activité bancaire (actifs, prêts, branches, comptes). The current displayed name follows the official corporate style on this source.",
-        "sourceVerified": true
+        "sourceVerified": true,
+        "checkedDate": "2026-10-13",
+        "summary": "NT$15.05 × (NT$97,180,618,490 paid-in capital ÷ NT$10 par) = NT$146.26bn; ÷ 32 TWD/USD ≈ US$4.57bn.",
+        "sources": [
+          "https://www.tbb.com.tw/zh-tw/about/intro/brief/profile",
+          "https://www.twse.com.tw/pdf/en/2834_en.pdf"
+        ],
+        "confidence": "medium; primary inputs, rounded FX assumption and issued-share approximation"
       },
-      "verificationStatus": "verified_official_page_consulted",
-      "retrievalDate": "2026-10-06",
+      "verificationStatus": "verified_primary_source_content_consulted",
+      "retrievalDate": "2026-10-13",
       "logo": {
         "status": "fallback-monogram",
         "assetPath": null,
-        "provenance": null,
-        "license": null,
-        "reason": "No downloadable asset with explicit reusable license documented in the audit."
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "basePrice": 20.0,
-      "baseIncome": 7.0,
-      "marketCapUSD": 45020000000,
-      "capCategory": "medium",
-      "marketCapSource": "https://companiesmarketcap.com/bank-central-asia/marketcap/",
-      "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "basePrice": 27.17,
+      "baseIncome": 2.74,
+      "marketCapUSD": 4570525963,
+      "capCategory": "small",
+      "marketCapSource": "https://www.twse.com.tw/pdf/en/2834_en.pdf",
+      "marketCapAsOf": "2026-03-27",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "2834",
+      "exchange": "Taiwan Stock Exchange (TWSE)",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "astra-international",
@@ -2270,13 +2389,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 30.0,
-      "baseIncome": 10.0,
+      "basePrice": 169.82,
+      "baseIncome": 18.11,
       "marketCapUSD": 36370000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/fanuc/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "industries-qatar",
@@ -2304,13 +2424,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 30.0,
-      "baseIncome": 10.0,
+      "basePrice": 136.43,
+      "baseIncome": 14.35,
       "marketCapUSD": 27570000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/emaar-properties/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "mtn-group",
@@ -2337,13 +2458,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 30.0,
-      "baseIncome": 10.0,
+      "basePrice": 117.06,
+      "baseIncome": 12.21,
       "marketCapUSD": 22880000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/mtn-group/marketcap/",
       "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "qatar-national-bank",
@@ -2370,13 +2492,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 30.0,
-      "baseIncome": 10.0,
+      "basePrice": 180.53,
+      "baseIncome": 19.34,
       "marketCapUSD": 39400000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/qnb-qatar-national-bank/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "sasol",
@@ -2403,13 +2526,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 30.0,
-      "baseIncome": 10.0,
+      "basePrice": 53.57,
+      "baseIncome": 5.46,
       "marketCapUSD": 9410000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/sasol/marketcap/",
       "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "taiwan-semiconductor-manufacturing",
@@ -2436,13 +2560,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 90.0,
-      "baseIncome": 15.0,
+      "basePrice": 1215.59,
+      "baseIncome": 170.18,
       "marketCapUSD": 2452000000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/tsmc/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "gazprom",
@@ -2498,13 +2623,14 @@
         "trademark": "Commons page expressly notes it may remain trademark-protected; the copyright license is not a trademark permission. Use only as a source-marked company logo in the proposed replacement context.",
         "retrievedDate": "2026-10-06"
       },
-      "basePrice": 100.0,
-      "baseIncome": 50.0,
+      "basePrice": 297.99,
+      "baseIncome": 33.75,
       "marketCapUSD": 80480000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/mitsubishi-heavy-industries/marketcap",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "ping-an-insurance-group-co-of-china-ltd",
@@ -2531,13 +2657,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 110.0,
-      "baseIncome": 20.0,
+      "basePrice": 421.09,
+      "baseIncome": 50.75,
       "marketCapUSD": 143920000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/ping-an-insurance/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "sinopec",
@@ -2565,8 +2692,8 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 120.0,
-      "baseIncome": 20.0,
+      "basePrice": 331.28,
+      "baseIncome": 38.15,
       "priorEvidence": {
         "url": "https://www.sinopecgroup.com/u/cms/jtyw/202603/22203315gxqf.pdf",
         "evidence": {
@@ -2580,7 +2707,8 @@
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/sinopec/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "toyota-motor",
@@ -2607,13 +2735,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 180.0,
-      "baseIncome": 30.0,
+      "basePrice": 521.63,
+      "baseIncome": 66.01,
       "marketCapUSD": 218030000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/toyota/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "tencent-holdings-ltd",
@@ -2640,13 +2769,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 180.0,
-      "baseIncome": 20.0,
+      "basePrice": 733.29,
+      "baseIncome": 100,
       "marketCapUSD": 479740000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/tencent/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "agricultural-bank-of-china",
@@ -2674,8 +2804,8 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 190.0,
-      "baseIncome": 30.0,
+      "basePrice": 177.56,
+      "baseIncome": 19,
       "priorEvidence": {
         "url": "https://www.abchina.com/en/investor-relations/company-overview/",
         "evidence": {
@@ -2689,40 +2819,48 @@
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/sun-hung-kai-properties/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "alibaba-group-holding",
       "oldName": "Alibaba Group Holding",
-      "currentName": "Alibaba Group Holding Limited",
-      "country": "Chine",
+      "currentName": "CHICONY ELECTRONICS CO., LTD.",
+      "country": "Taiwan",
       "zone": "asia",
       "sector": "technology",
-      "verifiedSourceURL": "https://www.alibabagroup.com/en-US/about-alibaba",
-      "modification": "Société existante confirmée par la source officielle; nom, pays et secteur cohérents à ce niveau d’audit.",
+      "verifiedSourceURL": "https://www.chicony.com/chicony/en/about/profile",
+      "modification": "Catalog v4: Alibaba Group Holding Limited replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "élevée",
       "evidence": {
-        "checkedDate": "2026-10-06",
         "status": "direct_page_content_accessed",
-        "summary": "Page officielle Introduction to Alibaba Group expose l’identité et les activités du groupe technologique/commerce numérique. The current displayed name follows the official corporate style on this source.",
-        "sourceVerified": true
+        "sourceVerified": true,
+        "checkedDate": "2026-10-13",
+        "summary": "NT$135.5 × (NT$7,600,531,720 paid-in capital ÷ NT$10 par) = NT$102.99bn; ÷ 32 TWD/USD ≈ US$3.22bn.",
+        "sources": [
+          "https://www.chicony.com/chicony/en/about/profile",
+          "https://www.twse.com.tw/pdf/en/2385_en.pdf"
+        ],
+        "confidence": "medium; primary inputs, rounded FX assumption and issued-share approximation"
       },
-      "verificationStatus": "verified_official_page_consulted",
-      "retrievalDate": "2026-10-06",
+      "verificationStatus": "verified_primary_source_content_consulted",
+      "retrievalDate": "2026-10-13",
       "logo": {
         "status": "fallback-monogram",
         "assetPath": null,
-        "provenance": null,
-        "license": null,
-        "reason": "No downloadable asset with explicit reusable license documented in the audit."
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "basePrice": 200.0,
-      "baseIncome": 40.0,
-      "marketCapUSD": 275640000000,
-      "capCategory": "large",
-      "marketCapSource": "https://companiesmarketcap.com/alibaba/marketcap/",
-      "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "basePrice": 25,
+      "baseIncome": 2.52,
+      "marketCapUSD": 3218350150,
+      "capCategory": "small",
+      "marketCapSource": "https://www.twse.com.tw/pdf/en/2385_en.pdf",
+      "marketCapAsOf": "2026-05-27",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "2385",
+      "exchange": "Taiwan Stock Exchange (TWSE)",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "bank-of-china-ltd",
@@ -2750,8 +2888,8 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 200.0,
-      "baseIncome": 40.0,
+      "basePrice": 625.09,
+      "baseIncome": 82.56,
       "priorEvidence": {
         "url": "https://www.boc.cn/en/aboutboc/ab1/200809/t20080901_1601737.html",
         "evidence": {
@@ -2765,17 +2903,18 @@
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/bank-of-china/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "china-construction-bank-corp",
       "oldName": "China Construction Bank Corp",
-      "currentName": "Komatsu Ltd.",
-      "country": "Japon",
+      "currentName": "NITTO KOGYO CORPORATION",
+      "country": "Japan",
       "zone": "asia",
       "sector": "industry",
-      "verifiedSourceURL": "https://www.komatsu.com/en-us/about",
-      "modification": "Source officielle: Komatsu présente ses machines pour construction, mines, foresterie et équipements industriels. Recommandation de remplacement sectoriel.",
+      "verifiedSourceURL": "https://www.nito.co.jp/english/IR/stock/basic/",
+      "modification": "Catalog v4: Komatsu Ltd. replaced by a listed Small; opaque legacy ID preserved.",
       "confiance": "élevée pour le candidat de remplacement; moyenne pour la ligne antérieure où indiqué dans replacementProposal.beforeEvidence",
       "replacementProposal": {
         "before": {
@@ -2806,27 +2945,36 @@
         }
       },
       "evidence": {
-        "checkedDate": "2026-10-06",
         "status": "direct_page_content_accessed",
-        "summary": "La page Komatsu confirme société et fabrication de machines de construction/mines; remplace CCB dans la proposition et change le secteur vers Industrie.",
-        "sourceVerified": true
+        "sourceVerified": true,
+        "checkedDate": "2026-10-13",
+        "summary": "JPY4,340 × 40,458,000 issued/listed shares = JPY175.58772bn; ÷ assumed 150 JPY/USD ≈ US$1.1705848bn. This gross issued/listed-share estimate includes treasury shares; the only issuer treasury-share count located was 2,424,913 as of 2024-03-31, so no current treasury-adjusted figure is asserted.",
+        "sources": [
+          "https://www.nito.co.jp/english/IR/stock/basic/",
+          "https://www.nito.co.jp/english/company/overview/",
+          "https://www.jpx.co.jp/automation/markets/statistics-equities/daily/files/202609/stq_20260911.pdf",
+          "https://www.jpx.co.jp/english/listing/co/sjcobq000000swvo-att/HP-2025.2%28e%29.pdf"
+        ],
+        "confidence": "medium; primary inputs, rounded FX assumption and issued-share approximation"
       },
-      "verificationStatus": "verified_official_page_consulted",
-      "retrievalDate": "2026-10-06",
+      "verificationStatus": "verified_primary_source_content_consulted",
+      "retrievalDate": "2026-10-13",
       "logo": {
         "status": "fallback-monogram",
         "assetPath": null,
-        "provenance": null,
-        "license": null,
-        "reason": "No downloadable asset with explicit reusable license documented in the audit."
+        "reason": "Existing renderer fallback; no new artwork in this engine iteration."
       },
-      "basePrice": 210.0,
-      "baseIncome": 50.0,
-      "marketCapUSD": 43630000000,
-      "capCategory": "medium",
-      "marketCapSource": "https://companiesmarketcap.com/komatsu/marketcap/",
-      "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "basePrice": 25,
+      "baseIncome": 2.51,
+      "marketCapUSD": 1170584800,
+      "capCategory": "small",
+      "marketCapSource": "https://www.jpx.co.jp/automation/markets/statistics-equities/daily/files/202609/stq_20260911.pdf",
+      "marketCapAsOf": "2026-09-11",
+      "capConsultedAt": "2026-10-06",
+      "ticker": "6651",
+      "exchange": "Tokyo Stock Exchange (Prime Market); also Nagoya Stock Exchange (Premier Market)",
+      "catalogVersion": 4,
+      "economyVersion": 4
     },
     {
       "id": "samsung-electronics-co-ltd",
@@ -2854,8 +3002,8 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 210.0,
-      "baseIncome": 40.0,
+      "basePrice": 1031.64,
+      "baseIncome": 144.38,
       "priorEvidence": {
         "url": "https://www.samsung.com/global/ir/governance-csr/articles-of-incorporation/",
         "evidence": {
@@ -2869,7 +3017,8 @@
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/samsung/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "china-mobile-ltd",
@@ -2897,8 +3046,8 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 270.0,
-      "baseIncome": 50.0,
+      "basePrice": 521.63,
+      "baseIncome": 66.01,
       "priorEvidence": {
         "url": "https://www.chinamobileltd.com/en/about/overview.php",
         "evidence": {
@@ -2912,7 +3061,8 @@
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/china-mobile/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "icbc-ltd",
@@ -2939,13 +3089,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 270.0,
-      "baseIncome": 50.0,
+      "basePrice": 637.03,
+      "baseIncome": 84.5,
       "marketCapUSD": 338600000000,
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/icbc/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "petrochina-co-ltd",
@@ -2973,8 +3124,8 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 330.0,
-      "baseIncome": 70.0,
+      "basePrice": 530.2,
+      "baseIncome": 67.36,
       "priorEvidence": {
         "url": "https://www.petrochina.com.cn/ptr/ndbg/202605/c734755cc9764eb5ba8628aac4e3230c/files/c7e4f2a5e9aa4c9eacafb02ff2367d78.pdf",
         "evidence": {
@@ -2988,7 +3139,8 @@
       "capCategory": "large",
       "marketCapSource": "https://companiesmarketcap.com/petro-china/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "pacifica-minerals",
@@ -3015,13 +3167,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 45,
-      "baseIncome": 9,
+      "basePrice": 162.06,
+      "baseIncome": 17.23,
       "marketCapUSD": 34240000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/woolworths-group/marketcap/",
       "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "southern-cross-energy",
@@ -3049,8 +3202,8 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 70,
-      "baseIncome": 14,
+      "basePrice": 72.54,
+      "baseIncome": 7.44,
       "priorEvidence": {
         "url": "https://www.originenergy.com.au/about/",
         "evidence": {
@@ -3064,7 +3217,8 @@
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/origin-energy/marketcap/",
       "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "coral-reef-health",
@@ -3091,13 +3245,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 55,
-      "baseIncome": 11,
+      "basePrice": 240.68,
+      "baseIncome": 26.51,
       "marketCapUSD": 58500000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/csl/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "pacific-link",
@@ -3125,13 +3280,14 @@
         "trademark": "Commons page expressly notes trademark restrictions can apply; this is copyright status, not trademark authorization. Use only as a source-marked company logo in the proposed replacement context.",
         "retrievedDate": "2026-10-06"
       },
-      "basePrice": 60,
-      "baseIncome": 12,
+      "basePrice": 173.53,
+      "baseIncome": 18.54,
       "marketCapUSD": 37410000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/telstra/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "harbour-infrastructure",
@@ -3158,13 +3314,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 80,
-      "baseIncome": 16,
+      "basePrice": 173.78,
+      "baseIncome": 18.57,
       "marketCapUSD": 37480000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/goodman/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "oceanic-air",
@@ -3191,13 +3348,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 50,
-      "baseIncome": 10,
+      "basePrice": 54.41,
+      "baseIncome": 5.54,
       "marketCapUSD": 9570000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/qantas-airways/marketcap/",
       "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "southpoint-finance",
@@ -3224,13 +3382,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 65,
-      "baseIncome": 13,
+      "basePrice": 470.5,
+      "baseIncome": 58.12,
       "marketCapUSD": 177350000000,
       "capCategory": "medium",
       "marketCapSource": "https://companiesmarketcap.com/commonwealth-bank/marketcap/",
       "marketCapAsOf": "2026-10",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "reef-data-systems",
@@ -3257,13 +3416,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 55,
-      "baseIncome": 11,
+      "basePrice": 43.69,
+      "baseIncome": 4.43,
       "marketCapUSD": 7550000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/wisetech-global/marketcap/",
       "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     },
     {
       "id": "austral-manufacturing",
@@ -3290,13 +3450,14 @@
         "license": null,
         "reason": "No downloadable asset with explicit reusable license documented in the audit."
       },
-      "basePrice": 45,
-      "baseIncome": 9,
+      "basePrice": 172.15,
+      "baseIncome": 18.38,
       "marketCapUSD": 37020000000,
       "capCategory": "small",
       "marketCapSource": "https://companiesmarketcap.com/fortescue/marketcap/",
       "marketCapAsOf": "2026-09",
-      "capConsultedAt": "2026-10-06"
+      "capConsultedAt": "2026-10-06",
+      "economyVersion": 4
     }
   ],
   "legacyReplacements": [
@@ -3307,8 +3468,8 @@
       ],
       "oldName": "Sabmiller PLC",
       "currentName": "Heineken N.V.",
-      "basePrice": 80.0,
-      "baseIncome": 16.0
+      "basePrice": 80,
+      "baseIncome": 16
     },
     {
       "id": "general-electric",
@@ -3317,9 +3478,10 @@
       ],
       "oldName": "General Electric",
       "currentName": "GE Aerospace",
-      "basePrice": 250.0,
-      "baseIncome": 30.0
+      "basePrice": 250,
+      "baseIncome": 30
     }
   ],
-  "evidenceFollowupDate": "2026-10-06"
+  "evidenceFollowupDate": "2026-10-06",
+  "lastUpdated": "2026-10-13"
 }

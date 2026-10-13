@@ -1,0 +1,2758 @@
+{
+  "generatedAt": "2026-10-13",
+  "runtimeSource": "packages/game-engine/legacy/data/gameData.json",
+  "companyCount": 91,
+  "uniqueCompanyIdCount": 91,
+  "zones": [
+    "americas",
+    "europe",
+    "asia",
+    "africa",
+    "oceania"
+  ],
+  "sectors": [
+    "technology",
+    "finance",
+    "industry",
+    "health",
+    "energy",
+    "realestate",
+    "agrifood",
+    "media",
+    "transport"
+  ],
+  "counts": {
+    "zone": {
+      "americas": {
+        "small": 7,
+        "medium": 10,
+        "large": 18
+      },
+      "europe": {
+        "small": 5,
+        "medium": 9,
+        "large": 10
+      },
+      "asia": {
+        "small": 6,
+        "medium": 3,
+        "large": 8
+      },
+      "africa": {
+        "small": 6,
+        "medium": 0,
+        "large": 0
+      },
+      "oceania": {
+        "small": 7,
+        "medium": 2,
+        "large": 0
+      }
+    },
+    "sector": {
+      "technology": {
+        "small": 4,
+        "medium": 0,
+        "large": 9
+      },
+      "finance": {
+        "small": 4,
+        "medium": 2,
+        "large": 8
+      },
+      "industry": {
+        "small": 4,
+        "medium": 5,
+        "large": 5
+      },
+      "health": {
+        "small": 2,
+        "medium": 3,
+        "large": 4
+      },
+      "energy": {
+        "small": 3,
+        "medium": 4,
+        "large": 4
+      },
+      "realestate": {
+        "small": 4,
+        "medium": 0,
+        "large": 0
+      },
+      "agrifood": {
+        "small": 2,
+        "medium": 6,
+        "large": 4
+      },
+      "media": {
+        "small": 4,
+        "medium": 3,
+        "large": 1
+      },
+      "transport": {
+        "small": 4,
+        "medium": 1,
+        "large": 1
+      }
+    },
+    "total": {
+      "small": 31,
+      "medium": 24,
+      "large": 36
+    }
+  },
+  "zoneSectorSmallMediumLarge": {
+    "americas": {
+      "technology": {
+        "small": 1,
+        "medium": 0,
+        "large": 6
+      },
+      "finance": {
+        "small": 2,
+        "medium": 0,
+        "large": 4
+      },
+      "industry": {
+        "small": 0,
+        "medium": 3,
+        "large": 2
+      },
+      "health": {
+        "small": 1,
+        "medium": 0,
+        "large": 1
+      },
+      "energy": {
+        "small": 1,
+        "medium": 1,
+        "large": 2
+      },
+      "realestate": {
+        "small": 0,
+        "medium": 0,
+        "large": 0
+      },
+      "agrifood": {
+        "small": 1,
+        "medium": 3,
+        "large": 3
+      },
+      "media": {
+        "small": 0,
+        "medium": 3,
+        "large": 0
+      },
+      "transport": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      }
+    },
+    "europe": {
+      "technology": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "finance": {
+        "small": 0,
+        "medium": 0,
+        "large": 2
+      },
+      "industry": {
+        "small": 1,
+        "medium": 1,
+        "large": 3
+      },
+      "health": {
+        "small": 1,
+        "medium": 2,
+        "large": 3
+      },
+      "energy": {
+        "small": 0,
+        "medium": 2,
+        "large": 1
+      },
+      "realestate": {
+        "small": 0,
+        "medium": 0,
+        "large": 0
+      },
+      "agrifood": {
+        "small": 0,
+        "medium": 3,
+        "large": 1
+      },
+      "media": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "transport": {
+        "small": 1,
+        "medium": 1,
+        "large": 0
+      }
+    },
+    "asia": {
+      "technology": {
+        "small": 1,
+        "medium": 0,
+        "large": 3
+      },
+      "finance": {
+        "small": 1,
+        "medium": 1,
+        "large": 2
+      },
+      "industry": {
+        "small": 2,
+        "medium": 1,
+        "large": 0
+      },
+      "health": {
+        "small": 0,
+        "medium": 0,
+        "large": 0
+      },
+      "energy": {
+        "small": 0,
+        "medium": 1,
+        "large": 1
+      },
+      "realestate": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "agrifood": {
+        "small": 0,
+        "medium": 0,
+        "large": 0
+      },
+      "media": {
+        "small": 0,
+        "medium": 0,
+        "large": 1
+      },
+      "transport": {
+        "small": 1,
+        "medium": 0,
+        "large": 1
+      }
+    },
+    "africa": {
+      "technology": {
+        "small": 0,
+        "medium": 0,
+        "large": 0
+      },
+      "finance": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "industry": {
+        "small": 0,
+        "medium": 0,
+        "large": 0
+      },
+      "health": {
+        "small": 0,
+        "medium": 0,
+        "large": 0
+      },
+      "energy": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "realestate": {
+        "small": 2,
+        "medium": 0,
+        "large": 0
+      },
+      "agrifood": {
+        "small": 0,
+        "medium": 0,
+        "large": 0
+      },
+      "media": {
+        "small": 2,
+        "medium": 0,
+        "large": 0
+      },
+      "transport": {
+        "small": 0,
+        "medium": 0,
+        "large": 0
+      }
+    },
+    "oceania": {
+      "technology": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "finance": {
+        "small": 0,
+        "medium": 1,
+        "large": 0
+      },
+      "industry": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "health": {
+        "small": 0,
+        "medium": 1,
+        "large": 0
+      },
+      "energy": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "realestate": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "agrifood": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "media": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "transport": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      }
+    }
+  },
+  "emptyZoneSectorCells": [
+    {
+      "zone": "americas",
+      "sector": "realestate"
+    },
+    {
+      "zone": "europe",
+      "sector": "realestate"
+    },
+    {
+      "zone": "asia",
+      "sector": "health"
+    },
+    {
+      "zone": "asia",
+      "sector": "agrifood"
+    },
+    {
+      "zone": "africa",
+      "sector": "technology"
+    },
+    {
+      "zone": "africa",
+      "sector": "industry"
+    },
+    {
+      "zone": "africa",
+      "sector": "health"
+    },
+    {
+      "zone": "africa",
+      "sector": "agrifood"
+    },
+    {
+      "zone": "africa",
+      "sector": "transport"
+    }
+  ],
+  "occupiedCellSizeHistogram": {
+    "1": 16,
+    "2": 7,
+    "3": 3,
+    "4": 4,
+    "5": 2,
+    "6": 2,
+    "7": 2
+  },
+  "fullControlAtOrBelow100M": [
+    {
+      "zone": "africa",
+      "sector": "energy",
+      "companies": [
+        "Sasol Limited"
+      ],
+      "sharesRequired": 5,
+      "costM": 53.57
+    },
+    {
+      "zone": "americas",
+      "sector": "transport",
+      "companies": [
+        "JetBlue Airways Corporation"
+      ],
+      "sharesRequired": 5,
+      "costM": 25
+    },
+    {
+      "zone": "europe",
+      "sector": "technology",
+      "companies": [
+        "TeamViewer SE"
+      ],
+      "sharesRequired": 5,
+      "costM": 25
+    },
+    {
+      "zone": "oceania",
+      "sector": "energy",
+      "companies": [
+        "Origin Energy"
+      ],
+      "sharesRequired": 5,
+      "costM": 72.54
+    },
+    {
+      "zone": "oceania",
+      "sector": "technology",
+      "companies": [
+        "WiseTech Global Limited"
+      ],
+      "sharesRequired": 5,
+      "costM": 43.69
+    },
+    {
+      "zone": "oceania",
+      "sector": "transport",
+      "companies": [
+        "Qantas Airways"
+      ],
+      "sharesRequired": 5,
+      "costM": 54.41
+    }
+  ],
+  "firstShareBudget": {
+    "openingCashM": 100.0,
+    "reserveM": 0.0,
+    "availableAfterReserveM": 100.0,
+    "affordableCompanyCount": 56,
+    "companies": [
+      {
+        "id": "orascom-construction-industries",
+        "name": "Orascom Construction PLC",
+        "zone": "africa",
+        "sector": "realestate",
+        "category": "small",
+        "sharePriceM": 5.0,
+        "basePriceM": 25,
+        "remainingCashAfterPurchaseM": 95.0
+      },
+      {
+        "id": "tata-motors",
+        "name": "Tata Motors Limited",
+        "zone": "asia",
+        "sector": "transport",
+        "category": "small",
+        "sharePriceM": 19.11,
+        "basePriceM": 95.53,
+        "remainingCashAfterPurchaseM": 80.89
+      },
+      {
+        "id": "maroc-telecom",
+        "name": "Maroc Telecom",
+        "zone": "africa",
+        "sector": "media",
+        "category": "small",
+        "sharePriceM": 9.87,
+        "basePriceM": 49.36,
+        "remainingCashAfterPurchaseM": 90.13
+      },
+      {
+        "id": "enersis",
+        "name": "Enel Chile",
+        "zone": "americas",
+        "sector": "energy",
+        "category": "small",
+        "sharePriceM": 7.04,
+        "basePriceM": 35.21,
+        "remainingCashAfterPurchaseM": 92.96
+      },
+      {
+        "id": "bank-central-asia",
+        "name": "TAIWAN BUSINESS BANK",
+        "zone": "asia",
+        "sector": "finance",
+        "category": "small",
+        "sharePriceM": 5.43,
+        "basePriceM": 27.17,
+        "remainingCashAfterPurchaseM": 94.57
+      },
+      {
+        "id": "astra-international",
+        "name": "FANUC Corporation",
+        "zone": "asia",
+        "sector": "industry",
+        "category": "small",
+        "sharePriceM": 33.96,
+        "basePriceM": 169.82,
+        "remainingCashAfterPurchaseM": 66.04
+      },
+      {
+        "id": "industries-qatar",
+        "name": "Emaar Properties PJSC",
+        "zone": "africa",
+        "sector": "realestate",
+        "category": "small",
+        "sharePriceM": 27.29,
+        "basePriceM": 136.43,
+        "remainingCashAfterPurchaseM": 72.71
+      },
+      {
+        "id": "mtn-group",
+        "name": "MTN Group Limited",
+        "zone": "africa",
+        "sector": "media",
+        "category": "small",
+        "sharePriceM": 23.41,
+        "basePriceM": 117.06,
+        "remainingCashAfterPurchaseM": 76.59
+      },
+      {
+        "id": "qatar-national-bank",
+        "name": "Qatar National Bank",
+        "zone": "africa",
+        "sector": "finance",
+        "category": "small",
+        "sharePriceM": 36.11,
+        "basePriceM": 180.53,
+        "remainingCashAfterPurchaseM": 63.89
+      },
+      {
+        "id": "sasol",
+        "name": "Sasol Limited",
+        "zone": "africa",
+        "sector": "energy",
+        "category": "small",
+        "sharePriceM": 10.71,
+        "basePriceM": 53.57,
+        "remainingCashAfterPurchaseM": 89.29
+      },
+      {
+        "id": "banco-brasil",
+        "name": "Banco do Brasil",
+        "zone": "americas",
+        "sector": "finance",
+        "category": "small",
+        "sharePriceM": 29.2,
+        "basePriceM": 146.01,
+        "remainingCashAfterPurchaseM": 70.8
+      },
+      {
+        "id": "amx",
+        "name": "América Móvil",
+        "zone": "americas",
+        "sector": "media",
+        "category": "medium",
+        "sharePriceM": 52.82,
+        "basePriceM": 264.11,
+        "remainingCashAfterPurchaseM": 47.18
+      },
+      {
+        "id": "walmex",
+        "name": "Walmart de México y Centroamérica",
+        "zone": "americas",
+        "sector": "agrifood",
+        "category": "medium",
+        "sharePriceM": 40.53,
+        "basePriceM": 202.66,
+        "remainingCashAfterPurchaseM": 59.47
+      },
+      {
+        "id": "sabmiller-plc",
+        "name": "Heineken N.V.",
+        "zone": "europe",
+        "sector": "agrifood",
+        "category": "medium",
+        "sharePriceM": 39.22,
+        "basePriceM": 196.12,
+        "remainingCashAfterPurchaseM": 60.78
+      },
+      {
+        "id": "vodafone-group-plc",
+        "name": "Vodafone Group Plc",
+        "zone": "europe",
+        "sector": "media",
+        "category": "small",
+        "sharePriceM": 35.83,
+        "basePriceM": 179.14,
+        "remainingCashAfterPurchaseM": 64.17
+      },
+      {
+        "id": "mcdonald-s-corp",
+        "name": "McDonald’s Corporation",
+        "zone": "americas",
+        "sector": "agrifood",
+        "category": "medium",
+        "sharePriceM": 89.17,
+        "basePriceM": 445.83,
+        "remainingCashAfterPurchaseM": 10.83
+      },
+      {
+        "id": "sap",
+        "name": "TeamViewer SE",
+        "zone": "europe",
+        "sector": "technology",
+        "category": "small",
+        "sharePriceM": 5.0,
+        "basePriceM": 25,
+        "remainingCashAfterPurchaseM": 95.0
+      },
+      {
+        "id": "nike-inc",
+        "name": "NIKE, Inc.",
+        "zone": "americas",
+        "sector": "industry",
+        "category": "medium",
+        "sharePriceM": 43.07,
+        "basePriceM": 215.34,
+        "remainingCashAfterPurchaseM": 56.93
+      },
+      {
+        "id": "united-parcel-service",
+        "name": "JetBlue Airways Corporation",
+        "zone": "americas",
+        "sector": "transport",
+        "category": "small",
+        "sharePriceM": 5.0,
+        "basePriceM": 25,
+        "remainingCashAfterPurchaseM": 95.0
+      },
+      {
+        "id": "gazprom",
+        "name": "Mitsubishi Heavy Industries (MHI)",
+        "zone": "asia",
+        "sector": "industry",
+        "category": "medium",
+        "sharePriceM": 59.6,
+        "basePriceM": 297.99,
+        "remainingCashAfterPurchaseM": 40.4
+      },
+      {
+        "id": "british-american-tobacco-plc",
+        "name": "KION GROUP AG",
+        "zone": "europe",
+        "sector": "industry",
+        "category": "small",
+        "sharePriceM": 6.71,
+        "basePriceM": 33.54,
+        "remainingCashAfterPurchaseM": 93.29
+      },
+      {
+        "id": "3m-co",
+        "name": "3M Company",
+        "zone": "americas",
+        "sector": "industry",
+        "category": "medium",
+        "sharePriceM": 61.25,
+        "basePriceM": 306.26,
+        "remainingCashAfterPurchaseM": 38.75
+      },
+      {
+        "id": "the-boeing-company",
+        "name": "The Boeing Company",
+        "zone": "americas",
+        "sector": "industry",
+        "category": "medium",
+        "sharePriceM": 86.14,
+        "basePriceM": 430.68,
+        "remainingCashAfterPurchaseM": 13.86
+      },
+      {
+        "id": "daimler-ag",
+        "name": "Mercedes-Benz Group AG",
+        "zone": "europe",
+        "sector": "transport",
+        "category": "medium",
+        "sharePriceM": 38.56,
+        "basePriceM": 192.79,
+        "remainingCashAfterPurchaseM": 61.44
+      },
+      {
+        "id": "inditex-s-a",
+        "name": "Industria de Diseño Textil, S.A. (Inditex)",
+        "zone": "europe",
+        "sector": "industry",
+        "category": "medium",
+        "sharePriceM": 97.46,
+        "basePriceM": 487.32,
+        "remainingCashAfterPurchaseM": 2.54
+      },
+      {
+        "id": "glaxosmithkline-plc",
+        "name": "GSK plc",
+        "zone": "europe",
+        "sector": "health",
+        "category": "medium",
+        "sharePriceM": 65.72,
+        "basePriceM": 328.62,
+        "remainingCashAfterPurchaseM": 34.28
+      },
+      {
+        "id": "petrobras",
+        "name": "Petróleo Brasileiro S.A. (Petrobras)",
+        "zone": "americas",
+        "sector": "energy",
+        "category": "medium",
+        "sharePriceM": 89.17,
+        "basePriceM": 445.83,
+        "remainingCashAfterPurchaseM": 10.83
+      },
+      {
+        "id": "ping-an-insurance-group-co-of-china-ltd",
+        "name": "Ping An Insurance (Group) Company of China, Ltd.",
+        "zone": "asia",
+        "sector": "finance",
+        "category": "medium",
+        "sharePriceM": 84.22,
+        "basePriceM": 421.09,
+        "remainingCashAfterPurchaseM": 15.78
+      },
+      {
+        "id": "banco-santander-s-a",
+        "name": "Banco Santander, S.A.",
+        "zone": "europe",
+        "sector": "finance",
+        "category": "large",
+        "sharePriceM": 100.0,
+        "basePriceM": 500,
+        "remainingCashAfterPurchaseM": 0.0
+      },
+      {
+        "id": "total-sa",
+        "name": "TotalEnergies SE",
+        "zone": "europe",
+        "sector": "energy",
+        "category": "medium",
+        "sharePriceM": 97.46,
+        "basePriceM": 487.32,
+        "remainingCashAfterPurchaseM": 2.54
+      },
+      {
+        "id": "volkswagen-ag",
+        "name": "Volkswagen AG",
+        "zone": "europe",
+        "sector": "transport",
+        "category": "small",
+        "sharePriceM": 35.12,
+        "basePriceM": 175.62,
+        "remainingCashAfterPurchaseM": 64.88
+      },
+      {
+        "id": "bp-plc",
+        "name": "BP p.l.c.",
+        "zone": "europe",
+        "sector": "energy",
+        "category": "medium",
+        "sharePriceM": 72.27,
+        "basePriceM": 361.35,
+        "remainingCashAfterPurchaseM": 27.73
+      },
+      {
+        "id": "bayer-ag",
+        "name": "Carl Zeiss Meditec AG",
+        "zone": "europe",
+        "sector": "health",
+        "category": "small",
+        "sharePriceM": 5.47,
+        "basePriceM": 27.34,
+        "remainingCashAfterPurchaseM": 94.53
+      },
+      {
+        "id": "sinopec",
+        "name": "China Petroleum & Chemical Corporation (Sinopec)",
+        "zone": "asia",
+        "sector": "energy",
+        "category": "medium",
+        "sharePriceM": 66.26,
+        "basePriceM": 331.28,
+        "remainingCashAfterPurchaseM": 33.74
+      },
+      {
+        "id": "unilever-nv",
+        "name": "Unilever PLC",
+        "zone": "europe",
+        "sector": "agrifood",
+        "category": "medium",
+        "sharePriceM": 79.59,
+        "basePriceM": 397.94,
+        "remainingCashAfterPurchaseM": 20.41
+      },
+      {
+        "id": "ambev",
+        "name": "Cal-Maine Foods, Inc.",
+        "zone": "americas",
+        "sector": "agrifood",
+        "category": "small",
+        "sharePriceM": 5.0,
+        "basePriceM": 25,
+        "remainingCashAfterPurchaseM": 95.0
+      },
+      {
+        "id": "sanofi",
+        "name": "Sanofi",
+        "zone": "europe",
+        "sector": "health",
+        "category": "medium",
+        "sharePriceM": 66.15,
+        "basePriceM": 330.77,
+        "remainingCashAfterPurchaseM": 33.85
+      },
+      {
+        "id": "pepsico",
+        "name": "PepsiCo, Inc.",
+        "zone": "americas",
+        "sector": "agrifood",
+        "category": "medium",
+        "sharePriceM": 92.06,
+        "basePriceM": 460.29,
+        "remainingCashAfterPurchaseM": 7.94
+      },
+      {
+        "id": "intel-corp",
+        "name": "UiPath, Inc.",
+        "zone": "americas",
+        "sector": "technology",
+        "category": "small",
+        "sharePriceM": 7.31,
+        "basePriceM": 36.53,
+        "remainingCashAfterPurchaseM": 92.69
+      },
+      {
+        "id": "at-t-inc",
+        "name": "AT&T Inc.",
+        "zone": "americas",
+        "sector": "media",
+        "category": "medium",
+        "sharePriceM": 92.06,
+        "basePriceM": 460.29,
+        "remainingCashAfterPurchaseM": 7.94
+      },
+      {
+        "id": "the-walt-disney-co",
+        "name": "The Walt Disney Company",
+        "zone": "americas",
+        "sector": "media",
+        "category": "medium",
+        "sharePriceM": 94.82,
+        "basePriceM": 474.1,
+        "remainingCashAfterPurchaseM": 5.18
+      },
+      {
+        "id": "agricultural-bank-of-china",
+        "name": "Sun Hung Kai Properties Limited",
+        "zone": "asia",
+        "sector": "realestate",
+        "category": "small",
+        "sharePriceM": 35.51,
+        "basePriceM": 177.56,
+        "remainingCashAfterPurchaseM": 64.49
+      },
+      {
+        "id": "alibaba-group-holding",
+        "name": "CHICONY ELECTRONICS CO., LTD.",
+        "zone": "asia",
+        "sector": "technology",
+        "category": "small",
+        "sharePriceM": 5.0,
+        "basePriceM": 25,
+        "remainingCashAfterPurchaseM": 95.0
+      },
+      {
+        "id": "anheuser-busch",
+        "name": "Anheuser-Busch InBev SA/NV",
+        "zone": "europe",
+        "sector": "agrifood",
+        "category": "medium",
+        "sharePriceM": 86.14,
+        "basePriceM": 430.68,
+        "remainingCashAfterPurchaseM": 13.86
+      },
+      {
+        "id": "china-construction-bank-corp",
+        "name": "NITTO KOGYO CORPORATION",
+        "zone": "asia",
+        "sector": "industry",
+        "category": "small",
+        "sharePriceM": 5.0,
+        "basePriceM": 25,
+        "remainingCashAfterPurchaseM": 95.0
+      },
+      {
+        "id": "pfizer-inc",
+        "name": "Hims & Hers Health, Inc.",
+        "zone": "americas",
+        "sector": "health",
+        "category": "small",
+        "sharePriceM": 8.61,
+        "basePriceM": 43.06,
+        "remainingCashAfterPurchaseM": 91.39
+      },
+      {
+        "id": "wells-fargo-co",
+        "name": "NMI Holdings, Inc.",
+        "zone": "americas",
+        "sector": "finance",
+        "category": "small",
+        "sharePriceM": 5.0,
+        "basePriceM": 25,
+        "remainingCashAfterPurchaseM": 95.0
+      },
+      {
+        "id": "pacifica-minerals",
+        "name": "Woolworths Group Limited",
+        "zone": "oceania",
+        "sector": "agrifood",
+        "category": "small",
+        "sharePriceM": 32.41,
+        "basePriceM": 162.06,
+        "remainingCashAfterPurchaseM": 67.59
+      },
+      {
+        "id": "southern-cross-energy",
+        "name": "Origin Energy",
+        "zone": "oceania",
+        "sector": "energy",
+        "category": "small",
+        "sharePriceM": 14.51,
+        "basePriceM": 72.54,
+        "remainingCashAfterPurchaseM": 85.49
+      },
+      {
+        "id": "coral-reef-health",
+        "name": "CSL Limited",
+        "zone": "oceania",
+        "sector": "health",
+        "category": "medium",
+        "sharePriceM": 48.14,
+        "basePriceM": 240.68,
+        "remainingCashAfterPurchaseM": 51.86
+      },
+      {
+        "id": "pacific-link",
+        "name": "Telstra Group",
+        "zone": "oceania",
+        "sector": "media",
+        "category": "small",
+        "sharePriceM": 34.71,
+        "basePriceM": 173.53,
+        "remainingCashAfterPurchaseM": 65.29
+      },
+      {
+        "id": "harbour-infrastructure",
+        "name": "Goodman Group",
+        "zone": "oceania",
+        "sector": "realestate",
+        "category": "small",
+        "sharePriceM": 34.76,
+        "basePriceM": 173.78,
+        "remainingCashAfterPurchaseM": 65.24
+      },
+      {
+        "id": "oceanic-air",
+        "name": "Qantas Airways",
+        "zone": "oceania",
+        "sector": "transport",
+        "category": "small",
+        "sharePriceM": 10.88,
+        "basePriceM": 54.41,
+        "remainingCashAfterPurchaseM": 89.12
+      },
+      {
+        "id": "southpoint-finance",
+        "name": "Commonwealth Bank of Australia",
+        "zone": "oceania",
+        "sector": "finance",
+        "category": "medium",
+        "sharePriceM": 94.1,
+        "basePriceM": 470.5,
+        "remainingCashAfterPurchaseM": 5.9
+      },
+      {
+        "id": "reef-data-systems",
+        "name": "WiseTech Global Limited",
+        "zone": "oceania",
+        "sector": "technology",
+        "category": "small",
+        "sharePriceM": 8.74,
+        "basePriceM": 43.69,
+        "remainingCashAfterPurchaseM": 91.26
+      },
+      {
+        "id": "austral-manufacturing",
+        "name": "Fortescue",
+        "zone": "oceania",
+        "sector": "industry",
+        "category": "small",
+        "sharePriceM": 34.43,
+        "basePriceM": 172.15,
+        "remainingCashAfterPurchaseM": 65.57
+      }
+    ]
+  },
+  "economy": {
+    "version": 4,
+    "selectedScenario": "continuous-progression",
+    "thresholdsUSD": {
+      "medium": 40000000000,
+      "large": 200000000000
+    },
+    "declaredBandMetadataM": {
+      "small": [
+        25.0,
+        183.0
+      ],
+      "medium": [
+        183.0,
+        500.0
+      ],
+      "large": [
+        500.0,
+        1500.0
+      ]
+    },
+    "pricingMode": "continuous",
+    "bandMetadataIgnoredByContinuousPricing": true,
+    "scenarioMetadataNote": "V4 continuous pricing uses the fixed formula below; declared category bands and per-class yields are legacy scenario metadata and do not set current V4 prices or income.",
+    "effectiveFormula": "basePriceM = round2(clamp(25,1500,500*ln(1+marketCapUSD/50,000,000,000)/ln(5))); baseIncomeM = round2(basePriceM*(0.10+0.04*(1-exp(-marketCapUSD/200,000,000,000)))); one-share C/C price = basePriceM/5. Cap class only labels Small/Medium/Large."
+  },
+  "observedBasePriceRangesM": {
+    "small": {
+      "minM": 25,
+      "maxM": 180.53,
+      "shareMinM": 5.0,
+      "shareMaxM": 36.11,
+      "count": 31
+    },
+    "medium": {
+      "minM": 192.79,
+      "maxM": 487.32,
+      "shareMinM": 38.56,
+      "shareMaxM": 97.46,
+      "count": 24
+    },
+    "large": {
+      "minM": 500,
+      "maxM": 1427.55,
+      "shareMinM": 100.0,
+      "shareMaxM": 285.51,
+      "count": 36
+    }
+  },
+  "observedIncomeYieldRangesPercent": {
+    "small": {
+      "minPercent": 10.04,
+      "maxPercent": 10.71,
+      "count": 31
+    },
+    "medium": {
+      "minPercent": 10.77,
+      "maxPercent": 12.45,
+      "count": 24
+    },
+    "large": {
+      "minPercent": 12.53,
+      "maxPercent": 14.0,
+      "count": 36
+    }
+  },
+  "adjacentObservedPriceClassOverlaps": [],
+  "observedMarketCapRangesUSD": {
+    "small": {
+      "min": 1160000000,
+      "max": 39400000000
+    },
+    "medium": {
+      "min": 43000000000,
+      "max": 190000000000
+    },
+    "large": {
+      "min": 200000000000,
+      "max": 4900000000000
+    }
+  },
+  "tradedSharePriceRangesM": {
+    "small": {
+      "factorRange": [
+        0.375,
+        2.25
+      ],
+      "sharePriceM": [
+        1.875,
+        81.2385
+      ],
+      "fullFiveShareCostM": [
+        9.375,
+        406.1925
+      ]
+    },
+    "medium": {
+      "factorRange": [
+        0.375,
+        2.25
+      ],
+      "sharePriceM": [
+        14.4593,
+        219.294
+      ],
+      "fullFiveShareCostM": [
+        72.2963,
+        1096.47
+      ]
+    },
+    "large": {
+      "factorRange": [
+        0.375,
+        2.25
+      ],
+      "sharePriceM": [
+        37.5,
+        642.3975
+      ],
+      "fullFiveShareCostM": [
+        187.5,
+        3211.9875
+      ]
+    }
+  },
+  "tradedAdjacentClassOverlapsM": [
+    {
+      "classes": [
+        "small",
+        "medium"
+      ],
+      "fromM": 14.4593,
+      "toM": 81.2385
+    },
+    {
+      "classes": [
+        "medium",
+        "large"
+      ],
+      "fromM": 37.5,
+      "toM": 219.294
+    }
+  ],
+  "continuousCurveFrontiers": [
+    {
+      "boundary": "Small/Medium",
+      "thresholdUSD": 40000000000,
+      "belowBy1USD": {
+        "category": "small",
+        "basePriceM": 182.61
+      },
+      "atUSD": {
+        "category": "medium",
+        "basePriceM": 182.61
+      },
+      "aboveBy1USD": {
+        "category": "medium",
+        "basePriceM": 182.61
+      }
+    },
+    {
+      "boundary": "Medium/Large",
+      "thresholdUSD": 200000000000,
+      "belowBy1USD": {
+        "category": "medium",
+        "basePriceM": 500.0
+      },
+      "atUSD": {
+        "category": "large",
+        "basePriceM": 500.0
+      },
+      "aboveBy1USD": {
+        "category": "large",
+        "basePriceM": 500.0
+      }
+    }
+  ],
+  "marketCapReferenceAsOf": "2026-10-06",
+  "marketCapDatasetLastUpdated": "2026-10-13",
+  "sourceTraceability": {
+    "gitBranch": "global-fund-evolve",
+    "gitHead": "56efd220fb082ee2cc432c02b3202a40f976d839",
+    "sha256": {
+      "packages/game-engine/legacy/data/gameData.json": "47cb766839a7a932b3ec699cf0d794d8166939955383a11f8377fd411e7be8b9",
+      "docs/market-caps.json": "5012cac9403107d7d0979f19ba14f010ea940be6c5a2763c031fbe1decd39816",
+      "docs/company-primary-listings.json": "0b45592a16c836eb694f74e27712d0b379aae273f34a02a8589221b43c6fb217",
+      "packages/game-engine/src/economy.ts": "3838d53e69ed155abaeb1c78f18e6f9188d967b64b7e8b43052b94f518ea40c7",
+      "scripts/audit-market-distribution.py": "b2daab6276d65569842a80e69a37cfc03338ac9c3c52ec9ce2b1e76819d09342"
+    }
+  },
+  "marketPlaces": {
+    "basis": "One game company per issuer; exactly one representative listing per company where established. Geographic zone is the game company zone, not the exchange location.",
+    "exchangeCompanyCounts": {
+      "ADX": 1,
+      "ASX": 9,
+      "B3": 2,
+      "BME Madrid": 2,
+      "BMV": 2,
+      "Casablanca Stock Exchange": 1,
+      "DFM": 1,
+      "Euronext Amsterdam": 1,
+      "Euronext Brussels": 1,
+      "Euronext Paris": 4,
+      "Hong Kong Stock Exchange": 8,
+      "JSE": 2,
+      "KRX": 1,
+      "LSE": 7,
+      "NSE India": 1,
+      "NYSE": 22,
+      "Nasdaq": 8,
+      "Qatar Stock Exchange": 1,
+      "SIX Swiss Exchange": 3,
+      "Santiago Stock Exchange": 1,
+      "Taiwan Stock Exchange": 3,
+      "Tokyo Stock Exchange": 4,
+      "Xetra": 6
+    },
+    "exchangeCategoryCounts": {
+      "ADX": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "ASX": {
+        "small": 7,
+        "medium": 2,
+        "large": 0
+      },
+      "B3": {
+        "small": 1,
+        "medium": 1,
+        "large": 0
+      },
+      "BME Madrid": {
+        "small": 0,
+        "medium": 1,
+        "large": 1
+      },
+      "BMV": {
+        "small": 0,
+        "medium": 2,
+        "large": 0
+      },
+      "Casablanca Stock Exchange": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "DFM": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "Euronext Amsterdam": {
+        "small": 0,
+        "medium": 1,
+        "large": 0
+      },
+      "Euronext Brussels": {
+        "small": 0,
+        "medium": 1,
+        "large": 0
+      },
+      "Euronext Paris": {
+        "small": 0,
+        "medium": 2,
+        "large": 2
+      },
+      "Hong Kong Stock Exchange": {
+        "small": 1,
+        "medium": 2,
+        "large": 5
+      },
+      "JSE": {
+        "small": 2,
+        "medium": 0,
+        "large": 0
+      },
+      "KRX": {
+        "small": 0,
+        "medium": 0,
+        "large": 1
+      },
+      "LSE": {
+        "small": 1,
+        "medium": 3,
+        "large": 3
+      },
+      "NSE India": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "NYSE": {
+        "small": 2,
+        "medium": 6,
+        "large": 14
+      },
+      "Nasdaq": {
+        "small": 3,
+        "medium": 1,
+        "large": 4
+      },
+      "Qatar Stock Exchange": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "SIX Swiss Exchange": {
+        "small": 0,
+        "medium": 0,
+        "large": 3
+      },
+      "Santiago Stock Exchange": {
+        "small": 1,
+        "medium": 0,
+        "large": 0
+      },
+      "Taiwan Stock Exchange": {
+        "small": 2,
+        "medium": 0,
+        "large": 1
+      },
+      "Tokyo Stock Exchange": {
+        "small": 2,
+        "medium": 1,
+        "large": 1
+      },
+      "Xetra": {
+        "small": 4,
+        "medium": 1,
+        "large": 1
+      }
+    },
+    "totalCompanyCountsByCategory": {
+      "small": 31,
+      "medium": 24,
+      "large": 36
+    },
+    "unknownListingCount": 0,
+    "staleInventoryIds": [],
+    "records": [
+      {
+        "id": "orascom-construction-industries",
+        "issuer": "Orascom Construction PLC",
+        "zone": "africa",
+        "category": "small",
+        "ticker": "ORAS",
+        "exchange": "ADX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://orascom.com/",
+        "marketCapUSD": 1750000000,
+        "marketCapAsOf": "2026-10-06",
+        "marketCapEvidenceURL": "https://stockanalysis.com/quote/adx/ORAS/market-cap/"
+      },
+      {
+        "id": "tata-motors",
+        "issuer": "Tata Motors Limited",
+        "zone": "asia",
+        "category": "small",
+        "ticker": "TMCV",
+        "exchange": "NSE India",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "NSE page explicitly identifies TMCV as Tata Motors Limited equity; company was renamed/reorganized in 2025. This record follows the current NSE issuer line.",
+        "issuerIdentityEvidenceURL": "https://nsearchives.nseindia.com/corporate/TMLCOMMERCIAL_01082026142609_nsebsesalesigned.pdf",
+        "marketCapUSD": 18000000000,
+        "marketCapAsOf": "2026-09-24",
+        "marketCapEvidenceURL": "https://www.nseindia.com/get-quote/equity/TMCV/Tata-Motors"
+      },
+      {
+        "id": "maroc-telecom",
+        "issuer": "Maroc Telecom",
+        "zone": "africa",
+        "category": "small",
+        "ticker": "IAM",
+        "exchange": "Casablanca Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.iam.ma/groupe-maroc-telecom",
+        "marketCapUSD": 8610000000,
+        "marketCapAsOf": "2026-10-06",
+        "marketCapEvidenceURL": "https://www.zonebourse.com/cours/action/MAROC-TELECOM-5274/valorisation/"
+      },
+      {
+        "id": "enersis",
+        "issuer": "Enel Chile",
+        "zone": "americas",
+        "category": "small",
+        "ticker": "ENELCHILE",
+        "exchange": "Santiago Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.enel.cl/es/conoce-enel/enel-chile.html",
+        "marketCapUSD": 6000000000,
+        "marketCapAsOf": "2026-10-06",
+        "marketCapEvidenceURL": "https://stockanalysis.com/stocks/enic/market-cap/"
+      },
+      {
+        "id": "bank-central-asia",
+        "issuer": "TAIWAN BUSINESS BANK",
+        "zone": "asia",
+        "category": "small",
+        "ticker": "2834",
+        "exchange": "Taiwan Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record 2834 / Taiwan Stock Exchange; primary representative listing selected. ",
+        "issuerIdentityEvidenceURL": "https://www.tbb.com.tw/zh-tw/about/intro/brief/profile",
+        "marketCapUSD": 4570525963,
+        "marketCapAsOf": "2026-03-27",
+        "marketCapEvidenceURL": "https://www.twse.com.tw/pdf/en/2834_en.pdf"
+      },
+      {
+        "id": "astra-international",
+        "issuer": "FANUC Corporation",
+        "zone": "asia",
+        "category": "small",
+        "ticker": "6954",
+        "exchange": "Tokyo Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.fanuc.co.jp/en/profile/profile/",
+        "marketCapUSD": 36370000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/fanuc/marketcap/"
+      },
+      {
+        "id": "industries-qatar",
+        "issuer": "Emaar Properties PJSC",
+        "zone": "africa",
+        "category": "small",
+        "ticker": "EMAAR",
+        "exchange": "DFM",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.emaar.com/en/investor-relations/emaar-properties-pjsc",
+        "marketCapUSD": 27570000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/emaar-properties/marketcap/"
+      },
+      {
+        "id": "mtn-group",
+        "issuer": "MTN Group Limited",
+        "zone": "africa",
+        "category": "small",
+        "ticker": "MTN",
+        "exchange": "JSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.mtn.com/about/",
+        "marketCapUSD": 22880000000,
+        "marketCapAsOf": "2026-09",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/mtn-group/marketcap/"
+      },
+      {
+        "id": "qatar-national-bank",
+        "issuer": "Qatar National Bank",
+        "zone": "africa",
+        "category": "small",
+        "ticker": "QNBK",
+        "exchange": "Qatar Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.qnb.com/sites/qnb/qnbglobal/page/en/englobalaboutus.html",
+        "marketCapUSD": 39400000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/qnb-qatar-national-bank/marketcap/"
+      },
+      {
+        "id": "sasol",
+        "issuer": "Sasol Limited",
+        "zone": "africa",
+        "category": "small",
+        "ticker": "SOL",
+        "exchange": "JSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://sasol.com/who-we-are/about-us",
+        "marketCapUSD": 9410000000,
+        "marketCapAsOf": "2026-09",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/sasol/marketcap/"
+      },
+      {
+        "id": "banco-brasil",
+        "issuer": "Banco do Brasil",
+        "zone": "americas",
+        "category": "small",
+        "ticker": "BBAS3",
+        "exchange": "B3",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://ri.bb.com.br/en/faq/ownership/",
+        "marketCapUSD": 30000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/banco-do-brasil/marketcap/"
+      },
+      {
+        "id": "amx",
+        "issuer": "América Móvil",
+        "zone": "americas",
+        "category": "medium",
+        "ticker": "AMX B",
+        "exchange": "BMV",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://sustainability.americamovil.com/portal/su/pdf/Annual-Report-20F-2024.pdf",
+        "marketCapUSD": 67000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/america-movil/marketcap/"
+      },
+      {
+        "id": "walmex",
+        "issuer": "Walmart de México y Centroamérica",
+        "zone": "americas",
+        "category": "medium",
+        "ticker": "WALMEX*",
+        "exchange": "BMV",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.walmex.mx/nosotros/",
+        "marketCapUSD": 46000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/walmex/marketcap/"
+      },
+      {
+        "id": "sabmiller-plc",
+        "issuer": "Heineken N.V.",
+        "zone": "europe",
+        "category": "medium",
+        "ticker": "HEIA",
+        "exchange": "Euronext Amsterdam",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.theheinekencompany.com/newsroom/heineken-nv-reports-2025-full-year-results/",
+        "marketCapUSD": 44000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/heineken/marketcap/"
+      },
+      {
+        "id": "vodafone-group-plc",
+        "issuer": "Vodafone Group Plc",
+        "zone": "europe",
+        "category": "small",
+        "ticker": "VOD",
+        "exchange": "LSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.vodafone.com/our-company",
+        "marketCapUSD": 39000000000,
+        "marketCapAsOf": "2026-10-05",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/vodafone/marketcap/"
+      },
+      {
+        "id": "mcdonald-s-corp",
+        "issuer": "McDonald’s Corporation",
+        "zone": "americas",
+        "category": "medium",
+        "ticker": "MCD",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://corporate.mcdonalds.com/corpmcd/home.html",
+        "marketCapUSD": 160000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/mcdonald/marketcap/"
+      },
+      {
+        "id": "astrazeneca-plc",
+        "issuer": "AstraZeneca PLC",
+        "zone": "europe",
+        "category": "large",
+        "ticker": "AZN",
+        "exchange": "LSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.astrazeneca.com/our-company.html",
+        "marketCapUSD": 260000000000,
+        "marketCapAsOf": "2026-09",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/astrazeneca/marketcap/"
+      },
+      {
+        "id": "siemens-ag",
+        "issuer": "Siemens AG",
+        "zone": "europe",
+        "category": "large",
+        "ticker": "SIE",
+        "exchange": "Xetra",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://press.siemens.com/global/en/article/press-materials-siemens-ag",
+        "marketCapUSD": 240000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/siemens/marketcap/"
+      },
+      {
+        "id": "sap",
+        "issuer": "TeamViewer SE",
+        "zone": "europe",
+        "category": "small",
+        "ticker": "TMV",
+        "exchange": "Xetra",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record TMV / Xetra; primary representative listing selected. ",
+        "issuerIdentityEvidenceURL": "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline",
+        "marketCapUSD": 1160000000,
+        "marketCapAsOf": "2025-12-30",
+        "marketCapEvidenceURL": "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline"
+      },
+      {
+        "id": "lvmh-sa",
+        "issuer": "LVMH Moët Hennessy Louis Vuitton SE",
+        "zone": "europe",
+        "category": "large",
+        "ticker": "MC",
+        "exchange": "Euronext Paris",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.lvmh.com/en/our-group",
+        "marketCapUSD": 210000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/lvmh/marketcap/"
+      },
+      {
+        "id": "taiwan-semiconductor-manufacturing",
+        "issuer": "Taiwan Semiconductor Manufacturing Company Limited",
+        "zone": "asia",
+        "category": "large",
+        "ticker": "2330",
+        "exchange": "Taiwan Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "TWSE issuer profile for code 2330 confirms Taiwan Semiconductor Manufacturing Co.; selected in-country ordinary share rather than NYSE ADR.",
+        "issuerIdentityEvidenceURL": "https://www.tsmc.com/english/aboutTSMC",
+        "marketCapUSD": 2452000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/tsmc/marketcap/"
+      },
+      {
+        "id": "nike-inc",
+        "issuer": "NIKE, Inc.",
+        "zone": "americas",
+        "category": "medium",
+        "ticker": "NKE",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://about.nike.com/en/company",
+        "marketCapUSD": 50000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/nike/marketcap/"
+      },
+      {
+        "id": "united-parcel-service",
+        "issuer": "JetBlue Airways Corporation",
+        "zone": "americas",
+        "category": "small",
+        "ticker": "JBLU",
+        "exchange": "Nasdaq",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record JBLU / Nasdaq; primary representative listing selected. ",
+        "issuerIdentityEvidenceURL": "https://www.ir.jetblue.com/resources/stock-info/default.aspx",
+        "marketCapUSD": 1450000000,
+        "marketCapAsOf": "2026-10-09",
+        "marketCapEvidenceURL": "https://www.ir.jetblue.com/resources/stock-info/default.aspx"
+      },
+      {
+        "id": "gazprom",
+        "issuer": "Mitsubishi Heavy Industries (MHI)",
+        "zone": "asia",
+        "category": "medium",
+        "ticker": "7011",
+        "exchange": "Tokyo Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.mhi.com/company/overview/profile",
+        "marketCapUSD": 80480000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/mitsubishi-heavy-industries/marketcap"
+      },
+      {
+        "id": "british-american-tobacco-plc",
+        "issuer": "KION GROUP AG",
+        "zone": "europe",
+        "category": "small",
+        "ticker": "KGX",
+        "exchange": "Xetra",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record KGX / Xetra; primary representative listing selected. ",
+        "issuerIdentityEvidenceURL": "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html",
+        "marketCapUSD": 5700000000,
+        "marketCapAsOf": "2026-06-30",
+        "marketCapEvidenceURL": "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html"
+      },
+      {
+        "id": "3m-co",
+        "issuer": "3M Company",
+        "zone": "americas",
+        "category": "medium",
+        "ticker": "MMM",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.3m.com/3M/en_US/about-3m/",
+        "marketCapUSD": 84000000000,
+        "marketCapAsOf": "2026-09",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/3m/marketcap/"
+      },
+      {
+        "id": "mastercard-inc",
+        "issuer": "Mastercard Incorporated",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "MA",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.mastercard.com/global/en/for-the-world/about-us.html",
+        "marketCapUSD": 480000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/mastercard/marketcap/"
+      },
+      {
+        "id": "the-boeing-company",
+        "issuer": "The Boeing Company",
+        "zone": "americas",
+        "category": "medium",
+        "ticker": "BA",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.boeing.com/company",
+        "marketCapUSD": 150000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/boeing/marketcap/"
+      },
+      {
+        "id": "daimler-ag",
+        "issuer": "Mercedes-Benz Group AG",
+        "zone": "europe",
+        "category": "medium",
+        "ticker": "MBG",
+        "exchange": "Xetra",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://group.mercedes-benz.com/company/news/daimler-becomes-mercedes-benz-group.html",
+        "marketCapUSD": 43000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/mercedes-benz-group/marketcap/"
+      },
+      {
+        "id": "inditex-s-a",
+        "issuer": "Industria de Diseño Textil, S.A. (Inditex)",
+        "zone": "europe",
+        "category": "medium",
+        "ticker": "ITX",
+        "exchange": "BME Madrid",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://static.inditex.com/annual_report_2016/en/annual-accounts/consolidated-directors-report/",
+        "marketCapUSD": 190000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/inditex/marketcap/"
+      },
+      {
+        "id": "l-oreal-sa",
+        "issuer": "L’Oréal S.A.",
+        "zone": "europe",
+        "category": "large",
+        "ticker": "OR",
+        "exchange": "Euronext Paris",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.loreal.com/en/groupe/",
+        "marketCapUSD": 220000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/l-oreal/marketcap/"
+      },
+      {
+        "id": "glaxosmithkline-plc",
+        "issuer": "GSK plc",
+        "zone": "europe",
+        "category": "medium",
+        "ticker": "GSK",
+        "exchange": "LSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.gsk.com/en-gb/company/governance/",
+        "marketCapUSD": 94000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/glaxo-smith-kline/marketcap/"
+      },
+      {
+        "id": "petrobras",
+        "issuer": "Petróleo Brasileiro S.A. (Petrobras)",
+        "zone": "americas",
+        "category": "medium",
+        "ticker": "PETR4",
+        "exchange": "B3",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://petrobras.com.br/quem-somos/perfil",
+        "marketCapUSD": 160000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/petrobras/marketcap/"
+      },
+      {
+        "id": "ping-an-insurance-group-co-of-china-ltd",
+        "issuer": "Ping An Insurance (Group) Company of China, Ltd.",
+        "zone": "asia",
+        "category": "medium",
+        "ticker": "2318",
+        "exchange": "Hong Kong Stock Exchange",
+        "instrument": "H shares",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing. HK/Taiwan/Korea ordinary or H-share line chosen to avoid substituting a US ADR; exact primary/dual-primary convention should be checked.",
+        "issuerIdentityEvidenceURL": "https://group.pingan.com/about_us/who_we_are.html",
+        "marketCapUSD": 143920000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/ping-an-insurance/marketcap/"
+      },
+      {
+        "id": "banco-santander-s-a",
+        "issuer": "Banco Santander, S.A.",
+        "zone": "europe",
+        "category": "large",
+        "ticker": "SAN",
+        "exchange": "BME Madrid",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.santander.com/en/about-us",
+        "marketCapUSD": 200000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/santander/marketcap/"
+      },
+      {
+        "id": "total-sa",
+        "issuer": "TotalEnergies SE",
+        "zone": "europe",
+        "category": "medium",
+        "ticker": "TTE",
+        "exchange": "Euronext Paris",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://totalenergies.com/group/identity",
+        "marketCapUSD": 190000000000,
+        "marketCapAsOf": "2026-10-05",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/totalenergies/marketcap/"
+      },
+      {
+        "id": "volkswagen-ag",
+        "issuer": "Volkswagen AG",
+        "zone": "europe",
+        "category": "small",
+        "ticker": "VOW3",
+        "exchange": "Xetra",
+        "instrument": "ordinary preference shares",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.volkswagen-group.com/en/imprint-15695",
+        "marketCapUSD": 38000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/volkswagen/marketcap/"
+      },
+      {
+        "id": "bp-plc",
+        "issuer": "BP p.l.c.",
+        "zone": "europe",
+        "category": "medium",
+        "ticker": "BP.",
+        "exchange": "LSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.bp.com/en/global/bp-trading-and-shipping.html",
+        "marketCapUSD": 110000000000,
+        "marketCapAsOf": "2026-10-05",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/bp/marketcap/"
+      },
+      {
+        "id": "philip-morris-international",
+        "issuer": "Philip Morris International Inc.",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "PM",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.pmi.com/who-we-are/who-we-are-overview",
+        "marketCapUSD": 300000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/philip-morris/marketcap/"
+      },
+      {
+        "id": "bayer-ag",
+        "issuer": "Carl Zeiss Meditec AG",
+        "zone": "europe",
+        "category": "small",
+        "ticker": "AFX",
+        "exchange": "Xetra",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record AFX / Xetra; primary representative listing selected. ",
+        "issuerIdentityEvidenceURL": "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf",
+        "marketCapUSD": 4600000000,
+        "marketCapAsOf": "2025-11-27",
+        "marketCapEvidenceURL": "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf"
+      },
+      {
+        "id": "sinopec",
+        "issuer": "China Petroleum & Chemical Corporation (Sinopec)",
+        "zone": "asia",
+        "category": "medium",
+        "ticker": "0386",
+        "exchange": "Hong Kong Stock Exchange",
+        "instrument": "H shares",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing. HK/Taiwan/Korea ordinary or H-share line chosen to avoid substituting a US ADR; exact primary/dual-primary convention should be checked.",
+        "issuerIdentityEvidenceURL": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0322/2026032200057.pdf",
+        "marketCapUSD": 95240000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/sinopec/marketcap/"
+      },
+      {
+        "id": "unilever-nv",
+        "issuer": "Unilever PLC",
+        "zone": "europe",
+        "category": "medium",
+        "ticker": "ULVR",
+        "exchange": "LSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.unilever.com/news/press-and-media/press-releases/2020/completion-of-unilevers-unification/",
+        "marketCapUSD": 130000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/unilever/marketcap/"
+      },
+      {
+        "id": "ambev",
+        "issuer": "Cal-Maine Foods, Inc.",
+        "zone": "americas",
+        "category": "small",
+        "ticker": "CALM",
+        "exchange": "Nasdaq",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record CALM / NASDAQ Global Select Market; primary representative listing selected. ",
+        "issuerIdentityEvidenceURL": "https://investors.calmainefoods.com/stock-information/historical-price-lookup",
+        "marketCapUSD": 3019000000,
+        "marketCapAsOf": "2026-10-09",
+        "marketCapEvidenceURL": "https://investors.calmainefoods.com/stock-information/historical-price-lookup"
+      },
+      {
+        "id": "sanofi",
+        "issuer": "Sanofi",
+        "zone": "europe",
+        "category": "medium",
+        "ticker": "SAN",
+        "exchange": "Euronext Paris",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.sanofi.com/en/our-company",
+        "marketCapUSD": 95000000000,
+        "marketCapAsOf": "2026-10-05",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/sanofi/marketcap/"
+      },
+      {
+        "id": "pepsico",
+        "issuer": "PepsiCo, Inc.",
+        "zone": "americas",
+        "category": "medium",
+        "ticker": "PEP",
+        "exchange": "Nasdaq",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.pepsico.com/en/about",
+        "marketCapUSD": 170000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/pepsico/marketcap/"
+      },
+      {
+        "id": "cisco-systems",
+        "issuer": "Cisco Systems, Inc.",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "CSCO",
+        "exchange": "Nasdaq",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.cisco.com/site/us/en/about/index.html",
+        "marketCapUSD": 460000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/cisco/marketcap/"
+      },
+      {
+        "id": "intel-corp",
+        "issuer": "UiPath, Inc.",
+        "zone": "americas",
+        "category": "small",
+        "ticker": "PATH",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record PATH / NYSE; primary representative listing selected. ",
+        "issuerIdentityEvidenceURL": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf",
+        "marketCapUSD": 6238000000,
+        "marketCapAsOf": "2025-07-31",
+        "marketCapEvidenceURL": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf"
+      },
+      {
+        "id": "hsbc-holdings-plc",
+        "issuer": "HSBC Holdings plc",
+        "zone": "europe",
+        "category": "large",
+        "ticker": "HSBA",
+        "exchange": "LSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.hsbc.com/investors/investing-in-hsbc/group-structure",
+        "marketCapUSD": 330000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/hsbc/marketcap/"
+      },
+      {
+        "id": "ibm-corp",
+        "issuer": "International Business Machines Corporation (IBM)",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "IBM",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.ibm.com/about?lang=en",
+        "marketCapUSD": 210000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/ibm/marketcap/"
+      },
+      {
+        "id": "visa-inc",
+        "issuer": "Visa Inc.",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "V",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000045/v-20251231.htm",
+        "marketCapUSD": 690000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/visa/marketcap/"
+      },
+      {
+        "id": "at-t-inc",
+        "issuer": "AT&T Inc.",
+        "zone": "americas",
+        "category": "medium",
+        "ticker": "T",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://investors.att.com/~/media/Files/A/ATT-IR-V2/financial-reports/annual-reports/2025/2025-annual-report-complete.pdf",
+        "marketCapUSD": 170000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/att/marketcap/"
+      },
+      {
+        "id": "the-coca-cola-co",
+        "issuer": "The Coca-Cola Company",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "KO",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.coca-colacompany.com/about-us",
+        "marketCapUSD": 370000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/coca-cola/marketcap/"
+      },
+      {
+        "id": "toyota-motor",
+        "issuer": "Toyota Motor Corporation",
+        "zone": "asia",
+        "category": "large",
+        "ticker": "7203",
+        "exchange": "Tokyo Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://global.toyota/en/company/",
+        "marketCapUSD": 218030000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/toyota/marketcap/"
+      },
+      {
+        "id": "the-walt-disney-co",
+        "issuer": "The Walt Disney Company",
+        "zone": "americas",
+        "category": "medium",
+        "ticker": "DIS",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://thewaltdisneycompany.com/about/",
+        "marketCapUSD": 180000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/walt-disney/marketcap/"
+      },
+      {
+        "id": "tencent-holdings-ltd",
+        "issuer": "Tencent Holdings Limited",
+        "zone": "asia",
+        "category": "large",
+        "ticker": "0700",
+        "exchange": "Hong Kong Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing. HK/Taiwan/Korea ordinary or H-share line chosen to avoid substituting a US ADR; exact primary/dual-primary convention should be checked.",
+        "issuerIdentityEvidenceURL": "https://www.tencent.com/en-us/about.html",
+        "marketCapUSD": 479740000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/tencent/marketcap/"
+      },
+      {
+        "id": "royal-dutch-shell",
+        "issuer": "Shell plc",
+        "zone": "europe",
+        "category": "large",
+        "ticker": "SHEL",
+        "exchange": "LSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.shell.com/who-we-are.html",
+        "marketCapUSD": 280000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/shell/marketcap/"
+      },
+      {
+        "id": "agricultural-bank-of-china",
+        "issuer": "Sun Hung Kai Properties Limited",
+        "zone": "asia",
+        "category": "small",
+        "ticker": "0016",
+        "exchange": "Hong Kong Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www1.hkexnews.hk/listedco/listconews/sehk/2025/1022/2025102200125.pdf",
+        "marketCapUSD": 38550000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/sun-hung-kai-properties/marketcap/"
+      },
+      {
+        "id": "oracle-corp",
+        "issuer": "Oracle Corporation",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "ORCL",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.oracle.com/corporate/",
+        "marketCapUSD": 430000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/oracle/marketcap/"
+      },
+      {
+        "id": "alibaba-group-holding",
+        "issuer": "CHICONY ELECTRONICS CO., LTD.",
+        "zone": "asia",
+        "category": "small",
+        "ticker": "2385",
+        "exchange": "Taiwan Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record 2385 / Taiwan Stock Exchange; primary representative listing selected. ",
+        "issuerIdentityEvidenceURL": "https://www.chicony.com/chicony/en/about/profile",
+        "marketCapUSD": 3218350150,
+        "marketCapAsOf": "2026-05-27",
+        "marketCapEvidenceURL": "https://www.twse.com.tw/pdf/en/2385_en.pdf"
+      },
+      {
+        "id": "bank-of-china-ltd",
+        "issuer": "Bank of China Limited",
+        "zone": "asia",
+        "category": "large",
+        "ticker": "3988",
+        "exchange": "Hong Kong Stock Exchange",
+        "instrument": "H shares",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing. HK/Taiwan/Korea ordinary or H-share line chosen to avoid substituting a US ADR; exact primary/dual-primary convention should be checked.",
+        "issuerIdentityEvidenceURL": "https://www.boc.cn/en/aboutboc/ab1/200809/t20080901_1601737.html",
+        "marketCapUSD": 323950000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/bank-of-china/marketcap/"
+      },
+      {
+        "id": "chevron-corp",
+        "issuer": "Chevron Corporation",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "CVX",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000078/0000093410-26-000078-index.html",
+        "marketCapUSD": 410000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/chevron/marketcap/"
+      },
+      {
+        "id": "anheuser-busch",
+        "issuer": "Anheuser-Busch InBev SA/NV",
+        "zone": "europe",
+        "category": "medium",
+        "ticker": "ABI",
+        "exchange": "Euronext Brussels",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.ab-inbev.com/about-us/our-heritage",
+        "marketCapUSD": 150000000000,
+        "marketCapAsOf": "2026-09",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/anheuser-busch-inbev/marketcap/"
+      },
+      {
+        "id": "china-construction-bank-corp",
+        "issuer": "NITTO KOGYO CORPORATION",
+        "zone": "asia",
+        "category": "small",
+        "ticker": "6651",
+        "exchange": "Tokyo Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record 6651 / Tokyo Stock Exchange; primary representative listing selected. TSE line is represented even though a Nagoya line is also reported.",
+        "issuerIdentityEvidenceURL": "https://www.nito.co.jp/english/IR/stock/basic/",
+        "marketCapUSD": 1170584800,
+        "marketCapAsOf": "2026-09-11",
+        "marketCapEvidenceURL": "https://www.jpx.co.jp/automation/markets/statistics-equities/daily/files/202609/stq_20260911.pdf"
+      },
+      {
+        "id": "samsung-electronics-co-ltd",
+        "issuer": "Samsung Electronics Co., Ltd.",
+        "zone": "asia",
+        "category": "large",
+        "ticker": "005930",
+        "exchange": "KRX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing. HK/Taiwan/Korea ordinary or H-share line chosen to avoid substituting a US ADR; exact primary/dual-primary convention should be checked.",
+        "issuerIdentityEvidenceURL": "https://images.samsung.com/is/content/samsung/assets/global/ir/docs/Samsung_Electronics_Sustainability_Report_2025_ENG.pdf",
+        "marketCapUSD": 1334000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/samsung/marketcap/"
+      },
+      {
+        "id": "pfizer-inc",
+        "issuer": "Hims & Hers Health, Inc.",
+        "zone": "americas",
+        "category": "small",
+        "ticker": "HIMS",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record HIMS / NYSE; primary representative listing selected. ",
+        "issuerIdentityEvidenceURL": "https://investors.hims.com/stock-info/",
+        "marketCapUSD": 7433000000,
+        "marketCapAsOf": "2026-08-20",
+        "marketCapEvidenceURL": "https://investors.hims.com/stock-info/"
+      },
+      {
+        "id": "procter-gamble-co",
+        "issuer": "The Procter & Gamble Company",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "PG",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+        "marketCapUSD": 340000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/procter-and-gamble/marketcap/"
+      },
+      {
+        "id": "nestle",
+        "issuer": "Nestlé S.A.",
+        "zone": "europe",
+        "category": "large",
+        "ticker": "NESN",
+        "exchange": "SIX Swiss Exchange",
+        "instrument": "registered share",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.nestle.com/about",
+        "marketCapUSD": 230000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/nestle/marketcap/"
+      },
+      {
+        "id": "novartis",
+        "issuer": "Novartis AG",
+        "zone": "europe",
+        "category": "large",
+        "ticker": "NOVN",
+        "exchange": "SIX Swiss Exchange",
+        "instrument": "registered share",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.novartis.com/about",
+        "marketCapUSD": 270000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/novartis/marketcap/"
+      },
+      {
+        "id": "jpmorgan-chase-co",
+        "issuer": "JPMorgan Chase & Co.",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "JPM",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.jpmorganchase.com/about",
+        "marketCapUSD": 880000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/jp-morgan-chase/marketcap/"
+      },
+      {
+        "id": "roche",
+        "issuer": "Roche Holding AG",
+        "zone": "europe",
+        "category": "large",
+        "ticker": "ROG",
+        "exchange": "SIX Swiss Exchange",
+        "instrument": "participation certificate",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.roche.com/about",
+        "marketCapUSD": 340000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/roche/marketcap/"
+      },
+      {
+        "id": "general-electric",
+        "issuer": "GE Aerospace",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "GE",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.geaerospace.com/investor-relations/annual-report",
+        "marketCapUSD": 320000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/general-electric/marketcap/"
+      },
+      {
+        "id": "wal-mart-stores-inc",
+        "issuer": "Walmart Inc.",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "WMT",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://corporate.walmart.com/about",
+        "marketCapUSD": 830000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/walmart/marketcap/"
+      },
+      {
+        "id": "china-mobile-ltd",
+        "issuer": "China Mobile Limited",
+        "zone": "asia",
+        "category": "large",
+        "ticker": "0941",
+        "exchange": "Hong Kong Stock Exchange",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing. HK/Taiwan/Korea ordinary or H-share line chosen to avoid substituting a US ADR; exact primary/dual-primary convention should be checked.",
+        "issuerIdentityEvidenceURL": "https://www.chinamobileltd.com/en/ir/reports/ir2025.pdf",
+        "marketCapUSD": 218030000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/china-mobile/marketcap/"
+      },
+      {
+        "id": "icbc-ltd",
+        "issuer": "Industrial and Commercial Bank of China Limited",
+        "zone": "asia",
+        "category": "large",
+        "ticker": "1398",
+        "exchange": "Hong Kong Stock Exchange",
+        "instrument": "H shares",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing. HK/Taiwan/Korea ordinary or H-share line chosen to avoid substituting a US ADR; exact primary/dual-primary convention should be checked.",
+        "issuerIdentityEvidenceURL": "https://www.icbc-ltd.com/ICBCLtd/About%20Us/Introduction/",
+        "marketCapUSD": 338600000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/icbc/marketcap/"
+      },
+      {
+        "id": "wells-fargo-co",
+        "issuer": "NMI Holdings, Inc.",
+        "zone": "americas",
+        "category": "small",
+        "ticker": "NMIH",
+        "exchange": "Nasdaq",
+        "instrument": "ordinary equity",
+        "listingStatus": "exchange_page_verified",
+        "listingNote": "Confirmed replacement record NMIH / Nasdaq; primary representative listing selected. ",
+        "issuerIdentityEvidenceURL": "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862",
+        "marketCapUSD": 3121000000,
+        "marketCapAsOf": "2026-02-06",
+        "marketCapEvidenceURL": "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862"
+      },
+      {
+        "id": "johnson-johnson",
+        "issuer": "Johnson & Johnson",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "JNJ",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.jnj.com/our-company",
+        "marketCapUSD": 610000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/johnson-and-johnson/marketcap/"
+      },
+      {
+        "id": "petrochina-co-ltd",
+        "issuer": "PetroChina Company Limited",
+        "zone": "asia",
+        "category": "large",
+        "ticker": "0857",
+        "exchange": "Hong Kong Stock Exchange",
+        "instrument": "H shares",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing. HK/Taiwan/Korea ordinary or H-share line chosen to avoid substituting a US ADR; exact primary/dual-primary convention should be checked.",
+        "issuerIdentityEvidenceURL": "https://www.hkexnews.hk/listedco/listconews/sehk/2026/0423/2026042301797.pdf",
+        "marketCapUSD": 225520000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/petro-china/marketcap/"
+      },
+      {
+        "id": "microsoft-corp",
+        "issuer": "Microsoft Corporation",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "MSFT",
+        "exchange": "Nasdaq",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.microsoft.com/en-us/about",
+        "marketCapUSD": 3800000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/microsoft/marketcap/"
+      },
+      {
+        "id": "exxon-mobil-corp",
+        "issuer": "Exxon Mobil Corporation",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "XOM",
+        "exchange": "NYSE",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000078/xom-20260527.htm",
+        "marketCapUSD": 670000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/exxon-mobil/marketcap/"
+      },
+      {
+        "id": "berkshire-hathaway-inc",
+        "issuer": "Berkshire Hathaway Inc.",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "BRK.B",
+        "exchange": "NYSE",
+        "instrument": "Class B ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.berkshirehathaway.com/",
+        "marketCapUSD": 1100000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/berkshire-hathaway/marketcap/"
+      },
+      {
+        "id": "alphabet-google-inc",
+        "issuer": "Alphabet Inc.",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "GOOGL",
+        "exchange": "Nasdaq",
+        "instrument": "Class A ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://abc.xyz/",
+        "marketCapUSD": 4200000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/usd/alphabet-google/marketcap/"
+      },
+      {
+        "id": "apple-inc",
+        "issuer": "Apple Inc.",
+        "zone": "americas",
+        "category": "large",
+        "ticker": "AAPL",
+        "exchange": "Nasdaq",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.apple.com/leadership/",
+        "marketCapUSD": 4900000000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/apple/marketcap/"
+      },
+      {
+        "id": "pacifica-minerals",
+        "issuer": "Woolworths Group Limited",
+        "zone": "oceania",
+        "category": "small",
+        "ticker": "WOW",
+        "exchange": "ASX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.woolworthsgroup.com.au/content/dam/wwg/sustainability/reports/f25/Woolworths%20Group%20Annual%20Report%202025%20.pdf",
+        "marketCapUSD": 34240000000,
+        "marketCapAsOf": "2026-09",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/woolworths-group/marketcap/"
+      },
+      {
+        "id": "southern-cross-energy",
+        "issuer": "Origin Energy",
+        "zone": "oceania",
+        "category": "small",
+        "ticker": "ORG",
+        "exchange": "ASX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://announcements.asx.com.au/asxpdf/20250731/pdf/06mbvc7zhqzrh7.pdf",
+        "marketCapUSD": 13150000000,
+        "marketCapAsOf": "2026-09",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/origin-energy/marketcap/"
+      },
+      {
+        "id": "coral-reef-health",
+        "issuer": "CSL Limited",
+        "zone": "oceania",
+        "category": "medium",
+        "ticker": "CSL",
+        "exchange": "ASX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.csl.com/we-are-csl",
+        "marketCapUSD": 58500000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/csl/marketcap/"
+      },
+      {
+        "id": "pacific-link",
+        "issuer": "Telstra Group",
+        "zone": "oceania",
+        "category": "small",
+        "ticker": "TLS",
+        "exchange": "ASX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.telstra.com.au/aboutus",
+        "marketCapUSD": 37410000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/telstra/marketcap/"
+      },
+      {
+        "id": "harbour-infrastructure",
+        "issuer": "Goodman Group",
+        "zone": "oceania",
+        "category": "small",
+        "ticker": "GMG",
+        "exchange": "ASX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://au.goodman.com/about-goodman/about-us",
+        "marketCapUSD": 37480000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/goodman/marketcap/"
+      },
+      {
+        "id": "oceanic-air",
+        "issuer": "Qantas Airways",
+        "zone": "oceania",
+        "category": "small",
+        "ticker": "QAN",
+        "exchange": "ASX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.qantas.com/corporate/about-us",
+        "marketCapUSD": 9570000000,
+        "marketCapAsOf": "2026-09",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/qantas-airways/marketcap/"
+      },
+      {
+        "id": "southpoint-finance",
+        "issuer": "Commonwealth Bank of Australia",
+        "zone": "oceania",
+        "category": "medium",
+        "ticker": "CBA",
+        "exchange": "ASX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.commbank.com.au/about-us.html",
+        "marketCapUSD": 177350000000,
+        "marketCapAsOf": "2026-10",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/commonwealth-bank/marketcap/"
+      },
+      {
+        "id": "reef-data-systems",
+        "issuer": "WiseTech Global Limited",
+        "zone": "oceania",
+        "category": "small",
+        "ticker": "WTC",
+        "exchange": "ASX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://wisetechglobal.com/media/w15p1uve/wtc-1h25-app-4d-and-financial-report.pdf",
+        "marketCapUSD": 7550000000,
+        "marketCapAsOf": "2026-09",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/wisetech-global/marketcap/"
+      },
+      {
+        "id": "austral-manufacturing",
+        "issuer": "Fortescue",
+        "zone": "oceania",
+        "category": "small",
+        "ticker": "FMG",
+        "exchange": "ASX",
+        "instrument": "ordinary equity",
+        "listingStatus": "inferred_needs_listing-page_confirmation",
+        "listingNote": "Ticker and venue are an annotated inference from issuer identity and domestic listing conventions; this record does not claim live validation of the security listing.",
+        "issuerIdentityEvidenceURL": "https://www.fortescue.com/en/about-fortescue",
+        "marketCapUSD": 37020000000,
+        "marketCapAsOf": "2026-09",
+        "marketCapEvidenceURL": "https://companiesmarketcap.com/fortescue/marketcap/"
+      }
+    ],
+    "methodology": "One representative primary or issuer-home listing per legal issuer. For dual-primary or multi-market issuers, selected venue is an editorial representative and not claimed to be exclusive. ADRs are excluded when a domestic/issuer-home line is represented. Tickers and venues marked inferred must be confirmed against the issuer or venue record before transaction use. Unknown means no defensible primary line was established.",
+    "venueReferences": {
+      "NYSE": "https://www.nyse.com/listings_directory/stock?limit=100",
+      "Nasdaq": "https://www.nasdaq.com/market-activity/stocks/screener",
+      "Xetra": "https://www.xetra.com/xetra-en",
+      "LSE": "https://www.londonstockexchange.com/stock/SHEL/shell-plc/company-page",
+      "Euronext Paris": "https://live.euronext.com/en/markets/paris/equities/list",
+      "Euronext Amsterdam": "https://live.euronext.com/en/markets/amsterdam/equities/list",
+      "Euronext Brussels": "https://live.euronext.com/en/markets/brussels/equities/list",
+      "BME Madrid": "https://www.bolsasymercados.es/bme-exchange/en/Trading/Equities/Companies",
+      "SIX Swiss Exchange": "https://www.six-group.com/en/market-data/shares/share-explorer.html",
+      "B3": "https://www.b3.com.br/en_us/market-data-and-indices/data-services/market-data/quotes/equities/",
+      "BMV": "https://www.bmv.com.mx/en/issuers/listed-companies",
+      "Santiago Stock Exchange": "https://www.bolsadesantiago.com/",
+      "Tokyo Stock Exchange": "https://www.jpx.co.jp/english/markets/statistics-equities/misc/01.html",
+      "Taiwan Stock Exchange": "https://www.twse.com.tw/en/",
+      "Hong Kong Stock Exchange": "https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities?sc_lang=en",
+      "Indonesia Stock Exchange": "https://www.idx.co.id/en/market-data/stocks-data/stock-list/",
+      "KRX": "https://global.krx.co.kr/main/main.jsp",
+      "NSE India": "https://www.nseindia.com/market-data/live-equity-market",
+      "ADX": "https://www.adx.ae/market-watch/",
+      "DFM": "https://www.dfm.ae/the-exchange/market-information/market-watch",
+      "Qatar Stock Exchange": "https://www.qe.com.qa/market-data/market-watch",
+      "JSE": "https://www.jse.co.za/market-data/companies",
+      "Casablanca Stock Exchange": "https://www.casablanca-bourse.com/en/live-market",
+      "ASX": "https://www.asx.com.au/markets/trade-our-cash-market/overview"
+    }
+  },
+  "observedSampleBoundaryGap": {
+    "smallMaxCompany": "Qatar National Bank",
+    "smallMaxCapUSD": 39400000000,
+    "smallMaxPriceM": 180.53,
+    "mediumMinCompany": "Mercedes-Benz Group AG",
+    "mediumMinCapUSD": 43000000000,
+    "mediumMinPriceM": 192.79,
+    "priceGapM": 12.26
+  }
+}

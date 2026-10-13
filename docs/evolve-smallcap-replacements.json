@@ -1,0 +1,290 @@
+{
+  "catalogVersion": 4,
+  "researchDate": "2026-10-13",
+  "previousCommit": "56efd220fb082ee2cc432c02b3202a40f976d839",
+  "methodology": "Eleven substitutions in existing opaque legacy-ID slots, preserving 91 issuers and every zone-sector population. Small is gameplay <40bn USD, not an exchange label. Quotes and reports have differing observation dates; conversions are explicitly approximate. Embedded old catalogs remain untouched. No new logos.",
+  "records": [
+    {
+      "slotId": "pfizer-inc",
+      "previousName": "Pfizer Inc.",
+      "company": {
+        "name": "Hims & Hers Health, Inc.",
+        "zone": "americas",
+        "sector": "health",
+        "country": "United States",
+        "ticker": "HIMS",
+        "exchange": "NYSE",
+        "marketCapUSD": 7433000000,
+        "marketCapAsOf": "2026-08-20",
+        "marketCapSource": "https://investors.hims.com/stock-info/"
+      },
+      "evidence": {
+        "sources": [
+          "https://investors.hims.com/stock-info/",
+          "https://investors.hims.com/news/news-details/2026/Hims--Hers-Health-Inc--Reports-Second-Quarter-2026-Financial-Results/default.aspx"
+        ],
+        "calculation": "($31.86 official IR quote) × (224,920,310 Class A + 8,377,623 Class V shares) = ~$7.43bn.",
+        "confidence": "high",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    },
+    {
+      "slotId": "intel-corp",
+      "previousName": "Intel Corporation",
+      "company": {
+        "name": "UiPath, Inc.",
+        "zone": "americas",
+        "sector": "technology",
+        "country": "United States",
+        "ticker": "PATH",
+        "exchange": "NYSE",
+        "marketCapUSD": 6238000000,
+        "marketCapAsOf": "2025-07-31",
+        "marketCapSource": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf"
+      },
+      "evidence": {
+        "sources": [
+          "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf",
+          "https://ir.uipath.com/financials/sec-filings/content/0001734722-25-000043/path-20250731.htm",
+          "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000030/uipathinc_arx2026xflat.pdf"
+        ],
+        "calculation": "Official FY2026 10-K states NYSE-reported Class A close of $11.75 on 2025-07-31. Official Q2 FY2026 10-Q balance sheet has 453,404,000 Class A shares outstanding plus 77,453,000 Class B shares outstanding on 2025-07-31; Class A and B have identical dividend and liquidation/economic rights. $11.75 × 530,857,000 = $6,237,569,750 (~$6.24bn). This is total equity capitalization, not nonaffiliate public float.",
+        "confidence": "high; matched same-date issuer close and outstanding share count",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    },
+    {
+      "slotId": "wells-fargo-co",
+      "previousName": "Wells Fargo & Company",
+      "company": {
+        "name": "NMI Holdings, Inc.",
+        "zone": "americas",
+        "sector": "finance",
+        "country": "United States",
+        "ticker": "NMIH",
+        "exchange": "NASDAQ",
+        "marketCapUSD": 3121000000,
+        "marketCapAsOf": "2026-02-06",
+        "marketCapSource": "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862"
+      },
+      "evidence": {
+        "sources": [
+          "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862",
+          "https://ir.nationalmi.com/"
+        ],
+        "calculation": "$41.05 closing share price × 76,032,627 shares = ~$3.12bn.",
+        "confidence": "high; dated primary data",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    },
+    {
+      "slotId": "united-parcel-service",
+      "previousName": "United Parcel Service, Inc.",
+      "company": {
+        "name": "JetBlue Airways Corporation",
+        "zone": "americas",
+        "sector": "transport",
+        "country": "United States",
+        "ticker": "JBLU",
+        "exchange": "NASDAQ",
+        "marketCapUSD": 1450000000,
+        "marketCapAsOf": "2026-10-09",
+        "marketCapSource": "https://www.ir.jetblue.com/resources/stock-info/default.aspx"
+      },
+      "evidence": {
+        "sources": [
+          "https://www.ir.jetblue.com/resources/stock-info/default.aspx",
+          "https://ir.jetblue.com/resources/faqs/default.aspx"
+        ],
+        "calculation": "Issuer stock quote directly reports market capitalization of $1.45bn (close $3.84).",
+        "confidence": "high",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    },
+    {
+      "slotId": "ambev",
+      "previousName": "Ambev S.A.",
+      "company": {
+        "name": "Cal-Maine Foods, Inc.",
+        "zone": "americas",
+        "sector": "agrifood",
+        "country": "United States",
+        "ticker": "CALM",
+        "exchange": "NASDAQ Global Select Market",
+        "marketCapUSD": 3019000000,
+        "marketCapAsOf": "2026-10-09",
+        "marketCapSource": "https://investors.calmainefoods.com/stock-information/historical-price-lookup"
+      },
+      "evidence": {
+        "sources": [
+          "https://investors.calmainefoods.com/stock-information/historical-price-lookup",
+          "https://investors.calmainefoods.com/node/14891/xbrl-viewer",
+          "https://investors.calmainefoods.com/news-releases/news-release-details/cal-maine-foods-reports-first-quarter-fiscal-2027-results"
+        ],
+        "calculation": "$64.35 official historical close × 46,917,080 shares = ~$3.02bn.",
+        "confidence": "high; share count precedes quote by ~11 weeks",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    },
+    {
+      "slotId": "sap",
+      "previousName": "SAP SE",
+      "company": {
+        "name": "TeamViewer SE",
+        "zone": "europe",
+        "sector": "technology",
+        "country": "Germany",
+        "ticker": "TMV",
+        "exchange": "Frankfurt Stock Exchange / Xetra (Prime Standard)",
+        "marketCapUSD": 1160000000,
+        "marketCapAsOf": "2025-12-30",
+        "marketCapSource": "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline"
+      },
+      "evidence": {
+        "sources": [
+          "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline",
+          "https://live.deutsche-boerse.com/equity/teamviewer-ag/price-history/historical-prices-and-volumes",
+          "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+        ],
+        "calculation": "Issuer FY2025 annual report states Xetra close €6.05 on 2025-12-30 and market capitalization €989m on that date. USD is approximate: €989m × rough 1.17 ≈ $1.16bn; market cap itself is the cited primary value.",
+        "confidence": "high for issuer EUR snapshot; medium for rough USD conversion",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    },
+    {
+      "slotId": "bayer-ag",
+      "previousName": "Bayer AG",
+      "company": {
+        "name": "Carl Zeiss Meditec AG",
+        "zone": "europe",
+        "sector": "health",
+        "country": "Germany",
+        "ticker": "AFX",
+        "exchange": "Xetra / Frankfurt Stock Exchange (Prime Standard)",
+        "marketCapUSD": 4600000000,
+        "marketCapAsOf": "2025-11-27",
+        "marketCapSource": "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf"
+      },
+      "evidence": {
+        "sources": [
+          "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf",
+          "https://www.zeiss.com/meditec-ag/de/investor-relations/carl-zeiss-meditec-aktie.html",
+          "https://www.zeiss.com/meditec-ag/en/media-news/press-releases/2026/half-year-financial-communication-2025-26.html"
+        ],
+        "calculation": "Issuer reports €3,999.8m total market capitalization; × approximate 1.15 USD/EUR = ~$4.6bn.",
+        "confidence": "medium-high; cap value is from issuer, USD conversion approximate",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    },
+    {
+      "slotId": "british-american-tobacco-plc",
+      "previousName": "British American Tobacco p.l.c.",
+      "company": {
+        "name": "KION GROUP AG",
+        "zone": "europe",
+        "sector": "industry",
+        "country": "Germany",
+        "ticker": "KGX",
+        "exchange": "Frankfurt Stock Exchange / Xetra",
+        "marketCapUSD": 5700000000,
+        "marketCapAsOf": "2026-06-30",
+        "marketCapSource": "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html"
+      },
+      "evidence": {
+        "sources": [
+          "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html",
+          "https://reports.kiongroup.com/2026/ir/2/notes/notes-to-the-statement-of-financial-position.html",
+          "https://www.kiongroup.com/en/Investors/Facts-Figures/Investment-Highlights/"
+        ],
+        "calculation": "Issuer reports ~€5.1bn market capitalization as of 2026-06-30; approximate USD equivalent ~$5.7bn.",
+        "confidence": "high; official market cap, rounded FX conversion",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    },
+    {
+      "slotId": "alibaba-group-holding",
+      "previousName": "Alibaba Group Holding Limited",
+      "company": {
+        "name": "CHICONY ELECTRONICS CO., LTD.",
+        "zone": "asia",
+        "sector": "technology",
+        "country": "Taiwan",
+        "ticker": "2385",
+        "exchange": "Taiwan Stock Exchange (TWSE)",
+        "marketCapUSD": 3218350150,
+        "marketCapAsOf": "2026-05-27",
+        "marketCapSource": "https://www.twse.com.tw/pdf/en/2385_en.pdf"
+      },
+      "evidence": {
+        "sources": [
+          "https://www.chicony.com/chicony/en/about/profile",
+          "https://www.twse.com.tw/pdf/en/2385_en.pdf"
+        ],
+        "calculation": "NT$135.5 × (NT$7,600,531,720 paid-in capital ÷ NT$10 par) = NT$102.99bn; ÷ 32 TWD/USD ≈ US$3.22bn.",
+        "confidence": "medium; primary inputs, rounded FX assumption and issued-share approximation",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    },
+    {
+      "slotId": "bank-central-asia",
+      "previousName": "PT Bank Central Asia Tbk",
+      "company": {
+        "name": "TAIWAN BUSINESS BANK",
+        "zone": "asia",
+        "sector": "finance",
+        "country": "Taiwan",
+        "ticker": "2834",
+        "exchange": "Taiwan Stock Exchange (TWSE)",
+        "marketCapUSD": 4570525963,
+        "marketCapAsOf": "2026-03-27",
+        "marketCapSource": "https://www.twse.com.tw/pdf/en/2834_en.pdf"
+      },
+      "evidence": {
+        "sources": [
+          "https://www.tbb.com.tw/zh-tw/about/intro/brief/profile",
+          "https://www.twse.com.tw/pdf/en/2834_en.pdf"
+        ],
+        "calculation": "NT$15.05 × (NT$97,180,618,490 paid-in capital ÷ NT$10 par) = NT$146.26bn; ÷ 32 TWD/USD ≈ US$4.57bn.",
+        "confidence": "medium; primary inputs, rounded FX assumption and issued-share approximation",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    },
+    {
+      "slotId": "china-construction-bank-corp",
+      "previousName": "Komatsu Ltd.",
+      "company": {
+        "name": "NITTO KOGYO CORPORATION",
+        "zone": "asia",
+        "sector": "industry",
+        "country": "Japan",
+        "ticker": "6651",
+        "exchange": "Tokyo Stock Exchange (Prime Market); also Nagoya Stock Exchange (Premier Market)",
+        "marketCapUSD": 1170584800,
+        "marketCapAsOf": "2026-09-11",
+        "marketCapSource": "https://www.jpx.co.jp/automation/markets/statistics-equities/daily/files/202609/stq_20260911.pdf"
+      },
+      "evidence": {
+        "sources": [
+          "https://www.nito.co.jp/english/IR/stock/basic/",
+          "https://www.nito.co.jp/english/company/overview/",
+          "https://www.jpx.co.jp/automation/markets/statistics-equities/daily/files/202609/stq_20260911.pdf",
+          "https://www.jpx.co.jp/english/listing/co/sjcobq000000swvo-att/HP-2025.2%28e%29.pdf"
+        ],
+        "calculation": "JPY4,340 × 40,458,000 issued/listed shares = JPY175.58772bn; ÷ assumed 150 JPY/USD ≈ US$1.1705848bn. This gross issued/listed-share estimate includes treasury shares; the only issuer treasury-share count located was 2,424,913 as of 2024-03-31, so no current treasury-adjusted figure is asserted.",
+        "confidence": "medium; primary inputs, rounded FX assumption and issued-share approximation",
+        "retrievedAt": "2026-10-13",
+        "scope": "Approximate dated size for gameplay classification, not a live quote."
+      }
+    }
+  ]
+}

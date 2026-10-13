@@ -1,7 +1,7 @@
 {
   "consultedAt": "2026-10-06",
   "currency": "USD",
-  "basis": "Approximate real capitalization for game classification only; source dates differ. No live investment quote.",
+  "basis": "Approximate dated sizes for gameplay classification only. Eleven v4 replacements have issuer/exchange inputs and explicit approximate FX; other observations retain their original dates. No live quote.",
   "rows": [
     {
       "id": "orascom-construction-industries",
@@ -39,7 +39,7 @@
     {
       "id": "enersis",
       "name": "Enel Chile",
-      "marketCapUSD": 6000000000.0,
+      "marketCapUSD": 6000000000,
       "asOf": "2026-10-06",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://stockanalysis.com/stocks/enic/market-cap/",
@@ -49,14 +49,18 @@
     },
     {
       "id": "bank-central-asia",
-      "name": "PT Bank Central Asia Tbk",
-      "marketCapUSD": 45020000000,
-      "asOf": "2026-09",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/bank-central-asia/marketcap/",
-      "sourceTitle": "Bank Central Asia (BBCA.JK) — Market capitalization",
-      "evidence": "CompaniesMarketCap reports market cap of $45.02B; page reports September 2026.",
-      "confidence": "high"
+      "name": "TAIWAN BUSINESS BANK",
+      "marketCapUSD": 4570525963,
+      "asOf": "2026-03-27",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://www.twse.com.tw/pdf/en/2834_en.pdf",
+      "sourceTitle": "TAIWAN BUSINESS BANK — dated issuer/exchange evidence",
+      "evidence": "NT$15.05 × (NT$97,180,618,490 paid-in capital ÷ NT$10 par) = NT$146.26bn; ÷ 32 TWD/USD ≈ US$4.57bn.",
+      "confidence": "medium; primary inputs, rounded FX assumption and issued-share approximation",
+      "sources": [
+        "https://www.tbb.com.tw/zh-tw/about/intro/brief/profile",
+        "https://www.twse.com.tw/pdf/en/2834_en.pdf"
+      ]
     },
     {
       "id": "astra-international",
@@ -123,7 +127,7 @@
     {
       "id": "banco-brasil",
       "name": "Banco do Brasil",
-      "marketCapUSD": 30000000000.0,
+      "marketCapUSD": 30000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/banco-do-brasil/marketcap/",
@@ -134,7 +138,7 @@
     {
       "id": "amx",
       "name": "América Móvil",
-      "marketCapUSD": 67000000000.0,
+      "marketCapUSD": 67000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/america-movil/marketcap/",
@@ -145,7 +149,7 @@
     {
       "id": "walmex",
       "name": "Walmart de México y Centroamérica",
-      "marketCapUSD": 46000000000.0,
+      "marketCapUSD": 46000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/walmex/marketcap/",
@@ -178,7 +182,7 @@
     {
       "id": "mcdonald-s-corp",
       "name": "McDonald’s Corporation",
-      "marketCapUSD": 160000000000.0,
+      "marketCapUSD": 160000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/mcdonald/marketcap/",
@@ -210,14 +214,19 @@
     },
     {
       "id": "sap",
-      "name": "SAP SE",
-      "marketCapUSD": 240000000000,
-      "asOf": "2026-10",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/sap/marketcap/",
-      "sourceTitle": "SAP (SAP) - Market capitalization",
-      "evidence": "CompaniesMarketCap lists SAP (SAP), Germany, at $239.77B USD and dates the estimate October 2026.",
-      "confidence": "medium"
+      "name": "TeamViewer SE",
+      "marketCapUSD": 1160000000,
+      "asOf": "2025-12-30",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline",
+      "sourceTitle": "TeamViewer SE — dated issuer/exchange evidence",
+      "evidence": "Issuer FY2025 annual report states Xetra close €6.05 on 2025-12-30 and market capitalization €989m on that date. USD is approximate: €989m × rough 1.17 ≈ $1.16bn; market cap itself is the cited primary value.",
+      "confidence": "high for issuer EUR snapshot; medium for rough USD conversion",
+      "sources": [
+        "https://ir.teamviewer.com/media/document/bf2a9306-0db4-4709-824e-068b26284f99/assets/TeamViewer_Annual_Report_2025.pdf?disposition=inline",
+        "https://live.deutsche-boerse.com/equity/teamviewer-ag/price-history/historical-prices-and-volumes",
+        "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+      ]
     },
     {
       "id": "lvmh-sa",
@@ -244,7 +253,7 @@
     {
       "id": "nike-inc",
       "name": "NIKE, Inc.",
-      "marketCapUSD": 50000000000.0,
+      "marketCapUSD": 50000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/nike/marketcap/",
@@ -254,14 +263,18 @@
     },
     {
       "id": "united-parcel-service",
-      "name": "United Parcel Service, Inc.",
-      "marketCapUSD": 79000000000.0,
-      "asOf": "2026-10",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/ups/marketcap/",
-      "sourceTitle": "United Parcel Service (UPS) - Market capitalization",
-      "evidence": "CMC reports USD 79.24B for October 2026.",
-      "confidence": "high"
+      "name": "JetBlue Airways Corporation",
+      "marketCapUSD": 1450000000,
+      "asOf": "2026-10-09",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://www.ir.jetblue.com/resources/stock-info/default.aspx",
+      "sourceTitle": "JetBlue Airways Corporation — dated issuer/exchange evidence",
+      "evidence": "Issuer stock quote directly reports market capitalization of $1.45bn (close $3.84).",
+      "confidence": "high",
+      "sources": [
+        "https://www.ir.jetblue.com/resources/stock-info/default.aspx",
+        "https://ir.jetblue.com/resources/faqs/default.aspx"
+      ]
     },
     {
       "id": "gazprom",
@@ -276,19 +289,24 @@
     },
     {
       "id": "british-american-tobacco-plc",
-      "name": "British American Tobacco p.l.c.",
-      "marketCapUSD": 120000000000,
-      "asOf": "2026-09",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/british-american-tobacco/marketcap/",
-      "sourceTitle": "British American Tobacco (BTI) - Market capitalization",
-      "evidence": "CompaniesMarketCap lists British American Tobacco (BTI), United Kingdom, at $120.60B USD as of September 2026.",
-      "confidence": "medium"
+      "name": "KION GROUP AG",
+      "marketCapUSD": 5700000000,
+      "asOf": "2026-06-30",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html",
+      "sourceTitle": "KION GROUP AG — dated issuer/exchange evidence",
+      "evidence": "Issuer reports ~€5.1bn market capitalization as of 2026-06-30; approximate USD equivalent ~$5.7bn.",
+      "confidence": "high; official market cap, rounded FX conversion",
+      "sources": [
+        "https://reports.kiongroup.com/2026/ir/2/highlights/kion-shares.html",
+        "https://reports.kiongroup.com/2026/ir/2/notes/notes-to-the-statement-of-financial-position.html",
+        "https://www.kiongroup.com/en/Investors/Facts-Figures/Investment-Highlights/"
+      ]
     },
     {
       "id": "3m-co",
       "name": "3M Company",
-      "marketCapUSD": 84000000000.0,
+      "marketCapUSD": 84000000000,
       "asOf": "2026-09",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/3m/marketcap/",
@@ -299,7 +317,7 @@
     {
       "id": "mastercard-inc",
       "name": "Mastercard Incorporated",
-      "marketCapUSD": 480000000000.0,
+      "marketCapUSD": 480000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/mastercard/marketcap/",
@@ -310,7 +328,7 @@
     {
       "id": "the-boeing-company",
       "name": "The Boeing Company",
-      "marketCapUSD": 150000000000.0,
+      "marketCapUSD": 150000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/boeing/marketcap/",
@@ -365,7 +383,7 @@
     {
       "id": "petrobras",
       "name": "Petróleo Brasileiro S.A. (Petrobras)",
-      "marketCapUSD": 160000000000.0,
+      "marketCapUSD": 160000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/petrobras/marketcap/",
@@ -431,7 +449,7 @@
     {
       "id": "philip-morris-international",
       "name": "Philip Morris International Inc.",
-      "marketCapUSD": 300000000000.0,
+      "marketCapUSD": 300000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/philip-morris/marketcap/",
@@ -441,14 +459,19 @@
     },
     {
       "id": "bayer-ag",
-      "name": "Bayer AG",
-      "marketCapUSD": 55000000000,
-      "asOf": "2026-09",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/bayer/marketcap/",
-      "sourceTitle": "Bayer (BAYN.DE) - Market capitalization",
-      "evidence": "CompaniesMarketCap lists Bayer (BAYN.DE), Germany, at $55.30B USD as of September 2026.",
-      "confidence": "medium"
+      "name": "Carl Zeiss Meditec AG",
+      "marketCapUSD": 4600000000,
+      "asOf": "2025-11-27",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf",
+      "sourceTitle": "Carl Zeiss Meditec AG — dated issuer/exchange evidence",
+      "evidence": "Issuer reports €3,999.8m total market capitalization; × approximate 1.15 USD/EUR = ~$4.6bn.",
+      "confidence": "medium-high; cap value is from issuer, USD conversion approximate",
+      "sources": [
+        "https://www.zeiss.com/content/dam/med-ag/investor-relations/financial-publications/afx_annual_report_202425.pdf",
+        "https://www.zeiss.com/meditec-ag/de/investor-relations/carl-zeiss-meditec-aktie.html",
+        "https://www.zeiss.com/meditec-ag/en/media-news/press-releases/2026/half-year-financial-communication-2025-26.html"
+      ]
     },
     {
       "id": "sinopec",
@@ -474,14 +497,19 @@
     },
     {
       "id": "ambev",
-      "name": "Ambev S.A.",
-      "marketCapUSD": 50000000000.0,
-      "asOf": "2026-10",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/ambev/marketcap/",
-      "sourceTitle": "Ambev (ABEV) - Market capitalization",
-      "evidence": "CMC reports USD 50.10B for October 2026.",
-      "confidence": "high"
+      "name": "Cal-Maine Foods, Inc.",
+      "marketCapUSD": 3019000000,
+      "asOf": "2026-10-09",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://investors.calmainefoods.com/stock-information/historical-price-lookup",
+      "sourceTitle": "Cal-Maine Foods, Inc. — dated issuer/exchange evidence",
+      "evidence": "$64.35 official historical close × 46,917,080 shares = ~$3.02bn.",
+      "confidence": "high; share count precedes quote by ~11 weeks",
+      "sources": [
+        "https://investors.calmainefoods.com/stock-information/historical-price-lookup",
+        "https://investors.calmainefoods.com/node/14891/xbrl-viewer",
+        "https://investors.calmainefoods.com/news-releases/news-release-details/cal-maine-foods-reports-first-quarter-fiscal-2027-results"
+      ]
     },
     {
       "id": "sanofi",
@@ -497,7 +525,7 @@
     {
       "id": "pepsico",
       "name": "PepsiCo, Inc.",
-      "marketCapUSD": 170000000000.0,
+      "marketCapUSD": 170000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/pepsico/marketcap/",
@@ -508,7 +536,7 @@
     {
       "id": "cisco-systems",
       "name": "Cisco Systems, Inc.",
-      "marketCapUSD": 460000000000.0,
+      "marketCapUSD": 460000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/cisco/marketcap/",
@@ -518,14 +546,19 @@
     },
     {
       "id": "intel-corp",
-      "name": "Intel Corporation",
-      "marketCapUSD": 610000000000.0,
-      "asOf": "2026-10",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/intel/marketcap/",
-      "sourceTitle": "Intel (INTC) - Market capitalization",
-      "evidence": "CMC reports USD 614.19B for October 2026.",
-      "confidence": "high"
+      "name": "UiPath, Inc.",
+      "marketCapUSD": 6238000000,
+      "asOf": "2025-07-31",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf",
+      "sourceTitle": "UiPath, Inc. — dated issuer/exchange evidence",
+      "evidence": "Official FY2026 10-K states NYSE-reported Class A close of $11.75 on 2025-07-31. Official Q2 FY2026 10-Q balance sheet has 453,404,000 Class A shares outstanding plus 77,453,000 Class B shares outstanding on 2025-07-31; Class A and B have identical dividend and liquidation/economic rights. $11.75 × 530,857,000 = $6,237,569,750 (~$6.24bn). This is total equity capitalization, not nonaffiliate public float.",
+      "confidence": "high; matched same-date issuer close and outstanding share count",
+      "sources": [
+        "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000030/0001734722-26-000030.pdf",
+        "https://ir.uipath.com/financials/sec-filings/content/0001734722-25-000043/path-20250731.htm",
+        "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000030/uipathinc_arx2026xflat.pdf"
+      ]
     },
     {
       "id": "hsbc-holdings-plc",
@@ -541,7 +574,7 @@
     {
       "id": "ibm-corp",
       "name": "International Business Machines Corporation (IBM)",
-      "marketCapUSD": 210000000000.0,
+      "marketCapUSD": 210000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/ibm/marketcap/",
@@ -552,7 +585,7 @@
     {
       "id": "visa-inc",
       "name": "Visa Inc.",
-      "marketCapUSD": 690000000000.0,
+      "marketCapUSD": 690000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/visa/marketcap/",
@@ -563,7 +596,7 @@
     {
       "id": "at-t-inc",
       "name": "AT&T Inc.",
-      "marketCapUSD": 170000000000.0,
+      "marketCapUSD": 170000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/att/marketcap/",
@@ -574,7 +607,7 @@
     {
       "id": "the-coca-cola-co",
       "name": "The Coca-Cola Company",
-      "marketCapUSD": 370000000000.0,
+      "marketCapUSD": 370000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/coca-cola/marketcap/",
@@ -596,7 +629,7 @@
     {
       "id": "the-walt-disney-co",
       "name": "The Walt Disney Company",
-      "marketCapUSD": 180000000000.0,
+      "marketCapUSD": 180000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/walt-disney/marketcap/",
@@ -646,7 +679,7 @@
     {
       "id": "oracle-corp",
       "name": "Oracle Corporation",
-      "marketCapUSD": 430000000000.0,
+      "marketCapUSD": 430000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/oracle/marketcap/",
@@ -656,14 +689,18 @@
     },
     {
       "id": "alibaba-group-holding",
-      "name": "Alibaba Group Holding Limited",
-      "marketCapUSD": 275640000000,
-      "asOf": "2026-10",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/alibaba/marketcap/",
-      "sourceTitle": "Alibaba (BABA) — Market capitalization",
-      "evidence": "CompaniesMarketCap reports market cap of $275.64B; October 2026.",
-      "confidence": "high"
+      "name": "CHICONY ELECTRONICS CO., LTD.",
+      "marketCapUSD": 3218350150,
+      "asOf": "2026-05-27",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://www.twse.com.tw/pdf/en/2385_en.pdf",
+      "sourceTitle": "CHICONY ELECTRONICS CO., LTD. — dated issuer/exchange evidence",
+      "evidence": "NT$135.5 × (NT$7,600,531,720 paid-in capital ÷ NT$10 par) = NT$102.99bn; ÷ 32 TWD/USD ≈ US$3.22bn.",
+      "confidence": "medium; primary inputs, rounded FX assumption and issued-share approximation",
+      "sources": [
+        "https://www.chicony.com/chicony/en/about/profile",
+        "https://www.twse.com.tw/pdf/en/2385_en.pdf"
+      ]
     },
     {
       "id": "bank-of-china-ltd",
@@ -679,7 +716,7 @@
     {
       "id": "chevron-corp",
       "name": "Chevron Corporation",
-      "marketCapUSD": 410000000000.0,
+      "marketCapUSD": 410000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/chevron/marketcap/",
@@ -700,14 +737,20 @@
     },
     {
       "id": "china-construction-bank-corp",
-      "name": "Komatsu Ltd.",
-      "marketCapUSD": 43630000000,
-      "asOf": "2026-10",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/komatsu/marketcap/",
-      "sourceTitle": "Komatsu (6301.T) — Market capitalization",
-      "evidence": "CompaniesMarketCap reports market cap of $43.63B; October 2026. This is the current catalogue company Komatsu Ltd. under a legacy ID; do not use China Construction Bank data.",
-      "confidence": "high"
+      "name": "NITTO KOGYO CORPORATION",
+      "marketCapUSD": 1170584800,
+      "asOf": "2026-09-11",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://www.jpx.co.jp/automation/markets/statistics-equities/daily/files/202609/stq_20260911.pdf",
+      "sourceTitle": "NITTO KOGYO CORPORATION — dated issuer/exchange evidence",
+      "evidence": "JPY4,340 × 40,458,000 issued/listed shares = JPY175.58772bn; ÷ assumed 150 JPY/USD ≈ US$1.1705848bn. This gross issued/listed-share estimate includes treasury shares; the only issuer treasury-share count located was 2,424,913 as of 2024-03-31, so no current treasury-adjusted figure is asserted.",
+      "confidence": "medium; primary inputs, rounded FX assumption and issued-share approximation",
+      "sources": [
+        "https://www.nito.co.jp/english/IR/stock/basic/",
+        "https://www.nito.co.jp/english/company/overview/",
+        "https://www.jpx.co.jp/automation/markets/statistics-equities/daily/files/202609/stq_20260911.pdf",
+        "https://www.jpx.co.jp/english/listing/co/sjcobq000000swvo-att/HP-2025.2%28e%29.pdf"
+      ]
     },
     {
       "id": "samsung-electronics-co-ltd",
@@ -722,19 +765,23 @@
     },
     {
       "id": "pfizer-inc",
-      "name": "Pfizer Inc.",
-      "marketCapUSD": 160000000000.0,
-      "asOf": "2026-10",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/pfizer/marketcap/",
-      "sourceTitle": "Pfizer (PFE) - Market capitalization",
-      "evidence": "CMC reports USD 156.22B for October 2026.",
-      "confidence": "high"
+      "name": "Hims & Hers Health, Inc.",
+      "marketCapUSD": 7433000000,
+      "asOf": "2026-08-20",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://investors.hims.com/stock-info/",
+      "sourceTitle": "Hims & Hers Health, Inc. — dated issuer/exchange evidence",
+      "evidence": "($31.86 official IR quote) × (224,920,310 Class A + 8,377,623 Class V shares) = ~$7.43bn.",
+      "confidence": "high",
+      "sources": [
+        "https://investors.hims.com/stock-info/",
+        "https://investors.hims.com/news/news-details/2026/Hims--Hers-Health-Inc--Reports-Second-Quarter-2026-Financial-Results/default.aspx"
+      ]
     },
     {
       "id": "procter-gamble-co",
       "name": "The Procter & Gamble Company",
-      "marketCapUSD": 340000000000.0,
+      "marketCapUSD": 340000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/procter-and-gamble/marketcap/",
@@ -767,7 +814,7 @@
     {
       "id": "jpmorgan-chase-co",
       "name": "JPMorgan Chase & Co.",
-      "marketCapUSD": 880000000000.0,
+      "marketCapUSD": 880000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/jp-morgan-chase/marketcap/",
@@ -789,7 +836,7 @@
     {
       "id": "general-electric",
       "name": "GE Aerospace",
-      "marketCapUSD": 320000000000.0,
+      "marketCapUSD": 320000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/general-electric/marketcap/",
@@ -800,7 +847,7 @@
     {
       "id": "wal-mart-stores-inc",
       "name": "Walmart Inc.",
-      "marketCapUSD": 830000000000.0,
+      "marketCapUSD": 830000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/walmart/marketcap/",
@@ -832,19 +879,23 @@
     },
     {
       "id": "wells-fargo-co",
-      "name": "Wells Fargo & Company",
-      "marketCapUSD": 250000000000.0,
-      "asOf": "2026-10",
-      "accessedAt": "2026-10-06",
-      "sourceURL": "https://companiesmarketcap.com/wells-fargo/marketcap/",
-      "sourceTitle": "Wells Fargo (WFC) - Market capitalization",
-      "evidence": "CMC reports USD 245.89B for October 2026.",
-      "confidence": "high"
+      "name": "NMI Holdings, Inc.",
+      "marketCapUSD": 3121000000,
+      "asOf": "2026-02-06",
+      "accessedAt": "2026-10-13",
+      "sourceURL": "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862",
+      "sourceTitle": "NMI Holdings, Inc. — dated issuer/exchange evidence",
+      "evidence": "$41.05 closing share price × 76,032,627 shares = ~$3.12bn.",
+      "confidence": "high; dated primary data",
+      "sources": [
+        "https://ir.nationalmi.com/static-files/1a162829-0e8d-48e3-96b1-9e66cb6f4862",
+        "https://ir.nationalmi.com/"
+      ]
     },
     {
       "id": "johnson-johnson",
       "name": "Johnson & Johnson",
-      "marketCapUSD": 610000000000.0,
+      "marketCapUSD": 610000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/johnson-and-johnson/marketcap/",
@@ -866,7 +917,7 @@
     {
       "id": "microsoft-corp",
       "name": "Microsoft Corporation",
-      "marketCapUSD": 3800000000000.0,
+      "marketCapUSD": 3800000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/microsoft/marketcap/",
@@ -877,7 +928,7 @@
     {
       "id": "exxon-mobil-corp",
       "name": "Exxon Mobil Corporation",
-      "marketCapUSD": 670000000000.0,
+      "marketCapUSD": 670000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/exxon-mobil/marketcap/",
@@ -888,7 +939,7 @@
     {
       "id": "berkshire-hathaway-inc",
       "name": "Berkshire Hathaway Inc.",
-      "marketCapUSD": 1100000000000.0,
+      "marketCapUSD": 1100000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/berkshire-hathaway/marketcap/",
@@ -899,7 +950,7 @@
     {
       "id": "alphabet-google-inc",
       "name": "Alphabet Inc.",
-      "marketCapUSD": 4200000000000.0,
+      "marketCapUSD": 4200000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/usd/alphabet-google/marketcap/",
@@ -910,7 +961,7 @@
     {
       "id": "apple-inc",
       "name": "Apple Inc.",
-      "marketCapUSD": 4900000000000.0,
+      "marketCapUSD": 4900000000000,
       "asOf": "2026-10",
       "accessedAt": "2026-10-06",
       "sourceURL": "https://companiesmarketcap.com/apple/marketcap/",
@@ -1017,5 +1068,6 @@
       "evidence": "CompaniesMarketCap reports market cap of $37.02B; September 2026. Current catalogue company Fortescue.",
       "confidence": "high"
     }
-  ]
+  ],
+  "lastUpdated": "2026-10-13"
 }

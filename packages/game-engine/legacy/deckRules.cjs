@@ -2,7 +2,7 @@
 
 const { events } = require('./data/gameData.json');
 const { BOARD_EVENT_CARDS } = require('./boardEventCards.cjs');
-const CARD_RULES_VERSION = 3;
+const CARD_RULES_VERSION = 4;
 const EVENT_TEXT_VERSION = 3;
 const contextsById = new Map(events.map(card => [String(card.id), card]));
 const eventsById = new Map(BOARD_EVENT_CARDS.map(card => [String(card.id), card]));

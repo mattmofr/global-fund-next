@@ -1,104 +1,128 @@
-# Répartition actuelle du marché
+# Répartition runtime du marché
 
-État généré depuis `packages/game-engine/legacy/data/gameData.json`, avec les capitalisations de `docs/market-caps.json` consultées le **2026-10-06**. Le catalogue contient **91 IDs uniques**. Les cellules montrent `nombre (Small / Medium / Large)` selon les seuils Global Fund : Small `<40 Md USD`, Medium `40 à <200 Md`, Large `≥200 Md`. Les capitalisations réelles sont des repères d’ordre de grandeur; elles ne sont pas des prix de jeu.
+Généré le 2026-10-13 depuis `packages/game-engine/legacy/data/gameData.json` : **91 sociétés / 91 IDs uniques**. Une société compte une fois, quelle que soit sa place de cotation.
 
-## Matrice zone × secteur × taille
+Dataset de capitalisations : consultation initiale 2026-10-06, dernière consolidation 2026-10-13; chaque émetteur conserve sa date de cap propre dans le JSON. Branche `global-fund-evolve`, HEAD `56efd220fb082ee2cc432c02b3202a40f976d839`. SHA-256 : catalogue `47cb766839a7a932`, caps `5012cac9403107d7`, script `b2daab6276d65569` (empreintes complètes dans le JSON).
 
-| Secteur | Amériques | Europe | Asie | Afrique & Moyen-Orient | Océanie | Total (S/M/L) |
-|---|---:|---:|---:|---:|---:|---:|
-| Technologie | 7 (0/0/7) | 1 (0/0/1) | 4 (0/0/4) | 0 (0/0/0) | 1 (1/0/0) | 1/0/12 |
-| Finance | 6 (1/0/5) | 2 (0/0/2) | 4 (0/2/2) | 1 (1/0/0) | 1 (0/1/0) | 2/3/9 |
-| Industrie | 5 (0/3/2) | 5 (0/2/3) | 3 (1/2/0) | 0 (0/0/0) | 1 (1/0/0) | 2/7/5 |
-| Santé | 2 (0/1/1) | 6 (0/3/3) | 0 (0/0/0) | 0 (0/0/0) | 1 (0/1/0) | 0/5/4 |
-| Énergie | 4 (1/1/2) | 3 (0/2/1) | 2 (0/1/1) | 1 (1/0/0) | 1 (1/0/0) | 3/4/4 |
-| Immobilier & infrastructures | 0 (0/0/0) | 0 (0/0/0) | 1 (1/0/0) | 2 (2/0/0) | 1 (1/0/0) | 4/0/0 |
-| Agroalimentaire & ressources | 7 (0/4/3) | 4 (0/3/1) | 0 (0/0/0) | 0 (0/0/0) | 1 (1/0/0) | 1/7/4 |
-| Communication & médias | 3 (0/3/0) | 1 (1/0/0) | 1 (0/0/1) | 2 (2/0/0) | 1 (1/0/0) | 4/3/1 |
-| Transports & logistique | 1 (0/1/0) | 2 (1/1/0) | 2 (1/0/1) | 0 (0/0/0) | 1 (1/0/0) | 3/2/1 |
-| **Total (S/M/L)** | 35 (2/13/20) | 24 (2/11/11) | 17 (3/5/9) | 6 (6/0/0) | 9 (7/2/0) | **91 (20/31/40)** |
+## Zones du jeu — sociétés Small / Medium / Large
 
-### Totaux par zone
-
-| Zone | Entreprises | Small | Medium | Large |
+| Zone | Small | Medium | Large | Total |
 |---|---:|---:|---:|---:|
-| Amériques | 35 | 2 | 13 | 20 |
-| Europe | 24 | 2 | 11 | 11 |
-| Asie | 17 | 3 | 5 | 9 |
-| Afrique & Moyen-Orient | 6 | 6 | 0 | 0 |
-| Océanie | 9 | 7 | 2 | 0 |
-| **Total** | **91** | **20** | **31** | **40** |
+| americas | 7 | 10 | 18 | 35 |
+| europe | 5 | 9 | 10 | 24 |
+| asia | 6 | 3 | 8 | 17 |
+| africa | 6 | 0 | 0 | 6 |
+| oceania | 7 | 2 | 0 | 9 |
+| **Total** | **31** | **24** | **36** | **91** |
 
-## Groupes et potentiel de monopole
+## Secteurs — sociétés Small / Medium / Large
 
-Un groupe de la matrice correspond à une zone × un secteur. Un groupe à une entreprise est plus facile à monopoliser puisqu’il ne demande de contrôler qu’un émetteur; un groupe avec deux entreprises ou plus demande de réunir les positions de toutes les entreprises du groupe. Cela décrit la structure du catalogue, pas la probabilité effective d’un monopole en partie.
+| Secteur | Small | Medium | Large | Total |
+|---|---:|---:|---:|---:|
+| technology | 4 | 0 | 9 | 13 |
+| finance | 4 | 2 | 8 | 14 |
+| industry | 4 | 5 | 5 | 14 |
+| health | 2 | 3 | 4 | 9 |
+| energy | 3 | 4 | 4 | 11 |
+| realestate | 4 | 0 | 0 | 4 |
+| agrifood | 2 | 6 | 4 | 12 |
+| media | 4 | 3 | 1 | 8 |
+| transport | 4 | 1 | 1 | 6 |
 
-Sur **45 groupes possibles** : **9** sont vides, **16** ont une entreprise, et **20** en ont au moins deux. Sur les 36 cases occupées, 16 sont des groupes à émetteur unique et 20 demandent deux positions ou plus.
+## Matrice zone × secteur — Small / Medium / Large
 
-### Groupes à entreprise unique
+Chaque cellule indique `S/M/L`.
 
-| Zone | Secteur | Entreprise | CAP Global Fund |
-|---|---|---|---|
-| Amériques | Transports & logistique | United Parcel Service, Inc. | Medium |
-| Europe | Technologie | SAP SE | Large |
-| Europe | Communication & médias | Vodafone Group Plc | Small |
-| Asie | Immobilier & infrastructures | Sun Hung Kai Properties Limited | Small |
-| Asie | Communication & médias | China Mobile Limited | Large |
-| Afrique & Moyen-Orient | Finance | Qatar National Bank | Small |
-| Afrique & Moyen-Orient | Énergie | Sasol Limited | Small |
-| Océanie | Technologie | WiseTech Global Limited | Small |
-| Océanie | Finance | Commonwealth Bank of Australia | Medium |
-| Océanie | Industrie | Fortescue | Small |
-| Océanie | Santé | CSL Limited | Medium |
-| Océanie | Énergie | Origin Energy | Small |
-| Océanie | Immobilier & infrastructures | Goodman Group | Small |
-| Océanie | Agroalimentaire & ressources | Woolworths Group Limited | Small |
-| Océanie | Communication & médias | Telstra Group | Small |
-| Océanie | Transports & logistique | Qantas Airways | Small |
+| Zone | technology | finance | industry | health | energy | realestate | agrifood | media | transport |
+|---|---|---|---|---|---|---|---|---|---|
+| americas | 1/0/6 | 2/0/4 | 0/3/2 | 1/0/1 | 1/1/2 | 0/0/0 | 1/3/3 | 0/3/0 | 1/0/0 |
+| europe | 1/0/0 | 0/0/2 | 1/1/3 | 1/2/3 | 0/2/1 | 0/0/0 | 0/3/1 | 1/0/0 | 1/1/0 |
+| asia | 1/0/3 | 1/1/2 | 2/1/0 | 0/0/0 | 0/1/1 | 1/0/0 | 0/0/0 | 0/0/1 | 1/0/1 |
+| africa | 0/0/0 | 1/0/0 | 0/0/0 | 0/0/0 | 1/0/0 | 2/0/0 | 0/0/0 | 2/0/0 | 0/0/0 |
+| oceania | 1/0/0 | 0/1/0 | 1/0/0 | 0/1/0 | 1/0/0 | 1/0/0 | 1/0/0 | 1/0/0 | 1/0/0 |
 
-### Cellules vides
+Cellules occupées : **36/45**; vides : **9** — americas/realestate, europe/realestate, asia/health, asia/agrifood, africa/technology, africa/industry, africa/health, africa/agrifood, africa/transport.
+Tailles des cellules occupées : 16 cellule(s) de 1 société(s), 7 cellule(s) de 2 société(s), 3 cellule(s) de 3 société(s), 4 cellule(s) de 4 société(s), 2 cellule(s) de 5 société(s), 2 cellule(s) de 6 société(s), 2 cellule(s) de 7 société(s).
 
-| Zone | Secteurs sans entreprise |
-|---|---|
-| Amériques | Immobilier & infrastructures |
-| Europe | Immobilier & infrastructures |
-| Asie | Santé, Agroalimentaire & ressources |
-| Afrique & Moyen-Orient | Technologie, Industrie, Santé, Agroalimentaire & ressources, Transports & logistique |
+## Contrôle complet avec budget de 100 M€
 
-### Groupes avec plusieurs entreprises
+Au prix de base, contrôle = achat des cinq actions de chaque société de la cellule; sans choc de marché.
 
-| Zone | Secteur | Nombre | Sociétés |
-|---|---|---:|---|
-| Amériques | Technologie | 7 | Cisco Systems, Inc., Intel Corporation, International Business Machines Corporation (IBM), Oracle Corporation, Microsoft Corporation, Alphabet Inc., Apple Inc. |
-| Amériques | Finance | 6 | Banco do Brasil, Mastercard Incorporated, Visa Inc., JPMorgan Chase & Co., Wells Fargo & Company, Berkshire Hathaway Inc. |
-| Amériques | Industrie | 5 | NIKE, Inc., 3M Company, The Boeing Company, The Procter & Gamble Company, GE Aerospace |
-| Amériques | Santé | 2 | Pfizer Inc., Johnson & Johnson |
-| Amériques | Énergie | 4 | Enel Chile, Petróleo Brasileiro S.A. (Petrobras), Chevron Corporation, Exxon Mobil Corporation |
-| Amériques | Agroalimentaire & ressources | 7 | Walmart de México y Centroamérica, McDonald’s Corporation, Philip Morris International Inc., Ambev S.A., PepsiCo, Inc., The Coca-Cola Company, Walmart Inc. |
-| Amériques | Communication & médias | 3 | América Móvil, AT&T Inc., The Walt Disney Company |
-| Europe | Finance | 2 | Banco Santander, S.A., HSBC Holdings plc |
-| Europe | Industrie | 5 | Siemens AG, LVMH Moët Hennessy Louis Vuitton SE, British American Tobacco p.l.c., Industria de Diseño Textil, S.A. (Inditex), L’Oréal S.A. |
-| Europe | Santé | 6 | AstraZeneca PLC, GSK plc, Bayer AG, Sanofi, Novartis AG, Roche Holding AG |
-| Europe | Énergie | 3 | TotalEnergies SE, BP p.l.c., Shell plc |
-| Europe | Agroalimentaire & ressources | 4 | Heineken N.V., Unilever PLC, Anheuser-Busch InBev SA/NV, Nestlé S.A. |
-| Europe | Transports & logistique | 2 | Mercedes-Benz Group AG, Volkswagen AG |
-| Asie | Technologie | 4 | Taiwan Semiconductor Manufacturing Company Limited, Tencent Holdings Limited, Alibaba Group Holding Limited, Samsung Electronics Co., Ltd. |
-| Asie | Finance | 4 | PT Bank Central Asia Tbk, Ping An Insurance (Group) Company of China, Ltd., Bank of China Limited, Industrial and Commercial Bank of China Limited |
-| Asie | Industrie | 3 | FANUC Corporation, Mitsubishi Heavy Industries (MHI), Komatsu Ltd. |
-| Asie | Énergie | 2 | China Petroleum & Chemical Corporation (Sinopec), PetroChina Company Limited |
-| Asie | Transports & logistique | 2 | Tata Motors Limited, Toyota Motor Corporation |
-| Afrique & Moyen-Orient | Immobilier & infrastructures | 2 | Orascom Construction PLC, Emaar Properties PJSC |
-| Afrique & Moyen-Orient | Communication & médias | 2 | Maroc Telecom, MTN Group Limited |
+| Zone / secteur | Sociétés | Actions requises | Coût complet |
+|---|---|---:|---:|
+| africa / energy | Sasol Limited | 5 | 53.57 M€ |
+| americas / transport | JetBlue Airways Corporation | 5 | 25.00 M€ |
+| europe / technology | TeamViewer SE | 5 | 25.00 M€ |
+| oceania / energy | Origin Energy | 5 | 72.54 M€ |
+| oceania / technology | WiseTech Global Limited | 5 | 43.69 M€ |
+| oceania / transport | Qantas Airways | 5 | 54.41 M€ |
 
-## Immobilier en Asie et en Afrique & Moyen-Orient
+## Première action avec 100 M€ et réserve de 0 M€
 
-Le secteur Immobilier & infrastructures est désormais présent en Asie avec **Sun Hung Kai Properties Limited** et en Afrique & Moyen-Orient avec **Orascom Construction PLC, Emaar Properties PJSC**. L’Asie compte 1 entreprise de ce secteur; la zone Afrique & Moyen-Orient en compte 2. Ces remplacements gardent les mêmes IDs historiques et le catalogue total à 91.
+Prix d’une action = `basePrice / 5`. **56/91** sociétés sont achetables individuellement à l’ouverture avec 100 M€ de liquidités, réserve 0 M€. La liste et le solde résiduel par achat figurent dans le JSON.
 
-## Lecture des classes
+## Prix continu, classes et volatilité
 
-La CAP Global Fund est la classification utilisée pour ordonner les entreprises dans le jeu : Small `<40 Md USD`, Medium `40 à <200 Md USD`, Large `≥200 Md USD`. Elle est calibrée sur les grandes entreprises du catalogue. Les classifications boursières conventionnelles ont des seuils différents et variables selon les marchés; leur comparaison indicative figure dans [`COMPANY_AUDIT.md`](COMPANY_AUDIT.md). La CAP Global Fund est une normalisation de progression de jeu, pas une catégorie financière officielle.
+Version économie 4, scénario déclaré `continuous-progression`. Les seuils 40/200 Md$ classent les entreprises; les anciennes bandes small/medium/large ne découpent pas la courbe v4 en blocs. Formule active : `basePrice = round2(clamp(25,1500,500*ln(1+capUSD/50bn)/ln(5)))` M€ pour les cinq actions; prix d’action C/C = `basePrice/5`. Revenu C/C = `round2(basePrice*(0.10+0.04*(1-exp(-capUSD/200bn))))`.
 
-La matrice fait ressortir une Océanie entièrement en groupes singleton, des groupes singleton en Afrique & Moyen-Orient, et des groupes finance/technologie/industrie plus étoffés en Asie et dans les Amériques. Les cellules vides sont des choix de rareté du catalogue; elles ne constituent pas toutes des manques à combler.
+| Classe de cap | Capitalisations observées | Prix complet C/C observé | Prix/action C/C observé | Effectif |
+|---|---:|---:|---:|---:|
+| small | 1.16–39.40 Md$ | 25.00 M€–180.53 M€ | 5.00 M€–36.11 M€ | 31 |
+| medium | 43.00–190.00 Md$ | 192.79 M€–487.32 M€ | 38.56 M€–97.46 M€ | 24 |
+| large | 200.00–4900.00 Md$ | 500.00 M€–1427.55 M€ | 100.00 M€–285.51 M€ | 36 |
 
-## Prix et revenus du jeu
+Rendement revenu/prix observé, calculé des valeurs runtime arrondies : small 10.04–10.71%; medium 10.77–12.45%; large 12.53–14.00%. La courbe est continue et les seuils ne créent pas de saut :
 
-Les capitalisations ci-dessus ne sont pas converties directement en prix de jeu. La grille économie v3 retenue (`progression-growth`) a reçu une première validation simulée : 100 parties finales, dans le cadre de 420 exécutions comparatives documentées. Elle conserve des limites : 193 fonds sur 300 deviennent insolvables, et la progression des positions Medium n’est pas régulière. Voir [`ECONOMY_BALANCING.md`](ECONOMY_BALANCING.md) pour la grille, la méthode de normalisation et les résultats.
+| Seuil | 1 USD dessous | Au seuil | 1 USD dessus |
+|---|---:|---:|---:|
+| Small/Medium (40 Md$) | small 182.61 M€ | medium 182.61 M€ | medium 182.61 M€ |
+| Medium/Large (200 Md$) | medium 500.00 M€ | large 500.00 M€ | large 500.00 M€ |
+
+L’écart apparent du catalogue entre le Small le plus capitalisé (Qatar National Bank, 39.40 Md$) et le Medium le moins capitalisé (Mercedes-Benz Group AG, 43.00 Md$) vaut 12.26 M€ à C/C. Il vient des caps observés, pas d’une discontinuité de seuil.
+
+| Classe | Prix/action C/C observé | Prix/action après facteur de marché 0,375–2,25 | Coût des 5 actions après facteur |
+|---|---:|---:|---:|
+| small | 5.00 M€–36.11 M€ | 1.8750–81.2385 M€ | 9.3750–406.1925 M€ |
+| medium | 38.56 M€–97.46 M€ | 14.4593–219.2940 M€ | 72.2963–1096.4700 M€ |
+| large | 100.00 M€–285.51 M€ | 37.5000–642.3975 M€ | 187.5000–3211.9875 M€ |
+
+Les facteurs 0,375 (E/D, événements fermés) à 2,25 (A/A) appliqués aux bornes observées donnent les plages unitaires ci-dessus. Chevauchements unitaires : small/medium 14.4593–81.2385 M€; medium/large 37.5000–219.2940 M€. Les classes n’imposent donc pas trois blocs de prix à l’achat.
+
+## Places de cotation représentatives
+
+Les cinq zones ci-dessus sont les zones géographiques du jeu. Cette section dénombre les émetteurs par place de cotation, en choisissant au plus une ligne représentative par émetteur : jamais une occurrence par ADR. Une dual-primary reste un choix méthodologique documenté, non l’affirmation qu’il n’existe qu’une cotation primaire.
+
+| Place | Small | Medium | Large | Total |
+|---|---:|---:|---:|---:|
+| [ADX](https://www.adx.ae/market-watch/) | 1 | 0 | 0 | 1 |
+| [ASX](https://www.asx.com.au/markets/trade-our-cash-market/overview) | 7 | 2 | 0 | 9 |
+| [B3](https://www.b3.com.br/en_us/market-data-and-indices/data-services/market-data/quotes/equities/) | 1 | 1 | 0 | 2 |
+| [BME Madrid](https://www.bolsasymercados.es/bme-exchange/en/Trading/Equities/Companies) | 0 | 1 | 1 | 2 |
+| [BMV](https://www.bmv.com.mx/en/issuers/listed-companies) | 0 | 2 | 0 | 2 |
+| [Casablanca Stock Exchange](https://www.casablanca-bourse.com/en/live-market) | 1 | 0 | 0 | 1 |
+| [DFM](https://www.dfm.ae/the-exchange/market-information/market-watch) | 1 | 0 | 0 | 1 |
+| [Euronext Amsterdam](https://live.euronext.com/en/markets/amsterdam/equities/list) | 0 | 1 | 0 | 1 |
+| [Euronext Brussels](https://live.euronext.com/en/markets/brussels/equities/list) | 0 | 1 | 0 | 1 |
+| [Euronext Paris](https://live.euronext.com/en/markets/paris/equities/list) | 0 | 2 | 2 | 4 |
+| [Hong Kong Stock Exchange](https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities?sc_lang=en) | 1 | 2 | 5 | 8 |
+| [JSE](https://www.jse.co.za/market-data/companies) | 2 | 0 | 0 | 2 |
+| [KRX](https://global.krx.co.kr/main/main.jsp) | 0 | 0 | 1 | 1 |
+| [LSE](https://www.londonstockexchange.com/stock/SHEL/shell-plc/company-page) | 1 | 3 | 3 | 7 |
+| [NSE India](https://www.nseindia.com/market-data/live-equity-market) | 1 | 0 | 0 | 1 |
+| [NYSE](https://www.nyse.com/listings_directory/stock?limit=100) | 2 | 6 | 14 | 22 |
+| [Nasdaq](https://www.nasdaq.com/market-activity/stocks/screener) | 3 | 1 | 4 | 8 |
+| [Qatar Stock Exchange](https://www.qe.com.qa/market-data/market-watch) | 1 | 0 | 0 | 1 |
+| [SIX Swiss Exchange](https://www.six-group.com/en/market-data/shares/share-explorer.html) | 0 | 0 | 3 | 3 |
+| [Santiago Stock Exchange](https://www.bolsadesantiago.com/) | 1 | 0 | 0 | 1 |
+| [Taiwan Stock Exchange](https://www.twse.com.tw/en/) | 2 | 0 | 1 | 3 |
+| [Tokyo Stock Exchange](https://www.jpx.co.jp/english/markets/statistics-equities/misc/01.html) | 2 | 1 | 1 | 4 |
+| [Xetra](https://www.xetra.com/xetra-en) | 4 | 1 | 1 | 6 |
+| **Total** | **31** | **24** | **36** | **91** |
+
+Émetteurs sans place/ticker établi dans l’inventaire : **0**.
+Statuts de l’inventaire : {'inferred_needs_listing-page_confirmation': 78, 'exchange_page_verified': 13}. Les entrées inférées doivent être confirmées sur une fiche de place; les nouveaux remplacements sont reliés à des références officielles d’échange. Les noms et capitalisations proviennent des entrées locales du catalogue et de l’audit société; chaque ligne du JSON conserve ces URLs et la date de capitalisation.
+
+## Méthode et limites
+
+La ventilation compte les entreprises runtime, non leurs 5 actions, leurs ADR, leurs filiales croisées, ni les pays de ventes. Les classifications sectorielles sont celles du jeu. Prix issus de `basePrice` runtime au moment de génération; les premiers achats supposent prix C/C et zéro réserve. Les places sont un inventaire indicatif de listings primaires/représentatifs, avec statuts inconnus explicites plutôt qu’une déduction par pays seul.
+La correction de Contextes est indépendante de cette ventilation d’entreprises et n’en modifie pas les effectifs; aucun résultat de simulation n’est anticipé ici.

@@ -20,7 +20,7 @@ The 100 Context cards retain their type counts: 35 positive, 35 negative, 10 neu
 
 Bull remains case 14 and Bear is case 40 (zero-based index 39). Their effects are symmetric and deterministic: improve/degrade every zone by one grade, with a total two-grade change in the active fund's current zone. Sector grades do not change and grades clamp to A/E. From C/C, prices move ±25% elsewhere and ±50% in the active zone. Market Crash is no longer on the active board. Existing E/E liquidation and reopening rules still apply.
 
-The active versions are `boardLayoutVersion = 3`, `cardRulesVersion = 3`, and `marketRulesVersion = 2`. The board migration recognizes complete official v1/v2 layouts before upgrading to v3; it preserves numerical positions, history and frozen identities of resolved notices. Card migration replaces only recognized IDs in remaining decks and discards in place, preserving their order and count; unknown cards remain unchanged and the already revealed `currentContext` is preserved. Custom or unrecognized boards are not reordered, and newer unsupported versions are never downgraded. Detailed audits and measurement limits: [BOARD_BALANCE_AUDIT.md](../../BOARD_BALANCE_AUDIT.md), [EVENT_BALANCE_AUDIT.md](../../EVENT_BALANCE_AUDIT.md), [CONTEXT_BALANCE_AUDIT.md](../../CONTEXT_BALANCE_AUDIT.md), [ENGINE_RULES.md](../../ENGINE_RULES.md).
+The active versions are `boardLayoutVersion = 3`, `cardRulesVersion = 4`, and `marketRulesVersion = 2`. The board migration recognizes complete official v1/v2 layouts before upgrading to v3; it preserves numerical positions, history and frozen identities of resolved notices. Card migration replaces only recognized IDs in remaining decks and discards in place, preserving their order and count; unknown cards remain unchanged and the already revealed `currentContext` is preserved. Custom or unrecognized boards are not reordered, and newer unsupported versions are never downgraded. Detailed audits and measurement limits: [BOARD_BALANCE_AUDIT.md](../../BOARD_BALANCE_AUDIT.md), [EVENT_BALANCE_AUDIT.md](../../EVENT_BALANCE_AUDIT.md), [CONTEXT_BALANCE_AUDIT.md](../../CONTEXT_BALANCE_AUDIT.md), [ENGINE_RULES.md](../../ENGINE_RULES.md).
 
 The opening cycle is numbered 1. The 100 Context cards govern cycles 2 through 101; after every solvent player completes the final Context cycle, the next-turn command finishes the game and ranks solvent funds by current NAV. If only one solvent fund remains, the game ends earlier.
 
@@ -42,23 +42,10 @@ Human starting choices are preserved. AI starting locations balance market occup
 
 Old country IDs are accepted only as a reading adapter for old clients and saves. Missing initial markets infer from an existing recognized nationality, then a valid saved location, then Europe if neither exists. The adapter never moves an existing fund or rewrites its company catalog, holdings, costs, cash, grades, or phase. Real legacy nationality fields remain when already supplied; new market selections never invent a nationality. Explicit invalid market IDs are rejected instead of falling back to a legacy country.
 
-## Economy v3
+## Economy v4
 
-New games take normalized values from the local catalogue. `src/economy.ts` separates approximate, sourced real capitalizations from game values: game classes use 40/200 billion USD thresholds, then logarithmic interpolation within each class. The measured `progression-growth` scenario uses full-company C/C prices 25–100 / 180–450 / 550–1500 M€ and per-sector-landing incomes of 10 / 12 / 14 percent of those prices. Large shares cost 110–300 M€ at opening C/C. These yields are gameplay parameters, not real annual investment returns. Embedded saved catalogs are never repriced.
+New games load 91 companies: 31 Small, 24 Medium and 36 Large. Eleven targeted substitutions add listed issuers with dated approximate capitalizations of 1.16–7.43 billion USD, preserving all legacy slot IDs and every zone/sector population. Company evidence and observation dates are in [evolve-smallcap-replacements.json](../../docs/evolve-smallcap-replacements.json).
 
-Normal/hard AI destination scoring ignores shares it cannot buy after its existing cash reserve and the travel cost. The scoring formula and easy strategy are preserved. AI uses the same validated command API as humans. Reproducible balancing reports and their limitations are documented in `ECONOMY_BALANCING.md`.
+The gameplay thresholds remain 40/200 billion USD. Prices now use one fixed continuous curve across these thresholds: `round2(clamp(25, 1500, 500 * log1p(capUSD / 50e9) / log(5)))` for all five shares at C/C. Income uses a continuous yield `0.10 + 0.04 * (1 - exp(-capUSD / 200e9))`. These are game parameters. Category boundaries introduce no price or income jumps, and adding an issuer does not reprice existing issuers. Grades multiply traded prices, producing overlap between the categories. Embedded saved catalogs retain their identities, prices, incomes, holdings and purchase basis.
 
-## Settlement authority
-
-Insufficient cash opens `phase: "settlement"` when liquid assets remain. The debt, resume phase, creditor order, frozen priority values, decision actor and optional offer are part of the state. A rejected engine command leaves that state intact.
-
-- `LIQUIDATE_ASSETS` sells selected owned shares across markets to fund the obligation. Partial liquidation may keep the selection phase open.
-- `PROPOSE_SETTLEMENT` freezes server prices; it accepts assets below, equal to or above the debt, provided the payer can cover the cash complement.
-- `ACCEPT_SETTLEMENT`, `REJECT_SETTLEMENT` and `REQUIRE_CASH` belong to the pending creditor, not necessarily the active turn player.
-- `cashDelta = debt − frozenAssetValue`; positive cash goes debtor→creditor, negative cash goes creditor→debtor. Receiving cost basis uses full frozen share value.
-- Multi-creditor order uses ascending fund valuation then stable seat order, as explicitly confirmed by the user. Values are frozen before payments.
-- This exceptional liquidation bypasses normal zone/detention sale restrictions and never grants ordinary buying rights. Exhausted insufficient assets trigger insolvency with only funded money credited.
-
-Simulation and server loops use `getDecisionPlayerId(state)` before selecting and executing an AI command; using only `activePlayerId` would miss creditor decisions. The engine still has no socket, database, timer or UI dependency. Persistence and command serialization belong to the server. Structured receipts are kept in `settlementHistory` with title values, signed cash, reason, cycle and unpaid amount.
-
-Full French rules and presentation behavior: [SETTLEMENT_RULES.md](../../SETTLEMENT_RULES.md).
+Current distributions and simulation methodology: [MARKET_DISTRIBUTION.md](../../MARKET_DISTRIBUTION.md), [CARD_BALANCE_REPORT.md](../../CARD_BALANCE_REPORT.md), [ECONOMY_BALANCING.md](../../ECONOMY_BALANCING.md).

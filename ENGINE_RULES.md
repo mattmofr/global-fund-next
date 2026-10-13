@@ -1,6 +1,6 @@
 # Global Fund Evolve — règles du plateau et des chocs de marché
 
-Règles de la version active : plateau et paquets v3, chocs de marché v2. Cette itération équilibre les cases sectorielles, les Événements et les Contextes. L'analyse initiale reste dans [ENGINE_AUDIT.md](ENGINE_AUDIT.md).
+Règles de la version active : plateau et paquet Événement v3, catalogue Context v4, chocs de marché v2. Cette itération équilibre les cases sectorielles, les Événements et les Contextes. L'analyse initiale reste dans [ENGINE_AUDIT.md](ENGINE_AUDIT.md).
 
 ## Position canonique de Bear Market
 
@@ -77,13 +77,13 @@ Ces limites évitent un prélèvement instantané destructeur et la dégradation
 
 ## Événements et Contextes
 
-Bull et Bear ne consomment **ni Contexte ni Événement**. Ils ne changent ni le cycle, ni l'ordre des fonds, ni le nombre de parts émises. L'ouverture à C/C, les prix/revenus de base et les 91 sociétés sont conservés.
+Bull et Bear ne consomment **ni Contexte ni Événement**. Ils ne changent ni le cycle, ni l'ordre des fonds, ni le nombre de parts émises. Ils conservent l'ouverture à C/C et n'altèrent pas les prix/revenus de base du catalogue de 91 sociétés.
 
 Les **50 Événements** agissent sur les espèces, les titres, les rachats, amendes, primes et monopoles. **Ils n'affectent aucune note de zone ou de secteur et ne consomment pas le deck Contexte.** Le catalogue garde les identifiants et titres : 45 cartes sectorielles, cinq par secteur (deux favorables, deux défavorables, une mixte), plus cinq globales, soit **19 favorables / 19 défavorables / 12 mixtes**, dont trois neutres sans transfert. Une carte apparaît une fois par paquet de 50 ; le paquet est remélangé après épuisement.
 
 La cible est choisie parmi les sociétés disponibles du secteur visé : participations du fonds actif prioritaires, sinon titres détenus par un fonds, sinon toutes les sociétés admissibles. Une zone est tirée uniformément parmi celles du pool, puis une entreprise de cette zone. Les quatre dernières entreprises ciblées sont exclues s'il reste une autre candidate dans la zone ; sinon une répétition est permise. Les zones dépourvues d'entreprises dans un secteur ne peuvent pas être visées par ses cartes. La matrice, les intensités, les effets conditionnels et les limites figurent dans [EVENT_BALANCE_AUDIT.md](EVENT_BALANCE_AUDIT.md).
 
-Les **100 Contextes** affectent directement des grades **absolus**, sans ajouter de nouveau mécanisme de variation. Une cible B peut donc baisser depuis A, monter depuis D ou rester B. Depuis C, le catalogue contient **70 rotations**, **10 expansions**, **10 récessions** et **10 cartes ramenant leurs quatre axes à C**. Les cartes affectent deux ou quatre axes, avec 36 cibles par zone et 20 par secteur. Les 360 affectations comprennent **A 10 / B 80 / C 180 / D 80 / E 10**, équilibrées en 50 paires miroir ; chaque axe a une cible moyenne C. Les quotas de types et la fabrique par blocs de dix sont conservés (35 positives, 35 négatives, 10 neutres, 10 prison, 10 régulation). Ces deux derniers types sont des catégories narratives de Contexte : ils ne déclenchent ni détention ni vente imposée.
+Les **100 Contextes** affectent directement des grades **absolus**, sans ajouter de mécanisme de variation. Une cible B peut donc baisser depuis A, monter depuis D ou rester B. Depuis C, le catalogue v4 contient **70 rotations mixtes**, **10 cartes favorables à deux axes**, **10 cartes défavorables à deux axes** et **10 cartes ramenant leurs quatre axes à C**. Les cartes affectent deux ou quatre axes, avec 36 cibles par zone et 20 par secteur. Les 360 affectations comprennent **A 19 / B 71 / C 180 / D 71 / E 19**, équilibrées en 50 paires miroir; chaque zone reçoit deux A et deux E. Chaque secteur reçoit une cible A et une E, avec autant de B que de D; C est modal et varie de 8 à 12 cibles par secteur. Le détail des marges est dans [CONTEXT_BALANCE_AUDIT.md](CONTEXT_BALANCE_AUDIT.md). Les quotas de types sont conservés (35 positives, 35 négatives, 10 neutres, 10 prison, 10 régulation). Les types prison et régulation sont des catégories narratives : ils ne déclenchent ni détention ni vente imposée.
 
 Cette symétrie ne garantit pas une égalité de NAV ou de gains : les notes initiales, les bornes, les participations, les E/E et l'ordre des cartes influencent le résultat. La couverture, chaque carte et les définitions d'intensité sont dans [CONTEXT_BALANCE_AUDIT.md](CONTEXT_BALANCE_AUDIT.md). Les simulations mesurent les grades réellement atteints, pas uniquement les affectations théoriques.
 
@@ -91,10 +91,10 @@ Le résultat est diffusé dans une notification avec la case résolue, le fonds 
 
 ## Parties déjà sauvegardées
 
-`boardLayoutVersion = 3`, `cardRulesVersion = 3` et `marketRulesVersion = 2` identifient les règles actuelles. La migration reconnaît l'**ordre complet des 52 cases officielles** v1/v2 avant de remplacer le plateau par v3. Elle est idempotente.
+`boardLayoutVersion = 3`, `cardRulesVersion = 4` et `marketRulesVersion = 2` identifient les règles actuelles. La migration reconnaît l'**ordre complet des 52 cases officielles** v1/v2 avant de remplacer le plateau par v3. Elle est idempotente.
 
 - Les positions numériques des fonds restent identiques : aucun pion n'avance ou ne recule et aucune ancienne arrivée n'est rejouée.
-- Les portefeuilles, PRU, cash, indices, historiques et règlements en attente restent conservés. Les cartes encore à tirer et les défausses sont remplacées par leur version v3 selon leur identifiant, sans modifier leur ordre ni leur nombre. Les cartes personnalisées inconnues, le Contexte déjà révélé et les notifications restent tels que résolus.
+- Les portefeuilles, PRU, cash, indices, historiques et règlements en attente restent conservés. Les Contextes encore à tirer et les Événements en défausse sont remplacés par leur catalogue courant selon leur identifiant, sans modifier leur ordre ni leur nombre. Les cartes personnalisées inconnues, le Contexte déjà révélé et les notifications restent tels que résolus.
 - Les notifications historiques gardent leur position et leur résultat, et conservent une identité de case figée. Une ancienne arrivée sur Bear en indice 38 reste lue comme un Bear ; une ancienne arrivée Crash en indice 25 reste un Crash historique même si la case contient désormais Immobilier.
 - La vue publique est migrée sur une copie ; la sauvegarde du nouvel état se fait lors de la prochaine commande validée.
 - Les plateaux personnalisés et les anciens plateaux non reconnus ne sont pas réordonnés automatiquement. Une case de marché personnalisée sans identité connue conserve son ancien comportement.
@@ -118,8 +118,20 @@ Commande de simulation reproductible :
 npx tsx scripts/simulate-board-decks.ts 20 20261013 600
 ```
 
-[board-deck-simulation.json](docs/board-deck-simulation.json) contient la campagne finale et les empreintes de ses sources. [board-deck-validation.json](docs/board-deck-validation.json) rassemble tests, build, parcours navigateur, reprise d'une ancienne partie en ligne et intégrité V2. Les rapports `market-shock-*` conservent la mesure historique du plateau précédent avec Crash ; ils ne décrivent pas le plateau v3.
+[board-deck-simulation.json](docs/board-deck-simulation.json) contient une campagne archivée avec les empreintes de ses sources. [board-deck-validation.json](docs/board-deck-validation.json) rassemble les validations de la livraison plateau v3, antérieure au catalogue Context v4. Les mesures de campagne et de deck ci-dessous datent du catalogue Context v3; elles ne constituent pas une validation statistique du catalogue actuel. La commande ci-dessus relance la simulation avec les règles présentes dans le workspace. Les rapports `market-shock-*` conservent la mesure historique du plateau précédent avec Crash ; ils ne décrivent pas le plateau v3.
 
-La campagne finale termine **20/20 parties**, sans erreur, avec **68 Bull, 64 Bear et 0 Crash**. Les 2 000 paquets de Contextes gardent des notes moyennes proches de C après 100 tirages : écart −0,0142 niveau pour les zones et −0,0012 pour les secteurs. Les parties comportent 716 Événements et 1 426 Contextes, avec des mouvements dans les deux directions et des rotations de classement. Aucun E/E n'est observé dans cet échantillon ; 34 fonds sur 60 finissent insolvables selon les règles de dettes existantes. Ces mesures valident l'exécution et contrôlent une dérive statistique ; elles ne prouvent pas l'égalité économique de tous les secteurs ou stratégies.
+La campagne archivée termine **20/20 parties**, sans erreur, avec **68 Bull, 64 Bear et 0 Crash**. Ses 2 000 paquets de Contextes v3 gardent des notes moyennes proches de C après 100 tirages : écart −0,0142 niveau pour les zones et −0,0012 pour les secteurs. Les parties comportent 716 Événements et 1 426 Contextes, avec des mouvements dans les deux directions et des rotations de classement. Aucun E/E n'est observé dans cet échantillon ; 34 fonds sur 60 finissent insolvables selon les règles de dettes existantes. Ces résultats historiques attestent l'exécution de la version simulée, pas les marges ou le comportement statistique du catalogue Context v4.
 
-Validation et livraison : **174 tests**, TypeScript, build et parcours navigateur passent. La release `20261012T222344Z-board-decks-v3` est en ligne sur [Evolve](https://global-fund-evolve.213.199.40.67.sslip.io). Reprise ancienne partie, migration des cartes et vrai lancer de dé vérifiés en HTTPS/WebSocket ; nouvelle partie jouable et achat confirmé. L’archive V2, ses configurations et son service restent inchangés.
+Validation historique de la livraison plateau v3 : **174 tests**, TypeScript, build et parcours navigateur passent. La release `20261012T222344Z-board-decks-v3` est en ligne sur [Evolve](https://global-fund-evolve.213.199.40.67.sslip.io). Ces vérifications précèdent Context v4 et ne valent pas validation de son catalogue. Reprise ancienne partie, migration des cartes et vrai lancer de dé avaient été vérifiés en HTTPS/WebSocket ; nouvelle partie jouable et achat confirmé. L’archive V2, ses configurations et son service restent inchangés.
+
+## Entreprises et économie v4
+
+Les nouvelles parties utilisent 91 sociétés : **31 Small / 24 Medium / 36 Large**. Onze sociétés cotées remplacent des entrées dans les mêmes zones et secteurs, en conservant les identifiants internes hérités. Les cinq marchés offrent respectivement 7 / 5 / 6 / 6 / 7 Small; les neuf secteurs ont une offre Small. Les 36 combinaisons zone–secteur occupées et les neuf absentes sont conservées pour maintenir rareté, voyages et compétition.
+
+Les seuils de capitalisation approximative sont **Small <40 Md$**, **Medium de 40 à <200 Md$**, **Large ≥200 Md$**. Il s'agit de catégories de jeu, distinctes des définitions boursières usuelles. Les sources et leurs dates figurent dans [COMPANY_AUDIT.md](COMPANY_AUDIT.md).
+
+Pour une capitalisation `capUSD`, les cinq parts à C/C coûtent `round2(clamp(25,1500,500*ln(1+capUSD/50e9)/ln(5)))` M€. Le revenu de base vaut `round2(basePrice*(0.10+0.04*(1-exp(-capUSD/200e9))))`, par arrivée d'un autre fonds sur le secteur. Prix et rendement sont continus aux seuils : aucune marche imposée entre catégories. Les facteurs de grades et les planchers de revenu des contrôles/monopoles continuent à s'appliquer. Les cours sous différentes conditions de marché se chevauchent entre catégories.
+
+Les onze remplacements coûtent **5 à moins de 9 M€ la première part à C/C**. Les Small proches de 40 Md$ sont plus coûteuses; la classe ne garantit pas le contrôle de cinq parts avec le capital initial. Une Large coûte au moins 100 M€ la part à C/C; au seuil exact, un humain peut engager tout son cash. Les réserves des IA ne sont pas une interdiction moteur.
+
+Les sociétés embarquées dans une partie déjà sauvegardée ne sont ni renommées ni repricées. Les versions 1/2/3 de leur catalogue restent lisibles. Les futurs Contextes reconnus passent en v4 sans rejouer les cartes déjà résolues. Résultats mesurés : [CARD_BALANCE_REPORT.md](CARD_BALANCE_REPORT.md) et [ECONOMY_BALANCING.md](ECONOMY_BALANCING.md).

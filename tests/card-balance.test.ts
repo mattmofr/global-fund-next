@@ -7,6 +7,7 @@ const require = createRequire(import.meta.url);
 const { BOARD_EVENT_CARDS } = require("../packages/game-engine/legacy/boardEventCards.cjs") as {
   BOARD_EVENT_CARDS: (EventCard & { balanceCategory?: string })[];
 };
+const { CARD_RULES_VERSION } = require("../packages/game-engine/legacy/deckRules.cjs") as { CARD_RULES_VERSION: number };
 const contextCatalog = require("../packages/game-engine/legacy/data/gameData.json").events as {
   id: number | string;
   type?: string;
@@ -248,9 +249,45 @@ describe("plateau event card balance", () => {
     expect(state.zoneGrades.europe).toBe(initial.europe);
   });
 
+  it("settles an E/E closure and reopens the company after a later grade improvement", () => {
+    const state = createGame(seats);
+    const company = state.companies[0]!;
+    const investor = active(state);
+    company.holdings[investor.id] = 1;
+    company.costBasis ??= {};
+    company.costBasis[investor.id] = 99;
+    const beforeCash = investor.cash;
+    state.phase = "awaitNext";
+    state.stage = "awaitNext";
+    state.completedPlayers = state.players.filter((player) => player.id !== investor.id).map((player) => player.id);
+    state.deck.unshift({
+      id: "balance-ee-closure", title: "E/E closure",
+      changes: [
+        { scope: "zone", id: company.zone, grade: "E" },
+        { scope: "sector", id: company.sector, grade: "E" },
+      ],
+    });
+    let closed = executeCommand(state, investor.id, { type: "NEXT_TURN" });
+    const closedCompany = closed.companies.find((item) => item.id === company.id)!;
+    expect(closedCompany.available).toBe(false);
+    expect(closedCompany.holdings).toEqual({});
+    expect(closedCompany.costBasis).toEqual({});
+    expect(closed.players.find((player) => player.id === investor.id)!.cash).toBeGreaterThan(beforeCash);
+
+    closed.phase = "awaitNext";
+    closed.stage = "awaitNext";
+    closed.completedPlayers = closed.players.filter((player) => player.id !== active(closed).id).map((player) => player.id);
+    closed.deck.unshift({
+      id: "balance-ee-reopen", title: "Recovery",
+      changes: [{ scope: "zone", id: company.zone, grade: "D" }],
+    });
+    const reopened = executeCommand(closed, active(closed).id, { type: "NEXT_TURN" });
+    expect(reopened.companies.find((item) => item.id === company.id)?.available).toBe(true);
+  });
+
   it("migrates known saved card payloads in place while preserving order and unknown fixtures", () => {
     const state = createGame(seats);
-    state.cardRulesVersion = 2;
+    state.cardRulesVersion = 3;
     state.phase = "sector";
     active(state).sectorPosition = 0;
     const knownContext = contextCatalog[0]!;
@@ -275,7 +312,7 @@ describe("plateau event card balance", () => {
     } finally {
       vi.restoreAllMocks();
     }
-    expect(migrated.cardRulesVersion).toBe(3);
+    expect(migrated.cardRulesVersion).toBe(CARD_RULES_VERSION);
     expect(migrated.deck.map((card) => String(card.id))).toEqual(deckIds);
     expect(migrated.deck[0]?.changes).toEqual(knownContext.changes);
     expect(migrated.deck[1]).toEqual(fixture);
@@ -289,7 +326,7 @@ describe("plateau event card balance", () => {
 
   it("rejects a command on a save from a future card rules version without changing the input", () => {
     const state = createGame(seats);
-    state.cardRulesVersion = 4;
+    state.cardRulesVersion = CARD_RULES_VERSION + 1;
     const before = clone(state);
     expect(() => executeCommand(state, active(state).id, { type: "ROLL" })).toThrow();
     expect(state).toEqual(before);
@@ -313,7 +350,7 @@ describe("plateau event card balance", () => {
 
   it("advances text version 2 to 3 without rewriting current version 3 card catalogs", () => {
     const state = createGame(seats);
-    state.cardRulesVersion = 3;
+    state.cardRulesVersion = CARD_RULES_VERSION;
     state.eventTextVersion = 2;
     state.phase = "sector";
     active(state).sectorPosition = 0;
@@ -366,7 +403,17 @@ describe("plateau event card balance", () => {
       ...["americas", "europe", "asia", "africa", "oceania"].map((id) => [`zone:${id}`, 36]),
       ...sectors.map((id) => [`sector:${id}`, 20]),
     ]));
-    expect(gradeCounts).toEqual({ A: 10, B: 80, C: 180, D: 80, E: 10 });
+    expect(gradeCounts).toEqual({ A: 19, B: 71, C: 180, D: 71, E: 19 });
+    for (const scope of ["zone", "sector"] as const) {
+      const ids = scope === "zone" ? ["americas", "europe", "asia", "africa", "oceania"] : sectors;
+      for (const id of ids) {
+        const grades = contextCatalog.flatMap((card) => card.changes).filter((change) => change.scope === scope && change.id === id).map((change) => change.grade);
+        expect(grades.filter((grade) => grade === "A"), `${scope}:${id}`).toHaveLength(scope === "zone" ? 2 : 1);
+        expect(grades.filter((grade) => grade === "E"), `${scope}:${id}`).toHaveLength(scope === "zone" ? 2 : 1);
+        expect(grades.filter((grade) => grade === "B").length, `${scope}:${id}`).toBe(grades.filter((grade) => grade === "D").length);
+        expect(grades.filter((grade) => grade === "C").length, `${scope}:${id}`).toBeGreaterThanOrEqual(grades.length * .4);
+      }
+    }
     const mirror = { A: "E", B: "D", C: "C", D: "B", E: "A" } as const;
     const signature = (card: (typeof contextCatalog)[number]) => card.changes.map((change) => `${change.scope}:${change.id}:${change.grade}`).sort().join("|");
     const signatures = new Set(contextCatalog.map(signature));
@@ -379,5 +426,34 @@ describe("plateau event card balance", () => {
       }
     }
     expect(signatures.size).toBeGreaterThan(1);
+  });
+
+  it("allows rare E/E liquidations and recovery through actual factory Context cards", () => {
+    let state = createGame(seats);
+    const investor = active(state);
+    const target = state.companies.find(company => company.zone === "asia" && company.sector === "finance")!;
+    target.holdings[investor.id] = 2;
+    target.costBasis = { [investor.id]: 30 };
+    state.deck = [11, 48, 12].map(id => clone(contextCatalog.find(card => Number(card.id) === id)!));
+    const advance = () => {
+      state.phase = "awaitNext"; state.stage = "awaitNext";
+      state.completedPlayers = state.players.filter(player => player.id !== active(state).id).map(player => player.id);
+      state = executeCommand(state, active(state).id, { type: "NEXT_TURN" });
+    };
+    advance();
+    expect(state.sectorGrades.finance).toBe("E");
+    expect(state.zoneGrades.asia).toBe("C");
+    const beforeCash = state.players.find(player => player.id === investor.id)!.cash;
+    advance();
+    const closed = state.companies.find(company => company.id === target.id)!;
+    expect(closed.available).toBe(false);
+    expect(closed.holdings).toEqual({});
+    expect(closed.costBasis).toEqual({});
+    expect(state.players.find(player => player.id === investor.id)!.cash - beforeCash).toBeCloseTo(2 * target.basePrice / 20, 8);
+    advance();
+    const reopened = state.companies.find(company => company.id === target.id)!;
+    expect(reopened.available).toBe(true);
+    expect(reopened.holdings).toEqual({});
+    expect(state.players.find(player => player.id === investor.id)!.cash - beforeCash).toBeCloseTo(2 * target.basePrice / 20, 8);
   });
 });

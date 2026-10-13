@@ -85,6 +85,8 @@ export interface Company {
   averageBuyPrice: Record<string, number | null>;
   source?: string;
   ticker?: string;
+  /** Issuer's representative primary listing; separate from the gameplay market. */
+  exchange?: string;
   country?: string;
   logoPath?: string;
   logoSource?: string;

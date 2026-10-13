@@ -1,19 +1,19 @@
 # Audit d’équilibrage des cartes Context
 
-Ce document décrit le catalogue Context final intégré dans `packages/game-engine/legacy/data/gameData.json`. La colonne « baseline historique » reprend les expositions avant le rééquilibrage. Les cartes gardent leurs IDs, titres et types. Chaque changement reste une affectation absolue (`setGrade`) : la direction « depuis C » ne vaut que si l’axe est encore au niveau C lorsque la carte est tirée.
+Ce document décrit le catalogue Context v4 intégré dans `packages/game-engine/legacy/data/gameData.json`. La colonne « baseline historique » reprend les expositions avant le rééquilibrage v4 (catalogue v3); elle ne décrit pas la distribution actuelle. Les cartes gardent leurs IDs, titres et types. Chaque changement reste une affectation absolue (`setGrade`) : la direction « depuis C » ne vaut que si l’axe est encore au niveau C lorsque la carte est tirée.
 
 ## Équilibre global
 
-| Mesure | Baseline historique | Catalogue intégré |
+| Mesure | Baseline historique | Catalogue intégré v4 |
 |---|---:|---:|
 | Cartes | 100 | 100 |
 | Cibles de grade | 190 | 360 |
-| Grades A / B / C / D / E | 42 / 31 / 24 / 42 / 51 | 10 / 80 / 180 / 80 / 10 |
+| Grades A / B / C / D / E | 42 / 31 / 24 / 42 / 51 | 19 / 71 / 180 / 71 / 19 |
 | Depuis C : favorables / neutres / défavorables | 73 / 24 / 93 | 90 / 180 / 90 |
-| Pas de grade depuis C : amélioration / recul | 115 / 144 | 100 / 100 |
+| Pas de grade depuis C : amélioration / recul | 115 / 144 | 109 / 109 |
 | Note moyenne (A=1 … E=5) | 3.153 | 3.000 |
 
-La baseline historique penchait vers les grades défavorables depuis C : 115 pas favorables contre 144 pas défavorables, un solde de −29 sur 190 cibles; sa note moyenne était 3,153. Le catalogue intégré équilibre ces directions à 100 pas de chaque côté et ramène la moyenne à 3,000 (C). Il conserve une queue forte limitée à 10 cibles A et 10 E, concentre les cibles directionnelles sur B/D (80 chacune) et place 180 cibles en C.
+La baseline historique penchait vers les grades défavorables depuis C : 115 pas favorables contre 144 pas défavorables, un solde de −29 sur 190 cibles; sa note moyenne était 3,153. Le catalogue intégré v4 équilibre les pas d’intensité à 109 de chaque côté et conserve une note moyenne de 3,000 (C). Depuis C, 90 affectations favorisent un axe, 90 le défavorisent et 180 le ramènent ou le maintiennent à C. Les grades A et E restent rares (19 chacun), tandis que B et D représentent 71 affectations chacun.
 
 Les quotas de types restent à 35 positives, 35 négatives, 10 neutres, 10 prison et 10 régulation. La structure comprend 20 cartes à deux axes et 80 cartes à quatre axes.
 
@@ -39,22 +39,35 @@ Les quotas de types restent à 35 positives, 35 négatives, 10 neutres, 10 priso
 | Communication & médias | 0 | 20 |
 | Transports & logistique | 0 | 20 |
 
-Le catalogue intégré répartit les 180 cibles de zone à raison de 36 dans chacune des cinq zones, puis les 180 cibles de secteur à raison de 20 dans chacun des neuf secteurs. Dans la baseline, Immobilier, Agroalimentaire, Communication & médias et Transports n’étaient jamais ciblés; Finance représentait 29 des 100 cibles sectorielles.
+Le catalogue intégré répartit les 180 cibles de zone à raison de 36 dans chacune des cinq zones, puis les 180 cibles de secteur à raison de 20 dans chacun des neuf secteurs. Dans la baseline v3, Immobilier, Agroalimentaire, Communication & médias et Transports n’étaient jamais ciblés; Finance représentait 29 des 100 cibles sectorielles. Chaque zone reçoit deux cibles A et deux E. Chaque secteur reçoit une cible A et une E, et ses comptes B et D sont égaux. C reste le grade le plus fréquent, mais sa part varie selon le secteur : de 8 à 12 cibles sur 20.
+
+| Secteur | A | B | C | D | E |
+|---|---:|---:|---:|---:|---:|
+| Technologie | 1 | 3 | 12 | 3 | 1 |
+| Finance | 1 | 4 | 10 | 4 | 1 |
+| Industrie | 1 | 3 | 12 | 3 | 1 |
+| Santé | 1 | 4 | 10 | 4 | 1 |
+| Énergie | 1 | 4 | 10 | 4 | 1 |
+| Immobilier & infrastructures | 1 | 5 | 8 | 5 | 1 |
+| Agroalimentaire & ressources | 1 | 4 | 10 | 4 | 1 |
+| Communication & médias | 1 | 5 | 8 | 5 | 1 |
+| Transports & logistique | 1 | 4 | 10 | 4 | 1 |
 
 ## Paires miroir et rotations
 
-Chaque paire conserve les mêmes axes dans le même ordre et inverse les grades A↔E, B↔D, C↔C.
+Chaque paire conserve les mêmes axes et inverse les grades A↔E, B↔D, C↔C. Les cartes 11–19 et 46–54 portent sur les mêmes cibles; leurs deux grades non-C sont A et E dans chaque carte, avec l’ordre inversé entre les membres de chaque paire.
 
 | IDs miroir | Forme | Profil depuis C |
 |---|---|---|
-| 1–10 ↔ 36–45 | 2 axes (1 zone, 1 secteur) | B/B ↔ D/D : hausse ou baisse modérée pure |
-| 11–20 ↔ 46–55 | 4 axes (2 zones, 2 secteurs) | A, D et 2 C ↔ E, B et 2 C : rotation mixte avec une cible forte |
+| 1–10 ↔ 36–45 | 2 axes (1 zone, 1 secteur) | B/B ↔ D/D : mouvements modérés purs |
+| 11–19 ↔ 46–54 | 4 axes (2 zones, 2 secteurs) | A, E et 2 C ↔ E, A et 2 C : rotation mixte à deux extrêmes opposés |
+| 20 ↔ 55 | 4 axes (2 zones, 2 secteurs) | A, D et 2 C ↔ E, B et 2 C : rotation mixte à extrême rare |
 | 21–35 ↔ 56–70 | 4 axes (2 zones, 2 secteurs) | B, D et 2 C ↔ D, B et 2 C : rotation mixte modérée |
 | 71–75 ↔ 76–80 | 4 axes (2 zones, 2 secteurs) | C×4 ↔ C×4 : ancrage neutre |
 | 81–85 ↔ 86–90 | 4 axes (2 zones, 2 secteurs) | B, D et 2 C ↔ D, B et 2 C : rotation mixte modérée |
 | 91–95 ↔ 96–100 | 4 axes (2 zones, 2 secteurs) | B, D et 2 C ↔ D, B et 2 C : rotation mixte modérée |
 
-Les 80 cartes à quatre axes se composent de 70 rotations qui combinent un axe favorable et un axe défavorable avec deux axes ramenés à C, et de 10 cartes neutres qui ramènent leurs quatre axes à C. Les 20 cartes à deux axes forment dix paires directionnelles pures.
+Le catalogue comprend 70 rotations mixtes (dont les 18 cartes 11–19 et 46–54 qui combinent un A et un E opposés), 10 cartes favorables à deux axes, 10 cartes défavorables à deux axes et 10 cartes qui affectent quatre axes au niveau C. Les directions et intensités réelles dépendent des grades en vigueur au tirage : chaque entrée de catalogue est une valeur absolue.
 
 ## Catalogue carte par carte
 
@@ -72,16 +85,16 @@ Les grades ci-dessous sont les valeurs absolues écrites par la carte. Depuis C,
 | 8 | Percée technologique | positive | Asie B | Communication & médias B | ↑B×2 | modérée ×2 | 2 |
 | 9 | Accords énergétiques | positive | Afrique & Moyen-Orient B | Transports & logistique B | ↑B×2 | modérée ×2 | 2 |
 | 10 | Résultats supérieurs aux attentes | positive | Océanie B | Transports & logistique B | ↑B×2 | modérée ×2 | 2 |
-| 11 | Accord commercial majeur | positive | Amériques A; Europe C | Technologie C; Finance D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 12 | Succès des introductions en bourse | positive | Europe A; Asie C | Finance C; Industrie D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 13 | Plan climat ambitieux | positive | Asie A; Afrique & Moyen-Orient C | Industrie C; Santé D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 14 | Amélioration du crédit | positive | Afrique & Moyen-Orient A; Océanie C | Santé C; Énergie D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 15 | Boom des semi-conducteurs | positive | Océanie A; Amériques C | Énergie C; Immobilier & infrastructures D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 16 | Accès élargi au financement | positive | Amériques A; Europe C | Immobilier & infrastructures C; Agroalimentaire & ressources D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 17 | Baisse surprise des taux | positive | Europe A; Asie C | Agroalimentaire & ressources C; Communication & médias D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 18 | Optimisme des entreprises | positive | Asie A; Afrique & Moyen-Orient C | Communication & médias C; Transports & logistique D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 19 | Stabilisation des devises | positive | Afrique & Moyen-Orient A; Océanie C | Transports & logistique C; Technologie D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 20 | Cadre réglementaire favorable | positive | Océanie A; Amériques C | Technologie C; Finance D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
+| 11 | Accord commercial majeur | positive | Amériques A; Europe C | Technologie C; Finance E | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 12 | Succès des introductions en bourse | positive | Europe A; Asie C | Finance C; Industrie E | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 13 | Plan climat ambitieux | positive | Asie A; Afrique & Moyen-Orient C | Industrie C; Santé E | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 14 | Amélioration du crédit | positive | Afrique & Moyen-Orient A; Océanie C | Santé C; Énergie E | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 15 | Boom des semi-conducteurs | positive | Océanie A; Amériques C | Énergie C; Immobilier & infrastructures E | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 16 | Accès élargi au financement | positive | Amériques A; Europe C | Immobilier & infrastructures C; Agroalimentaire & ressources E | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 17 | Baisse surprise des taux | positive | Europe A; Asie C | Agroalimentaire & ressources C; Communication & médias E | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 18 | Optimisme des entreprises | positive | Asie A; Afrique & Moyen-Orient C | Communication & médias C; Transports & logistique E | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 19 | Stabilisation des devises | positive | Afrique & Moyen-Orient A; Océanie C | Transports & logistique C; Technologie E | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 20 | Cadre réglementaire favorable | positive | Océanie A; Amériques C | Technologie C; Finance D | ↑A×1, ↔C×2, ↓D×1 | forte ×1, neutre ×2, modérée ×1 | 4 |
 | 21 | Plan d'investissement public | positive | Amériques B; Europe C | Finance C; Industrie D | ↑B×1, ↔C×2, ↓D×1 | modérée ×2, neutre ×2 | 4 |
 | 22 | Exportations agricoles dynamiques | positive | Europe B; Asie C | Industrie C; Santé D | ↑B×1, ↔C×2, ↓D×1 | modérée ×2, neutre ×2 | 4 |
 | 23 | Partenariat public-privé | positive | Asie B; Afrique & Moyen-Orient C | Santé C; Énergie D | ↑B×1, ↔C×2, ↓D×1 | modérée ×2, neutre ×2 | 4 |
@@ -107,16 +120,16 @@ Les grades ci-dessous sont les valeurs absolues écrites par la carte. Depuis C,
 | 43 | Inflation persistante | negative | Asie D | Communication & médias D | ↓D×2 | modérée ×2 | 2 |
 | 44 | Régime de change instable | negative | Afrique & Moyen-Orient D | Transports & logistique D | ↓D×2 | modérée ×2 | 2 |
 | 45 | Dérive réglementaire | negative | Océanie D | Transports & logistique D | ↓D×2 | modérée ×2 | 2 |
-| 46 | Fuite des capitaux | negative | Amériques E; Europe C | Technologie C; Finance B | ↑B×1, ↔C×2, ↓E×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 47 | Crise immobilière | negative | Europe E; Asie C | Finance C; Industrie B | ↑B×1, ↔C×2, ↓E×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 48 | Rupture logistique | negative | Asie E; Afrique & Moyen-Orient C | Industrie C; Santé B | ↑B×1, ↔C×2, ↓E×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 49 | Mauvais résultats | negative | Afrique & Moyen-Orient E; Océanie C | Santé C; Énergie B | ↑B×1, ↔C×2, ↓E×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 50 | Rappel massif de produits | negative | Océanie E; Amériques C | Énergie C; Immobilier & infrastructures B | ↑B×1, ↔C×2, ↓E×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 51 | Dérive des coûts | negative | Amériques E; Europe C | Immobilier & infrastructures C; Agroalimentaire & ressources B | ↑B×1, ↔C×2, ↓E×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 52 | Retrait des investisseurs | negative | Europe E; Asie C | Agroalimentaire & ressources C; Communication & médias B | ↑B×1, ↔C×2, ↓E×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 53 | Changement politique brusque | negative | Asie E; Afrique & Moyen-Orient C | Communication & médias C; Transports & logistique B | ↑B×1, ↔C×2, ↓E×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 54 | Stress de liquidité | negative | Afrique & Moyen-Orient E; Océanie C | Transports & logistique C; Technologie B | ↑B×1, ↔C×2, ↓E×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
-| 55 | Confiance en berne | negative | Océanie E; Amériques C | Technologie C; Finance B | ↑B×1, ↔C×2, ↓E×1 | forte ×1, modérée ×1, neutre ×2 | 4 |
+| 46 | Fuite des capitaux | negative | Amériques E; Europe C | Technologie C; Finance A | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 47 | Crise immobilière | negative | Europe E; Asie C | Finance C; Industrie A | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 48 | Rupture logistique | negative | Asie E; Afrique & Moyen-Orient C | Industrie C; Santé A | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 49 | Mauvais résultats | negative | Afrique & Moyen-Orient E; Océanie C | Santé C; Énergie A | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 50 | Rappel massif de produits | negative | Océanie E; Amériques C | Énergie C; Immobilier & infrastructures A | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 51 | Dérive des coûts | negative | Amériques E; Europe C | Immobilier & infrastructures C; Agroalimentaire & ressources A | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 52 | Retrait des investisseurs | negative | Europe E; Asie C | Agroalimentaire & ressources C; Communication & médias A | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 53 | Changement politique brusque | negative | Asie E; Afrique & Moyen-Orient C | Communication & médias C; Transports & logistique A | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 54 | Stress de liquidité | negative | Afrique & Moyen-Orient E; Océanie C | Transports & logistique C; Technologie A | ↑A×1, ↔C×2, ↓E×1 | forte ×2, neutre ×2 | 4 |
+| 55 | Confiance en berne | negative | Océanie E; Amériques C | Technologie C; Finance B | ↑B×1, ↔C×2, ↓E×1 | modérée ×1, neutre ×2, forte ×1 | 4 |
 | 56 | Déficit budgétaire record | negative | Amériques D; Europe C | Finance C; Industrie B | ↑B×1, ↔C×2, ↓D×1 | modérée ×2, neutre ×2 | 4 |
 | 57 | Hausse des taux brutale | negative | Europe D; Asie C | Industrie C; Santé B | ↑B×1, ↔C×2, ↓D×1 | modérée ×2, neutre ×2 | 4 |
 | 58 | Sanctions économiques | negative | Asie D; Afrique & Moyen-Orient C | Santé C; Énergie B | ↑B×1, ↔C×2, ↓D×1 | modérée ×2, neutre ×2 | 4 |
@@ -163,14 +176,4 @@ Les grades ci-dessous sont les valeurs absolues écrites par la carte. Depuis C,
 | 99 | Action antitrust renforcée | regulation | Afrique & Moyen-Orient D; Océanie C | Énergie C; Immobilier & infrastructures B | ↑B×1, ↔C×2, ↓D×1 | modérée ×2, neutre ×2 | 4 |
 | 100 | Surveillance des plateformes | regulation | Océanie D; Amériques C | Agroalimentaire & ressources C; Communication & médias B | ↑B×1, ↔C×2, ↓D×1 | modérée ×2, neutre ×2 | 4 |
 
-## Lecture à l’exécution
-
-Le moteur compare chaque grade affecté avec la valeur présente juste avant la carte. Ainsi, une cible affectée à B progresse depuis C, recule depuis A ou reste stable depuis B; une cible affectée à C peut monter, baisser ou rester stable selon son état antérieur. Les descriptions du catalogue nomment les axes concernés; le texte d’exécution détaille les mouvements réellement obtenus sur tous les axes.
-
-`eventPremise()` reprend désormais la description de la carte. Le résumé de résultat compare tous les axes à leur état antérieur; il ne suppose donc pas que toutes les cartes font toujours monter ou baisser les indices.
-
-## Mesure sur tirages successifs
-
-La campagne [board-deck-simulation.json](docs/board-deck-simulation.json) utilise 2 000 paquets créés par la vraie fabrique, soit 200 000 cartes. Elle rejoue leurs affectations absolues sur les quatorze axes, sans Bull/Bear, portefeuille ni événements, avec mesures après 10, 50 et 100 cartes. Après 100 cartes, l'écart moyen à C est de −0,0142 niveau pour les zones et −0,0012 pour les secteurs (A=0…E=4) ; l'écart de fréquence A/B contre D/E reste inférieur à 0,011. Ce contrôle ne montre pas de dérive directionnelle marquée sur cet échantillon.
-
-Les 20 parties complètes utilisent également les commandes réelles, les participations, les décisions des trois IA et les chocs. Leurs 1 426 Contextes produisent 1 731 améliorations, 1 773 dégradations et 1 626 affectations stables ; 240 inversions de comparaison de rang entre fonds sont mesurées sur leurs notifications. Ces parties terminent sans erreur. Les résultats ne garantissent pas l'égalité de rendement par secteur ni l'équilibre de toute stratégie humaine.
+Les descriptions narratives des IDs 11–19 et 46–54 ont été alignées sur leurs grades absolus intégrés. Les résultats de séance indiquent les notes réellement avant/après, qui peuvent différer de la direction calculée depuis C.
