@@ -191,3 +191,15 @@ Next main 8f241a3
 ```
 
 Les commits locaux de préparation et le WIP de sécurité sont également conservés. Commande complète : `git log --graph --oneline --decorate --all`.
+
+## Itération suivante — 13 octobre 2026, cartes et économie v4
+
+La consolidation décrite ci-dessus reste archivée. Depuis son commit final `56efd220fb082ee2cc432c02b3202a40f976d839`, une nouvelle itération conserve la PR, main et tous les anciens projets/branches. La façade et le noyau métier de la PR restent intacts; les données et le normaliseur économique évoluent. Onze substitutions de Small cotées gardent les 91 IDs opaques et toutes les populations zone–secteur. Neuf paires Context passent en v4 pour rétablir les A/E sectoriels rares.
+
+Preuves : `docs/card-balance-simulation.json` (10 000 × 100 Contextes, 1 000 × 100 Événements), `docs/economic-progression-baseline-v3.json` et `docs/economic-progression-continuous-v4.json` (40 parties chacune), `docs/economic-progression-comparison.json`; règles et limites dans `CARD_BALANCE_REPORT.md`, `MARKET_DISTRIBUTION.md`, `ECONOMY_BALANCING.md`. Tous les hashes runtime capturés par la campagne cartes correspondent au code final de cette itération.
+
+Validation : 181 tests unitaires/intégration réussis, 21 Playwright réussis sans skip/flaky/échec, typecheck et build réussis. Aucun frontend, asset, style, layout, animation, migration SQL ou dépendance modifié. Les anciens artworks restent disponibles; les nouveaux émetteurs utilisent le monogramme existant.
+
+Préservation : les 576 fichiers du manifeste du projet Evolve historique correspondent aux SHA-256 de sa sauvegarde. Deux edits accidentels d’un worker dans des fichiers non suivis ont été restaurés exactement depuis le backup; le patch prévu a été appliqué au seul répertoire d’intégration. Le projet V2 reste hors du périmètre.
+
+Publication de code préparée : `c99f61b1d64503a702b3db245d0d00d8b55a398c`, arbre `70a6566c18b1d3740cfd5cc8d2220c8fb92f3f05` identique au commit local `dda9e447707d77385dca0731bf585e1d5931e5d4`. Le commit de résultats suit ce commit et la référence `origin/global-fund-evolve` est avancée sans force-push après vérification de sa tête. Le hash du commit portant ce rapport est communiqué dans le compte-rendu final pour éviter une référence circulaire.

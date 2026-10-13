@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-13",
+  "codeCommitLocal": "dda9e447707d77385dca0731bf585e1d5931e5d4",
+  "codeCommitPublished": "c99f61b1d64503a702b3db245d0d00d8b55a398c",
+  "typecheck": "pass",
+  "productionBuild": "pass",
+  "unitIntegrationTests": {
+    "passed": 181,
+    "failed": 0
+  },
+  "playwright": {
+    "startTime": "2026-10-13T13:07:58.491Z",
+    "duration": 339694.813,
+    "expected": 21,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cardCampaign": {
+    "contextSequences": 10000,
+    "contextsPerSequence": 100,
+    "totalContextCards": 1000000,
+    "eventSequences": 1000,
+    "eventsPerSequence": 100,
+    "totalBoardEvents": 100000,
+    "seed": 20261013,
+    "rng": "mulberry32-style deterministic generator; factory shuffle draw order retained",
+    "outputPath": "docs/card-balance-simulation.json"
+  },
+  "sourceHashes": {
+    "packages/game-engine/src/index.ts": "74071ac5ffdfff269b7303584437ce72012c970d3dffcb3d338c2c3491d8669b",
+    "packages/game-engine/legacy/game.cjs": "30ab4e9f421965de7800959c5f9e4309b8925dcee40a23c8d4dfd50749eb4577",
+    "packages/game-engine/legacy/marketRules.cjs": "399542ecd808583307e8aa25e5c38d6d78b01b9a4de09a3bd2ea4a7624fa3b57",
+    "packages/game-engine/legacy/deckRules.cjs": "ae52d3d0730e0aa74ad3833934a93d9b1efa7990c112c777cf0b8d18dea8cabf",
+    "packages/game-engine/legacy/boardEventCards.cjs": "480f4970afcbe89bc4a87c8552eff3bddc44df754a2377ad58edbcb374913b25",
+    "packages/game-engine/legacy/data/gameData.json": "47cb766839a7a932b3ec699cf0d794d8166939955383a11f8377fd411e7be8b9",
+    "scripts/simulate-card-balance.ts": "fd5638dd33419f88488431a8af17039694f580ab2be6b799fcf1606b698b0658"
+  },
+  "economicCampaigns": {
+    "baseline": {
+      "complete": 40,
+      "partial": 0,
+      "failed": 0
+    },
+    "candidate": {
+      "complete": 40,
+      "partial": 0,
+      "failed": 0
+    }
+  },
+  "historicalEvolveManifest": {
+    "files": 576,
+    "mismatches": 0
+  },
+  "frontendChanged": false,
+  "dependenciesChanged": false,
+  "migrationsChanged": false,
+  "remoteBranch": "origin/global-fund-evolve"
+}

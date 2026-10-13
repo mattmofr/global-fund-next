@@ -181,3 +181,11 @@ Problème : les gardes initiales ciblaient le laptop 1366×768 ; la revue PNG a 
 - **Solution** : conserver `starterIndex`, désigné par le dé initial, puis reprendre à chaque cycle le premier fonds solvable dans l’ordre circulaire des places.
 - **Raison** : instruction explicite de conserver l’ordre de départ ; l’ordre existant est déjà représenté par les places et l’ancrage.
 - **Conséquence** : aucune nouvelle donnée de sauvegarde ni permutation des sièges. Les fonds insolvables sont sautés ; les détenus conservent leur tour et leur procès. Les anciennes parties figent l’ancrage actuellement enregistré : les éventuels départages initiaux ne sont pas tous conservés, donc l’ancien gagnant n’est pas deviné et aucun tour en cours n’est rejoué. Les cartes Contexte gardent un tirage unique par cycle.
+
+## 13 octobre 2026 — progression et extrêmes sectoriels rares
+
+- Garder 91 émetteurs et toutes les populations zone–secteur. Remplacer onze sociétés de slots existants par des sociétés cotées de 1,16–7,43 Md$; maintenir les identifiants opaques et les catalogues embarqués d’anciennes parties.
+- Conserver les seuils de classes internes 40/200 Md$ et supprimer les sauts de prix par une courbe logarithmique unique à ancrages fixes. Les classes ne deviennent pas des barrières de tour ni de transaction.
+- Rétablir un A et un E sectoriels par secteur sur neuf paires miroir. Le benchmark avait révélé que la v3 n’autorisait aucun E sectoriel et ne pouvait donc produire de faillite E/E. Maintenir quotas de types, couverture des axes, B=D par axe et C modal.
+- Mesurer les cartes via le noyau réel, puis comparer l’économie sur les mêmes decks v4. Ne pas attribuer un changement dû aux nouveaux Contextes à la seule économie. Les portefeuilles de stress sont distingués des parties IA jouables.
+- Garder la politique IA et les rendus existants. Les Large restent rares dans les 40 parties v4 mesurées; les quatre premiers achats observés ne constituent pas une trajectoire garantie pour tous les fonds.

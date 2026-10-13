@@ -1,6 +1,6 @@
 # EVOLVE_ENGINE_CHANGES
 
-Checklist de préservation du lot Evolve dans la branche finale d’intégration. Comparaison lecture seule entre la base PR `58493e0`, le backup `503f7a2` et snapshot de portage `1f0786f`. La checklist décrit les changements du moteur, des types, des tests/scripts dédiés et de leur intégration serveur. Tous les fichiers listés sont présents à HEAD et identiques à `503f7a2`; aucun des changements moteur Evolve du backup n’a été perdu.
+Checklist de préservation du lot Evolve dans la branche finale d’intégration. Comparaison lecture seule entre la base PR `58493e0`, le backup `503f7a2` et snapshot de portage `1f0786f`. La checklist décrit les changements du moteur, des types, des tests/scripts dédiés et de leur intégration serveur. Ce relevé archive la consolidation du backup `503f7a2`; aucun changement moteur de ce lot n’a été perdu. La nouvelle itération v4 ci-dessous fait ensuite évoluer le catalogue et les paramètres économiques.
 
 | Modification | Fichier(s) | Présente branche finale ? | Tests associés |
 |---|---|---:|---|
@@ -28,3 +28,16 @@ Checklist de préservation du lot Evolve dans la branche finale d’intégration
 - Résultats : **174/174 tests unitaires/intégration**, **21/21 scénarios Playwright**, typecheck et build réussis. Les migrations neuves, leur idempotence et la sauvegarde/reprise PostgreSQL sont aussi validées sur une base dédiée.
 
 La PR est entièrement conservée dans les ancêtres de la branche. Les changements d’identité de commit nécessaires à la publication via le connecteur GitHub ne changent pas les arbres testés ; les trois commits originaux de la PR conservent leurs auteurs et hashes. La préservation des règles se vérifie sur les contenus et les objets Git des fichiers, pas sur un hash de commit contenant sa propre documentation.
+
+## Itération cartes et économie v4 — 13 octobre 2026
+
+| Modification | Fichier(s) | Présente ? | Tests / mesures |
+|---|---|---|---|
+| Extrêmes sectoriels rares A/E sur neuf paires miroir; C reste modal, symétrie hausses/baisses préservée | `legacy/data/gameData.json` | Oui | `tests/card-balance.test.ts`; campagne 10 000 × 100 Contextes |
+| Future-deck migration v3→v4 sans réécriture du Contexte révélé, positions ni portefeuilles | `legacy/deckRules.cjs` | Oui | Tests migration v3, inconnus, versions futures |
+| Liquidation E/E puis réouverture via véritables cartes d’usine | `legacy/game.cjs` (règle conservée), catalogue Context v4 | Oui | Test séquence Context 11→48→12, paiement unique et effacement PRU |
+| Onze Small cotées dans les mêmes slots/zone/secteur; 91 sociétés, 31/24/36 | `legacy/data/gameData.json`, preuves `docs/evolve-smallcap-replacements.json` | Oui | Catalogue, offres Small par marché/secteur; audit cotations et capitalisations |
+| Prix et revenus continus, indépendants des extrêmes du catalogue | `src/economy.ts` | Oui | `tests/economic-progression.test.ts`: frontières 40/200 Md$, ajout d’outliers, chevauchement des cours |
+| Conservation du catalogue économique et des identités d’anciennes sauvegardes | `src/index.ts`, `legacy/game.cjs` (inchangés) | Oui | Sauvegarde v3 lue et jouée sans repricing; sauvegarde v1 toujours testée |
+| Monogramme existant pour nouveaux émetteurs; anciens assets conservés | Métadonnées du catalogue uniquement | Oui | Validation des 38 logos associés; aucune modification frontend |
+| Mesures par fonds des premiers achats, cash, Small détenues et NAV | `scripts/simulate-economic-progression.ts`, `scripts/report-economic-progression.py` | Oui | 40 parties référence v3 + 40 v4, moteur et mêmes decks v4, zéro partie partielle |

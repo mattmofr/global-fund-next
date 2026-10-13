@@ -1,5 +1,73 @@
 # Équilibrage de l’économie
 
+## État actif — 13 octobre 2026, économie et Contextes v4
+
+Projet actif consolidé : `/home/codex/projects/global-fund-evolve-integration`, branche `global-fund-evolve`. Les versions historiques Evolve et V2 sont conservées. Les anciennes campagnes ci-dessous sont des archives; la validation courante repose sur les fichiers de cette section.
+
+Le catalogue garde **91 sociétés** et les mêmes populations zone–secteur. Onze substitutions par des émetteurs cotés de **1,16 à 7,43 Md$** apportent une offre Small à chaque secteur et **7 / 5 / 6 / 6 / 7 Small** dans les cinq marchés. Total : **31 Small / 24 Medium / 36 Large**, contre 20 / 31 / 40. Les 36 cellules occupées sur 45 restent identiques. Chaque nouvelle société remplace une entrée du même secteur et de la même zone; les identifiants de slots sont opaques et stables. Une ancienne partie garde son catalogue embarqué, ses prix et ses participations.
+
+Les sociétés nouvelles sont Hims & Hers, UiPath, NMI Holdings, JetBlue, Cal-Maine Foods, TeamViewer, Carl Zeiss Meditec, KION, Chicony Electronics, Taiwan Business Bank et Nitto Kogyo. Les sources primaires, dates et méthodes de calcul sont dans [evolve-smallcap-replacements.json](docs/evolve-smallcap-replacements.json) et [COMPANY_AUDIT.md](COMPANY_AUDIT.md). Les conversions de change sont approximatives et explicitement qualifiées; ces capitalisations ne sont pas des cours en direct. Small `<40 Md$` reste une catégorie interne du jeu, distincte de la convention financière Small `<2 Md$`.
+
+### Prix continus et progression
+
+`normalizeEconomy` utilise une formule unique à ancrages fixes :
+
+```text
+prix des 5 parts à C/C = round2(clamp(25, 1500, 500 * ln(1 + capUSD/50e9) / ln(5)))
+rendement de base = 0,10 + 0,04 * (1 - exp(-capUSD/200e9))
+revenu des 5 parts à C/C = round2(prix * rendement)
+```
+
+Les catégories ne créent plus les anciens sauts 100→180 et 450→550 M€. Les prix et revenus restent continus au voisinage de 40/200 Md$. Une société ajoutée ne déplace pas les prix des autres sociétés. Les anciennes grilles restent disponibles comme scénarios de recherche; elles ne pilotent plus les nouvelles parties.
+
+Les onze nouveaux émetteurs coûtent **5 à 8,61 M€ la part à C/C**. Le catalogue contient 56 premières parts accessibles avec 100 M€ sans réserve. Une Small proche de 40 Md$ peut coûter jusqu’à 36,11 M€ la part; son contrôle complet demande davantage que le capital initial. Une Large coûte au moins 100 M€ la part à C/C, et ce minimum exact permet à un humain d’engager tout son capital. Les grades créent des chevauchements de prix entre catégories; les plafonds/planchers et le détail par place de cotation figurent dans [MARKET_DISTRIBUTION.md](MARKET_DISTRIBUTION.md).
+
+### Comparaison IA avec le moteur réel
+
+**40 parties complètes et 120 fonds par campagne**, mêmes graines 20261013–20261052, un fonds easy/normal/hard par partie, rotation des cinq marchés : chaque difficulté démarre huit fois dans chaque marché. La référence charge tout le catalogue économique v3, y compris noms, classes, prix et revenus. Les deux campagnes utilisent les mêmes Contextes v4, Bull/Bear, plateau et politique IA. L’ordre aléatoire peut diverger après les premières décisions différentes; les graines communes ne promettent pas des dés identiques ensuite.
+
+Le simulateur utilise `createGame → chooseAiCommand → executeCommand` jusqu’à la fin réelle, sans modifier les règles. Seuls les historiques de reporting sont bornés à deux points dans le processus de simulation. Les moyennes des premiers achats portent sur les fonds qui ont effectué l’achat; les absences restent explicites.
+
+| Premier achat, cycles | Référence v3 / Context v4 | Économie v4 / Context v4 |
+|---|---:|---:|
+| Toute catégorie : moyenne, fonds acheteurs | 1,00 — 120/120 | 1,00 — 120/120 |
+| Small : moyenne, médiane, fonds acheteurs | 3,14 — 1 — 118/120 | 2,45 — 1 — 120/120 |
+| Medium : moyenne, médiane, fonds acheteurs | 4,49 — 1 — 85/120 | 2,38 — 1 — 72/120 |
+| Large : moyenne, médiane, fonds acheteurs | Non observé — 0/120 | 38,75 — 26,5 — 4/120 |
+
+L’accès initial est effectif : aucun fonds ne reste dix cycles avec ses 100 M€ sans avoir acheté. Le palier Large apparaît tard dans cet échantillon et reste **rare : 116 fonds n’en achètent pas avant leur fin**. La politique IA dépense ses disponibilités au-delà d’une réserve et ne planifie pas une montée en gamme par ventes volontaires; ces résultats ne prouvent pas qu’un joueur humain suivra la même trajectoire. Les Medium peuvent être achetées dès l’ouverture; aucun palier de catégorie n’impose un tour minimum.
+
+| Moyenne par fonds | Référence | Économie v4 |
+|---|---:|---:|
+| Small détenues au cycle 10 (sociétés / parts) | 1,72 / 3,03 | 2,28 / 4,11 |
+| Cash au cycle 10 | 30,34 M€ | 27,96 M€ |
+| NAV au cycle 10 | 95,89 M€ | 92,98 M€ |
+| Small détenues au cycle 35 (sociétés / parts) | 2,20 / 5,23 | 3,06 / 8,83 |
+| Cash final, tous fonds | 11,58 M€ | 11,17 M€ |
+| NAV finale, tous fonds | 115,10 M€ | 120,70 M€ |
+| NAV finale, fonds survivants | 281,87 M€ — 49/120 | 284,00 M€ — 51/120 |
+
+Les moyennes finales incluent les fonds insolvables; celles des survivants ont un autre dénominateur. Les checkpoints 70 n’incluent que les parties atteignant ce cycle. Les effectifs et autres checkpoints sont dans le JSON. Les insolvabilités demeurent fréquentes (71 puis 69 fonds sur 120); cette itération ne change pas leur règle. La campagne de 40 parties mesure l’accessibilité et fournit un repère, sans garantir l’équilibre compétitif humain.
+
+Reproduction :
+
+```bash
+npx tsx scripts/simulate-economic-progression.ts --games 40 --seed 20261013 --seconds 1800 --label baseline-v3 --catalog docs/evolve-economy-v3-catalog.json
+npx tsx scripts/simulate-economic-progression.ts --games 40 --seed 20261013 --seconds 1800 --label continuous-v4
+python3 scripts/report-economic-progression.py
+```
+
+Résultats : [référence](docs/economic-progression-baseline-v3.json), [v4](docs/economic-progression-continuous-v4.json), [comparaison](docs/economic-progression-comparison.json). Le [relevé pré-Context-v4](docs/economic-progression-pre-context-v4.json) archive séparément l’état v3/v3 avant correction. Toutes les campagnes ont 40/40 parties complètes et zéro erreur/partie partielle. Le champ additionnel « 100 tours sans achat » des JSON bruts est un indicateur censuré distinct; le contrôle des **100 M€ initiaux** est calculé par le rapport comparatif au cycle 10.
+
+### Cartes et tests
+
+Le benchmark pré-v4 a révélé l’absence totale de notes A/E sectorielles et donc de faillites E/E dans les nouvelles parties. Neuf paires miroir sont corrigées : chaque secteur reçoit une cible A et une E, avec autant de B que de D et C modal. Les quotas globaux sont 19 A / 71 B / 180 C / 71 D / 19 E. Les Événements conservent leur séparation et ne modifient aucune note. La campagne complète et les limites du portefeuille de stress figurent dans [CARD_BALANCE_REPORT.md](CARD_BALANCE_REPORT.md).
+
+Les tests couvrent continuité des deux frontières, indépendance des prix vis-à-vis du catalogue, offres Small par marché et secteur, conservation des sauvegardes v3, liquidation/réouverture par véritables Contextes d’usine et migration des futurs decks v3 vers v4. Aucun frontend, style, layout, animation ni règle de lobby n’a changé.
+
+## Archives des campagnes antérieures
+
+
 **12 octobre 2026 — chocs de marché** : Bull/Bear utilisent désormais une portée de zones déterministe, avec un niveau supplémentaire dans la zone du fonds actif ; Bear est en case 40. Les mesures de cette itération figurent dans [ENGINE_RULES.md](ENGINE_RULES.md) et [market-shock-simulation.json](docs/market-shock-simulation.json). Les anciennes campagnes ci-dessous conservent leurs paramètres et ne sont pas une validation des nouvelles règles.
 
 **Règle actualisée le 9 octobre 2026** : le fonds actif ne perçoit plus de revenu sectoriel de la banque pour ses propres participations. Ses entreprises rapportent lorsqu’un autre fonds tombe sur le secteur. Les simulations et comparaisons ci-dessous ont précédé ce changement ; elles restent des résultats historiques et ne mesurent pas l’équilibre de cette nouvelle règle. Les prix et revenus de base ne sont pas recalibrés dans cette correction.

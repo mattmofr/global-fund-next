@@ -157,8 +157,11 @@ npm run typecheck           # vérification TypeScript seule
 npm test                    # tests unitaires moteur/serveur
 npm run test:e2e            # parcours navigateur avec Playwright
 npm run simulate -- 100     # simuler 100 parties complètes (1 à 10000)
-npx tsx scripts/balance-economy.ts 100 progression-growth 20261006 1200
-# comparaison économique reproductible, rapports locaux et graine fixée
+npx tsx scripts/simulate-card-balance.ts 10000 1000 20261013
+npx tsx scripts/simulate-economic-progression.ts --games 40 --seed 20261013 --seconds 1800 --label continuous-v4
+npx tsx scripts/simulate-economic-progression.ts --games 40 --seed 20261013 --seconds 1800 --label baseline-v3 --catalog docs/evolve-economy-v3-catalog.json
+python3 scripts/audit-market-distribution.py
+# campagnes reproductibles et audits du catalogue actif
 npm run db:migrate          # appliquer les migrations SQL PostgreSQL
 npm run start               # lancer le serveur et servir apps/web/dist
 ```

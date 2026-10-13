@@ -1,0 +1,540 @@
+{
+  "schemaVersion": 1,
+  "method": "Paired seeds and final V4 decks/board/AI; reference overrides all V3 static company metadata and prices.",
+  "sources": {
+    "referenceV3EconomyV4Contexts": {
+      "path": "docs/economic-progression-baseline-v3.json",
+      "sha256": "ee8b430d99e3553916c3bed3b710095a096e120315e9bd6a0dcd7277ac950d0b"
+    },
+    "candidateV4EconomyV4Contexts": {
+      "path": "docs/economic-progression-continuous-v4.json",
+      "sha256": "f635315ed65c84615ab95156684100c7cc3b136c8e7fa562ff5155d06ab88124"
+    }
+  },
+  "comparisons": {
+    "referenceV3EconomyV4Contexts": {
+      "games": 40,
+      "funds": 120,
+      "commands": 34020,
+      "durationSeconds": 582.884410072,
+      "sources": {
+        "gameData": "47cb766839a7a932b3ec699cf0d794d8166939955383a11f8377fd411e7be8b9",
+        "gameCore": "30ab4e9f421965de7800959c5f9e4309b8925dcee40a23c8d4dfd50749eb4577",
+        "marketRules": "399542ecd808583307e8aa25e5c38d6d78b01b9a4de09a3bd2ea4a7624fa3b57",
+        "engineFacade": "74071ac5ffdfff269b7303584437ce72012c970d3dffcb3d338c2c3491d8669b",
+        "simulator": "1d36c7d3b7c466d819e7c2e6f5b4213d6b0cc53a87c820c328d0f57f98cbe283",
+        "baselineCatalog": "f7e87f7fa30e7266901904dfbb16b0a01b1c4347456e7c93f032f15f261a7504"
+      },
+      "catalog": {
+        "activeDataPath": "packages/game-engine/legacy/data/gameData.json",
+        "activeDataSha256": "47cb766839a7a932b3ec699cf0d794d8166939955383a11f8377fd411e7be8b9",
+        "baselineOverridePath": "docs/evolve-economy-v3-catalog.json",
+        "baselineOverrideSha256": "f7e87f7fa30e7266901904dfbb16b0a01b1c4347456e7c93f032f15f261a7504",
+        "companyCount": 91,
+        "companyIdsPreserved": true,
+        "overrideFields": [
+          "all static company catalog fields; runtime holdings, cost basis, availability, and per-view aggregates preserved"
+        ],
+        "classification": "active company capCategory; fallback thresholds <40B small, <200B medium, otherwise large",
+        "openingHistoryRecalculatedAfterOverride": true
+      },
+      "firstPurchases": {
+        "any": {
+          "fundsObserved": 120,
+          "purchased": 120,
+          "neverPurchasedOrRightCensored": 0,
+          "medianCycle": 1,
+          "averageCycle": 1,
+          "medianIndividualTurn": 1,
+          "averageIndividualTurn": 1,
+          "byDifficulty": {
+            "easy": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "normal": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "hard": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            }
+          }
+        },
+        "small": {
+          "fundsObserved": 120,
+          "purchased": 118,
+          "neverPurchasedOrRightCensored": 2,
+          "medianCycle": 1,
+          "averageCycle": 3.1440677966101696,
+          "medianIndividualTurn": 1,
+          "averageIndividualTurn": 3.1440677966101696,
+          "byDifficulty": {
+            "easy": {
+              "funds": 40,
+              "purchased": 38,
+              "notObservedByEnd": 2,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "normal": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "hard": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            }
+          }
+        },
+        "medium": {
+          "fundsObserved": 120,
+          "purchased": 85,
+          "neverPurchasedOrRightCensored": 35,
+          "medianCycle": 1,
+          "averageCycle": 4.4941176470588236,
+          "medianIndividualTurn": 1,
+          "averageIndividualTurn": 4.4941176470588236,
+          "byDifficulty": {
+            "easy": {
+              "funds": 40,
+              "purchased": 17,
+              "notObservedByEnd": 23,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "normal": {
+              "funds": 40,
+              "purchased": 34,
+              "notObservedByEnd": 6,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "hard": {
+              "funds": 40,
+              "purchased": 34,
+              "notObservedByEnd": 6,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            }
+          }
+        },
+        "large": {
+          "fundsObserved": 120,
+          "purchased": 0,
+          "neverPurchasedOrRightCensored": 120,
+          "medianCycle": null,
+          "averageCycle": null,
+          "medianIndividualTurn": null,
+          "averageIndividualTurn": null,
+          "byDifficulty": {
+            "easy": {
+              "funds": 40,
+              "purchased": 0,
+              "notObservedByEnd": 40,
+              "medianCycle": null,
+              "medianIndividualTurn": null
+            },
+            "normal": {
+              "funds": 40,
+              "purchased": 0,
+              "notObservedByEnd": 40,
+              "medianCycle": null,
+              "medianIndividualTurn": null
+            },
+            "hard": {
+              "funds": 40,
+              "purchased": 0,
+              "notObservedByEnd": 40,
+              "medianCycle": null,
+              "medianIndividualTurn": null
+            }
+          }
+        }
+      },
+      "checkpoints": {
+        "10": {
+          "cycle": 10,
+          "allFunds": {
+            "observations": 40,
+            "fundObservations": 120,
+            "averageNAV": 95.88558333333336,
+            "averageCash": 30.336999999999993,
+            "averageSmallCompaniesPerFund": 1.7166666666666666,
+            "averageSmallSharesPerFund": 3.025
+          },
+          "solventFunds": {
+            "observations": 40,
+            "fundObservations": 120,
+            "averageNAV": 95.88558333333336,
+            "averageCash": 30.336999999999993,
+            "averageSmallCompaniesPerFund": 1.7166666666666666,
+            "averageSmallSharesPerFund": 3.025
+          }
+        },
+        "35": {
+          "cycle": 35,
+          "allFunds": {
+            "observations": 40,
+            "fundObservations": 120,
+            "averageNAV": 113.90949999999998,
+            "averageCash": 22.508479166666657,
+            "averageSmallCompaniesPerFund": 2.2,
+            "averageSmallSharesPerFund": 5.233333333333333
+          },
+          "solventFunds": {
+            "observations": 40,
+            "fundObservations": 109,
+            "averageNAV": 125.40495412844035,
+            "averageCash": 24.779977064220173,
+            "averageSmallCompaniesPerFund": 2.4220183486238533,
+            "averageSmallSharesPerFund": 5.761467889908257
+          }
+        },
+        "70": {
+          "cycle": 70,
+          "allFunds": {
+            "observations": 25,
+            "fundObservations": 75,
+            "averageNAV": 118.37119999999997,
+            "averageCash": 15.649466666666664,
+            "averageSmallCompaniesPerFund": 2.3333333333333335,
+            "averageSmallSharesPerFund": 6.333333333333333
+          },
+          "solventFunds": {
+            "observations": 25,
+            "fundObservations": 54,
+            "averageNAV": 164.4044444444444,
+            "averageCash": 21.735370370370365,
+            "averageSmallCompaniesPerFund": 3.240740740740741,
+            "averageSmallSharesPerFund": 8.796296296296296
+          }
+        },
+        "final": {
+          "cycle": null,
+          "allFunds": {
+            "observations": 40,
+            "fundObservations": 120,
+            "averageNAV": 115.09558333333335,
+            "averageCash": 11.576666666666664,
+            "averageSmallCompaniesPerFund": 2.1166666666666667,
+            "averageSmallSharesPerFund": 6.883333333333334
+          },
+          "solventFunds": {
+            "observations": 40,
+            "fundObservations": 49,
+            "averageNAV": 281.8667346938776,
+            "averageCash": 28.35102040816326,
+            "averageSmallCompaniesPerFund": 5.183673469387755,
+            "averageSmallSharesPerFund": 16.857142857142858
+          }
+        }
+      },
+      "finalValue": {
+        "allFunds": {
+          "funds": 120,
+          "averageNAV": 115.09558333333335,
+          "medianNAV": 0,
+          "p95NAV": 447.393,
+          "averageCash": 11.576666666666664
+        },
+        "survivors": {
+          "funds": 49,
+          "averageNAV": 281.8667346938776,
+          "medianNAV": 286.19,
+          "p95NAV": 466.2439999999999,
+          "averageCash": 28.35102040816326
+        }
+      },
+      "cashAtOpeningStillUnused": {
+        "definition": "At the end of cycle 10, no BUY_SHARE since opening and cash >=100 M€.",
+        "fundsObservedAtCycle10": 120,
+        "fundsWithoutAnyBuyByCycle10": 0,
+        "fundsWithoutAnyBuyAndCashAtLeast100": 0,
+        "averageCashAmongNeverBoughtAtCycle10": null,
+        "firstBuyAfterCycle10OrNotObservedAmongAllFunds": 0,
+        "earlyEndCaveat": "Funds in games ending before cycle 10 are omitted from checkpoint counts, never imputed."
+      }
+    },
+    "candidateV4EconomyV4Contexts": {
+      "games": 40,
+      "funds": 120,
+      "commands": 33900,
+      "durationSeconds": 587.3893173700001,
+      "sources": {
+        "gameData": "47cb766839a7a932b3ec699cf0d794d8166939955383a11f8377fd411e7be8b9",
+        "gameCore": "30ab4e9f421965de7800959c5f9e4309b8925dcee40a23c8d4dfd50749eb4577",
+        "marketRules": "399542ecd808583307e8aa25e5c38d6d78b01b9a4de09a3bd2ea4a7624fa3b57",
+        "engineFacade": "74071ac5ffdfff269b7303584437ce72012c970d3dffcb3d338c2c3491d8669b",
+        "simulator": "1d36c7d3b7c466d819e7c2e6f5b4213d6b0cc53a87c820c328d0f57f98cbe283",
+        "baselineCatalog": null
+      },
+      "catalog": {
+        "activeDataPath": "packages/game-engine/legacy/data/gameData.json",
+        "activeDataSha256": "47cb766839a7a932b3ec699cf0d794d8166939955383a11f8377fd411e7be8b9",
+        "baselineOverridePath": null,
+        "baselineOverrideSha256": null,
+        "companyCount": 91,
+        "companyIdsPreserved": true,
+        "overrideFields": [],
+        "classification": "active company capCategory; fallback thresholds <40B small, <200B medium, otherwise large",
+        "openingHistoryRecalculatedAfterOverride": false
+      },
+      "firstPurchases": {
+        "any": {
+          "fundsObserved": 120,
+          "purchased": 120,
+          "neverPurchasedOrRightCensored": 0,
+          "medianCycle": 1,
+          "averageCycle": 1,
+          "medianIndividualTurn": 1,
+          "averageIndividualTurn": 1,
+          "byDifficulty": {
+            "easy": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "normal": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "hard": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            }
+          }
+        },
+        "small": {
+          "fundsObserved": 120,
+          "purchased": 120,
+          "neverPurchasedOrRightCensored": 0,
+          "medianCycle": 1,
+          "averageCycle": 2.45,
+          "medianIndividualTurn": 1,
+          "averageIndividualTurn": 2.45,
+          "byDifficulty": {
+            "easy": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "normal": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "hard": {
+              "funds": 40,
+              "purchased": 40,
+              "notObservedByEnd": 0,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            }
+          }
+        },
+        "medium": {
+          "fundsObserved": 120,
+          "purchased": 72,
+          "neverPurchasedOrRightCensored": 48,
+          "medianCycle": 1,
+          "averageCycle": 2.375,
+          "medianIndividualTurn": 1,
+          "averageIndividualTurn": 2.375,
+          "byDifficulty": {
+            "easy": {
+              "funds": 40,
+              "purchased": 7,
+              "notObservedByEnd": 33,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "normal": {
+              "funds": 40,
+              "purchased": 32,
+              "notObservedByEnd": 8,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            },
+            "hard": {
+              "funds": 40,
+              "purchased": 33,
+              "notObservedByEnd": 7,
+              "medianCycle": 1,
+              "medianIndividualTurn": 1
+            }
+          }
+        },
+        "large": {
+          "fundsObserved": 120,
+          "purchased": 4,
+          "neverPurchasedOrRightCensored": 116,
+          "medianCycle": 26.5,
+          "averageCycle": 38.75,
+          "medianIndividualTurn": 26.5,
+          "averageIndividualTurn": 38.75,
+          "byDifficulty": {
+            "easy": {
+              "funds": 40,
+              "purchased": 1,
+              "notObservedByEnd": 39,
+              "medianCycle": 90,
+              "medianIndividualTurn": 90
+            },
+            "normal": {
+              "funds": 40,
+              "purchased": 0,
+              "notObservedByEnd": 40,
+              "medianCycle": null,
+              "medianIndividualTurn": null
+            },
+            "hard": {
+              "funds": 40,
+              "purchased": 3,
+              "notObservedByEnd": 37,
+              "medianCycle": 17,
+              "medianIndividualTurn": 17
+            }
+          }
+        }
+      },
+      "checkpoints": {
+        "10": {
+          "cycle": 10,
+          "allFunds": {
+            "observations": 40,
+            "fundObservations": 120,
+            "averageNAV": 92.979,
+            "averageCash": 27.9625,
+            "averageSmallCompaniesPerFund": 2.275,
+            "averageSmallSharesPerFund": 4.108333333333333
+          },
+          "solventFunds": {
+            "observations": 40,
+            "fundObservations": 120,
+            "averageNAV": 92.979,
+            "averageCash": 27.9625,
+            "averageSmallCompaniesPerFund": 2.275,
+            "averageSmallSharesPerFund": 4.108333333333333
+          }
+        },
+        "35": {
+          "cycle": 35,
+          "allFunds": {
+            "observations": 40,
+            "fundObservations": 120,
+            "averageNAV": 116.57641666666669,
+            "averageCash": 18.856499999999997,
+            "averageSmallCompaniesPerFund": 3.058333333333333,
+            "averageSmallSharesPerFund": 8.833333333333334
+          },
+          "solventFunds": {
+            "observations": 40,
+            "fundObservations": 108,
+            "averageNAV": 129.52935185185186,
+            "averageCash": 20.951666666666664,
+            "averageSmallCompaniesPerFund": 3.3981481481481484,
+            "averageSmallSharesPerFund": 9.814814814814815
+          }
+        },
+        "70": {
+          "cycle": 70,
+          "allFunds": {
+            "observations": 25,
+            "fundObservations": 75,
+            "averageNAV": 120.99680000000001,
+            "averageCash": 12.830566666666671,
+            "averageSmallCompaniesPerFund": 3.68,
+            "averageSmallSharesPerFund": 12.546666666666667
+          },
+          "solventFunds": {
+            "observations": 25,
+            "fundObservations": 50,
+            "averageNAV": 181.4952,
+            "averageCash": 19.245850000000008,
+            "averageSmallCompaniesPerFund": 5.52,
+            "averageSmallSharesPerFund": 18.82
+          }
+        },
+        "final": {
+          "cycle": null,
+          "allFunds": {
+            "observations": 40,
+            "fundObservations": 120,
+            "averageNAV": 120.7016666666667,
+            "averageCash": 11.167416666666664,
+            "averageSmallCompaniesPerFund": 3.4,
+            "averageSmallSharesPerFund": 13.058333333333334
+          },
+          "solventFunds": {
+            "observations": 40,
+            "fundObservations": 51,
+            "averageNAV": 284.00392156862756,
+            "averageCash": 26.276274509803915,
+            "averageSmallCompaniesPerFund": 8,
+            "averageSmallSharesPerFund": 30.725490196078432
+          }
+        }
+      },
+      "finalValue": {
+        "allFunds": {
+          "funds": 120,
+          "averageNAV": 120.7016666666667,
+          "medianNAV": 0,
+          "p95NAV": 450.7355,
+          "averageCash": 11.167416666666664
+        },
+        "survivors": {
+          "funds": 51,
+          "averageNAV": 284.00392156862756,
+          "medianNAV": 285.64,
+          "p95NAV": 497.48,
+          "averageCash": 26.276274509803915
+        }
+      },
+      "cashAtOpeningStillUnused": {
+        "definition": "At the end of cycle 10, no BUY_SHARE since opening and cash >=100 M€.",
+        "fundsObservedAtCycle10": 120,
+        "fundsWithoutAnyBuyByCycle10": 0,
+        "fundsWithoutAnyBuyAndCashAtLeast100": 0,
+        "averageCashAmongNeverBoughtAtCycle10": null,
+        "firstBuyAfterCycle10OrNotObservedAmongAllFunds": 0,
+        "earlyEndCaveat": "Funds in games ending before cycle 10 are omitted from checkpoint counts, never imputed."
+      }
+    }
+  },
+  "limits": [
+    "40 games/120 funds per campaign; estimates describe this AI policy, not human play.",
+    "Action-dependent RNG paths diverge after economic choices differ; seeds do not promise identical later dice/cards.",
+    "First-purchase means exclude funds without that purchase; those counts are explicit.",
+    "The raw simulator also contains a censored 100-personal-turn metric. It is not the user's 100 M€ cash requirement."
+  ]
+}

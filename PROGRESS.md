@@ -251,3 +251,11 @@ Projet : **Global Fund Next**. État antérieur archivé dans [progress-before-c
 **Itération livrée** : 122 tests unitaires/intégration, 15 parcours Playwright et build/typecheck passent. Le build `.releases/2026-10-07T21-22-53-574Z-337339` est servi sur [l’accès HTTPS Next](https://global-fund-next.213.199.40.67.sslip.io/), avec index public identique au build et health OK. Les deux services sont actifs ; 157 fichiers et deux configurations historiques sont inchangés.
 
 Prochain objectif : essais joueurs et campagne d’équilibrage du règlement, puis mesures sur GPU réel. La provenance des 33 images, les empreintes et les résultats sont consignés dans [VISUAL_VALIDATION.md](docs/VISUAL_VALIDATION.md) et [clearing-visual-validation.json](docs/clearing-visual-validation.json). Règles : [SETTLEMENT_RULES.md](SETTLEMENT_RULES.md). Logos : [LOGO_AUDIT](docs/LOGO_AUDIT.md) et [COMPANIES_WITHOUT_LOGO.md](COMPANIES_WITHOUT_LOGO.md).
+
+## 13 octobre 2026 — cartes, Small Caps et économie v4
+
+Projet actif consolidé : `global-fund-evolve-integration` / branche `global-fund-evolve`; Evolve historique et V2 préservés. L’audit économique a trouvé 20 Small, dont 2 Amériques, 2 Europe et 3 Asie. Onze substitutions cotées, sourcées et datées portent le catalogue à 31 Small/24 Medium/36 Large, toujours 91 sociétés et 36 cellules zone–secteur occupées. Les anciens logos ne sont pas affectés à de nouvelles identités; le rendu monogramme existant est utilisé.
+
+Courbe prix/revenus continue aux frontières; aucun repricing des parties sauvegardées. Le benchmark des Contextes a détecté zéro A/E sectoriel, rendant E/E inaccessible; neuf paires miroir sont corrigées en catalogue v4. Les Événements ne modifient toujours aucune note. Rapports : `MARKET_DISTRIBUTION.md`, `CARD_BALANCE_REPORT.md`, `ECONOMY_BALANCING.md` et JSON reproductibles.
+
+Comparaison IA : 40 parties complètes par campagne, trois difficultés et rotation des cinq marchés. Premier achat cycle 1 pour 120/120 fonds; Small 120/120 en v4; Large 4/120, premier achat moyen cycle 38,75 (0/120 référence). Aucun fonds ne conserve 100 M€ dix cycles sans achat. Contrôles : 181 tests unitaires/intégration, 21 Playwright, typecheck et build. Aucun frontend, style, layout, animation ou lobby modifié.
