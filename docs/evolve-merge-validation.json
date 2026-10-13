@@ -1,0 +1,96 @@
+{
+  "dateUTC": "2026-10-13T10:34:47.223812+00:00",
+  "repository": "mattmofr/global-fund-next",
+  "branch": "global-fund-evolve",
+  "baseNext": "8f241a3bd0b4bdb56c9c6e0d876221242b6e3178",
+  "pr": {
+    "number": 1,
+    "author": "armineba",
+    "source": "armineba/global-fund-next:refonte-front",
+    "target": "main",
+    "head": "58493e0e805820a9c5ea29d39dad4c9229afceb2",
+    "draft": true,
+    "mergeable": true,
+    "githubWorkflowConclusion": "action_required",
+    "officialMergePerformed": false
+  },
+  "backupCommit": "503f7a20803f11f34e23e61801d7003bd1c1fec3",
+  "publishedCodeCommits": [
+    {
+      "sha": "779ba4546e730a1339f2823903b8cc23f3fc3986",
+      "tree": "0f7fd7cb3c39a945b30fe4dd6ce2c488c1db750b",
+      "localCommit": "2ea55b350c790935b4c1d6607d614962fc1a5526",
+      "message": "Prepare isolated Evolve runtime and preserve PR interface"
+    },
+    {
+      "sha": "9275d4e47d5d592d97ccdda174139eefdf05f9d4",
+      "tree": "2caf5236b9e7f04daefba647c7fbed3ac4c60fa3",
+      "localCommit": "415fd0f22cb4e16a81433df82437f6f814c70ce3",
+      "message": "Port Evolve board, market shocks and balanced card decks"
+    },
+    {
+      "sha": "fc65dbbc3a54a8bc4541887e1cfa28ae85f4aa27",
+      "tree": "22138af59230bf97ad68c52b08b1922d075cf0e7",
+      "localCommit": "1f0786f2a14521d35c16462cf39a41194f3ff05f",
+      "message": "Document Evolve rules, audits and balancing evidence"
+    }
+  ],
+  "testedTree": "22138af59230bf97ad68c52b08b1922d075cf0e7",
+  "localCodeCommit": "1f0786f2a14521d35c16462cf39a41194f3ff05f",
+  "prValidation": {
+    "unitTestsPassed": 135,
+    "typecheck": true,
+    "build": true
+  },
+  "finalValidation": {
+    "unitTestsPassed": 174,
+    "unitTestFiles": 13,
+    "playwright": {
+      "startTime": "2026-10-13T10:21:04.511Z",
+      "duration": 229756.24500000002,
+      "expected": 21,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "typecheck": true,
+    "build": true,
+    "lint": "No lint script configured",
+    "postgresql": {
+      "ok": true,
+      "database": "gf_evolve_merge_check_20261013_102159",
+      "productionDatabaseUsed": false,
+      "migrationFile": "apps/server/migrations/0000_rooms.sql",
+      "seed": "Game data loaded by createGame; no separate seed script",
+      "freshMigrationPassed": true,
+      "idempotentMigrationPassed": true,
+      "multiplayerCreateJoinReadyStart": true,
+      "evolveEnginePresent": true,
+      "rollAccepted": true,
+      "purchasePassed": true,
+      "postgresqlPersistencePassed": true,
+      "restartResumePassed": true
+    }
+  },
+  "engineChangesLost": 0,
+  "historicalEvolvePreserved": {
+    "path": "/home/codex/projects/global-fund-evolve",
+    "sourceFilesCompared": 576,
+    "changedFiles": [],
+    "head": "58493e0e805820a9c5ea29d39dad4c9229afceb2",
+    "branch": "global-fund-evolve",
+    "workingTreeIntentionallyUncommitted": true
+  },
+  "publication": {
+    "transport": "Connected GitHub Git Data API; native Git CLI has no credential",
+    "newRefOnly": "refs/heads/global-fund-evolve",
+    "forcePushUsed": false,
+    "mainModified": false,
+    "originalPrModified": false,
+    "productionDeploymentModified": false,
+    "artifactAndCredentialPatternScanPassed": true
+  },
+  "intentionalDifferenceFromLocalBackup": [
+    "Preserved deploy/global-fund-next.service.example as historical template; no migration template deleted."
+  ]
+}
