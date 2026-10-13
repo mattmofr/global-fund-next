@@ -259,3 +259,11 @@ Projet actif consolidé : `global-fund-evolve-integration` / branche `global-fun
 Courbe prix/revenus continue aux frontières; aucun repricing des parties sauvegardées. Le benchmark des Contextes a détecté zéro A/E sectoriel, rendant E/E inaccessible; neuf paires miroir sont corrigées en catalogue v4. Les Événements ne modifient toujours aucune note. Rapports : `MARKET_DISTRIBUTION.md`, `CARD_BALANCE_REPORT.md`, `ECONOMY_BALANCING.md` et JSON reproductibles.
 
 Comparaison IA : 40 parties complètes par campagne, trois difficultés et rotation des cinq marchés. Premier achat cycle 1 pour 120/120 fonds; Small 120/120 en v4; Large 4/120, premier achat moyen cycle 38,75 (0/120 référence). Aucun fonds ne conserve 100 M€ dix cycles sans achat. Contrôles : 181 tests unitaires/intégration, 21 Playwright, typecheck et build. Aucun frontend, style, layout, animation ou lobby modifié.
+
+## LOBBY — nouveau parcours en ligne
+
+**Comportement documenté** : création avant choix du marché, code canonique à huit caractères, préférences individuelles avec remise à zéro de Prêt, places de 2 à 6 gérées par l’hôte, IA diversifiées, lancement après préparation ou omission explicite des invités absents, IDs conservés malgré les trous, reconnexion et persistance atomique. Le parcours local et l’adaptateur de nationalité des salons historiques restent distincts du protocole online v2. Détails : [LOBBY_RULES.md](LOBBY_RULES.md).
+
+**Validation finale** : 192 tests unitaires/intégration, 22 Playwright sans échec/skip/flaky, typecheck et build production réussis. Migrations PostgreSQL idempotentes, reprise du lobby/partie et achat persistant vérifiés sur base isolée. Contrôle visuel 2/6 fonds et mobile réussi sans CSS modifié. Preuve : [docs/evolve-lobby-validation.json](docs/evolve-lobby-validation.json).
+
+**Couverture** : `tests/lobby-server.test.ts` couvre création, marchés humains en doublon, préférences, autorisation, slots/IA, omission et IDs, concurrence, reconnexion fichier, compatibilité locale, rollback et créations concurrentes. `tests/e2e/gameplay.spec.ts` couvre synchronisation/reconnexion et lancement avec place absente.

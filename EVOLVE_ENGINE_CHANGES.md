@@ -41,3 +41,17 @@ La PR est entièrement conservée dans les ancêtres de la branche. Les changeme
 | Conservation du catalogue économique et des identités d’anciennes sauvegardes | `src/index.ts`, `legacy/game.cjs` (inchangés) | Oui | Sauvegarde v3 lue et jouée sans repricing; sauvegarde v1 toujours testée |
 | Monogramme existant pour nouveaux émetteurs; anciens assets conservés | Métadonnées du catalogue uniquement | Oui | Validation des 38 logos associés; aucune modification frontend |
 | Mesures par fonds des premiers achats, cash, Small détenues et NAV | `scripts/simulate-economic-progression.ts`, `scripts/report-economic-progression.py` | Oui | 40 parties référence v3 + 40 v4, moteur et mêmes decks v4, zéro partie partielle |
+
+## Itération lobby en ligne
+
+Cette itération ajoute un parcours de préparation en ligne avant la création de la partie moteur. Elle s’ajoute à la checklist de préservation et aux itérations catalogue/économie précédentes; elle ne réécrit pas leurs constats historiques.
+
+| Modification | Fichier(s) | Présente dans la branche finale ? | Tests associés |
+|---|---|---:|---|
+| Mode online distinct avec salon pré-marché et code canonique 8-hex; contrat expose code, mode, taille, places réclamées/exclues et marché nullable avant lancement. | `apps/server/src/server.ts`, `packages/shared/src/index.ts` | Oui | `tests/lobby-server.test.ts`: création pré-marché, cinq marchés, human duplicates, payloads invalides |
+| Préférences authentifiées du siège, remise à zéro de Prêt, configuration hôte des places 2–6, conversion des places libres en IA/local/distant et diversification automatique des marchés IA. | `apps/server/src/server.ts`, `apps/web/src/App.tsx`, `apps/web/src/store.ts`, `apps/web/src/game/MainMenu.tsx` | Oui | Préférences/autorisations, slots réclamés et cinq IA dans `tests/lobby-server.test.ts` |
+| Lancement présent-prêt-configuré avec omission distante uniquement explicite; conservation des IDs et clés d’historique à travers les sièges omis. | `apps/server/src/server.ts`, `apps/web/src/App.tsx` | Oui | Omission, nombre minimum, concurrence start/ready/claim; deux scénarios de lobby dans `tests/e2e/gameplay.spec.ts` |
+| Reprise de session sans effacer Prêt ni profil; sauvegarde mutation-avant-diffusion via PostgreSQL ou fichier temporaire/renommage atomique; rollback si la persistance échoue. | `apps/server/src/server.ts` | Oui | Reprise fichier, échec de sauvegarde et créations concurrentes dans `tests/lobby-server.test.ts` |
+| Compatibilité des salons locaux et anciens salons/nationalités; les nouveaux salons online v2 n’acceptent pas la nationalité comme choix de marché. | `apps/server/src/server.ts`, `packages/shared/src/index.ts`, `apps/web/src/App.tsx` | Oui | `requires two participants after omission and keeps legacy local setup`; compatibilité existante de `tests/server.test.ts` |
+
+Règles utilisateur complètes et portée du protocole : [LOBBY_RULES.md](LOBBY_RULES.md). Validation finale : 192 tests unitaires/intégration et 22 Playwright réussis; typecheck, build et reprise PostgreSQL réussis. Preuve : [docs/evolve-lobby-validation.json](docs/evolve-lobby-validation.json).

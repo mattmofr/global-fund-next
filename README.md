@@ -4,6 +4,10 @@ Jouer en ligne : **<https://global-fund-evolve.213.199.40.67.sslip.io>**. Le ser
 
 Le plateau 3D utilise l'accélération graphique. Lorsque WebGL est absent ou rendu par logiciel, un plateau 2D affiche les mêmes cases et positions, et les commandes de jeu restent disponibles.
 
+## Salon en ligne
+
+Le parcours **Nouvelle partie en ligne** crée un salon avant le choix des marchés et fournit un code d’invitation canonique. Dans le lobby, les humains choisissent leur nom et leur marché (les doublons sont autorisés), tandis que l’hôte configure de 2 à 6 places et les IA. Le lancement sans invité absent demande une action explicite et conserve les IDs des places restantes. Les règles de préparation, sessions, reprise, persistance et compatibilité sont dans [LOBBY_RULES.md](LOBBY_RULES.md).
+
 ## Équilibrage moteur — 13 octobre 2026
 
 L’état actif du moteur répartit les 52 cases en **39 secteurs, 10 Événements de case, 2 marchés et 1 Départ**. Immobilier occupe la case 26 à la place de Crash ; Bull reste en case 14 et Bear en case 40. Finance, Technologie et Immobilier ont cinq cases chacun, les six autres secteurs quatre. Chacun des quatre quarts du plateau contient les neuf secteurs, et les occurrences d’un secteur sont séparées de 9 à 14 cases, y compris à la jonction Départ.

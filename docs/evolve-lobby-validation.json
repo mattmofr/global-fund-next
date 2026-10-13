@@ -1,0 +1,86 @@
+{
+  "iteration": "online-lobby-v2",
+  "validatedAt": "2026-10-13T17:01:06.355287+00:00",
+  "baseCommit": "0e20bf3b807f3e0d15abe1c5a5fe5d89295d36e1",
+  "localCodeCommit": "ef0744e0519144bd6d583833242c0c062d53a89e",
+  "githubCodeCommit": "245f59d96a4a5416bffa8bf0a6a676f9398078fe",
+  "codeTree": "d7739e88f5d2b337ba4aca33b38d1ccc3d8e9c8e",
+  "unit": {
+    "numTotalTests": 192,
+    "numPassedTests": 192,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "success": true
+  },
+  "playwright": {
+    "startTime": "2026-10-13T16:54:49.684Z",
+    "duration": 229766.127,
+    "expected": 22,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "typecheck": "PASS",
+  "productionBuild": "PASS",
+  "lint": "No lint script configured",
+  "postgres": {
+    "validation": "postgres-isolated-evolve-lobby",
+    "migrationIdempotent": true,
+    "resumedLobby": true,
+    "resumedGame": true,
+    "rollAccepted": true,
+    "buyAccepted": true,
+    "stableEconomyAfterRestart": true,
+    "roomId": "BEC13DE1",
+    "cardRulesVersion": 4,
+    "boardCells": 52,
+    "bearIndex": 39,
+    "companyCount": 91,
+    "result": "PASS"
+  },
+  "visual": {
+    "mobileViewport": 390,
+    "mobileScrollWidth": 390,
+    "desktopViewport": 1366,
+    "desktopScrollWidth": 1366,
+    "sixCardsFit": true,
+    "dialogFocusTrapAndEscape": "PASS",
+    "jsErrors": []
+  },
+  "historicalEvolve": {
+    "source": "/home/codex/projects/global-fund-evolve",
+    "headUnchanged": true,
+    "checkedFiles": 576,
+    "unchanged": true,
+    "changes": []
+  },
+  "v2Archive": {
+    "archivePath": "/home/codex/projects/global-fund-next",
+    "entries": 39872,
+    "unchanged": true,
+    "changedEntries": []
+  },
+  "v2ServicePidUnchanged": 439054,
+  "engineDataStylesAssetsDependenciesAndSqlMigrationsUnchanged": true,
+  "sourceSha256": {
+    "apps/server/src/server.ts": "3655ffbf01936c0f35912e94e7376cd615b8f7be7d677036527aa9caee5460f0",
+    "apps/web/src/App.tsx": "a1f197b68b0470d5fa53535f4d7318577e9541d97b6d41ed8829081c9626d383",
+    "apps/web/src/game/MainMenu.tsx": "4c13adc5cd88f169d1fc8694b4120523218a0777fc05ec25208bea438f2d630f",
+    "apps/web/src/store.ts": "d0bb663397af8513c6045f9ec5de3cd3974996c05c140c044a616464da5c9a6e",
+    "packages/shared/src/index.ts": "611338ff192a32978ba1a3e3a0e572a6d1cfc0bafd03007920b590a2ddfe11c8",
+    "tests/e2e/board-game.spec.ts": "71335971b9463202271568a04c8e3787fd11bea600493aee0a0df1754a8dc192",
+    "tests/e2e/gameplay.spec.ts": "891b90c2344a18352e729c1d3bd668efb3dfe1d41f86444f2741370377481c42",
+    "tests/e2e/market-places.spec.ts": "1d425ccde3a90555dc5d1e9920e14c9b607f937cd106a0e6cd080daee1cf0256",
+    "tests/e2e/setup-draft.spec.ts": "ea8131495564de67a3bf82f446e11ae6ba57e2919cec9b039be978b5a7938167",
+    "tests/lobby-server.test.ts": "04da254c678f18cf04d739c77be16582f1658188a4cae6bc58e247ada74a3954",
+    "tests/server.test.ts": "521c61a45363ef56018182d82fd7722908fb385805f7868639c7b6c609a57270"
+  },
+  "publicUrl": "https://global-fund-evolve.213.199.40.67.sslip.io",
+  "publication": {
+    "branch": "global-fund-evolve",
+    "expectedPreviousHead": "0e20bf3b807f3e0d15abe1c5a5fe5d89295d36e1",
+    "force": false,
+    "finalHead": "Resolve origin/global-fund-evolve after the documentation commit"
+  },
+  "deployment": "Dedicated Evolve immutable release activated after publication; public checks recorded outside Git"
+}

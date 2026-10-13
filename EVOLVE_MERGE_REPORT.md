@@ -203,3 +203,43 @@ Validation : 181 tests unitaires/intégration réussis, 21 Playwright réussis s
 Préservation : les 576 fichiers du manifeste du projet Evolve historique correspondent aux SHA-256 de sa sauvegarde. Deux edits accidentels d’un worker dans des fichiers non suivis ont été restaurés exactement depuis le backup; le patch prévu a été appliqué au seul répertoire d’intégration. Le projet V2 reste hors du périmètre.
 
 Publication de code préparée : `c99f61b1d64503a702b3db245d0d00d8b55a398c`, arbre `70a6566c18b1d3740cfd5cc8d2220c8fb92f3f05` identique au commit local `dda9e447707d77385dca0731bf585e1d5931e5d4`. Le commit de résultats suit ce commit et la référence `origin/global-fund-evolve` est avancée sans force-push après vérification de sa tête. Le hash du commit portant ce rapport est communiqué dans le compte-rendu final pour éviter une référence circulaire.
+
+## Itération lobby — 13 octobre 2026
+
+Base publiée : `0e20bf3b807f3e0d15abe1c5a5fe5d89295d36e1`. Le travail est réalisé uniquement dans la copie d’intégration. La PR #1 et ses trois commits restent dans les ancêtres; main, la PR, la version V2 et le projet Evolve historique ne sont pas modifiés.
+
+### Changements intégrés
+
+- Création online immédiate, avec code canonique huit caractères avant tout marché humain. Le moteur est instancié au lancement.
+- Profils, cinq marchés canoniques, pions et Prêt contrôlés par le propriétaire authentifié de chaque place; doublons de marchés humains autorisés. Un changement effectif annule Prêt.
+- Capacité de 2 à 6, places libres et difficulté IA contrôlées par l’hôte; marchés IA diversifiés automatiquement. Les places distantes attribuées sont conservées pour leur reconnexion.
+- Lancement sans invité absent par une action explicite, à condition de conserver au moins deux participants présents, configurés et prêts. Les IDs des places et les clés de l’historique initial restent stables, notamment p1/p3 lorsque p2 est omis.
+- Session, nom, marché, pion et Prêt conservés après déconnexion et redémarrage. Une place exclue ne peut pas rejoindre la partie lancée.
+- Sauvegarde avant publication de l’état canonique, rollback intégral sur échec, absence de room fantôme ou de claim/abonnement après une écriture refusée. Les créations et les snapshots fichier concurrents sont séquencés correctement.
+- Wiring UI limité à App/store/MainMenu : action online, code précoce, préférences dans la fenêtre de paramètres existante et bouton Prêt. Les cartes du lobby gardent leur layout compact. Aucun CSS, asset, animation, HUD, plateau graphique, donnée moteur, dépendance ou migration SQL modifié.
+
+Fichiers de code : `apps/server/src/server.ts`, `packages/shared/src/index.ts`, `apps/web/src/App.tsx`, `apps/web/src/store.ts`, `apps/web/src/game/MainMenu.tsx`. Tests : `tests/lobby-server.test.ts`, `tests/server.test.ts` et les quatre specs E2E adaptées. Audits/règles : [LOBBY_AUDIT.md](LOBBY_AUDIT.md), [LOBBY_RULES.md](LOBBY_RULES.md), checklist et preuve liées ci-dessous.
+
+### Revue et validation
+
+Pas de conflit Git ni copie d’ancien projet. La revue indépendante a identifié une mutation mémoire avant sauvegarde : tous les handlers lobby concernés utilisent désormais une copie, puis persist/commit/diffusion. Les abonnements Socket.IO ne changent qu’après sauvegarde réussie. Le contrôle visuel a identifié un encombrement des réglages inline : les contrôles réutilisent le dialogue existant, sans modification de styles. Les captures Playwright temporaires sont conservées hors Git; la capture suivie a été restaurée à sa base.
+
+| Validation | Résultat final |
+|---|---|
+| Typecheck et build production | Réussis |
+| Moteur, serveur, frontend et intégration Vitest | 192/192, aucun échec ni test ignoré; dont 11 tests spécifiques lobby |
+| Playwright complet | 22/22, aucun échec, skip ou flaky, 229,8 s |
+| PostgreSQL isolé | Migrations répétées, reprise du lobby et de la partie, lancer, achat et état économique conservé après deux redémarrages |
+| Revue visuelle | 2/6 places, desktop 1366×768 et mobile 390×844; champs dans le dialogue, cartes compactes, aucun débordement horizontal final, focus/Escape et absence d’erreurs JS vérifiés |
+| Préservation | 576 fichiers Evolve historique identiques; 39 872 entrées de l’archive V2 identiques; service V2 resté actif avec PID 439054 |
+| Lint | Aucun script configuré |
+
+Preuve : [docs/evolve-lobby-validation.json](docs/evolve-lobby-validation.json). Logs et captures sous `/tmp/evolve-lobby-*`; sauvegarde de publication sous `/home/codex/backups/global-fund-evolve-git/20261013-lobby-v2-published`.
+
+### Publication et filiation
+
+Commit de code GitHub : `245f59d96a4a5416bffa8bf0a6a676f9398078fe`, arbre `d7739e88f5d2b337ba4aca33b38d1ccc3d8e9c8e`, strictement identique au commit local validé `ef0744e0519144bd6d583833242c0c062d53a89e`. Le commit de documentation ajoute ce compte-rendu et les résultats, puis la référence `origin/global-fund-evolve` avance avec `force: false` et tête précédente attendue `0e20bf3`. Son SHA final se résout avec `git rev-parse origin/global-fund-evolve`; il est communiqué dans le compte-rendu final pour éviter une référence circulaire.
+
+Filiation : Next `8f241a3` → PR `450a126 / 58e3d61 / 58493e0` → consolidation Evolve → cartes/économie `c99f61b / 0e20bf3` → lobby `245f59d` → résultats et documentation. Les commits locaux de préparation sont sauvegardés dans une branche locale supplémentaire; aucune ancienne branche supprimée, aucun reset ou force-push.
+
+L’activation utilise ensuite une release immuable de ce commit publié pour le seul service Evolve, avec sauvegarde de sa base dédiée et vérification HTTPS sur [l’URL Evolve](https://global-fund-evolve.213.199.40.67.sslip.io). Le déploiement, le contrôle de deux clients publics et la reprise d’une partie créée avant activation sont consignés hors Git dans le dossier de preuve de publication. Aucun déploiement V2 n’est effectué.

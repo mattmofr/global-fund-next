@@ -89,6 +89,14 @@ Cette symétrie ne garantit pas une égalité de NAV ou de gains : les notes ini
 
 Le résultat est diffusé dans une notification avec la case résolue, le fonds actif, les notes avant/après, les variations de cours/NAV et les liquidations éventuelles. La présentation existante affiche ces données ; la lecture et la confirmation des cours gardent leur séquencement.
 
+## Lobby en ligne
+
+Le lobby online v2 crée une salle et son code avant la sélection du marché initial; les cinq marchés canoniques sont les seules options, et plusieurs humains peuvent choisir le même. L’hôte gère 2 à 6 places, les IA et leur difficulté. Chaque humain édite son propre nom, pion et marché; une modification effective remet son état Prêt à faux. Le marché IA est réparti automatiquement.
+
+L’hôte peut lancer quand au moins deux participants sont présents, configurés et prêts. Une place distante absente est omise uniquement par une action explicite; les participants restants doivent satisfaire les mêmes conditions et rester au moins deux. Les IDs des sièges retenus et les clés d’historique ne sont pas renumérotés. La session restaure le même siège, son état Prêt et ses préférences.
+
+Les mutations sont sérialisées par salle et sauvegardées avant commit et diffusion. PostgreSQL écrit la ligne de salle; le stockage fichier applique des écritures séquencées et un renommage atomique. Le parcours local historique demeure disponible. Les salons historiques gardent leur adaptateur de nationalité; online v2 n’en accepte pas. Voir [LOBBY_RULES.md](LOBBY_RULES.md) pour les validations et cas de compatibilité.
+
 ## Parties déjà sauvegardées
 
 `boardLayoutVersion = 3`, `cardRulesVersion = 4` et `marketRulesVersion = 2` identifient les règles actuelles. La migration reconnaît l'**ordre complet des 52 cases officielles** v1/v2 avant de remplacer le plateau par v3. Elle est idempotente.
@@ -100,7 +108,7 @@ Le résultat est diffusé dans une notification avec la case résolue, le fonds 
 - Les plateaux personnalisés et les anciens plateaux non reconnus ne sont pas réordonnés automatiquement. Une case de marché personnalisée sans identité connue conserve son ancien comportement.
 - Une version de plateau/règles supérieure à celles prises en charge n'est pas abaissée ; ses commandes sont refusées plutôt que réinterprétées.
 
-Cette itération ne modifie aucun composant visuel, style, layout, HUD, asset ou animation. Le wiring de l'itération précédente (`CardScene.tsx`) lit déjà l'identité figée des notifications historiques.
+L’itération précédente du plateau n’a modifié aucun composant visuel, style, layout, HUD, asset ou animation. La présentation (`CardScene.tsx`) lit déjà l’identité figée des notifications historiques.
 
 ## Vérifications des références
 

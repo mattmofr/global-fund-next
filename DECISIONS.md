@@ -189,3 +189,11 @@ Problème : les gardes initiales ciblaient le laptop 1366×768 ; la revue PNG a 
 - Rétablir un A et un E sectoriels par secteur sur neuf paires miroir. Le benchmark avait révélé que la v3 n’autorisait aucun E sectoriel et ne pouvait donc produire de faillite E/E. Maintenir quotas de types, couverture des axes, B=D par axe et C modal.
 - Mesurer les cartes via le noyau réel, puis comparer l’économie sur les mêmes decks v4. Ne pas attribuer un changement dû aux nouveaux Contextes à la seule économie. Les portefeuilles de stress sont distingués des parties IA jouables.
 - Garder la politique IA et les rendus existants. Les Large restent rares dans les 40 parties v4 mesurées; les quatre premiers achats observés ne constituent pas une trajectoire garantie pour tous les fonds.
+
+## Lobby en ligne — préparation avant la partie
+
+- Créer le salon et son code d’invitation avant que les humains choisissent leur marché; accepter uniquement les cinq marchés canoniques, tout en autorisant les choix identiques entre humains.
+- Garder les préférences d’un joueur sous son contrôle et réinitialiser Prêt après tout changement effectif. L’hôte gère 2 à 6 places et les IA; les marchés IA sont redistribués automatiquement.
+- N’omettre un invité absent qu’à la demande explicite de l’hôte. Refuser le lancement si moins de deux participants restent ou si un participant retenu n’est pas présent, prêt et configuré. Conserver les IDs de siège même lorsqu’une place crée un trou dans l’ordre.
+- Persister la mutation avant commit et diffusion, avec sérialisation par salle; restaurer le siège, son état Prêt et ses préférences par session. Maintenir le parcours local et les adaptateurs historiques, mais ne pas exposer la nationalité dans le protocole online v2.
+- Les contrats de partage, l’interface et le serveur portent ces étapes de lobby; le moteur de partie reste créé au lancement. Référence détaillée : [LOBBY_RULES.md](LOBBY_RULES.md).
