@@ -243,3 +243,24 @@ Commit de code GitHub : `245f59d96a4a5416bffa8bf0a6a676f9398078fe`, arbre `d7739
 Filiation : Next `8f241a3` → PR `450a126 / 58e3d61 / 58493e0` → consolidation Evolve → cartes/économie `c99f61b / 0e20bf3` → lobby `245f59d` → résultats et documentation. Les commits locaux de préparation sont sauvegardés dans une branche locale supplémentaire; aucune ancienne branche supprimée, aucun reset ou force-push.
 
 L’activation utilise ensuite une release immuable de ce commit publié pour le seul service Evolve, avec sauvegarde de sa base dédiée et vérification HTTPS sur [l’URL Evolve](https://global-fund-evolve.213.199.40.67.sslip.io). Le déploiement, le contrôle de deux clients publics et la reprise d’une partie créée avant activation sont consignés hors Git dans le dossier de preuve de publication. Aucun déploiement V2 n’est effectué.
+
+## Itération de lisibilité — plateau, composition et portefeuille
+
+Base : `986a41811510e52db3b2db7985c03535cbf5cd0c`. Quatre changements demandés sont regroupés sur la même branche, sans modifier les règles moteur, les données de jeu, les dépendances ou les migrations SQL :
+
+| Commit GitHub | Changement |
+|---|---|
+| `8fe17c634a4ef16c9b15a5f4d05dd7e9b7dac215` | Bear Market rouge, fond et accents, Bull vert conservé |
+| `ccf491baa02c9c17c5f963ad97c62da6dd1c0579` | Noms proposés variés et distincts pour nouvelles places; choix et brouillons préservés; serveur canonique pour le lobby |
+| `e6f32c7d3e64f32d1dca932c4676ffef7c08e5af` | Fin automatique des conséquences, sans notification ni confirmation supplémentaire des cours |
+| `b328d6b2238f04db578b7ab9ffa1affac35ff135` | Notes secteur/zone, revenu par part et abaque consultatif 5×5 dans la fiche portefeuille |
+
+Arbre de code validé : `9219b57647c887595fb99eeed132422f185795b0`, identique au commit local `1e990907952fb1f61f61aeda8205e36698b452f4`. Les préparations locales sont conservées dans une nouvelle branche de sauvegarde. Le commit documentaire suivant ajoute ces résultats; son SHA final se résout sur `origin/global-fund-evolve` et figure dans le compte-rendu de livraison.
+
+Validation : **199 tests unitaires/intégration et 24 Playwright** réussis, aucun test ignoré ni flaky; typecheck et build production réussis. Les tests de séquence couvrent l’acquittement unique, les prix seuls, les réveils tardifs et le mode réduit. Les calculs de l’abaque sont comparés aux fonctions canoniques du moteur pour les 25 couples de notes dans quatre situations de détention, avec bases de sauvegarde et arrondis. Les parcours navigateur couvrent achat réel, maintien du portefeuille, consultation sans ordre, clavier, mobile et noms persistants.
+
+Le contrôle visuel a confirmé le Bear rouge/Bull vert, les revenus lisibles et les 25 cellules. Le badge de zone a été placé près du libellé de zone et le badge sectoriel près du secteur; le texte E/E peut se répartir sur plusieurs lignes. Les styles ajoutés sont limités aux nouvelles informations et au dialogue, avec les composants et tokens existants.
+
+Préservation : quatre fichiers de tests E2E ont été édités par erreur dans le projet Evolve historique. Leurs versions modifiées sont conservées hors Git dans `/home/codex/backups/global-fund-evolve-git/20261016-source-e2e-restore`; les originaux ont été restaurés à l’octet depuis les blobs de sauvegarde vérifiés contre le manifeste. Le portage voulu a été refait manuellement dans la copie d’intégration. Les 576 empreintes historiques correspondent ensuite au manifeste initial. La V2 n’a pas été modifiée et son service est resté actif au PID 439054. Aucun ancien fichier de projet n’a écrasé une amélioration récente.
+
+Preuve committée : [docs/ui-readability-validation.json](docs/ui-readability-validation.json). Preuves de publication, déploiement Evolve dédié, reprise de partie et contrôles HTTPS après activation : `/home/codex/backups/global-fund-evolve-git/20261016-ui-readability-published`, hors Git. La publication avance uniquement `global-fund-evolve` avec tête précédente attendue `986a418` et `force: false`; main, PR et V2 sont préservés.

@@ -267,3 +267,11 @@ Comparaison IA : 40 parties complètes par campagne, trois difficultés et rotat
 **Validation finale** : 192 tests unitaires/intégration, 22 Playwright sans échec/skip/flaky, typecheck et build production réussis. Migrations PostgreSQL idempotentes, reprise du lobby/partie et achat persistant vérifiés sur base isolée. Contrôle visuel 2/6 fonds et mobile réussi sans CSS modifié. Preuve : [docs/evolve-lobby-validation.json](docs/evolve-lobby-validation.json).
 
 **Couverture** : `tests/lobby-server.test.ts` couvre création, marchés humains en doublon, préférences, autorisation, slots/IA, omission et IDs, concurrence, reconnexion fichier, compatibilité locale, rollback et créations concurrentes. `tests/e2e/gameplay.spec.ts` couvre synchronisation/reconnexion et lancement avec place absente.
+
+## Lisibilité du plateau, de la table et du portefeuille
+
+Bear Market utilise un émail rouge et des accents rouges, Bull reste vert. Les nouvelles places proposent des noms de fonds variés et distincts, en local et dans le lobby serveur; les noms personnalisés et les brouillons sont conservés. La notification finale et le bouton « Valider les cours » sont supprimés : les conséquences s’achèvent automatiquement après les animations existantes.
+
+La fiche portefeuille affiche la note du secteur et de la zone, le revenu par part et un bouton « Abaque prix/revenu ». La fenêtre consultative montre les 25 couples de notes, les planchers C/C et A/A et la liquidation E/E. Ses calculs sont comparés au moteur pour 100 combinaisons grades/détention, sans changer les règles ou les transactions.
+
+Validation : 199 tests unitaires/intégration, 24 Playwright sans échec/skip/flaky, typecheck et build réussis. Contrôles visuels desktop/mobile, noms persistants, achat réel, consultation sans commande de trading et retour automatique après carte vérifiés. Preuve : [docs/ui-readability-validation.json](docs/ui-readability-validation.json). Les captures et sauvegardes de publication restent hors Git.

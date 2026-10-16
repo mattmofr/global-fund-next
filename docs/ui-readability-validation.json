@@ -1,0 +1,88 @@
+{
+  "iteration": "ui-readability",
+  "baseCommit": "986a41811510e52db3b2db7985c03535cbf5cd0c",
+  "localCodeCommit": "1e990907952fb1f61f61aeda8205e36698b452f4",
+  "githubCodeCommit": "b328d6b2238f04db578b7ab9ffa1affac35ff135",
+  "codeTree": "9219b57647c887595fb99eeed132422f185795b0",
+  "unit": {
+    "numTotalTests": 199,
+    "numPassedTests": 199,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "success": true
+  },
+  "playwright": {
+    "startTime": "2026-10-16T09:26:45.385Z",
+    "duration": 261057.208,
+    "expected": 24,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "typecheck": "PASS",
+  "productionBuild": "PASS",
+  "valuationParity": "100 grade/ownership combinations against canonical engine functions; saved bases and exact rounding; 5 focused tests",
+  "visual": {
+    "url": "http://127.0.0.1:3192",
+    "ok": true,
+    "bearRedPixelRatio": 0.8572466640243097,
+    "bullGreenPixelRatio": 0.8562227506936188,
+    "suggestedFundNames": [
+      "Apex Capital",
+      "Meridian Fund",
+      "Belle Boussole",
+      "Phare Capital",
+      "Pollen Capital",
+      "Source Vive"
+    ],
+    "customNamePreserved": true,
+    "pricesAdvanceAutomatically": true,
+    "portfolioGradeAndIncomeVisible": true,
+    "valuationCells": 25,
+    "errors": []
+  },
+  "engineRulesDataDependenciesAndSqlUnchanged": true,
+  "scope": [
+    "Bear Market red enamel and accents",
+    "Friendly distinct names, editable, persisted setup drafts and new server-owned lobby slots",
+    "Automatic market effects without final price confirmation",
+    "Portfolio sector and zone grades, income per share, read-only 25-cell valuation dialog"
+  ],
+  "sourceSha256": {
+    "apps/server/src/server.ts": "5881ab15e4c78839656c81ba4dcfd17cbf9ad9960e28847f4da72ec1a081a24b",
+    "apps/web/src/App.tsx": "02a21a3d56733613546b6d276d206fe0bbda44237e408f0085f6a6856990cac7",
+    "apps/web/src/board/three/atlas.ts": "5f64fc58b591f4875eefc5cfb3e5e56059cf672034608f4e2100c43d30ae6ba8",
+    "apps/web/src/fundNames.ts": "5ca5128a4ef2d5e543b4b7e9c2bc8b2dbf7364d03e579d41f3cf1bb471adb4cb",
+    "apps/web/src/game/GameWorld.tsx": "d2d73e6d7227af59e7de8fb060e572face1bb73e818d39f700089fca34a21527",
+    "apps/web/src/presentation/sequence.ts": "aba40cbf7b1a42a33a0b49a796ce1b5e20482515d3a3755f17245624fd3d8362",
+    "apps/web/src/presentation/useGamePresentation.ts": "63f1284ac5ee93d8a070ce805053b0d02764d5182a99b81a6ae895fedd7dcca2",
+    "apps/web/src/setupDraft.ts": "d7e8f1fcc6b0cf76fd9397e8e8a9cdfb363285bfc69ce079b2087e1f137d3094",
+    "apps/web/src/trading/CompanyValuationDialog.tsx": "7d4222879336e55b18dbde0806ba38a51c345e74b6ff3f269283108651ba383e",
+    "apps/web/src/trading/TradingDesk.tsx": "0d263db5de88726d3b8d3f8d173de086ea0ef410721330f5c61cf7b06dc6c8e1",
+    "apps/web/src/trading/company-valuation-dialog.css": "44c6a04d5bcb358a1ce3e6b9fbcc00af2ddabdfff66be4b6e73147161e4a1adc",
+    "apps/web/src/trading/companyValuation.ts": "1ef695be8fe002ede7be6d46b152bd15032c38bec571b90c9f8ee7c182956cb4",
+    "apps/web/src/trading/trading-desk.css": "4588d0c27a4b9a018871742e0b8a54c872074147849dc30f96eeb10945b872f8",
+    "packages/shared/src/fundNames.ts": "f6374af925329e93538ec1f1775ab3b9ae938694005b15878e8c1a75a0baf7f7",
+    "packages/shared/src/index.ts": "915a2fd29e9202f1b749c167fb2cb608b5d3fefa10881c1bef5cd1698139cc64",
+    "tests/company-valuation.test.ts": "21e29d78ede560c066fd5e2ddacf0e6232d1a15240129062308fc0ed8410c3e3",
+    "tests/e2e/board-game.spec.ts": "e8753185f08204b20633f1bec559dcdd5c0f85c33e33250383bbd64d287f792f",
+    "tests/e2e/company-valuation.spec.ts": "172626169785ece1ea5138690ad218af24051aaea8cd61b4218a908a2b351ea8",
+    "tests/e2e/gameplay.spec.ts": "1f9c0355cac01a62ba075bcc5b66aa9d28ee2ce27259b4bb1d30b327affb0bd5",
+    "tests/e2e/market-places.spec.ts": "d5315b9b45907ec05ee6f4a0cd403b3fc3bfcf776e1724e5aac12e5686d86c19",
+    "tests/e2e/settlement.spec.ts": "fa7041de2b1e60c80a59b5adc26300f024e11fc983a5e5fd8e7f495734376448",
+    "tests/e2e/setup-draft.spec.ts": "c0283e9a373ada995a1577d8c5dfbfeb0402f96c3f0f3659395e44c9606e2f82",
+    "tests/presentation-sequence.test.ts": "84035a54609469a091c5040678ab3cd3241e9ad5b5e2ede143c024e2df59cd56"
+  },
+  "preservation": {
+    "historicalEvolveManifest": 576,
+    "historicalEvolveContentUnchanged": true,
+    "incident": "Four E2E test files accidentally edited in the historical Evolve directory were preserved outside Git, restored byte-for-byte from verified backup blobs, and their intended changes ported manually to the integration copy.",
+    "v2ServicePid": 439054,
+    "mainAndPrUntouched": true
+  },
+  "publication": {
+    "branch": "global-fund-evolve",
+    "expectedPreviousHead": "986a41811510e52db3b2db7985c03535cbf5cd0c",
+    "force": false
+  }
+}

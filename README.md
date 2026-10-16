@@ -237,3 +237,5 @@ Le volume `global_fund_evolve_pgdata` conserve PostgreSQL entre redémarrages. U
 ## Aperçus de la scène livrée
 
 [Accueil](docs/screenshots/accueil.png) · [Plateau](docs/screenshots/plateau.png) · [Contexte](docs/screenshots/contexte.png) · [Implantation](docs/screenshots/aeroport.png) · [Vol](docs/screenshots/vol.png) · [Analyse](docs/screenshots/analyse.png).
+
+La case Bear Market est rouge, en regard du Bull Market vert. La composition de table propose des noms de fonds variés, modifiables et conservés dans le brouillon. Les conséquences d’une carte se terminent automatiquement après les animations, sans validation supplémentaire des cours. Dans le portefeuille, la fiche entreprise affiche sa note sectorielle, le revenu par part et un abaque des 25 combinaisons de notes zone/secteur. Détails dans [ENGINE_RULES.md](ENGINE_RULES.md).

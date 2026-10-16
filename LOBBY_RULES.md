@@ -16,6 +16,8 @@ L’hôte peut configurer de deux à six places, en ajoutant ou retirant des pla
 
 Chaque joueur contrôle uniquement ses propres préférences (nom, marché de départ, pion). L’hôte peut modifier les préférences d’une IA. Une modification réelle des préférences d’un humain annule son état Prêt; il doit le confirmer à nouveau. Le serveur refuse Prêt si le nom ou le marché de départ manque. Les places IA sont prêtes automatiquement et leur marché est recalculé lorsque la composition ou les marchés humains changent.
 
+Les nouvelles places reçoivent des propositions variées de noms de fonds, sans doublon parmi les propositions de la table. Les noms restent modifiables et les brouillons conservent les choix après retour ou rechargement. Seuls les anciens noms génériques « Fonds N »/« Fond N » du brouillon sont remplacés; les noms personnalisés, les champs laissés vides et les parties déjà enregistrées sont conservés. Le serveur propose aussi les noms des nouvelles places distantes et IA, sans donner à l’hôte le contrôle du nom d’un autre humain.
+
 Le bouton **Configurer le fonds** ouvre la fenêtre de paramètres existante, avec les contrôles autorisés pour cette place. Le nom saisi est enregistré avant Fermer ou Prêt. Le code reste affiché dans le lobby; aucune feuille de styles, animation ou direction artistique n’est modifiée. Lorsqu’une place distante est absente, le bouton de lancement indique **Lancer sans N invité(s)** et l’état du lobby explique cette absence; cette action envoie explicitement `omitAbsent: true`.
 
 ## Attribution des invités et lancement

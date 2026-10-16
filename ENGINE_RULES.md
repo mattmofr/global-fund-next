@@ -87,7 +87,13 @@ Les **100 Contextes** affectent directement des grades **absolus**, sans ajouter
 
 Cette symétrie ne garantit pas une égalité de NAV ou de gains : les notes initiales, les bornes, les participations, les E/E et l'ordre des cartes influencent le résultat. La couverture, chaque carte et les définitions d'intensité sont dans [CONTEXT_BALANCE_AUDIT.md](CONTEXT_BALANCE_AUDIT.md). Les simulations mesurent les grades réellement atteints, pas uniquement les affectations théoriques.
 
-Le résultat est diffusé dans une notification avec la case résolue, le fonds actif, les notes avant/après, les variations de cours/NAV et les liquidations éventuelles. La présentation existante affiche ces données ; la lecture et la confirmation des cours gardent leur séquencement.
+Le résultat est diffusé dans une notification avec la case résolue, le fonds actif, les notes avant/après, les variations de cours/NAV et les liquidations éventuelles. Après la lecture de la carte, les animations de notes et de cours se terminent automatiquement, sans notification finale ni bouton « Valider les cours ». La lecture des cartes, le dé et le déplacement gardent leur séquencement.
+
+## Lecture des valeurs dans le portefeuille
+
+La fiche affiche la note du secteur et de la zone de l’entreprise, ainsi que le revenu potentiel **par part de 20 %**, reçu lorsqu’un autre fonds s’arrête sur le secteur. En détention, le versement revient à la banque. Le bouton « Abaque prix/revenu » ouvre les 25 combinaisons zone × secteur et met en évidence les notes actuelles, sans exécuter d’ordre.
+
+Le prix indicatif d’une part vaut `basePrice / 5 × facteurZone × facteurSecteur`; le revenu repose sur `baseIncome / 5` avec les mêmes facteurs (A=1,5; B=1,25; C=1; D=0,75; E=0,5). Les bases enregistrées dans la sauvegarde sont utilisées. Le revenu conserve le plancher C/C lorsqu’une société est contrôlée à 5/5 et le plancher A/A pour le détenteur du monopole zone × secteur. Les arrondis reproduisent ceux du moteur; les tests comparent chaque combinaison aux fonctions canoniques. E/E signifie liquidation : la valeur affichée est indicative et non négociable, le revenu devient nul et les planchers ne protègent pas les titres.
 
 ## Lobby en ligne
 
