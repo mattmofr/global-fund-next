@@ -23,6 +23,7 @@ import { getAudioSettings, setAudioSettings, unlockAudio, type AudioSettings } f
 import { useGameStore, createRoom, joinRoom, request, updateLobbyPlayer, updateLobbySlots, updateLobbySlot } from "./store";
 import { useDialogFocus } from "./presentation/useDialogFocus";
 import { loadSetupDraft, saveSetupDraft } from "./setupDraft";
+import { nextSuggestedFundName } from "./fundNames";
 import "./game/game-world.css";
 import "./game/app-shell.css";
 import "./game/home.css";
@@ -39,10 +40,14 @@ const marketName = (id: ZoneId | null) => id ? marketPlace(id)?.name ?? "Europe"
 const pad2 = (value: number) => String(value).padStart(2, "0");
 const DIFFICULTY: Record<SeatConfig["difficulty"], string> = { easy: "Prudente", normal: "Stratège", hard: "Experte" };
 const seatColor = (index: number) => PLAYER_COLORS[index % PLAYER_COLORS.length];
-const ONLINE_DEFAULT_SEATS: LobbySeatConfig[] = [
-  { name: "Fonds 1", kind: "local", pawn: "lion", difficulty: "normal" },
-  { name: "Fonds 2", kind: "remote", pawn: "globe", difficulty: "normal" },
-];
+const makeOnlineDefaultSeats = (): LobbySeatConfig[] => {
+  const hostName = nextSuggestedFundName([]);
+  const guestName = nextSuggestedFundName([hostName]);
+  return [
+    { name: hostName, kind: "local", pawn: "lion", difficulty: "normal" },
+    { name: guestName, kind: "remote", pawn: "globe", difficulty: "normal" },
+  ];
+};
 
 /* ------------------------------------------------------------- brand -- */
 function Brand({ compact = false }: { compact?: boolean }) {
@@ -123,16 +128,20 @@ function Home({ mode, onBack, onMode, onCast }: {
   const update = (index: number, patch: Partial<SeatConfig>) =>
     setAllSeats((current) => current.map((seat, i) => (i === index ? { ...seat, ...patch } : seat)));
   const resize = (count: number) => {
-    setAllSeats((current) => Array.from(
-      { length: Math.max(count, current.length) },
-      (_, i) => current[i] || {
-        name: `Fonds ${i + 1}`,
-        kind: "ai",
-        startingMarket: diversifiedMarkets[i],
-        pawn: PAWNS[i].id,
-        difficulty: "normal",
-      },
-    ));
+    setAllSeats((current) => {
+      const expanded = [...current];
+      while (expanded.length < count) {
+        const i = expanded.length;
+        expanded.push({
+          name: nextSuggestedFundName(expanded.map((seat) => seat.name)),
+          kind: "ai",
+          startingMarket: diversifiedMarkets[i],
+          pawn: PAWNS[i].id,
+          difficulty: "normal",
+        });
+      }
+      return expanded;
+    });
     setSeatCount(count);
   };
   const plannedSeats = diversifyStartingMarkets(seats);
@@ -152,12 +161,17 @@ function Home({ mode, onBack, onMode, onCast }: {
   const blocked = pending || !connected || missingName;
   const blockedReason = !connected ? "Connexion au serveur…" : missingName ? "Chaque fonds doit porter un nom." : "";
   const createOnline = () => {
-    const lobbySeats: LobbySeatConfig[] = seats.map((seat, index) => ({
-      name: seat.kind === "remote" ? `Fonds ${index + 1}` : seat.name,
-      kind: seat.kind,
-      pawn: seat.kind === "remote" ? PAWNS[index % PAWNS.length]!.id : seat.pawn,
-      difficulty: seat.difficulty,
-    }));
+    const reservedNames = seats.map((seat) => seat.name);
+    const lobbySeats: LobbySeatConfig[] = seats.map((seat, index) => {
+      const name = seat.name.trim() || (seat.kind === "remote" ? nextSuggestedFundName(reservedNames) : seat.name);
+      if (!seat.name.trim() && seat.kind === "remote") reservedNames.push(name);
+      return {
+        name,
+        kind: seat.kind,
+        pawn: seat.kind === "remote" ? PAWNS[index % PAWNS.length]!.id : seat.pawn,
+        difficulty: seat.difficulty,
+      };
+    });
     void createRoom(lobbySeats, { mode: "online" });
   };
 
@@ -882,7 +896,7 @@ export default function App() {
         menuScreen === "menu" ? (
           <MainMenu
             onNew={() => setMenuScreen("create")}
-            onOnline={() => void createRoom(ONLINE_DEFAULT_SEATS, { mode: "online" })}
+            onOnline={() => void createRoom(makeOnlineDefaultSeats(), { mode: "online" })}
             onJoin={() => setMenuScreen("join")}
             onSettings={() => setSettings(true)}
             onRules={() => setRules(true)}

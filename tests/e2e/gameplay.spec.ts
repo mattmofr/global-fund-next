@@ -363,6 +363,7 @@ test.describe("Parcours jouables", () => {
     await page.getByRole("button", { name: "Configurer le fonds 3" }).click();
     await page.getByLabel("Type du fonds 3").selectOption("ai");
     await page.getByLabel("Difficulté de l’IA 3").selectOption("hard");
+    const aiFundName = (await page.getByTestId("lobby-seat-p3").locator("h3").innerText()).trim();
     await page.getByRole("dialog").getByRole("button", { name: "Fermer la configuration", exact: true }).click();
     await page.getByRole("button", { name: "Configurer le fonds 1" }).click();
     await page.getByLabel("Nom du fonds 1").fill("Apex Capital");
@@ -381,7 +382,7 @@ test.describe("Parcours jouables", () => {
     await expect(page.getByRole("heading", { name: "Le circuit des marchés" })).toBeVisible();
     await expect(page.locator(".investor-card")).toHaveCount(2);
     await expect(page.locator(".investor-card").filter({ hasText: "Apex Capital" })).toHaveCount(1);
-    await expect(page.locator(".investor-card").filter({ hasText: "Invité 3" })).toHaveCount(1);
+    await expect(page.locator(".investor-card").filter({ hasText: aiFundName })).toHaveCount(1);
     await expect(page.locator(".investor-card").filter({ hasText: "Invité 2" })).toHaveCount(0);
   });
 

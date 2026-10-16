@@ -29,7 +29,7 @@ import type {
   SlotKind,
   ZoneId,
 } from "@global-fund/shared";
-import { PLAYER_COLORS, PAWNS, MARKET_IDS, diversifyStartingMarkets, isMarketId, legacyStartingMarket, marketFromLegacyNationality } from "@global-fund/shared";
+import { PLAYER_COLORS, PAWNS, MARKET_IDS, diversifyStartingMarkets, isMarketId, legacyStartingMarket, marketFromLegacyNationality, nextSuggestedFundName } from "@global-fund/shared";
 import { rooms as roomsTable } from "./schema.js";
 import { applyMigrations } from "./migrate.js";
 
@@ -326,7 +326,7 @@ export async function createServer(options: Options = {}) {
             return ack?.(fail("Mode de salon invalide."));
           const online = body.mode === "online";
           const seats = body.seats ?? (online ? [
-            { name: "Mon fonds", kind: "local", pawn: "lion", difficulty: "normal" },
+            { name: nextSuggestedFundName([]), kind: "local", pawn: "lion", difficulty: "normal" },
             { name: "Invité 2", kind: "remote", pawn: "bull", difficulty: "normal" },
           ] : undefined);
           if (
@@ -363,9 +363,15 @@ export async function createServer(options: Options = {}) {
             roomId = randomBytes(4).toString("hex").toUpperCase();
           } while (roomMap.has(roomId));
           const hostId = socket.id;
+          const reservedNames: string[] = seats.filter((seat) => !online || seat.kind !== "remote").map((seat) => seat.name.trim());
+          const playerNames = seats.map((seat) => {
+            const name = online && seat.kind === "remote" ? nextSuggestedFundName(reservedNames) : seat.name.trim().slice(0, 40);
+            reservedNames.push(name);
+            return name;
+          });
           const players: Slot[] = seats.map((s, i) => ({
             id: `p${i + 1}`,
-            name: online && s.kind === "remote" ? `Invité ${i + 1}` : s.name.trim().slice(0, 40),
+            name: playerNames[i],
             kind: s.kind,
             bot: s.kind === "ai",
             pawn: s.pawn,
@@ -551,7 +557,7 @@ export async function createServer(options: Options = {}) {
         r.players = r.players.slice(0, count);
         while (r.players.length < count) {
           const index = r.players.length;
-          r.players.push({ id: `p${r.nextSlotNumber++}`, name: `Invité ${index + 1}`, kind: "remote", bot: false,
+          r.players.push({ id: `p${r.nextSlotNumber++}`, name: nextSuggestedFundName(r.players.map((player) => player.name)), kind: "remote", bot: false,
             pawn: PAWNS[index].id, startingMarket: r.mode === "online" ? null : MARKET_IDS[index % 5],
             difficulty: "normal", color: PLAYER_COLORS[index], ready: false, connected: false,
             controllerId: null, tokenHash: null });

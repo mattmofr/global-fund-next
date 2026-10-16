@@ -1,4 +1,5 @@
 import type { PawnId, SeatConfig, ZoneId } from "@global-fund/shared";
+import { replaceLegacyFundPlaceholders } from "./fundNames";
 
 const STORAGE_KEY = "global-fund.setup-draft.v1";
 const markets: ZoneId[] = ["americas", "europe", "asia", "africa", "oceania"];
@@ -46,7 +47,7 @@ export function loadSetupDraft(): SetupDraft {
     return {
       ...fallback,
       ...draft,
-      seats: draft.seats,
+      seats: replaceLegacyFundPlaceholders(draft.seats),
       seatCount: Number.isInteger(count) && count! >= 2 && count! <= draft.seats.length ? count! : draft.seats.length,
       createStep: draft.createStep === "markets" ? "markets" : "funds",
       activeHuman: Number.isInteger(draft.activeHuman) && draft.activeHuman! >= 0 && draft.activeHuman! < 6 ? draft.activeHuman! : 0,

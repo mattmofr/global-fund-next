@@ -5,6 +5,14 @@ test("le setup retrouve les choix après retour au menu et rechargement", async 
   await expect(page.getByText("Serveur connecté")).toBeVisible();
   await page.getByRole("button", { name: "NOUVELLE PARTIE", exact: true }).click();
 
+  await page.getByLabel("Nombre de joueurs").selectOption("6");
+  const sixNames = await Promise.all([1, 2, 3, 4, 5, 6].map(async (index) => page.getByLabel(`Nom du fonds ${index}`).inputValue()));
+  expect(new Set(sixNames).size).toBe(6);
+  expect(sixNames.every((name) => name.trim() && !/^(?:Fonds|Fond) \d+$/.test(name))).toBe(true);
+  await page.getByLabel("Nombre de joueurs").selectOption("4");
+  await page.getByLabel("Nombre de joueurs").selectOption("6");
+  await expect(page.getByLabel("Nom du fonds 5")).toHaveValue(sixNames[4]!);
+  await expect(page.getByLabel("Nom du fonds 6")).toHaveValue(sixNames[5]!);
   await page.getByLabel("Nombre de joueurs").selectOption("4");
   await page.getByLabel("Nom du fonds 1").fill("Aster Capital");
   await page.getByLabel("Type du joueur 2").selectOption("local");
@@ -52,4 +60,40 @@ test("le setup retrouve les choix après retour au menu et rechargement", async 
   await expect(page.getByLabel("Nombre de joueurs")).toHaveValue("4");
   await expect(page.getByLabel("Nom du fonds 4")).toHaveValue("Quatrième Fonds");
   await expect(page.getByLabel("Difficulté de l’IA 4")).toHaveValue("hard");
+});
+
+test("les anciens noms placeholder sont remplacés une fois au chargement", async ({ page }) => {
+  await page.addInitScript(() => {
+    // Seed the old draft once; reloading must read the migration saved by the UI.
+    if (localStorage.getItem("global-fund.setup-draft.v1")) return;
+    const seat = (name: string, kind: "local" | "ai" = "ai", startingMarket: "europe" | "americas" = "europe") => ({
+      name, kind, startingMarket, pawn: "lion", difficulty: "normal",
+    });
+    localStorage.setItem("global-fund.setup-draft.v1", JSON.stringify({ version: 1, draft: {
+      seats: [seat("Apex Capital", "local"), seat("Meridian Fund", "ai", "americas"), seat("Fonds 3"), seat("Mon Fonds"), seat(""), seat("Fond 6")],
+      seatCount: 6, createStep: "funds", activeHuman: 0, join: "", name: "", startingMarket: "europe", joinPawn: "globe",
+    } }));
+  });
+  await page.goto("/");
+  await expect(page.getByText("Serveur connecté")).toBeVisible();
+  await page.getByRole("button", { name: "NOUVELLE PARTIE", exact: true }).click();
+  const migrated3 = await page.getByLabel("Nom du fonds 3").inputValue();
+  const migrated6 = await page.getByLabel("Nom du fonds 6").inputValue();
+  expect(migrated3).not.toMatch(/^(?:Fonds|Fond) \d+$/);
+  expect(migrated6).not.toMatch(/^(?:Fonds|Fond) \d+$/);
+  expect(new Set(["Apex Capital", "Meridian Fund", migrated3, "Mon Fonds", "", migrated6]).size).toBe(6);
+  await expect(page.getByLabel("Nom du fonds 4")).toHaveValue("Mon Fonds");
+  await expect(page.getByLabel("Nom du fonds 5")).toHaveValue("");
+  await page.reload();
+  await expect(page.getByText("Serveur connecté")).toBeVisible();
+  await page.getByRole("button", { name: "NOUVELLE PARTIE", exact: true }).click();
+  await expect(page.getByLabel("Nom du fonds 3")).toHaveValue(migrated3);
+  await expect(page.getByLabel("Nom du fonds 6")).toHaveValue(migrated6);
+  await page.getByRole("button", { name: "← Retour au menu" }).click();
+  await page.getByRole("button", { name: "NOUVELLE PARTIE EN LIGNE", exact: true }).click();
+  await expect(page.locator(".lobby-player h3")).toHaveCount(2);
+  const onlineNames = await page.locator(".lobby-player h3").allTextContents();
+  expect(onlineNames).toHaveLength(2);
+  expect(new Set(onlineNames).size).toBe(2);
+  expect(onlineNames.every((name) => name.trim() && !/^(?:Fonds|Fond) \d+$/.test(name))).toBe(true);
 });

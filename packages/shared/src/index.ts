@@ -1,5 +1,6 @@
 export type Grade = "A" | "B" | "C" | "D" | "E";
 export { default as NATIONALITIES } from "./nationalities.json";
+export { nextSuggestedFundName } from "./fundNames";
 export type ZoneId = "americas" | "europe" | "asia" | "africa" | "oceania";
 export { MARKET_IDS, isMarketId, marketFromLegacyNationality, legacyStartingMarket, diversifyStartingMarkets } from "./markets.js";
 export type SectorId =
