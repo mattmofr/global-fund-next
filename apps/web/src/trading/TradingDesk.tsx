@@ -14,6 +14,8 @@ import { SectorIcon } from "../ui/SectorIcon";
 import { GRADE_META, PALETTE } from "../ui/theme";
 import { money, signedPercent, tone } from "../ui/format";
 import { profitLossPercent, sortTradingRows, type TradingSortDirection, type TradingSortKey } from "./tradingSort";
+import { companyCurrentIncome } from "./companyValuation";
+import CompanyValuationDialog from "./CompanyValuationDialog";
 import "./trading-desk.css";
 
 echarts.use([LineChart, PieChart, GridComponent, TooltipComponent, AriaComponent, CanvasRenderer]);
@@ -317,10 +319,12 @@ export default function TradingDesk({
   const [ratingScope, setRatingScope] = useState<RatingScope>("zone");
   /** The order button under the pointer or focus: its result is previewed on the selected row. */
   const [preview, setPreview] = useState<"buy" | "sell" | null>(null);
+  const [valuationOpen, setValuationOpen] = useState(false);
   const flashes = useHoldingFlashes(game.companies, viewerId);
   const activeZone = viewer?.zone ?? "";
   const selectedZone = game.phase === "geography" ? browseZone ?? activeZone : activeZone;
   const selected = game.companies.find((company) => company.id === selectedId) ?? null;
+  useEffect(() => setValuationOpen(false), [tab, selectedId]);
 
   const companies = useMemo(() => {
     const source = tab === "portfolio"
@@ -468,6 +472,12 @@ export default function TradingDesk({
   const selectedGroup = selected
     ? ownershipGroups.find((group) => group.zone === selected.zone && group.sector === selected.sector)
     : undefined;
+  const selectedZoneGrade = selected ? game.zoneGrades?.[selected.zone] ?? "C" : "C";
+  const selectedSectorGrade = selected ? game.sectorGrades?.[selected.sector] ?? "C" : "C";
+  const currentIncome = selected ? companyCurrentIncome(selected, game, viewerId) : 0;
+  const currentIncomeFloor = selectedGroup?.complete
+    ? "monopoly"
+    : selected && Object.values(selected.holdings ?? {}).some((shares) => amount(shares) >= 5) ? "control" : "none";
   const heldCount = game.companies.filter((company) => holding(company, viewerId) > 0).length;
   const positionsValue = game.companies.reduce((sum, company) => sum + holding(company, viewerId) * amount(company.price), 0);
 
@@ -827,8 +837,11 @@ export default function TradingDesk({
                       <p title={[catalogName(game.sectors, selected.sector), selected.country, catalogName(game.zones, selected.zone), selected.ticker].filter(Boolean).join(" · ")}>
                         <SectorIcon id={selected.sector} size={14} />
                         <span className="td-identity-sector">{splitName(catalogName(game.sectors, selected.sector)).head}</span>
+                        {tab === "portfolio" && <>
+                          <span data-testid="company-sector-grade"><GradeJewel grade={selectedSectorGrade} size="sm" label={`Secteur ${catalogName(game.sectors, selected.sector)}`} className="td-sector-grade" /></span>
+                        </>}
                         {selected.country && <><i aria-hidden="true" /><span>{selected.country}</span></>}
-                        {(tab === "portfolio" || selected.zone !== selectedZone) && <><i aria-hidden="true" /><span>{catalogName(game.zones, selected.zone)}</span></>}
+                        {(tab === "portfolio" || selected.zone !== selectedZone) && <><i aria-hidden="true" /><span>{catalogName(game.zones, selected.zone)}</span>{tab === "portfolio" && <span data-testid="company-zone-grade"><GradeJewel grade={selectedZoneGrade} size="sm" label={`Zone ${catalogName(game.zones, selected.zone)}`} className="td-sector-grade" /></span>}</>}
                         {selected.ticker && <><i aria-hidden="true" /><span className="td-ticker">{selected.ticker}</span></>}
                       </p>
                     </div>
@@ -871,6 +884,19 @@ export default function TradingDesk({
                     </div>
                   </div>
                 </div>
+                {tab === "portfolio" && <div className="td-income-row">
+                  <div className="td-income-copy">
+                    <span className="td-label">Revenu par part</span>
+                    <strong data-testid="company-income-per-share">{money(currentIncome)}</strong>
+                    <small>à l’arrivée d’un autre fonds sur ce secteur, pas par cycle{viewer?.jailed ? " · détenu : revenu versé à la banque" : ""}</small>
+                    {currentIncomeFloor !== "none" && <span className={`td-income-floor ${currentIncomeFloor}`}>
+                      {currentIncomeFloor === "monopoly" ? "Plancher A/A · monopole" : "Plancher C/C · contrôle"}
+                    </span>}
+                  </div>
+                  <button type="button" className="gf-btn gf-btn--quiet gf-btn--sm td-valuation-open" onClick={() => setValuationOpen(true)}>
+                    Abaque prix/revenu
+                  </button>
+                </div>}
                 <div className="td-focus-details">
                   <div className="td-chart-frame">
                     {history.length > 1 ? (
@@ -920,6 +946,14 @@ export default function TradingDesk({
           </aside>
         </div>
       )}
+      {valuationOpen && selected && <CompanyValuationDialog
+        company={selected}
+        game={game}
+        viewerId={viewerId}
+        zoneGrade={selectedZoneGrade}
+        sectorGrade={selectedSectorGrade}
+        onClose={() => setValuationOpen(false)}
+      />}
     </section>
   );
 }

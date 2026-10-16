@@ -1,0 +1,56 @@
+.company-valuation-backdrop .company-valuation-modal {
+  width: min(980px, 100%);
+  max-height: calc(100dvh - 100px);
+  padding: 24px 26px 20px;
+}
+.company-valuation-head { margin-bottom: 12px !important; }
+.company-valuation-head h2 { margin: 0; }
+.company-valuation-subtitle { margin: 6px 0 0; color: var(--text-2); font: 400 13px/1.35 var(--font-ui); }
+.company-valuation-current {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 0 0 10px;
+  padding: 9px 11px;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font: 500 12px/1.25 var(--font-ui);
+}
+.company-valuation-current > span:first-child { color: var(--text-3); }
+.company-valuation-grade { display: inline-flex; align-items: center; gap: 5px; }
+.company-valuation-current strong { color: var(--text); font-variant-numeric: tabular-nums; }
+.company-valuation-current > small { color: var(--accent); font-weight: 600; }
+.company-valuation-note { margin: 0 0 12px; color: var(--text-3); font: 400 11.5px/1.4 var(--font-ui); }
+.company-valuation-scroll { max-width: 100%; overflow: auto; border: 1px solid var(--line); border-radius: 12px; outline-offset: 3px; }
+.company-valuation-grid { width: 100%; min-width: 760px; table-layout: fixed; border-collapse: separate; border-spacing: 0; color: var(--text); font: 400 11px/1.2 var(--font-ui); }
+.company-valuation-grid th,
+.company-valuation-grid td { padding: 7px; text-align: center; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.company-valuation-grid tr > :last-child { border-right: 0; }
+.company-valuation-grid tbody tr:last-child > * { border-bottom: 0; }
+.company-valuation-grid thead th { height: 42px; background: var(--surface-2); }
+.company-valuation-grid .company-valuation-axis { width: 84px; color: var(--text-2); font-weight: 600; }
+.company-valuation-grid .company-valuation-axis span { color: var(--text-3); font-size: 10px; font-weight: 400; }
+.company-valuation-grid tbody th { width: 84px; background: var(--surface-2); }
+.company-valuation-grid td { min-width: 125px; height: 76px; background: var(--surface); }
+.company-valuation-grid td > * { display: block; }
+.company-valuation-grid td > strong { margin-bottom: 4px; color: var(--text); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.company-valuation-grid td > strong small { color: var(--text-3); font-size: 9px; font-weight: 400; }
+.company-valuation-grid td > span { color: var(--text-2); font-size: 10.5px; white-space: nowrap; }
+.company-valuation-grid td > span small { color: var(--text-3); font-size: 9px; }
+.company-valuation-grid td > .company-valuation-floor { margin-top: 4px; color: var(--accent); font-size: 9px; white-space: normal; }
+.company-valuation-grid td.is-current { position: relative; background: color-mix(in srgb, var(--accent) 12%, var(--surface)); box-shadow: inset 0 0 0 2px var(--accent); }
+.company-valuation-grid td.is-liquidated { background: color-mix(in srgb, var(--down) 8%, var(--surface)); }
+.company-valuation-grid td.is-liquidated.is-current { box-shadow: inset 0 0 0 2px var(--down); }
+.company-valuation-grid td > .company-valuation-liquidation { color: var(--down); font-size: 11px; }
+.company-valuation-grid td.is-liquidated > span { white-space: normal; overflow-wrap: anywhere; }
+.company-valuation-foot { align-items: center; margin-top: 14px !important; color: var(--text-3); font-size: 11px; }
+.company-valuation-foot .gf-btn { min-height: 34px; }
+@media (max-width: 600px) {
+  .company-valuation-backdrop { padding: 56px 8px 12px; }
+  .company-valuation-backdrop .company-valuation-modal { max-height: calc(100dvh - 68px); padding: 18px 14px 14px; border-radius: 18px; }
+  .company-valuation-head h2 { font-size: 21px; }
+  .company-valuation-grid { min-width: 720px; }
+}

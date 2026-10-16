@@ -816,3 +816,32 @@ html[data-motion="reduced"] .trading-desk .td-row[data-flash]::after { animation
   .trading-desk .td-quote { row-gap: 10px; }
   .trading-desk .td-chart-frame, .trading-desk .td-price-chart { min-height: 150px; }
 }
+
+/* ---------------------------------------------------------- fundamentals --- */
+.trading-desk .td-sector-grade { flex: none; display: inline-flex; overflow: visible; }
+.trading-desk .td-identity p > [data-testid="company-zone-grade"],
+.trading-desk .td-identity p > [data-testid="company-sector-grade"] { flex: none; display: inline-flex; overflow: visible; }
+.trading-desk .td-income-row {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--surface-3) 68%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.trading-desk .td-income-copy { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 9px; min-width: 0; }
+.trading-desk .td-income-copy > .td-label { color: var(--text-3); font-size: 11px; }
+.trading-desk .td-income-copy > strong { color: var(--text); font: 650 14px/1.2 var(--font-ui); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.trading-desk .td-income-copy > small { flex-basis: 100%; color: var(--text-3); font: 400 11px/1.25 var(--font-ui); }
+.trading-desk .td-income-floor { color: var(--accent); font: 600 10.5px/1.2 var(--font-ui); }
+.trading-desk .td-income-floor.monopoly { color: var(--accent); }
+.trading-desk .td-valuation-open { flex: none; min-height: 30px; padding-inline: 10px; font-size: 11px; }
+@container td-focus (max-width: 420px) {
+  .trading-desk .td-income-row { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .trading-desk .td-valuation-open { align-self: flex-end; }
+}
