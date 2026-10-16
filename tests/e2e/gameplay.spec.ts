@@ -44,18 +44,14 @@ async function openParquet(page: Page) {
 async function closeNotices(page: Page) {
   const card = page.locator(".cs-scene");
   const world = page.locator(".game-world");
-  const impactContinue = page.locator(".impact-continue");
   const settledStages = /^(TRAVEL_DECISION|WAITING_FOR_DICE|TRADING|TURN_END)$/;
-  // A notice can be followed by another card or by a visible impact pass.
-  // Wait through those frames so callers don't race the next card or busy flag.
+  // Cards still require acknowledgement; market grades now finish on their own.
   for (let i = 0; i < 12; i += 1) {
     await expect.poll(async () =>
       (await card.isVisible().catch(() => false)) ||
-      (await impactContinue.isVisible().catch(() => false)) ||
       settledStages.test((await world.getAttribute("data-presentation-stage")) ?? ""),
     ).toBeTruthy();
-    if (await impactContinue.isVisible().catch(() => false)) await impactContinue.click();
-    else if (await card.isVisible().catch(() => false)) await card.getByRole("button", { name: "Continuer et appliquer les conséquences" }).click();
+    if (await card.isVisible().catch(() => false)) await card.getByRole("button", { name: "Continuer et appliquer les conséquences" }).click();
     else break;
   }
   await expect(world).toHaveAttribute("data-presentation-stage", settledStages);

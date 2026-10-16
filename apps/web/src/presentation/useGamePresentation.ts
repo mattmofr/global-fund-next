@@ -3,7 +3,7 @@ import type { GameView, RoomView } from "@global-fund/shared";
 import { PresentationSequence } from "./sequence";
 
 /** Read a detached visual sequence while the store retains its authoritative room.
- * Acknowledgements release its revision queue after the card or market confirmation. */
+ * Acknowledgements release its revision queue after each card and market reveal finishes. */
 export function useGamePresentation(room: RoomView, acknowledged: number[], acknowledge: (id: number) => void, reducedMotion: boolean) {
   const previous = useRef<{ roomId: string; game: GameView } | null>(null);
   const ack = useRef(acknowledge);
@@ -47,18 +47,10 @@ export function useGamePresentation(room: RoomView, acknowledged: number[], ackn
     busy: sequence?.busy ?? false,
     timeline: sequence?.timeline ?? null,
     gradeImpact: sequence?.gradeImpact ?? null,
-    awaitingMarketConfirmation: sequence?.awaitingMarketConfirmation ?? false,
     impacts: sequence?.notice ? { companies: sequence.notice.companyImpacts ?? [], players: sequence.notice.playerImpacts ?? [] } : null,
     continueCard: () => {
       if (!sequence || sequence.stage !== displayedStage || sequence.notice?.id !== displayedNoticeId) return;
       const completed = sequence.continueCard(performance.now());
-      redraw(value => value + 1);
-      completed.forEach(id => ack.current(id));
-    },
-    continueImpact: () => {
-      // An extra click from a closing market ribbon must not dismiss the next summary.
-      if (!sequence || sequence.stage !== displayedStage || sequence.notice?.id !== displayedNoticeId) return;
-      const completed = sequence.dismissImpact(performance.now());
       redraw(value => value + 1);
       completed.forEach(id => ack.current(id));
     },

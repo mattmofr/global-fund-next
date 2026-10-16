@@ -49,28 +49,17 @@ function stageLabel(stage: PresentationStage) {
   return labels[stage] ?? "Résolution";
 }
 
-function ConsequenceRibbon({ game, notice, gradeImpact, awaitingMarketConfirmation, onContinue }: { game: GameView; notice: GameNotice; gradeImpact: GradeChange | null; awaitingMarketConfirmation: boolean; onContinue: () => void }) {
-  const company = notice.companyImpacts?.find(c => c.beforePrice !== c.afterPrice);
-  const scopeName = gradeImpact ? (gradeImpact.scope === "zone" ? game.zones : game.sectors).find(x => x.id === gradeImpact.id)?.name ?? "" : "";
-  const direction = gradeImpact ? gradeDelta(gradeImpact.before, gradeImpact.after) : company ? company.afterPrice - company.beforePrice : 0;
-  const change = company && company.beforePrice > 0 ? (company.afterPrice - company.beforePrice) / company.beforePrice * 100 : null;
+function ConsequenceRibbon({ game, notice, gradeImpact }: { game: GameView; notice: GameNotice; gradeImpact: GradeChange }) {
+  const scopeName = (gradeImpact.scope === "zone" ? game.zones : game.sectors).find(x => x.id === gradeImpact.id)?.name ?? "";
+  const direction = gradeDelta(gradeImpact.before, gradeImpact.after);
   const mood = direction > 0 ? "ribbon-up" : direction < 0 ? "ribbon-down" : "ribbon-flat";
-  return <div className={`consequence-ribbon ${awaitingMarketConfirmation ? "major-consequence" : ""} ${mood}`} role="status" data-impact-notice={notice.id} data-awaiting-market-confirmation={awaitingMarketConfirmation}>
+  return <div className={"consequence-ribbon " + mood} role="status" data-impact-notice={notice.id}>
     <span className="ribbon-source"><i aria-hidden="true" />{notice.title ?? notice.cell?.label ?? "Marché"}</span>
-    {gradeImpact
-      ? <strong className="ribbon-change" key={`${gradeImpact.scope}-${gradeImpact.id}`}>
-          <span className="ribbon-scope">{gradeImpact.scope === "zone" ? "Zone" : "Secteur"}</span>
-          <span className="ribbon-name">{scopeName}</span>
-          <GradeShift before={gradeImpact.before} after={gradeImpact.after} label={scopeName} />
-        </strong>
-      : <strong className="ribbon-change">
-          {company ? <>
-            <span className="ribbon-name">{company.companyName}</span>
-            <span className="ribbon-price gf-num">{money(company.beforePrice)}<span aria-hidden="true"> → </span><span className="sr-only"> devient </span>{money(company.afterPrice)}</span>
-            {change != null && <em className={`ribbon-delta ${tone(change)}`}>{signedPercent(change)}</em>}
-          </> : <span className="ribbon-name">Nouvelles conditions de marché</span>}
-        </strong>}
-    {awaitingMarketConfirmation && <button type="button" className="gf-btn gf-btn--primary impact-continue" onClick={onContinue}>Valider les cours <ArrowRight size={15} strokeWidth={1.75} aria-hidden="true" /></button>}
+    <strong className="ribbon-change" key={gradeImpact.scope + "-" + gradeImpact.id}>
+      <span className="ribbon-scope">{gradeImpact.scope === "zone" ? "Zone" : "Secteur"}</span>
+      <span className="ribbon-name">{scopeName}</span>
+      <GradeShift before={gradeImpact.before} after={gradeImpact.after} label={scopeName} />
+    </strong>
   </div>;
 }
 
@@ -565,7 +554,7 @@ export default function GameWorld({ room }: { room: RoomView }) {
     {geographyVisible && <Geography game={game} destination={destination} onDestination={setDestination} onAnalyse={id => { setBrowseZone(id); setTerminal("market"); }} onCommand={send} onClose={() => setGeographyOpen(false)} />}
     {cardVisible && current && <CardScene embedded notice={current} game={authoritativeGame} onClose={visual.continueCard} />}
     {settlementVisible && settlement && <SettlementDesk key={`${settlement.id}-${settlement.debtorId}-${settlement.creditorId ?? "bank"}-${settlement.completed.length}-${settlement.status}-${settlement.marketSales?.length ?? 0}`} game={authoritativeGame} settlement={settlement} viewerId={decisionControls ? decisionId : session?.playerId ?? viewerId} canAct={canSettle} onCommand={sendSettlement} />}
-    {visual.busy && !current && presentationStage === "MARKET_IMPACT" && <ConsequenceRibbon game={game} notice={notice!} gradeImpact={visual.gradeImpact} awaitingMarketConfirmation={visual.awaitingMarketConfirmation} onContinue={visual.continueImpact} />}
+    {visual.busy && !current && presentationStage === "MARKET_IMPACT" && visual.gradeImpact && <ConsequenceRibbon game={game} notice={notice!} gradeImpact={visual.gradeImpact} />}
     {flight && <TravelCinema key={flight.id} game={visual.boardGame!} notice={flight} />}
     {game.finished && !visual.busy && <Victory game={game} />}
     <SceneLoader world={worldRef} reducedMotion={reducedMotion} />

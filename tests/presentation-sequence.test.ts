@@ -41,7 +41,6 @@ const finishCurrentCard = (sequence: PresentationSequence, now: number): number[
   const completed = [...sequence.continueCard(now)];
   let guard = 0;
   while (sequence.busy && sequence.index === frameIndex) {
-    if (sequence.awaitingMarketConfirmation) return [...completed, ...sequence.dismissImpact(now)];
     const deadline = sequence.deadline;
     if (deadline == null) return completed;
     completed.push(...sequence.advance(deadline));
@@ -69,7 +68,6 @@ describe("server result presentation", () => {
     const original = clone(after);
     const sequence = new PresentationSequence(after, [notice], before, 0, reducedMotion);
     ready(sequence);
-    expect(sequence.dismissImpact(100_000)).toEqual([]);
     expect(sequence.stage).toBe("CARD_READING");
     expect(sequence.view().viewGame.players[0].cash).toBe(10);
     const acknowledged = sequence.continueCard(100_000);
@@ -92,7 +90,6 @@ describe("server result presentation", () => {
     const notice: GameNotice = { id: 1, cycle: 2, kind: "payments", payments: [{ fromId: null, toId: "p1", amount: 1 }] };
     const sequence = new PresentationSequence(after, [notice], before, 0, reducedMotion);
     ready(sequence);
-    expect(sequence.dismissImpact(100_000)).toEqual([]);
     const acknowledged = sequence.continueCard(100_000);
     if (reducedMotion) expect(acknowledged).toEqual([1]);
     else expect(through(sequence, 100_000 + T.dismiss)).toEqual([1]);
@@ -189,7 +186,7 @@ describe("server result presentation", () => {
     expect(sequence.view().viewGame).toBe(after);
   });
 
-  it("waits for explicit confirmation of changed grades and prices, then exposes the exact server target", () => {
+  it("automatically completes changed grades and prices, then exposes the exact server target", () => {
     const before = fixture();
     const after = clone(before);
     const company = after.companies[1];
@@ -203,30 +200,72 @@ describe("server result presentation", () => {
       companyImpacts: [{ companyId: company.id, companyName: company.name, beforePrice: company.price, afterPrice: company.price + 7, bankruptcy: false, returned: false }] };
     after.notices = [notice];
     const exactTarget = clone(after);
-    const sequence = new PresentationSequence(after, [notice], before, 0, true);
+    const sequence = new PresentationSequence(after, [notice], before, 0);
     ready(sequence); sequence.continueCard(100_000);
-    expect(sequence.awaitingMarketConfirmation).toBe(true);
+    through(sequence, 100_000 + T.dismiss);
     expect(sequence.stage).toBe("MARKET_IMPACT");
+    expect(sequence.gradeImpact?.id).toBe(zone);
+    through(sequence, 100_000 + T.dismiss + T.grade);
+    expect(sequence.gradeImpact?.id).toBe(sector);
+    through(sequence, 100_000 + T.dismiss + 2 * T.grade);
+    expect(sequence.gradeImpact).toBeNull();
+    expect(sequence.deadline).toBe(100_000 + T.dismiss + 2 * T.grade + T.prices);
     expect(sequence.view().viewGame.zoneGrades[zone]).toBe("B");
     expect(sequence.view().viewGame.sectorGrades[sector]).toBe("D");
     expect(sequence.view().viewGame.companies[1].price).toBe(company.price + 7);
-    expect(sequence.advance(1_000_000_000)).toEqual([]);
-    expect(sequence.busy).toBe(true);
-    expect(sequence.dismissImpact(1_000_000_000)).toEqual([notice.id]);
+    expect(through(sequence, sequence.deadline!)).toEqual([notice.id]);
     expect(sequence.busy).toBe(false);
     expect(sequence.view().viewGame).toEqual(exactTarget);
+    expect(sequence.advance(1_000_000_000)).toEqual([]);
   });
 
-  it("preserves market confirmation when reduced motion changes during the note reveal", () => {
+  it.each([false, true])("automatically completes price-only impacts without a market notice (reduced motion: %s)", reducedMotion => {
+    const before = fixture();
+    const after = clone(before);
+    const company = after.companies[0];
+    after.companies[0] = { ...company, price: company.price + 3 };
+    const notice: GameNotice = {
+      id: 18,
+      cycle: 4,
+      kind: "event",
+      companyImpacts: [{
+        companyId: company.id,
+        companyName: company.name,
+        beforePrice: company.price,
+        afterPrice: company.price + 3,
+        bankruptcy: false,
+        returned: false,
+      }],
+    };
+    const sequence = new PresentationSequence(after, [notice], before, 0, reducedMotion);
+    ready(sequence);
+    const immediate = sequence.continueCard(100_000);
+    if (reducedMotion) {
+      expect(immediate).toEqual([notice.id]);
+    } else {
+      expect(immediate).toEqual([]);
+      expect(through(sequence, 100_000 + T.dismiss)).toEqual([]);
+      expect(sequence.stage).toBe("MARKET_IMPACT");
+      expect(sequence.gradeImpact).toBeNull();
+      expect(sequence.deadline).toBe(100_000 + T.dismiss + T.prices);
+      expect(sequence.view().viewGame.companies[0].price).toBe(company.price + 3);
+      expect(sequence.advance(sequence.deadline! - 1)).toEqual([]);
+      expect(sequence.advance(sequence.deadline!)).toEqual([notice.id]);
+    }
+    expect(sequence.busy).toBe(false);
+    expect(sequence.view().viewGame).toBe(after);
+    expect(sequence.advance(1_000_000)).toEqual([]);
+  });
+
+  it("finishes grade and price reveals when reduced motion is enabled", () => {
     const { before, after, notice } = eventCase();
     notice.gradeChanges = [{ scope: "zone", id: "europe", before: "C", after: "B" }];
     const sequence = new PresentationSequence(after, [notice], before, 0);
     ready(sequence); sequence.continueCard(100_000);
     through(sequence, 100_000 + T.dismiss);
     expect(sequence.stage).toBe("MARKET_IMPACT");
-    expect(sequence.setReducedMotion(true, 1_000_000)).toEqual([]);
-    expect(sequence.awaitingMarketConfirmation).toBe(true);
-    expect(sequence.dismissImpact(1_000_000)).toEqual([1]);
+    expect(sequence.gradeImpact?.id).toBe("europe");
+    expect(sequence.setReducedMotion(true, 1_000_000)).toEqual([1]);
     expect(sequence.busy).toBe(false);
   });
 
@@ -264,7 +303,13 @@ describe("server result presentation", () => {
     sequence.commit(gradeDeadline + 20);
     expect(sequence.deadline).toBe(gradeDeadline + 20 + T.grade);
     sequence.advance(gradeDeadline + 20 + T.grade);
-    expect(sequence.awaitingMarketConfirmation).toBe(true);
+    expect(sequence.gradeImpact).toBeNull();
+    const priceDeadline = gradeDeadline + 20 + T.grade + T.prices;
+    expect(sequence.deadline).toBe(priceDeadline);
+    expect(sequence.advance(priceDeadline - 0.5)).toEqual([]);
+    expect(sequence.deadline).toBe(priceDeadline);
+    expect(sequence.advance(priceDeadline)).toEqual([notice.id]);
+    expect(sequence.busy).toBe(false);
   });
   it("preserves each observable phase after late callbacks and rebases the board clock", () => {
     const { before, after, notice } = eventCase();
@@ -341,11 +386,9 @@ describe("server result presentation", () => {
     expect(sequence.stage).toBe("CARD_READING");
     expect(sequence.view().viewGame.players[0].cash).toBe(10);
     expect(sequence.continueCard(T.focus + 2)).toEqual([1]);
-    expect(sequence.awaitingMarketConfirmation).toBe(false);
     expect(sequence.busy).toBe(false);
     expect(sequence.deadline).toBeNull();
     expect(sequence.advance(T.focus + 100_000)).toEqual([]);
-    expect(sequence.dismissImpact(T.focus + 100_000)).toEqual([]);
     expect(sequence.view().viewGame).toBe(after);
   });
 
@@ -388,9 +431,7 @@ describe("server result presentation", () => {
     expect(sequence.stage).toBe("CARD_DISMISS");
     expect(sequence.view().viewGame.players[0].cash).toBe(10);
     expect(through(sequence, 200_000 + T.dismiss)).toEqual([1]);
-    expect(sequence.awaitingMarketConfirmation).toBe(false);
     expect(sequence.view().viewGame.players[0].cash).toBe(16);
-    expect(sequence.dismissImpact(600_000)).toEqual([]);
     expect(sequence.view().viewGame).toBe(after);
     expect(sequence.busy).toBe(false);
   });
@@ -417,10 +458,7 @@ describe("server result presentation", () => {
     through(sequence, 100_000 + T.dismiss + 2 * T.grade);
     expect(sequence.view().viewGame.companies[0].price).toBe(12);
     expect(sequence.view().viewGame.players[0].fundValue).toBe(58);
-    through(sequence, 100_000 + T.dismiss + 2 * T.grade + T.prices);
-    expect(sequence.awaitingMarketConfirmation).toBe(true);
-    expect(sequence.advance(1_000_000)).toEqual([]);
-    expect(sequence.dismissImpact(1_000_000)).toEqual([notice.id]);
+    expect(through(sequence, 100_000 + T.dismiss + 2 * T.grade + T.prices)).toEqual([notice.id]);
     expect(sequence.busy).toBe(false);
     expect(sequence.view().viewGame.players[0].fundValue).toBe(58);
   });
@@ -429,12 +467,11 @@ describe("server result presentation", () => {
     const { before, after, notice } = eventCase();
     const sequence = new PresentationSequence(after, [notice], before, 0);
     ready(sequence); sequence.continueCard(100_000);
-    through(sequence, 100_000 + T.dismiss);
+    expect(through(sequence, 100_000 + T.dismiss)).toEqual([notice.id]);
     expect(sequence.gradeImpact).toBeNull();
     expect(sequence.view().viewGame.zoneGrades).toEqual(before.zoneGrades);
-    expect(sequence.awaitingMarketConfirmation).toBe(false);
-    expect(through(sequence, 100_000 + T.dismiss)).toEqual([]);
-    expect(sequence.dismissImpact(300_000)).toEqual([]);
+    expect(sequence.busy).toBe(false);
+    expect(sequence.view().viewGame).toBe(after);
   });
 
   it("reads multiple notices from one roll without replaying die or movement", () => {

@@ -24,18 +24,16 @@ async function fixture(browser: Browser, options: SettlementFixtureOptions = {})
 async function continueToSettlement(page: Page, holdMajor = false) {
   const desk = page.getByRole("main", { name: "Desk de règlement" });
   const card = page.locator(".cs-scene");
-  const impactContinue = page.locator(".impact-continue");
   for (let step = 0; step < 12; step += 1) {
+    await expect.poll(async () =>
+      (await desk.isVisible().catch(() => false)) ||
+      (await card.isVisible().catch(() => false)),
+      { timeout: 20_000 },
+    ).toBeTruthy();
     if (await desk.isVisible().catch(() => false)) return;
     if (await card.isVisible().catch(() => false)) {
       await card.getByRole("button", { name: "Continuer et appliquer les conséquences" }).click();
-      continue;
     }
-    if (await impactContinue.isVisible().catch(() => false)) {
-      await impactContinue.click();
-      continue;
-    }
-    await page.waitForTimeout(100);
   }
   await expect(desk).toBeVisible({ timeout: 10_000 });
 }

@@ -287,7 +287,6 @@ export class PresentationSequence {
   get currentCard(): GameNotice | null { return this.stage === "CARD_READING" ? this.notice : null; }
   get gradeImpact(): GradeChange | null { return this.stage === "MARKET_IMPACT" ? this.notice?.gradeChanges?.[this.gradeIndex] ?? null : null; }
   /** Reading time is independent of animation and of the actor being human or AI. */
-  get awaitingMarketConfirmation(): boolean { return this.stage === "MARKET_IMPACT" && this.gradeIndex < 0 && this.deadline == null; }
   private get marketChanged(): boolean {
     return !!this.notice?.gradeChanges?.some(change => change.before !== change.after)
       || !!this.notice?.companyImpacts?.some(impact => impact.beforePrice !== impact.afterPrice || impact.bankruptcy || impact.returned);
@@ -324,8 +323,7 @@ export class PresentationSequence {
     if (this.reducedMotion === enabled) return [];
     this.reducedMotion = enabled;
     if (!enabled || !this.busy || this.stage === "CARD_READING") return [];
-    // A motion preference must never shorten market reading time.
-    if (this.awaitingMarketConfirmation) return [];
+    // A motion preference must never shorten card reading time.
     if (["CARD_DISMISS", "MARKET_IMPACT"].includes(this.stage)) {
       this.deadline = now;
       return this.advance(now);
@@ -338,11 +336,6 @@ export class PresentationSequence {
     if (this.stage !== "CARD_READING") return [];
     this.stage = "CARD_DISMISS";
     this.deadline = now + (this.reducedMotion ? 0 : PRESENTATION_TIMING.dismiss);
-    return this.advance(now);
-  }
-  dismissImpact(now: number): number[] {
-    if (!this.awaitingMarketConfirmation) return [];
-    this.deadline = now;
     return this.advance(now);
   }
   /** Return acknowledgements only after every consequence has been revealed. */
@@ -375,12 +368,11 @@ export class PresentationSequence {
           if (!this.marketChanged) { this.finishNotice(at, completed); break; }
           this.stage = "MARKET_IMPACT";
           this.gradeIndex = this.notice?.gradeChanges?.length ? 0 : -1;
-          if (this.gradeIndex < 0) this.deadline = null;
-          else delay(PRESENTATION_TIMING.grade);
+          delay(this.gradeIndex < 0 ? PRESENTATION_TIMING.prices : PRESENTATION_TIMING.grade);
           break;
         case "MARKET_IMPACT":
           if (this.gradeIndex >= 0 && this.gradeIndex < (this.notice?.gradeChanges?.length ?? 0) - 1) { this.gradeIndex++; delay(PRESENTATION_TIMING.grade); }
-          else if (this.gradeIndex >= 0) { this.gradeIndex = -1; this.deadline = null; }
+          else if (this.gradeIndex >= 0) { this.gradeIndex = -1; delay(PRESENTATION_TIMING.prices); }
           else this.finishNotice(at, completed);
           break;
         default: this.deadline = null;

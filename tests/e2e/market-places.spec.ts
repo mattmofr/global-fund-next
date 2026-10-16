@@ -24,15 +24,12 @@ async function createAndOpen(page: Page, expectedStartingMarket?: string) {
 async function continueCardsUntilSettled(page: Page) {
   const card = page.locator(".cs-scene");
   const world = page.locator(".game-world");
-  const impactContinue = page.locator(".impact-continue");
   for (let count = 0; count < 12; count += 1) {
     await expect.poll(async () =>
       (await card.isVisible().catch(() => false)) ||
-      (await impactContinue.isVisible().catch(() => false)) ||
       settledStages.test((await world.getAttribute("data-presentation-stage")) ?? ""),
     ).toBeTruthy();
-    if (await impactContinue.isVisible().catch(() => false)) await impactContinue.click();
-    else if (await card.isVisible().catch(() => false)) await card.getByRole("button", { name: "Continuer et appliquer les conséquences" }).click();
+    if (await card.isVisible().catch(() => false)) await card.getByRole("button", { name: "Continuer et appliquer les conséquences" }).click();
     else break;
   }
   await expect(world).toHaveAttribute("data-presentation-stage", settledStages);

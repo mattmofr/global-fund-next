@@ -49,16 +49,13 @@ async function installMarketMovingContextFixture(page: Page) {
 async function continueCardsUntilSettled(page: Page) {
   const world = page.locator(".game-world");
   const card = page.locator(".cs-scene");
-  const impactContinue = page.locator(".impact-continue");
   for (let index = 0; index < 12; index += 1) {
     await expect.poll(async () =>
       (await card.isVisible().catch(() => false)) ||
-      (await impactContinue.isVisible().catch(() => false)) ||
       settledStages.test((await world.getAttribute("data-presentation-stage")) ?? ""),
       { timeout: 20_000 },
     ).toBeTruthy();
-    if (await impactContinue.isVisible().catch(() => false)) await impactContinue.click();
-    else if (await card.isVisible().catch(() => false)) await card.getByRole("button", { name: "Continuer et appliquer les conséquences" }).click();
+    if (await card.isVisible().catch(() => false)) await card.getByRole("button", { name: "Continuer et appliquer les conséquences" }).click();
     else break;
   }
   await expect(world).toHaveAttribute("data-presentation-stage", settledStages);
@@ -148,7 +145,7 @@ test.describe("Expérience du plateau", () => {
     await expect.poll(() => frames.filter((frame) => frame.includes("room:command") && frame.includes('"type":"MOVE"')).length).toBe(1);
   });
 
-  test("Échap applique la carte puis les cours attendent une confirmation", async ({ browser }) => {
+  test("Échap applique la carte puis les cours se résolvent automatiquement", async ({ browser }) => {
     test.setTimeout(75_000);
     const context = await browser.newContext({ reducedMotion: "no-preference" });
     const page = await context.newPage();
@@ -163,14 +160,7 @@ test.describe("Expérience du plateau", () => {
       await page.keyboard.press("Escape");
       await expect(world).toHaveAttribute("data-presentation-stage", "MARKET_IMPACT");
       await expect(world).toHaveAttribute("data-effects-started", "true");
-      const confirm = page.getByRole("button", { name: "Valider les cours" });
-      await expect(confirm).toBeVisible();
-      await page.clock.install();
-      await page.clock.pauseAt(new Date(Date.now() + 5_000));
-      await page.clock.fastForward(60_000);
-      await expect(world).toHaveAttribute("data-presentation-stage", "MARKET_IMPACT");
-      await expect(confirm).toBeVisible();
-      await confirm.click();
+      await expect(page.getByRole("button", { name: "Valider les cours" })).toHaveCount(0);
       await expect(world).toHaveAttribute("data-presentation-stage", "TRAVEL_DECISION");
       await expect(page.locator(".active-fund h2")).toHaveText(firstInvestor);
       await expect(page.locator(".consequence-ribbon")).toHaveCount(0);
