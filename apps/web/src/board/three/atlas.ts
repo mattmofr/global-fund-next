@@ -40,7 +40,7 @@ export function cellAccent(art: CellArt): string {
     case "start": return "#e8c67e";
     case "event": return "#ead2a0";
     case "bull": return "#36d898";
-    case "bear": return "#a9b6c4";
+    case "bear": return "#ff4458";
     case "crash": return "#ff4458";
     default: return art.sector ? SECTOR_META[art.sector].color : "#d2ad66";
   }
@@ -299,7 +299,7 @@ function palette(art: CellArt): Palette {
     case "start": return { base: ["#dcbb7a", "#9c7a3e"], rays: "255,246,220", raysAlpha: 0.08, band: null, rim: ["#f4dfa8", "#8b6a33"] };
     case "event": return { base: ["#3a2f1f", "#140f0a"], rays: "255,226,170", raysAlpha: 0.05, band: "gold", rim };
     case "bull": return { base: ["#127052", "#063322"], rays: "160,255,210", raysAlpha: 0.06, band: "#2fd598", rim };
-    case "bear": return { base: ["#3b3f45", "#141619"], rays: "225,232,240", raysAlpha: 0.05, band: "#a9b6c4", rim };
+    case "bear": return { base: ["#7e1222", "#33050e"], rays: "255,150,160", raysAlpha: 0.06, band: "#ff3b52", rim };
     case "crash": return { base: ["#7e1222", "#33050e"], rays: "255,150,160", raysAlpha: 0.06, band: "#ff3b52", rim };
     default: return { base: ["#1b1916", "#0b0a09"], rays: "240,214,160", raysAlpha: 0.035, band: art.sector ? SECTOR_META[art.sector].color : "#d2ad66", rim };
   }
